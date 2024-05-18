@@ -4,6 +4,7 @@ The majority of my config, it's structure and many of the options, are ~~stolen 
 https://github.com/DarkKronicle/nazarick
 
 Todo:
+```neorg
 - (-) firefox
 -- ( ) I set 'cycle tabs in recently used order' manually, I need to make that set via nix
 -- ( ) Setup all my extentions and custom css
@@ -14,3 +15,4 @@ Todo:
 - ( ) git oauth helper
 - ( ) hardware config -- apparnetly there's a repo for a bunch of different laptops I can steal from
 - ( ) gpu: drivers and config, maybe make a powersave profile
+```
