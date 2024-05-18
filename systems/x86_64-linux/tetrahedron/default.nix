@@ -41,6 +41,13 @@ in
     "flakes"
   ];
 
+  # Enable NUR
+  #nixpkgs.config.packageOverrides = pkgs: {
+  #nur = import (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/master.tar.gz") {
+  #inherit pkgs;
+  #};
+  #};
+
   boot.kernelPackages = pkgs.linuxPackages_zen;
 
   # Set your time zone.
@@ -99,10 +106,12 @@ in
     compsize
     dust
     firefox
+    gimp
     git
     git-credential-oauth
     gparted
     htop
+    jetbrains.idea-community
     kitty
     libqalculate
     mumble

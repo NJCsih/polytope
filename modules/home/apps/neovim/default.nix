@@ -23,9 +23,8 @@ in
 
     programs.neovim = {
       enable = true;
-      viAlias = true;
-      vimAlias = true;
       defaultEditor = true;
+      vimAlias = true;
       withNodeJs = false;
       withRuby = false;
       withPython3 = false;

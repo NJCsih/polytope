@@ -47,6 +47,12 @@ in
             };
           };
 
+          # TODO: Fix extensions, it would be so nice
+          #extensions = with inputs.firefox-addons.packages; [
+          #  darkreader
+          #  ublock-origin
+          #];
+
           # https://github.com/DarkKronicle/nazarick/blob/main/modules/home/apps/firefox/default.nix
           settings = {
             # https://arkenfox.github.io/gui/
