@@ -13,6 +13,7 @@ Todo:
 -- ( ) Setup tridactly
 -- Still issues setting custom options. Sets user.js file correctly (simlinks in profile), but firefox doesnt load it?
 - ( ) nvim
+-- I manually installed the lua TS parser? I want that to be done via nix? Or is that okay?
 -- I need to port to nix, currently just threw my config into ~/.config/nvim
 -- I'm thinking nixCats, I want to stick with lazy, but have nix handle the parsers. -- some cool effects from doing it that way
 - ( ) hardware config -- apparnetly there's a repo for a bunch of different laptops I can steal from

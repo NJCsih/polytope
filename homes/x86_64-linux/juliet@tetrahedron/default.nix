@@ -10,6 +10,9 @@
       neovim = {
         enable = true;
       };
+      kitty = {
+        enable = true;
+      };
     };
     tools = {
       git = {

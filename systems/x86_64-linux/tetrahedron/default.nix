@@ -53,18 +53,6 @@ in
   # Set your time zone.
   time.timeZone = "America/Denver";
 
-  # Set nvim to be default, TODO: Move this to nvim's modules/../nvim/default.nix
-  #programs.neovim = {
-  #  enable = true;
-  #  defaultEditor = true;
-  #};
-  programs.neovim.enable = true;
-  programs.neovim.defaultEditor = true;
-  #polytope.apps.neovim = {
-  #  enable = true;
-  #  defaultEditor = true;
-  #};
-
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
@@ -116,6 +104,9 @@ in
     libqalculate
     mumble
     neovim
+    lua-language-server
+    stylua
+    zls
     nixfmt-rfc-style
     nushell
     pfetch
