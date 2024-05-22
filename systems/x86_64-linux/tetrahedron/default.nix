@@ -72,6 +72,15 @@ in
   services.displayManager.sddm.enable = true;
   services.desktopManager.plasma6.enable = true;
 
+  #programs.sway = {
+  #  enable = true;
+  #  wrapperFeatures.gtk = true;
+  #};
+
+  # TODO: move this to modules/../nvim, but not sure why that doesnt work?
+  programs.neovim.enable = true;
+  programs.neovim.defaultEditor = true;
+
   # Enable CUPS to print documents.
   # services.printing.enable = true;
 
@@ -81,7 +90,10 @@ in
 
   users.users.juliet = {
     isNormalUser = true;
-    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [
+      "wheel"
+      "networkmanager"
+    ]; # Enable ‘sudo’ for the user.
     initialPassword = "password";
     shell = pkgs.nushell;
   };
@@ -113,6 +125,8 @@ in
     pipes-rs
     polytope.poly
     ripgrep
+    rofi
+    sway
     tealdeer
     wget
     wl-clipboard

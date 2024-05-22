@@ -13,7 +13,7 @@ in
 {
   options.polytope.apps.firefox = {
     enable = mkEnableOption "Firefox";
-    userCss = mkEnableOption "Use Custom CSS Theming";
+    userCss = mkEnableOption "Use Custom CSS Theming"; # Todo: nake this actually work :p
   };
 
   config = mkIf cfg.enable {
@@ -55,6 +55,24 @@ in
 
           # https://github.com/DarkKronicle/nazarick/blob/main/modules/home/apps/firefox/default.nix
           settings = {
+            # My user settings:
+            "browser.ctrlTab.sortByRecentlyUsed" = true;
+
+            # My added settings:
+            "browser.newtabpage.activity-stream.system.showSponsored" = false;
+            "browser.newtabpage.activity-stream.discoverystream.enabled" = false;
+            "browser.newtabpage.activity-stream.discoverystream.sendToPocket.enabled" = false;
+            "extensions.pocket.enabled" = false;
+            "browser.newtabpage.activity-stream.discoverystream.saveToPocketCard.enabled" = false;
+            "browser.newtabpage.activity-stream.improvesearch.topSiteSearchShortcuts.havePinned" = "";
+            "browser.newtabpage.activity-stream.improvesearch.topSiteSearchShortcuts.searchEngines" = "";
+            "services.sync.prefs.sync.browser.newtabpage.activity-stream.showSponsored" = false;
+            "services.sync.prefs.sync.browser.newtabpage.activity-stream.showSponsoredTopSites" = false;
+            "browser.newtabpage.activity-stream.feeds.section.topstories" = false;
+            "browser.shell.checkDefaultBrowser" = false;
+            "browser.shell.skipDefaultBrowserCheckOnFirstRun" = true;
+
+            # Arkenfox stolen from nazarick config:
             # https://arkenfox.github.io/gui/
             "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
             "widget.use-xdg-desktop-portal.file-picker" = 1;
