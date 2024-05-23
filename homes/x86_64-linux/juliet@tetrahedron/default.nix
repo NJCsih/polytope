@@ -2,6 +2,7 @@
 
 {
   polytope = {
+    #display.sway.enable = true;
     apps = {
       firefox = {
         enable = true;
@@ -19,6 +20,9 @@
         enable = true;
       };
       nushell = {
+        enable = true;
+      };
+      yazi = {
         enable = true;
       };
     };

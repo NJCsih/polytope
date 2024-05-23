@@ -20,6 +20,85 @@ in
     programs.firefox = {
       enable = true;
 
+      # This method for installing plugins here largely from:
+      # https://discourse.nixos.org/t/declare-firefox-extensions-and-settings/36265/7
+      package = pkgs.wrapFirefox pkgs.firefox-unwrapped {
+        extraPolicies = {
+
+          # Settings:
+          # https://mozilla.github.io/policy-templates/
+          DisableTelemetry = true;
+          DisableFirefoxAccounts = true;
+          DisablePocket = true;
+          OfferToSaveLogins = false;
+          OfferToSaveLoginsDefault = false;
+
+          # // -- Extensions -- //
+          ExtensionSettings = {
+            # This does not manage the settings of the extension
+
+            #"*".installation_mode = "blocked"; # blocks all addons except the ones specified below
+
+            # The workflow seems to be:
+            # ~ Manually install the extension, get the filename created in ~/.mozilla/firefox/[Profile]/extensions/[newExtensionEntry]
+            # ~ Right click copy url the install link from firefox to get the "simple name" for the extension (replace '_' with '-')
+            # ~ Create a new instance here, using the new filename from above as the string, the simple name in the install url
+            # - install modes include "blocked", "normal_installed", "force_installed"
+
+            # uBlock Origin:
+            "uBlock0@raymondhill.net" = {
+              install_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
+              installation_mode = "force_installed";
+            };
+            # Privacy Badger
+            "jid1-MnnxcxisBPnSXQ@jetpack" = {
+              install_url = "https://addons.mozilla.org/firefox/downloads/latest/privacy-badger17/latest.xpi";
+              installation_mode = "force_installed";
+            };
+            # KeepassXC
+            "keepassxc-browser@keepassxc.org" = {
+              install_url = "https://addons.mozilla.org/firefox/downloads/latest/keepassxc-browser/latest.xpi";
+              installation_mode = "normal_installed";
+            };
+            # Dark Reader
+            "addon@darkreader.org" = {
+              install_url = "https://addons.mozilla.org/firefox/downloads/latest/darkreader/latest.xpi";
+              installation_mode = "normal_installed";
+            };
+            # Better Canvas
+            "{8927f234-4dd9-48b1-bf76-44a9e153eee0}" = {
+              install_url = "https://addons.mozilla.org/firefox/downloads/latest/better-canvas/latest.xpi";
+              installation_mode = "normal_installed";
+            };
+            # Sidebery
+            "{3c078156-979c-498b-8990-85f7987dd929}" = {
+              install_url = "https://addons.mozilla.org/firefox/downloads/latest/sidebery/latest.xpi";
+              installation_mode = "normal_installed";
+            };
+            # Jump-Cutter
+            "jump-cutter@example.com.xpi" = {
+              install_url = "https://addons.mozilla.org/firefox/downloads/latest/jump-cutter/latest.xpi";
+              installation_mode = "normal_installed";
+            };
+            # Old-Reddit redirect
+            "{9063c2e9-e07c-4c2c-9646-cfe7ca8d0498}" = {
+              install_url = "https://addons.mozilla.org/firefox/downloads/latest/old-reddit-redirect/latest.xpi";
+              installation_mode = "normal_installed";
+            };
+            # Sponsorblock
+            "sponsorBlocker@ajay.app" = {
+              install_url = "https://addons.mozilla.org/firefox/downloads/latest/sponsorblock/latest.xpi";
+              installation_mode = "normal_installed";
+            };
+            # Dearrow
+            "deArrow@ajay.app" = {
+              install_url = "https://addons.mozilla.org/firefox/downloads/latest/dearrow/latest.xpi";
+              installation_mode = "normal_installed";
+            };
+          };
+        };
+      };
+
       profiles = {
         main = {
           id = 0;
@@ -47,18 +126,15 @@ in
             };
           };
 
-          # TODO: Fix extensions, it would be so nice
-          #extensions = with inputs.firefox-addons.packages; [
-          #  darkreader
-          #  ublock-origin
-          #];
-
           # https://github.com/DarkKronicle/nazarick/blob/main/modules/home/apps/firefox/default.nix
           settings = {
             # My user settings:
             "browser.ctrlTab.sortByRecentlyUsed" = true;
+            "browser.toolbars.bookmarks.visibility" = "never";
 
             # My added settings:
+            "browser.firefox-view.feature-tour" = "{\"screen\":\"FIREFOX_VIEW_SPOTLIGHT\",\"complete\":true}";
+            "browser.pdfjs.feature-tour" = "{\"screen\":\"\",\"complete\":false}";
             "browser.newtabpage.activity-stream.system.showSponsored" = false;
             "browser.newtabpage.activity-stream.discoverystream.enabled" = false;
             "browser.newtabpage.activity-stream.discoverystream.sendToPocket.enabled" = false;
@@ -126,9 +202,9 @@ in
             "browser.contentblocking.category" = "strict"; # May cause issues
             "browser.link.open_newwindow" = 3; # May cause issues
 
-            # This is handled on system level now
-            # "network.trr.uri" = "https://dns.quad9.net/dns-query"; 
-            # "network.trr.custom_uri" = "https://dns.quad9.net/dns-query";
+            # Nazarick does this at system level, I dont yet
+            "network.trr.uri" = "https://dns.quad9.net/dns-query";
+            "network.trr.custom_uri" = "https://dns.quad9.net/dns-query";
 
             # Don't touch
             "extensions.blocklist.enabled" = true;

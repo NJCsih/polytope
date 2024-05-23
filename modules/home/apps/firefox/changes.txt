@@ -1,9 +1,0 @@
-- Handled by nix:
--- Custom profile: main
--- User SearXNG as default search engine
--- TODO: fix settings being set, zero clue why they don't
-- General settings
--- Cycle tabs in recently used order
-- Dark reader extention installed
-- Ublock origin installed
-- Privacy badger

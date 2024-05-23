@@ -71,11 +71,24 @@ in
   # Enable the Plasma 5 Desktop Environment.
   services.displayManager.sddm.enable = true;
   services.desktopManager.plasma6.enable = true;
+  #services.desktopManager.sway.enable = true;
+  #services.desktopManager.sway.extraConfig = ../../../modules/nixos/desktop/sway/config.txt;
 
+  #services.greetd = {
+  #  enable = true;
+  #  settings = {
+  #    default_session = {
+  #      #command = "${pkgs.sway}/bin/sway --config ${swayConfig}";
+  #      command = "${pkgs.sway}/bin/sway";
+  #    };
+  #  };
+  #};
   #programs.sway = {
   #  enable = true;
   #  wrapperFeatures.gtk = true;
   #};
+  #wayland.windowManager.sway.enable = true;
+  #wayland.windowManager.sway.extraConfig = builtins.readFile ./config.txt;
 
   # TODO: move this to modules/../nvim, but not sure why that doesnt work?
   programs.neovim.enable = true;
@@ -105,6 +118,7 @@ in
     borgbackup
     compsize
     dust
+    blender
     firefox
     gimp
     git
