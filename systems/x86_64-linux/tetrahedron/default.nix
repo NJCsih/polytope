@@ -114,12 +114,14 @@ in
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    #steam
     bandwhich
+    blender
     borgbackup
     compsize
     dust
-    blender
     firefox
+    gcc
     gimp
     git
     git-credential-oauth
@@ -128,11 +130,9 @@ in
     jetbrains.idea-community
     kitty
     libqalculate
+    lua-language-server
     mumble
     neovim
-    lua-language-server
-    stylua
-    zls
     nixfmt-rfc-style
     nushell
     pfetch
@@ -140,11 +140,13 @@ in
     polytope.poly
     ripgrep
     rofi
+    stylua
     sway
     tealdeer
     wget
     wl-clipboard
     yazi
+    zls
   ];
 
   environment.shells = with pkgs; [ nushell ];
