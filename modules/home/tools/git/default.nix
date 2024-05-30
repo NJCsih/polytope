@@ -25,7 +25,7 @@ in
           hostname = "github.com";
           identityFile = [ "/home/juliet/.ssh/juliet_tetrahedron" ];
           extraOptions = {
-            PreferredAuthentication = "publicKey";
+            PreferredAuthentications = "publicKey";
           };
         };
       };
