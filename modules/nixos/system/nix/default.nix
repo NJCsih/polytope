@@ -20,7 +20,7 @@ in
       nixfmt-rfc-style
       nix-output-monitor
       nurl
-      polytope.naz
+      polytope.poly
     ];
 
     # https://github.com/sioodmy/dotfiles/blob/dc9fce23ee4a58b6485f7572b850a7b2dcaf9bb7/system/core/nix.nix#L62-L68

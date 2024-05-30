@@ -16,13 +16,53 @@ in
   };
 
   config = mkIf cfg.enable {
+
+    programs.ssh = {
+      enable = true;
+      matchBlocks = {
+        "github.com" = {
+          host = "github.com";
+          hostname = "github.com";
+          identityFile = [ "/home/juliet/.ssh/juliet_tetrahedron" ];
+          extraOptions = {
+            PreferredAuthentication = "publicKey";
+          };
+        };
+      };
+    };
+
+    services.gpg-agent = {
+      enable = true;
+      enableNushellIntegration = true;
+      enableSshSupport = true;
+      pinentryPackage = pkgs.pinentry-curses;
+    };
+
     programs.git = {
       enable = true;
 
       userEmail = "NJCsih@gmail.com";
       userName = "NJCsih";
+
+      extraConfig = {
+        url = {
+          "ssh://git@github.com/" = {
+            insteadOf = "https://github.com/";
+          };
+        };
+        init = {
+          defaultBranch = "main";
+        };
+      };
+
+      delta = {
+        enable = true;
+        options = {
+          diff-so-fancy = true;
+          line-numbers = true;
+          true-color = true;
+        };
+      };
     };
-    #programs.git-credential-oauth-enable = true;
-    #programs.gitui.enable = true;
   };
 }

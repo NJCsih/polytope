@@ -29,7 +29,7 @@ in
   # Define on which hard drive you want to install Grub.
   # boot.loader.grub.device = "nodev"; # or "nodev" for efi only
 
-  nix.package = inputs.lix-module.packages.x86_64-linux.default;
+  #nix.package = inputs.lix-module.packages.x86_64-linux.default;
 
   networking.hostName = "tetrahedron"; # Define your hostname.
   # Pick only one of the below networking options.
@@ -94,6 +94,10 @@ in
   programs.neovim.enable = true;
   programs.neovim.defaultEditor = true;
 
+  # enable settings in :
+  #~/polytope/modules/nixos/system/nix/default.nix
+  polytope.system.nix.enable = true;
+
   # Enable CUPS to print documents.
   # services.printing.enable = true;
 
@@ -127,7 +131,9 @@ in
     git-credential-oauth
     gparted
     htop
+    inkscape
     jetbrains.idea-community
+    keepassxc
     kitty
     libqalculate
     lua-language-server
@@ -142,7 +148,10 @@ in
     rofi
     stylua
     sway
+    syncthing
+    nheko
     tealdeer
+    tomb
     wget
     wl-clipboard
     yazi
