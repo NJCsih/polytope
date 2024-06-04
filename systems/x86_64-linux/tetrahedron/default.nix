@@ -98,6 +98,9 @@ in
   #~/polytope/modules/nixos/system/nix/default.nix
   polytope.system.nix.enable = true;
 
+  # enable kanata systemwide
+  #~/polytope/modules/home/tools/kanata/default.nix
+  polytope.tools.kanata.enable = true;
   # Enable CUPS to print documents.
   # services.printing.enable = true;
 
@@ -120,8 +123,10 @@ in
   environment.systemPackages = with pkgs; [
     #steam
     bandwhich
+    bat
     blender
     borgbackup
+    bottom
     compsize
     dust
     firefox
@@ -133,23 +138,26 @@ in
     htop
     inkscape
     jetbrains.idea-community
+    kanata
     keepassxc
     kitty
     libqalculate
     lua-language-server
     mumble
     neovim
+    nheko
     nixfmt-rfc-style
     nushell
+    nvtop
     pfetch
     pipes-rs
     polytope.poly
+    qmk
     ripgrep
     rofi
     stylua
     sway
     syncthing
-    nheko
     tealdeer
     tomb
     wget

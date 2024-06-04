@@ -34,6 +34,7 @@ in
         tab_title_template = "{title}{' :{}:'.format(num_windows) if num_windows > 1 else ''}";
         tab_title_max_length = 20;
         listen_on = "unix:/tmp/mykitty";
+        enable_audio_bell = false;
 
         background_opacity = "0.85";
         cursor_blink_interval = 0;

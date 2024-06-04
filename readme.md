@@ -7,19 +7,21 @@ Why do I order my todo list by priority if I just reorder it whenever I want to 
 
 Todo:
 ```neorg
+- ( ) gpu: drivers and config, maybe make a powersave profile
 - ( ) Switch to sway. Plasma has been completely servicable, like no complaints, but I want my i3 workflow back :p
-- ( ) git oauth helper
+-- wifi handler
+-- system launcher - tofi or rofi look cool
+- ( ) hardware config -- apparnetly there's a repo for a bunch of different laptops I can steal from
 - ( ) nvim
 -- I manually installed the lua TS parser? I want that to be done via nix? Or is that okay?
 --- Same with java
 -- I need to port to nix, currently just threw my config into ~/.config/nvim
 -- I'm thinking nixCats, I want to stick with lazy, but have nix handle the parsers. -- some cool effects from doing it that way
-- ( ) hardware config -- apparnetly there's a repo for a bunch of different laptops I can steal from
-- ( ) gpu: drivers and config, maybe make a powersave profile
 - (x) firefox
 -- ( ) Setup custom css
 -- ( ) Setup tridactly
 -- add vencord plugin
+- (x) git
 -- (x) Finish setting all my custom options, leave extentions as the user's problem to avoid using NUR
 --- How do I just completely disable the firefox password manager? That's about all that's left
 -- (x) I set 'cycle tabs in recently used order' manually, I need to make that set via nix -- there's an option I have set now
