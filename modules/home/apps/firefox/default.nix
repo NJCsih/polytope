@@ -126,7 +126,48 @@ in
             };
           };
 
-          # https://github.com/DarkKronicle/nazarick/blob/main/modules/home/apps/firefox/default.nix
+          # Custom bookmarks
+          bookmarks = [
+            {
+              name = "wormhole - fileSharing";
+              tags = [ "Tools" ];
+              url = "https://wormhole.app/";
+            }
+            {
+              name = "flashpaper - secretSharing";
+              tags = [ "Tools" ];
+              url = "https://darkkronicle.com/";
+            }
+            {
+              name = "RegexCheatSheet - DaveChild";
+              tags = [
+                "Reference"
+                "Regex"
+              ];
+              url = "https://cheatography.com/davechild/cheat-sheets/regular-expressions/";
+            }
+            {
+              name = "Monkeytype";
+              tags = [ "Fun" ];
+              url = "https://monkeytype.com/";
+            }
+            {
+              name = "Linux Weekly News";
+              tags = [ "Reading" ];
+              url = "https://lwn.net/Archives/";
+            }
+            {
+              name = "Blahaj Zone";
+              tags = [ "Reading" ];
+              url = "https://shonk.social/";
+            }
+            {
+              name = "Lospec Palettes";
+              tags = [ "Reference" ];
+              url = "https://lospec.com/palette-list";
+            }
+          ];
+
           settings = {
             # My user settings:
             "browser.ctrlTab.sortByRecentlyUsed" = true;
@@ -149,6 +190,7 @@ in
             "browser.shell.skipDefaultBrowserCheckOnFirstRun" = true;
 
             # Arkenfox stolen from nazarick config:
+            # https://github.com/DarkKronicle/nazarick/blob/main/modules/home/apps/firefox/default.nix
             # https://arkenfox.github.io/gui/
             "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
             "widget.use-xdg-desktop-portal.file-picker" = 1;

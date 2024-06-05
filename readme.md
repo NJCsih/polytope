@@ -7,7 +7,6 @@ Why do I order my todo list by priority if I just reorder it whenever I want to 
 
 Todo:
 ```neorg
-- ( ) gpu: drivers and config, maybe make a powersave profile
 - ( ) Switch to sway. Plasma has been completely servicable, like no complaints, but I want my i3 workflow back :p
 -- wifi handler
 -- system launcher - tofi or rofi look cool
@@ -18,9 +17,13 @@ Todo:
 -- I need to port to nix, currently just threw my config into ~/.config/nvim
 -- I'm thinking nixCats, I want to stick with lazy, but have nix handle the parsers. -- some cool effects from doing it that way
 - (x) firefox
+-- ( ) add default bookmarks for things I'll want everywhere, my github, the davechild regex cheat sheet, etc
+---https://cheatography.com/davechild/cheat-sheets/regular-expressions/
 -- ( ) Setup custom css
 -- ( ) Setup tridactly
 -- add vencord plugin
+- (x) gpu: drivers and config, maybe make a powersave profile
+-- Still need to to powersave config, but drivers are doing good
 - (x) git
 -- (x) Finish setting all my custom options, leave extentions as the user's problem to avoid using NUR
 --- How do I just completely disable the firefox password manager? That's about all that's left
