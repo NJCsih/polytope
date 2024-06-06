@@ -171,7 +171,8 @@ in
     ])
     ++ ([
       (inputs.nazarick.packages.x86_64-linux.system-wallpapers.override {
-        wallpapers = ../../../modules/nixos/desktop/wallpapers/walllpapers.yml;
+        #wallpapers = ../../../modules/nixos/desktop/wallpapers/walllpapers.yml;
+        wallpapers = ./walllpapers.yml;
       })
     ]);
 

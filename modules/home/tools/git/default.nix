@@ -60,7 +60,7 @@ in
         options = {
           diff-so-fancy = true;
           line-numbers = true;
-          true-color = true;
+          true-color = "always";
         };
       };
     };
