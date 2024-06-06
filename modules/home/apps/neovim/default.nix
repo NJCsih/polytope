@@ -12,7 +12,7 @@ let
 in
 {
   options.polytope.apps.neovim = {
-    enable = mkEnableOption "Neovim";
+    enable = mkEnableOption "neovim";
   };
 
   config = mkIf cfg.enable {

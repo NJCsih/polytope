@@ -74,6 +74,9 @@ in
   #services.desktopManager.sway.enable = true;
   #services.desktopManager.sway.extraConfig = ../../../modules/nixos/desktop/sway/config.txt;
 
+  # Wallpapers, probably move elseware at some point
+  environment.pathsToLink = [ "/share/wallpapers" ];
+
   #services.greetd = {
   #  enable = true;
   #  settings = {
@@ -120,51 +123,57 @@ in
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    #steam
-    bandwhich
-    bat
-    blender
-    borgbackup
-    bottom
-    compsize
-    dust
-    firefox
-    gcc
-    gimp
-    git
-    git-credential-oauth
-    gparted
-    htop
-    inkscape
-    jetbrains.idea-community
-    kanata
-    keepassxc
-    kitty
-    libqalculate
-    lua-language-server
-    mumble
-    neovim
-    nheko
-    nixfmt-rfc-style
-    nushell
-    nvtop
-    pfetch
-    pipes-rs
-    polytope.poly
-    qmk
-    ripgrep
-    rofi
-    stylua
-    sway
-    syncthing
-    tealdeer
-    tomb
-    wget
-    wl-clipboard
-    yazi
-    zls
-  ];
+  environment.systemPackages =
+    (with pkgs; [
+      #steam
+      bandwhich
+      bat
+      blender
+      borgbackup
+      bottom
+      compsize
+      dust
+      firefox
+      gcc
+      gimp
+      git
+      git-credential-oauth
+      gparted
+      htop
+      inkscape
+      jetbrains.idea-community
+      kanata
+      keepassxc
+      kitty
+      libqalculate
+      lua-language-server
+      mumble
+      neovim
+      nheko
+      nixfmt-rfc-style
+      nushell
+      nvtop
+      pfetch
+      pipes-rs
+      polytope.poly
+      qmk
+      ripgrep
+      rofi
+      stylua
+      sway
+      syncthing
+      tealdeer
+      tomb
+      wget
+      wl-clipboard
+      yazi
+      zls
+    ])
+    ++ ([
+      (inputs.nazarick.packages.x86_64-linux.system-wallpapers.override {
+        wallpapers = ../../../modules/nixos/desktop/wallpapers/walllpapers.yml;
+      })
+    ]);
 
   environment.shells = with pkgs; [ nushell ];
 

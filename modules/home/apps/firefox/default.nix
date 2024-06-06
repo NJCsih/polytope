@@ -166,6 +166,14 @@ in
               tags = [ "Reference" ];
               url = "https://lospec.com/palette-list";
             }
+            {
+              name = "Homemanger Options";
+              tags = [
+                "Nix"
+                "Reference"
+              ];
+              url = "https://home-manager-options.extranix.com/";
+            }
           ];
 
           settings = {

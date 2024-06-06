@@ -14,6 +14,9 @@
       kitty = {
         enable = true;
       };
+      nheko = {
+        enable = true;
+      };
     };
     tools = {
       git = {

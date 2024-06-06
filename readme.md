@@ -17,8 +17,9 @@ Todo:
 -- I need to port to nix, currently just threw my config into ~/.config/nvim
 -- I'm thinking nixCats, I want to stick with lazy, but have nix handle the parsers. -- some cool effects from doing it that way
 - (x) firefox
--- ( ) add default bookmarks for things I'll want everywhere, my github, the davechild regex cheat sheet, etc
----https://cheatography.com/davechild/cheat-sheets/regular-expressions/
+-- (-) add default bookmarks for things I'll want everywhere, my github, the davechild regex cheat sheet, etc
+-- jump cutter
+-- 
 -- ( ) Setup custom css
 -- ( ) Setup tridactly
 -- add vencord plugin
