@@ -41,7 +41,7 @@ in
     programs.git = {
       enable = true;
 
-      userEmail = "NJCsih@gmail.com";
+      userEmail = "NJCish@gmail.com";
       userName = "NJCsih";
 
       extraConfig = {

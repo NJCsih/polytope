@@ -197,7 +197,7 @@ in
             "browser.shell.checkDefaultBrowser" = false;
             "browser.shell.skipDefaultBrowserCheckOnFirstRun" = true;
 
-            # Arkenfox stolen from nazarick config:
+            # Arkenfox: stolen from nazarick config:
             # https://github.com/DarkKronicle/nazarick/blob/main/modules/home/apps/firefox/default.nix
             # https://arkenfox.github.io/gui/
             "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
