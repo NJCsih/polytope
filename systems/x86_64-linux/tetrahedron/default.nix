@@ -69,27 +69,28 @@ in
   services.xserver.enable = true;
 
   # Enable the Plasma 5 Desktop Environment.
-  services.displayManager.sddm.enable = true;
-  services.desktopManager.plasma6.enable = true;
-  #services.desktopManager.sway.enable = true;
-  #services.desktopManager.sway.extraConfig = ../../../modules/nixos/desktop/sway/config.txt;
+  #services.displayManager.sddm.enable = true;
+  #services.desktopManager.plasma6.enable = true;
 
   # Wallpapers, probably move elseware at some point
   environment.pathsToLink = [ "/share/wallpapers" ];
 
-  #services.greetd = {
-  #  enable = true;
-  #  settings = {
-  #    default_session = {
-  #      #command = "${pkgs.sway}/bin/sway --config ${swayConfig}";
-  #      command = "${pkgs.sway}/bin/sway";
-  #    };
-  #  };
-  #};
-  #programs.sway = {
-  #  enable = true;
-  #  wrapperFeatures.gtk = true;
-  #};
+  services.greetd = {
+    enable = true;
+    settings = {
+      default_session = {
+        #command = "${pkgs.sway}/bin/sway --config ${swayConfig}";
+        command = "${pkgs.sway}/bin/sway --unsupported-gpu";
+      };
+    };
+  };
+  security.polkit.enable = true;
+  #programs.sway.enable = true;
+  # cfg = config.polytope.display.sway;
+  # options.polytope.display.sway = {
+  polytope.display.sway = {
+    enable = true;
+  };
   #wayland.windowManager.sway.enable = true;
   #wayland.windowManager.sway.extraConfig = builtins.readFile ./config.txt;
 
@@ -103,6 +104,8 @@ in
 
   # enable kanata systemwide
   #~/polytope/modules/home/tools/kanata/default.nix
+  # cfg = config.polytope.tools.kanata;
+  # options.polytope.tools.kanata.enable = mkEnableOption "Enable kanta configuration.";
   polytope.tools.kanata.enable = true;
   # Enable CUPS to print documents.
   # services.printing.enable = true;
@@ -130,6 +133,7 @@ in
       bat
       blender
       borgbackup
+      kdePackages.networkmanager-qt
       bottom
       compsize
       dust
@@ -166,6 +170,7 @@ in
       tomb
       wget
       wl-clipboard
+      wayland
       yazi
       zls
     ])

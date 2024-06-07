@@ -167,12 +167,33 @@ in
               url = "https://lospec.com/palette-list";
             }
             {
+              name = "Downgit";
+              tags = [ "Tools" ];
+              url = "https://minhaskamal.github.io/DownGit/#/home";
+            }
+            {
               name = "Homemanger Options";
               tags = [
                 "Nix"
                 "Reference"
               ];
               url = "https://home-manager-options.extranix.com/";
+            }
+            {
+              name = "Nix Package Search";
+              tags = [
+                "Nix"
+                "Reference"
+              ];
+              url = "https://search.nixos.org/packages";
+            }
+            {
+              name = "Nazarick";
+              tags = [
+                "Nix"
+                "Reference"
+              ];
+              url = "https://github.com/darkkronicle/nazarick";
             }
           ];
 

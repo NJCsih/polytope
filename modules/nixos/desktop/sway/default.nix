@@ -14,7 +14,23 @@ in
     enable = mkEnableOption "Enable sway configuration.";
   };
   config = mkIf cfg.enable {
-    #wayland.windowManager.sway.enable = true;
-    #wayland.windowManager.sway.extraConfig = builtins.readFile ./config.txt;
+    #wayland.windowManager.sway = {
+    #wayland.windowManager.sway = {
+    #  enable = true;
+    #  extraConfig = builtins.readFile ./config.txt;
+    #  extraOptions = [ "--unsupported-gpu" ];
+    #};
+    wayland.windowManager.sway = {
+      enable = true;
+      config = rec {
+        modifier = "Mod4";
+        # Use kitty as default terminal
+        terminal = "kitty";
+        startup = [
+          # Launch Firefox on start
+          { command = "firefox"; }
+        ];
+      };
+    };
   };
 }
