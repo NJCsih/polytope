@@ -195,6 +195,11 @@ in
               ];
               url = "https://github.com/darkkronicle/nazarick";
             }
+            {
+              name = "Sort Visualizer";
+              tags = [ "Reference" ];
+              url = "https://www.sortvisualizer.com";
+            }
           ];
 
           settings = {

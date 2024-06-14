@@ -1,0 +1,12 @@
+[default]
+duration = "20m"
+mode = "center"
+sorting = "random"
+transition_time = 1000 # up from def of 300ms
+
+[any]
+path = "/run/current-system/sw/share/wallpapers/system-wallpapers/"
+
+# Looks like you can set display specific wallpapers which is cool
+#[DP-3]
+#path = "/home/danyspin97/Wallpapers"

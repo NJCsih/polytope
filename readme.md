@@ -5,9 +5,17 @@ https://github.com/DarkKronicle/nazarick
 
 Why do I order my todo list by priority if I just reorder it whenever I want to do something else
 
+
+Why does plasma say that it will hibernate on out of battery then just doesnt? That's annoying.
+I do want to look into a backup battery solution
+
+
+Check I dont need to enable the wpaperd service
+
 Todo:
 ```neorg
 - ( ) Switch to sway. Plasma has been completely servicable, like no complaints, but I want my i3 workflow back :p
+-- sway is all complainey
 -- wifi handler
 -- system launcher - tofi or rofi look cool
 - ( ) hardware config -- apparnetly there's a repo for a bunch of different laptops I can steal from

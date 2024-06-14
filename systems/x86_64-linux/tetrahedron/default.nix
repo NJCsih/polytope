@@ -75,24 +75,25 @@ in
   # Wallpapers, probably move elseware at some point
   environment.pathsToLink = [ "/share/wallpapers" ];
 
-  services.greetd = {
-    enable = true;
-    settings = {
-      default_session = {
-        #command = "${pkgs.sway}/bin/sway --config ${swayConfig}";
-        command = "${pkgs.sway}/bin/sway --unsupported-gpu";
-      };
-    };
-  };
-  security.polkit.enable = true;
-  #programs.sway.enable = true;
+  #   services.greetd = {
+  #     enable = true;
+  #     settings = {
+  #       default_session = {
+  #         #command = "${pkgs.sway}/bin/sway --config ${swayConfig}";
+  #         #command = "${pkgs.swayfx}/bin/sway --unsupported-gpu --config /home/juliet/.config/sway/config";
+  #         command = "${pkgs.swayfx}/bin/sway --unsupported-gpu";
+  #       };
+  #     };
+  #   };
+  #  programs.sway = {
+  #    enable = true;
+  #    wrapperFeatures.gtk = true;
+  #  };
   # cfg = config.polytope.display.sway;
   # options.polytope.display.sway = {
-  polytope.display.sway = {
-    enable = true;
-  };
-  #wayland.windowManager.sway.enable = true;
-  #wayland.windowManager.sway.extraConfig = builtins.readFile ./config.txt;
+  #  polytope.display.sway = {
+  #    enable = true;
+  #  };
 
   # TODO: move this to modules/../nvim, but not sure why that doesnt work?
   programs.neovim.enable = true;
@@ -119,6 +120,7 @@ in
     extraGroups = [
       "wheel"
       "networkmanager"
+      "seat" # something from lemurs? idk
     ]; # Enable ‘sudo’ for the user.
     initialPassword = "password";
     shell = pkgs.nushell;
@@ -133,7 +135,6 @@ in
       bat
       blender
       borgbackup
-      kdePackages.networkmanager-qt
       bottom
       compsize
       dust
@@ -149,28 +150,33 @@ in
       kanata
       keepassxc
       kitty
+      lemurs
       libqalculate
       lua-language-server
       mumble
       neovim
+      networkmanager
       nheko
       nixfmt-rfc-style
       nushell
       nvtop
       pfetch
+      picom
       pipes-rs
+      polybar
       polytope.poly
       qmk
       ripgrep
       rofi
       stylua
-      sway
+      swayfx
       syncthing
       tealdeer
       tomb
+      wayland
       wget
       wl-clipboard
-      wayland
+      wpaperd
       yazi
       zls
     ])
