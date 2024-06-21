@@ -40,6 +40,17 @@ in
             log-layer-changes no
           '';
         };
+        hex-K120 = {
+          config = builtins.readFile ./tetrahedron-native.kbd;
+          devices = [
+            "/dev/input/by-path/platform-i8042-serio-0-event-kbd" # This is the inbuilt one
+          ];
+          extraDefCfg = ''
+            process-unmapped-keys yes
+            danger-enable-cmd yes
+            log-layer-changes no
+          '';
+        };
         #        kone = {
         #          config = builtins.readFile ./kone.kbd;
         #          devices = [

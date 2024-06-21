@@ -68,56 +68,8 @@ in
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
-  # Enable the Plasma 5 Desktop Environment.
-  #services.displayManager.sddm.enable = true;
-  #services.desktopManager.plasma6.enable = true;
-
   # Wallpapers, probably move elseware at some point
   environment.pathsToLink = [ "/share/wallpapers" ];
-
-  #   services.greetd = {
-  #     enable = true;
-  #     settings = {
-  #       default_session = {
-  #         #command = "${pkgs.sway}/bin/sway --config ${swayConfig}";
-  #         #command = "${pkgs.swayfx}/bin/sway --unsupported-gpu --config /home/juliet/.config/sway/config";
-  #         command = "${pkgs.swayfx}/bin/sway --unsupported-gpu";
-  #       };
-  #     };
-  #   };
-  #  programs.sway = {
-  #    enable = true;
-  #    wrapperFeatures.gtk = true;
-  #  };
-  # cfg = config.polytope.display.sway;
-  # options.polytope.display.sway = {
-  #  polytope.display.sway = {
-  #    enable = true;
-  #  };
-
-  # systemd.user.services.nm-applet = {
-  #   description = "Network manager applet";
-  #   wantedBy = [ "graphical-session.target" ];
-  #   partOf = [ "graphical-session.target" ];
-  #   after = [ "keepasspls.service" ];
-  #   requiredBy = [ "keepasspls.service" ];
-  #   serviceConfig = {
-  #     Environment = [ "DISPLAY=:0" ];
-  #     ExecStart = "${pkgs.networkmanagerapplet}/bin/nm-applet";
-  #     ExecStartPre = "${pkgs.coreutils}/bin/sleep 5";
-  #   };
-  # };
-
-  # systemd.user.services.keepasspls = {
-  #   description = "Kee pass yes";
-  #   wantedBy = [ "graphical-session.target" ];
-  #   partOf = [ "graphical-session.target" ];
-  #   serviceConfig = {
-  #     Environment = [ "DISPLAY=:0" ];
-  #     ExecStart = "${pkgs.nushell}/bin/nu -c '${pkgs.keepassxc}/bin/keepassxc /home/juliet/Keyring-Tetrahedron.kdbx --keyfile /home/juliet/Keyring-Tetrahedron.key'";
-  #     #ExecStart = "${pkgs.networkmanagerapplet}/bin/nm-applet";
-  #   };
-  # };
 
   virtualisation.virtualbox.host.enable = true;
   users.extraGroups.vboxusers.members = [ "juliet" ];

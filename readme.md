@@ -1,24 +1,29 @@
-My Nixos config, I'm *very* new, and like my nvim, will probably keep it pretty simple to start with.
+# My Nixos config, Uses snowfall-lib, which I'm only now really understanding.
 
-The majority of my config, it's structure and many of the options, are ~~stolen from~~ based off:
-https://github.com/DarkKronicle/nazarick
+The majority of my config, it's structure and many of the options, were based off:
+> https://github.com/DarkKronicle/nazarick
 
-Why do I order my todo list by priority if I just reorder it whenever I want to do something else
+They've since moved to a fully custom structure without snowfall, but I'd still reccomend checking out their config. They do a lot of really neat stuff.
 
 Todo:
 ```neorg
 - (-) Switch to sway. Plasma has been completely servicable, like no complaints, but I want my i3 workflow back :p
--- sway is all complainey
--- wifi handler
--- system launcher - tofi or rofi look cool
-- ( ) hardware config -- apparnetly there's a repo for a bunch of different laptops I can steal from
+-- Mostly working, I'm there 98% of the time, just missing a few things from plama to make it feel fully featured
+--- ( ) Volume controll -- Yes I can `nix shell nixpkgs#kmix` but that sucks
+--- ( ) Big one: no login manager. I want to use a cool rewrite of ly called lemurs, I've been trying to get that setup, there's just some issues with the custom systemd service I need to finish
+--- ( ) Screenshot program. -- Sway's not as complete, especially as far as stuff like xdg options are concerned, so many things wont be able to see an open display.
+--- (x) I'm back in my rofi config, how that currently works has the feel I want the whole system to eventually
+- (-) hardware config -- apparnetly there's a repo for a bunch of different laptops I can steal from
+-- Nearly done with hardware stuff, Nvidia drivers work on tetrahedron, havent bothered yet on hex. -- Need to get a better workflow setup with the nvidia-offload script and stuff, I want to just whitelist a few programs not have to specify at launch-time
+-- Most of it's done as far as swap and stuff is concerned, really just the nvidia tweaks above, and 
+-- oh and hex needs drivers too. Maybe I'll do that now
 - ( ) nvim
 -- I manually installed the lua TS parser? I want that to be done via nix? Or is that okay?
 --- Same with java
 -- I need to port to nix, currently just threw my config into ~/.config/nvim
 -- I'm thinking nixCats, I want to stick with lazy, but have nix handle the parsers. -- some cool effects from doing it that way
 - (x) firefox
--- (-) add default bookmarks for things I'll want everywhere, my github, the davechild regex cheat sheet, etc
+-- (x) add default bookmarks for things I'll want everywhere, my github, the davechild regex cheat sheet, etc
 -- ( ) Setup custom css
 -- ( ) Setup tridactly
 -- ( ) jump cutter
