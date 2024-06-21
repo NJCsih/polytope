@@ -136,6 +136,7 @@ in
   # cfg = config.polytope.tools.kanata;
   # options.polytope.tools.kanata.enable = mkEnableOption "Enable kanta configuration.";
   polytope.tools.kanata.enable = true;
+
   # Enable CUPS to print documents.
   # services.printing.enable = true;
 
@@ -215,6 +216,10 @@ in
     ])
     ++ ([
       (inputs.nazarick.packages.x86_64-linux.system-wallpapers.override {
+<<<<<<< HEAD
+=======
+	# Todo: make this managed on a per-user basis not per-system
+>>>>>>> refs/remotes/polytope/main
         #wallpapers = ../../../modules/nixos/desktop/wallpapers/wallpapers.yml;
         wallpapers = ./wallpapers.yml;
       })

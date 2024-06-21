@@ -23,7 +23,7 @@ in
         "github.com" = {
           host = "github.com";
           hostname = "github.com";
-          identityFile = [ "/home/juliet/.ssh/juliet_tetrahedron" ];
+          identityFile = [ "~/.ssh/github_auth_key" ];
           extraOptions = {
             PreferredAuthentications = "publickey";
           };
