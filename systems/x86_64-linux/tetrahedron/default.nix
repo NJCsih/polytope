@@ -95,6 +95,34 @@ in
   #    enable = true;
   #  };
 
+  # systemd.user.services.nm-applet = {
+  #   description = "Network manager applet";
+  #   wantedBy = [ "graphical-session.target" ];
+  #   partOf = [ "graphical-session.target" ];
+  #   after = [ "keepasspls.service" ];
+  #   requiredBy = [ "keepasspls.service" ];
+  #   serviceConfig = {
+  #     Environment = [ "DISPLAY=:0" ];
+  #     ExecStart = "${pkgs.networkmanagerapplet}/bin/nm-applet";
+  #     ExecStartPre = "${pkgs.coreutils}/bin/sleep 5";
+  #   };
+  # };
+
+  # systemd.user.services.keepasspls = {
+  #   description = "Kee pass yes";
+  #   wantedBy = [ "graphical-session.target" ];
+  #   partOf = [ "graphical-session.target" ];
+  #   serviceConfig = {
+  #     Environment = [ "DISPLAY=:0" ];
+  #     ExecStart = "${pkgs.nushell}/bin/nu -c '${pkgs.keepassxc}/bin/keepassxc /home/juliet/Keyring-Tetrahedron.kdbx --keyfile /home/juliet/Keyring-Tetrahedron.key'";
+  #     #ExecStart = "${pkgs.networkmanagerapplet}/bin/nm-applet";
+  #   };
+  # };
+
+  virtualisation.virtualbox.host.enable = true;
+  users.extraGroups.vboxusers.members = [ "juliet" ];
+  virtualisation.virtualbox.host.enableHardening = false;
+
   # TODO: move this to modules/../nvim, but not sure why that doesnt work?
   programs.neovim.enable = true;
   programs.neovim.defaultEditor = true;
@@ -131,6 +159,7 @@ in
   environment.systemPackages =
     (with pkgs; [
       #steam
+      acpi
       bandwhich
       bat
       blender
@@ -143,6 +172,7 @@ in
       gimp
       git
       git-credential-oauth
+      gnupg
       gparted
       htop
       inkscape
@@ -162,9 +192,11 @@ in
       nvtop
       pfetch
       picom
+      pinentry
       pipes-rs
       polybar
       polytope.poly
+      pueue
       qmk
       ripgrep
       rofi
@@ -173,6 +205,7 @@ in
       syncthing
       tealdeer
       tomb
+      virtualbox
       wayland
       wget
       wl-clipboard
@@ -182,8 +215,8 @@ in
     ])
     ++ ([
       (inputs.nazarick.packages.x86_64-linux.system-wallpapers.override {
-        #wallpapers = ../../../modules/nixos/desktop/wallpapers/walllpapers.yml;
-        wallpapers = ./walllpapers.yml;
+        #wallpapers = ../../../modules/nixos/desktop/wallpapers/wallpapers.yml;
+        wallpapers = ./wallpapers.yml;
       })
     ]);
 

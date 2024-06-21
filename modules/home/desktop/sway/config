@@ -11,64 +11,33 @@
 
 set $mod Mod4
 
+# TODO: make the gpu switching be better handled by nix's Prime setup for offload to nvidia from integrated
 # Fix blackscreen when using i3 and nvidia gpu; shamelessly stolen from:
 # https://ebobby.org/2018/08/06/archlinux-nvidia-on-oryp4/
 #exec_always --no-startup-id $HOME/.config/i3/nvidiaBlackscreenFix.sh
 
-# Swap caps and esc
-#exec_always xinput set-prop 'FTCS1000:00 2808:0102 Touchpad' 'libinput Natural Scrolling Enabled' 1
-#exec_always xinput set-prop 'FTCS1000:00 2808:0102 Touchpad' 'libinput Tapping Enabled' 1
-#exec_always setxkbmap -option caps:escape
+# TODO: fix kanata, which is handled elseware for rebinds
+# -- Set scroll direction correctly from there
 
-# exec_always /usr/bin/setxkbmap -option 'caps:swapescape'
-
-#exec_always export EDITOR=/usr/bin/nvim
-
+# TODO: this is still an issue
 #Make mouse still work when pressing buttons
 #exec_always xinput set-prop 'FTCS1000:00 2808:0102 Touchpad' 'libinput Disable While Typing Enabled' 0
 #exec_always xinput set-prop 'FTCS1000:00 2808:0102 Touchpad' 'libinput Disable While Typing Enabled Default' 0
 
+# I dont think I use titlebars currently which I like.
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 #font pango:monospace 10
 
-# This font is widely installed, provides lots of unicode glyphs, right-to-left
-# text rendering and scalability on retina/hidpi displays (thanks to pango).
-#font pango:DejaVu Sans Mono 8
+# TODO: find xscreensaver replacement, maybe steal from nazarick :p
 
-# Start XDG autostart .desktop files using dex. See also
-# https://wiki.archlinux.org/index.php/XDG_Autostart
-#exec --no-startup-id dex --autostart --environment i3
-
-
-# use xscreensaver for screen locking
-#bindsym $mod+Shift+o exec "xscreensaver-command -lock"
-
-# Low battery popup via script
-# exec --no-startup-id /home/juliet/.config/i3/i3-battery-popup -n -D -L 20 -l 10
-
-# Set background
-#exec --no-startup-id feh --bg-scale $HOME/.config/i3/wp-02.png
-#exec --no-startup-id feh --bg-scale $HOME/Documents/YES.png
-#exec --no-startup-id feh --bg-scale $HOME/Documents/e6_exp.png
-#exec --no-startup-id feh --bg-scale $HOME/.config/i3/wp-02_e6.png
+# TODO: Low battery indicator+popup
 
 # Start the picom compositor
 #exec_always --no-startup-id "picom"
+exec_always --no-startup-id "wpaperd"
 
-# invert the active window (toggle its "TAG_INVERT" property)
-##bindsym $mod+i exec --no-startup-id xprop -id $(xdotool getwindowfocus) -format TAG_INVERT 8c \
-#            -set TAG_INVERT $(\
-#                                xprop -id $(xdotool getwindowfocus) 8c TAG_INVERT \
-#                                | sed -e 's/.*= 1.*/0/' -e 's/.*= 0.*/1/'  -e 's/.*not found.*/1/'\
-#                            )
-
-# Polybar Launch script
-#exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-
-# NetworkManager is the most popular way to manage wireless networks on Linux,
-# and nm-applet is a desktop environment-independent system tray GUI for it.
-#exec --no-startup-id nm-applet
+# TODO: Find a polybar replacement which is less jank, recreate my config from scratch
 
 # Use pactl to adjust volume in PulseAudio.
 #set $refresh_i3status killall -SIGUSR1 i3status
@@ -113,6 +82,21 @@ bindsym $mod+Shift+q kill
 #bindsym $mod+d exec --no-startup-id dmenu_run
 bindsym $mod+d exec --no-startup-id "rofi -show drun"
 bindsym $mod+Shift+d exec --no-startup-id "rofi -show run"
+
+
+# TODO: Okay so this works but the && are causing issues, where the pue is included in the left half
+# TODO: Good luck I guess :p
+# Start keepassxc in the void, and connect to wifi
+# This is super scuffed I'm sorry
+exec pueue group add -p 2 swayKeepassShenanagains
+exec pueue pause -g swayKeepassShenanagains
+exec pueue add -p 6 -g swayKeepassShenanagains swaymsg "workspace 11"
+exec pueue add -p 5 -g swayKeepassShenanagains ${pkgs.keepassxc}/bin/keepassxc /home/juliet/Keyring-Tetrahedron.kdbx --keyfile /home/juliet/Keyring-Tetrahedron.key
+exec pueue add -p 4 -g swayKeepassShenanagains ${pkgs.bash}/bin/bash sleep 1
+exec pueue add -p 3 -g swayKeepassShenanagains ${pkgs.nm-applet}/bin/nm-applet
+exec pueue add -p 2 -g swayKeepassShenanagains ${pkgs.bash}/bin/bash sleep 1
+exec pueue add -p 1 -g swayKeepassShenanagains swaymsg "workspace 1"
+exec pueue start -g swayKeepassShenanagains
 
 # Launch clipcat in rofi, like with win+v on windows :p
 # Clipcat is started by systemd

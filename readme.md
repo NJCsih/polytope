@@ -5,16 +5,9 @@ https://github.com/DarkKronicle/nazarick
 
 Why do I order my todo list by priority if I just reorder it whenever I want to do something else
 
-
-Why does plasma say that it will hibernate on out of battery then just doesnt? That's annoying.
-I do want to look into a backup battery solution
-
-
-Check I dont need to enable the wpaperd service
-
 Todo:
 ```neorg
-- ( ) Switch to sway. Plasma has been completely servicable, like no complaints, but I want my i3 workflow back :p
+- (-) Switch to sway. Plasma has been completely servicable, like no complaints, but I want my i3 workflow back :p
 -- sway is all complainey
 -- wifi handler
 -- system launcher - tofi or rofi look cool
@@ -26,11 +19,10 @@ Todo:
 -- I'm thinking nixCats, I want to stick with lazy, but have nix handle the parsers. -- some cool effects from doing it that way
 - (x) firefox
 -- (-) add default bookmarks for things I'll want everywhere, my github, the davechild regex cheat sheet, etc
--- jump cutter
--- 
 -- ( ) Setup custom css
 -- ( ) Setup tridactly
--- add vencord plugin
+-- ( ) jump cutter
+-- ( ) vencord plugin
 - (x) gpu: drivers and config, maybe make a powersave profile
 -- Still need to to powersave config, but drivers are doing good
 - (x) git
