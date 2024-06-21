@@ -216,10 +216,7 @@ in
     ])
     ++ ([
       (inputs.nazarick.packages.x86_64-linux.system-wallpapers.override {
-<<<<<<< HEAD
-=======
-	# Todo: make this managed on a per-user basis not per-system
->>>>>>> refs/remotes/polytope/main
+        # Todo: make this managed on a per-user basis not per-system
         #wallpapers = ../../../modules/nixos/desktop/wallpapers/wallpapers.yml;
         wallpapers = ./wallpapers.yml;
       })
