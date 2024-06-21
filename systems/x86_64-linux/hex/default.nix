@@ -1,14 +1,25 @@
-# Edit this configuration file to define what should be installed on
-# your system. Help is available in the configuration.nix(5) man page, on
-# https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
-
-{ config, lib, pkgs, ... }:
-
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  config,
+  lib,
+  pkgs,
+  inputs,
+  ...
+}:
+
+let
+  inherit (lib.polytope) enabled;
+in
+{
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware.nix
+  ];
+
+  polytope = {
+    desktop = {
+      fonts = enabled;
+    };
+  };
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
@@ -17,10 +28,17 @@
   # allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  # networking.hostName = "hex"; # Define your hostname.
+  networking.hostName = "hex"; # Define your hostname.
+
   # Pick only one of the below networking options.
+  networking.networkmanager.enable = true; # Easiest to use and most distros use this by default.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-  networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
+
+  # Enable experimental features
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   # Set your time zone.
   time.timeZone = "America/Denver";
@@ -41,15 +59,23 @@
   services.xserver.enable = true;
 
   # Enable plasma 6
-  #services.displayManager.sddm.enable = true;
-  #services.desktopManager.plasma6.enable = true;
+  services.displayManager.sddm.enable = true;
+  services.desktopManager.plasma6.enable = true;
 
-  
+  # Wallpapers, probably move elseware at some point
+  environment.pathsToLink = [ "/share/wallpapers" ];
 
-  # Configure keymap in X11
-  # services.xserver.xkb.layout = "us";
-  # services.xserver.xkb.options = "eurosign:e,caps:escape";
-  services.xserver.xkb.options = "caps:escape";
+  # TODO: move this to modules/../nvim, but not sure why that doesnt work?
+  programs.neovim.enable = true;
+  programs.neovim.defaultEditor = true;
+
+  # Enable global settings in :
+  #~/polytope/modules/nixos/system/nix/default.nix
+  polytope.system.nix.enable = true;
+
+  # enable kanata systemwide -- TODO: maybe make this a user thing?
+  #~/polytope/modules/home/tools/kanata/default.nix
+  polytope.tools.kanata.enable = true;
 
   # Enable CUPS to print documents.
   # services.printing.enable = true;
@@ -75,7 +101,8 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [
+  environment.systemPackages =
+    (with pkgs; [
       bat
       borgbackup
       bottom
@@ -101,7 +128,14 @@
       wl-clipboard
       yazi
       zls
-  ];
+    ])
+    ++ ([
+      (inputs.nazarick.packages.x86_64-linux.system-wallpapers.override {
+	# Todo: make this managed on a per-user basis not per-system
+        #wallpapers = ../../../modules/nixos/desktop/wallpapers/wallpapers.yml;
+        wallpapers = ./wallpapers.yml;
+      })
+    ]);
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -110,8 +144,6 @@
   #   enable = true;
   #   enableSSHSupport = true;
   # };
-
-  # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
@@ -129,20 +161,6 @@
 
   # This option defines the first version of NixOS you have installed on this particular machine,
   # and is used to maintain compatibility with application data (e.g. databases) created on older NixOS versions.
-  #
-  # Most users should NEVER change this value after the initial install, for any reason,
-  # even if you've upgraded your system to a new NixOS release.
-  #
-  # This value does NOT affect the Nixpkgs version your packages and OS are pulled from,
-  # so changing it will NOT upgrade your system - see https://nixos.org/manual/nixos/stable/#sec-upgrading for how
-  # to actually do that.
-  #
-  # This value being lower than the current NixOS release does NOT mean your system is
-  # out of date, out of support, or vulnerable.
-  #
-  # Do NOT change this value unless you have manually inspected all the changes it would make to your configuration,
-  # and migrated your data accordingly.
-  #
   # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
   system.stateVersion = "24.05"; # Did you read the comment?
 

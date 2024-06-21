@@ -5,19 +5,12 @@
     name: anime_girls_balloon.jpg
     sha256: 05azqn3v2rqkafxkasap9v4mjfkmdr3lmkw21s8z8ficdz1w3li2
   tags:
-  - weaboo
+  - anime
 
 - src:
     url: https://static1.e621.net/data/b0/ff/b0ff1fc3275a6f05bcc9cd8d4c33ece3.jpg
     name: 2954614-Nomax01.jpg
     sha256: c1a1035fe398c60a3379e443fbfb60f64401d8eb195c4b1f045253a55654567b
-  tags:
-  - furry
-
-- src:
-    url: https://static1.e621.net/data/b8/ef/b8ef0f8d242aa9c1692defeb86ab6ea6.png
-    name: 3296807-Nomax02.png
-    sha256: b19a44384b5ffa655daf4e90a574ef75131535556e139d6e551a5d3b27280d6b
   tags:
   - furry
 
