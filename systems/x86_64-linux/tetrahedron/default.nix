@@ -15,156 +15,147 @@ in
     ./hardware.nix
   ];
 
-  polytope = {
-    desktop = {
-      fonts = enabled;
-    };
-  };
 
-  # Use the GRUB 2 boot loader.
-  boot.loader.systemd-boot.enable = true;
-  # boot.loader.grub.efiSupport = true;
-  # boot.loader.grub.efiInstallAsRemovable = true;
-  # boot.loader.efi.efiSysMountPoint = "/boot/efi";
-  # Define on which hard drive you want to install Grub.
-  # boot.loader.grub.device = "nodev"; # or "nodev" for efi only
+  # NixOS Stuff -----------------------------------------------------------------------------------
 
-  #nix.package = inputs.lix-module.packages.x86_64-linux.default;
-
-  networking.hostName = "tetrahedron"; # Define your hostname.
-  # Pick only one of the below networking options.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-  networking.networkmanager.enable = true; # Easiest to use and most distros use this by default.
-
+  # Enable experimental features
   nix.settings.experimental-features = [
     "nix-command"
     "flakes"
   ];
 
-  # Enable NUR
-  #nixpkgs.config.packageOverrides = pkgs: {
-  #nur = import (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/master.tar.gz") {
-  #inherit pkgs;
-  #};
-  #};
+  # Allow unfree packages
+  nixpkgs.config.allowUnfree = true;
 
+  # Enable global settings in :
+  polytope.system.nix.enable = true;
+
+  # Enable sound.
+  hardware.pulseaudio.enable = true;
+
+  # TODO: What is this?
+  #nix.package = inputs.lix-module.packages.x86_64-linux.default;
+
+
+  # System Stuff ----------------------------------------------------------------------------------
+
+  # Use the systemd-boot EFI boot loader.
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true; # "I have it enabled tho I don't remember quite
+                                               # exactly what it does" - DarkKronicle
+
+  # Zen is for desktop computing, so lower latency? I'm not gonna touch it
   boot.kernelPackages = pkgs.linuxPackages_zen;
+
+  # Enable networkmanager for internet
+  networking.networkmanager.enable = true; # Easiest to use and most distros use this by default.
 
   # Set your time zone.
   time.timeZone = "America/Denver";
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  # Select internationalisation properties.
-  # i18n.defaultLocale = "en_US.UTF-8";
-  # console = {
-  #   font = "Lat2-Terminus16";
-  #   keyMap = "us";
-  #   useXkbConfig = true; # use xkb.options in tty.
-  # };
-
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-
-  # Wallpapers, probably move elseware at some point
-  environment.pathsToLink = [ "/share/wallpapers" ];
-
-  virtualisation.virtualbox.host.enable = true;
-  users.extraGroups.vboxusers.members = [ "juliet" ];
-  virtualisation.virtualbox.host.enableHardening = false;
 
   # TODO: move this to modules/../nvim, but not sure why that doesnt work?
   programs.neovim.enable = true;
   programs.neovim.defaultEditor = true;
 
-  # enable settings in :
-  #~/polytope/modules/nixos/system/nix/default.nix
-  polytope.system.nix.enable = true;
+  # Wallpapers TODO: Redo the whole wallpaper thing, they should probably be defined per-user
+  environment.pathsToLink = [ "/share/wallpapers" ];
 
-  # enable kanata systemwide
-  #~/polytope/modules/home/tools/kanata/default.nix
-  # cfg = config.polytope.tools.kanata;
-  # options.polytope.tools.kanata.enable = mkEnableOption "Enable kanta configuration.";
-  polytope.tools.kanata.enable = true;
 
-  # Enable CUPS to print documents.
-  # services.printing.enable = true;
+  # User Stuff ------------------------------------------------------------------------------------
 
-  # Enable sound.
-  # sound.enable = true;
-  hardware.pulseaudio.enable = true;
+  networking.hostName = "tetrahedron"; # Define your hostname.
 
+  # Define my user
   users.users.juliet = {
     isNormalUser = true;
-    extraGroups = [
-      "wheel"
-      "networkmanager"
-      "seat" # something from lemurs? idk
-    ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" "networkmanager" "seat" ]; # What is seat for? Lemurs?
     initialPassword = "password";
     shell = pkgs.nushell;
   };
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-  environment.systemPackages =
+  # Virtualbox stuff
+  virtualisation.virtualbox.host.enable = true;
+  users.extraGroups.vboxusers.members = [ "juliet" ];
+  virtualisation.virtualbox.host.enableHardening = false;
+
+  # Customization Stuff ----------------------------------------------------------------------------
+
+  # Use custom fonts
+  polytope = {
+    desktop = {
+
+      fonts = enabled;
+    };
+  };
+
+  # enable kanata systemwide -- TODO: maybe make this a user thing?
+  polytope.tools.kanata.enable = true;
+
+
+  # Systemwide Packages ---------------------------------------------------------------------------
+  environment.systemPackages = #TODO: Group these properly
     (with pkgs; [
-      #steam
+
+      # Apps
+      blender
+      firefox
+      inkscape
+      mumble
+      nheko
+      nushell
+      pfetch
+      qmk
+      rofi
+      virtualbox
+
+      # School stuff
+      jetbrains.idea-community
+
+      # Tools
+      borgbackup
+      gimp
+      git
+      gparted
+      keepassxc
+      kitty
+      neovim
+        zls
+        stylua
+        lua-language-server
+      networkmanager
+      syncthing
+      yazi
+
+      # Utils
       acpi
       bandwhich
       bat
-      blender
-      borgbackup
       bottom
-      compsize
+      compsize # for showing size on disk of a file
       dust
-      firefox
-      gcc
-      gimp
-      git
-      git-credential-oauth
-      gnupg
-      gparted
       htop
-      inkscape
-      jetbrains.idea-community
       kanata
-      keepassxc
-      kitty
-      lemurs
       libqalculate
-      lua-language-server
-      mumble
-      neovim
-      networkmanager
-      nheko
       nixfmt-rfc-style
-      nushell
       nvtop
-      pfetch
-      picom
-      pinentry
       pipes-rs
-      polybar
       polytope.poly
       pueue
-      qmk
       ripgrep
-      rofi
-      stylua
-      swayfx
-      syncthing
       tealdeer
       tomb
-      virtualbox
-      wayland
+        gnupg
+        pinentry
       wget
       wl-clipboard
+
+      # System # TODO: Move to being only included by home-manager not here so they can be
+      lemurs   # uninstalled if not needed for a setup
+      picom
+      swayfx   # I think the thing I'm trying to do in home-manager is what specilizations are fo
+      wayland
       wpaperd
-      yazi
-      zls
+
     ])
     ++ ([
       (inputs.nazarick.packages.x86_64-linux.system-wallpapers.override {
@@ -173,8 +164,6 @@ in
         wallpapers = ./wallpapers.yml;
       })
     ]);
-
-  environment.shells = with pkgs; [ nushell ];
 
   system.stateVersion = "24.05"; # Don't touch
 }

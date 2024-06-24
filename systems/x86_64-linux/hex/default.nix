@@ -27,7 +27,6 @@ in
   nixpkgs.config.allowUnfree = true;
 
   # Enable global settings in :
-  #~/polytope/modules/nixos/system/nix/default.nix
   polytope.system.nix.enable = true;
 
   # Enable sound.
@@ -39,10 +38,13 @@ in
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  # Zen is for desktop computing, so lower latency? I'm not gonna touch it
+  boot.kernelPackages = pkgs.linuxPackages_zen;
+
   # Enable CUPS to print documents.
   # services.printing.enable = true;
 
-  # Enable entworkmanager for internet
+  # Enable networkmanager for internet
   networking.networkmanager.enable = true; # Easiest to use and most distros use this by default.
 
   # Set your time zone.
@@ -70,7 +72,7 @@ in
     shell = pkgs.nushell;
   };
 
-  # Cusomization Stuff ----------------------------------------------------------------------------
+  # Customization Stuff ----------------------------------------------------------------------------
 
   # Use custom fonts
   polytope = {
@@ -85,44 +87,54 @@ in
   # Systemwide Packages ---------------------------------------------------------------------------
   environment.systemPackages = # TODO: finish grouping these properly
     (with pkgs; [
-      bat
-      borgbackup
-      bottom
-      dust
+
+      # Apps
       firefox
+      nushell
+      pfetch
+      rofi
+
+      # Work stuff
+      taskwarrior
+      thunderbird
+
+      # Tools
+      borgbackup
       gimp
       git
       gparted
-      htop
+      keepassxc
       kitty
-      libqalculate
       neovim
+        zls
+        stylua
+        lua-language-server
       networkmanager
-      nushell
-      nvtop
-      pfetch
-      pipes-rs
-      ripgrep
-      rofi
       syncthing
-      tealdeer
-
-      # Work stuff
-      thunderbird
-      taskwarrior
+      yazi
 
       # Utils
-      gnupg
+      bandwhich
+      bat
+      bottom
+      compsize # for showing size on disk of a file
+      dust
+      htop
       kanata
       keepassxc
-      pinentry
+      libqalculate
+      nixfmt-rfc-style
+      nvtop
+      pipes-rs
+      polytope.poly
+      ripgrep
+      tealdeer
       tomb
+        gnupg
+        pinentry
       wget
       wl-clipboard
 
-      wayland
-      yazi
-      zls
     ])
     ++ ([
       (inputs.nazarick.packages.x86_64-linux.system-wallpapers.override {
