@@ -18,6 +18,9 @@ in
 
   config = mkIf cfg.enable {
 
+    # Enable the X11 windowing system.
+    services.xserver.enable = true;
+
     # Set swayfx config
     home.file.".config/swayfx/config" = {
       text = builtins.readFile ./swayfx-config.txt;
