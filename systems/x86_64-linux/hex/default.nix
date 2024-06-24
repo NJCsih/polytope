@@ -15,7 +15,6 @@ in
     ./hardware.nix
   ];
 
-
   # NixOS Stuff -----------------------------------------------------------------------------------
 
   # Enable experimental features
@@ -33,7 +32,6 @@ in
 
   # Enable sound.
   hardware.pulseaudio.enable = true;
-
 
   # System Stuff ----------------------------------------------------------------------------------
 
@@ -57,7 +55,6 @@ in
   # Wallpapers TODO: Redo the whole wallpaper thing, they should probably be defined per-user
   environment.pathsToLink = [ "/share/wallpapers" ];
 
-
   # User Stuff ------------------------------------------------------------------------------------
 
   networking.hostName = "hex"; # Define your hostname.
@@ -65,11 +62,13 @@ in
   # Define my user
   users.users.xray = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" ];
+    extraGroups = [
+      "wheel"
+      "networkmanager"
+    ];
     initialPassword = "password";
     shell = pkgs.nushell;
   };
-
 
   # Cusomization Stuff ----------------------------------------------------------------------------
 
@@ -83,9 +82,8 @@ in
   # enable kanata systemwide -- TODO: maybe make this a user thing?
   polytope.tools.kanata.enable = true;
 
-
   # Systemwide Packages ---------------------------------------------------------------------------
-  environment.systemPackages = #TODO: finish grouping these properly
+  environment.systemPackages = # TODO: finish grouping these properly
     (with pkgs; [
       bat
       borgbackup
@@ -114,12 +112,13 @@ in
       taskwarrior
 
       # Utils
+      gnupg
+      kanata
+      keepassxc
+      pinentry
       tomb
-        pinentry
-        gnupg
       wget
       wl-clipboard
-      keepassxc
 
       wayland
       yazi
@@ -127,11 +126,52 @@ in
     ])
     ++ ([
       (inputs.nazarick.packages.x86_64-linux.system-wallpapers.override {
-	# Todo: make this managed on a per-user basis not per-system
+        # Todo: make this managed on a per-user basis not per-system
         #wallpapers = ../../../modules/nixos/desktop/wallpapers/wallpapers.yml;
         wallpapers = ./wallpapers.yml;
       })
     ]);
+
+  # Specilizations for different display-managers -------------------------------------------------
+  #   We'd technically want to just have different lemurs entries, but because plasma does too much
+  #     I wanted to have the ability to enable/disable different programs completely from nix
+  specialisation = {
+
+    # Sway/Swayfx
+    swayfx.configuration = {
+      # Lemurs boot entry for sway
+      # Sway should handle everything else, and home-manager handles it's (and other's) configs
+      environment.etc."lemurs/wayland/Sway.sh".source = pkgs.writeTextFile {
+        name = "lemursSwayEntry";
+        text = ''
+          #! /bin/sh
+          exec sway --unsupported-gpu
+        '';
+        executable = true;
+      };
+
+      # Install sway specific stuff
+      environment.systemPackages = (
+        with pkgs;
+        [
+          swayfx
+          lemurs
+          # Enable lemurs here
+        ]
+      );
+    };
+
+    # Plasma 6
+    plasma6.configuration = {
+      # Enable the X11 windowing system.
+      services.xserver.enable = true;
+
+      # Enable plasma6
+      services.displayManager.sddm.enable = true;
+      services.desktopManager.plasma6.enable = true;
+
+    };
+  };
 
   system.stateVersion = "24.05"; # Don't touch
 }

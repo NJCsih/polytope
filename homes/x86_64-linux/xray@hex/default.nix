@@ -3,7 +3,6 @@
 
 {
   polytope = {
-    #display.sway.enable = true;
     apps = {
       firefox = {
         enable = true;
@@ -13,10 +12,10 @@
       neovim.enable = true;
       nheko.enable = true;
     };
-    displayManagers = {
-      swayfx.enable = false;
-      plasma6.enable = true;
-    };
+    #  displayManagers = {  # Displaymanager toggling now handled by specilizations
+    #    swayfx.enable = false;
+    #    plasma6.enable = true;
+    #  };
     tools = {
       git.enable = true;
       nushell.enable = true;

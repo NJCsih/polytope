@@ -9,6 +9,15 @@
 let
   inherit (lib) mkEnableOption mkIf;
   cfg = config.polytope.apps.firefox;
+
+  firefox-cascade = pkgs.fetchFromGitHub {
+    # Using darkKronicle's cascade theme
+    name = "firefox-cascade";
+    owner = "DarkKronicle";
+    repo = "cascade";
+    rev = "994edba071341b4afa9483512d320696ea10c0a6";
+    sha256 = "sha256-DX77qLtDktv077YksxnrSoqa8O0ujJF2NH36GkENaXI=";
+  };
 in
 {
   options.polytope.apps.firefox = {
@@ -104,6 +113,9 @@ in
           id = 0;
           name = "main";
           isDefault = true;
+          userChrome = mkIf cfg.userCss ''
+            @import "${firefox-cascade}/chrome/userChrome.css";
+          '';
 
           search = {
             force = true;

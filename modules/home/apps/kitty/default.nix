@@ -36,7 +36,7 @@ in
         listen_on = "unix:/tmp/mykitty";
         enable_audio_bell = false;
 
-        background_opacity = "0.85";
+        background_opacity = "0.90";
         cursor_blink_interval = 0;
 
         # font_size = "11.3";
