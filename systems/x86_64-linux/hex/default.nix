@@ -37,6 +37,8 @@ in
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  # [Re efi canTouchEfiVariables] "I have it enabled tho I don't remember quite
+  # exactly what it does" - DarkKronicle -- I'm trusting them
 
   # Zen is for desktop computing, so lower latency? I'm not gonna touch it
   boot.kernelPackages = pkgs.linuxPackages_zen;
@@ -56,6 +58,9 @@ in
 
   # Wallpapers TODO: Redo the whole wallpaper thing, they should probably be defined per-user
   environment.pathsToLink = [ "/share/wallpapers" ];
+
+    # Enable the X11 windowing system.
+    services.xserver.enable = true;
 
   # User Stuff ------------------------------------------------------------------------------------
 
@@ -85,7 +90,7 @@ in
   polytope.tools.kanata.enable = true;
 
   # Systemwide Packages ---------------------------------------------------------------------------
-  environment.systemPackages = # TODO: finish grouping these properly
+  environment.systemPackages =
     (with pkgs; [
 
       # Apps
@@ -95,7 +100,6 @@ in
       rofi
 
       # Work stuff
-      taskwarrior
       thunderbird
 
       # Tools
@@ -106,9 +110,9 @@ in
       keepassxc
       kitty
       neovim
-        zls
-        stylua
-        lua-language-server
+      zls
+      stylua
+      lua-language-server
       networkmanager
       syncthing
       yazi
@@ -124,14 +128,14 @@ in
       keepassxc
       libqalculate
       nixfmt-rfc-style
-      nvtop
+      nvtopPackages.full
       pipes-rs
       polytope.poly
       ripgrep
       tealdeer
       tomb
-        gnupg
-        pinentry
+      gnupg # tomb dep
+      pinentry # tomb dep
       wget
       wl-clipboard
 
@@ -168,15 +172,16 @@ in
         [
           swayfx
           lemurs
-          # Enable lemurs here
+          wayland
+          wpaperd
+          # Enable lemurs here so it handles the greeter
+          # Will need to edit that startup systemd task here
         ]
       );
     };
 
     # Plasma 6
     plasma6.configuration = {
-      # Enable the X11 windowing system.
-      services.xserver.enable = true;
 
       # Enable plasma6
       services.displayManager.sddm.enable = true;
