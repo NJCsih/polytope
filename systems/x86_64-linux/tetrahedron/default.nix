@@ -59,8 +59,8 @@ in
   # Wallpapers TODO: Redo the whole wallpaper thing, they should probably be defined per-user
   environment.pathsToLink = [ "/share/wallpapers" ];
 
-    # Enable the X11 windowing system.
-    services.xserver.enable = true;
+  # Enable the X11 windowing system.
+  services.xserver.enable = true;
 
   # User Stuff ------------------------------------------------------------------------------------
 
