@@ -144,6 +144,11 @@ in
       })
     ]);
 
+
+  # Enable the X11 windowing system.
+  services.xserver.enable = true;
+
+
   # Specilizations for different display-managers -------------------------------------------------
   #   We'd technically want to just have different lemurs entries, but because plasma does too much
   #     I wanted to have the ability to enable/disable different programs completely from nix
@@ -175,8 +180,6 @@ in
 
     # Plasma 6
     plasma6.configuration = {
-      # Enable the X11 windowing system.
-      services.xserver.enable = true;
 
       # Enable plasma6
       services.displayManager.sddm.enable = true;
