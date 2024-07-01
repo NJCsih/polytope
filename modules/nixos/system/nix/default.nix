@@ -52,7 +52,7 @@ in
       };
 
       # TODO: Remove the x86 here as well
-      package = inputs.lix-module.packages.x86_64-linux.default;
+      # package = inputs.lix-module.packages.x86_64-linux.default;
 
       settings = {
 

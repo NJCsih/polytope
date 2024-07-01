@@ -109,13 +109,14 @@ in
       gparted
       keepassxc
       kitty
-      neovim
-      zls
-      stylua
       lua-language-server
+      neovim
       networkmanager
+      nix-tree
+      stylua
       syncthing
       yazi
+      zls
 
       # Utils
       bandwhich
