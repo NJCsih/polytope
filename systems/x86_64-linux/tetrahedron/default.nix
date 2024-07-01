@@ -109,6 +109,7 @@ in
       pfetch
       qmk
       rofi
+      #steam
       virtualbox
 
       # School stuff

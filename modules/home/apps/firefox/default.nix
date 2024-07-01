@@ -151,6 +151,11 @@ in
               url = "https://darkkronicle.com/";
             }
             {
+              name = "gartbin";
+              tags = [ "Tools" ];
+              url = "https://bin.gart.sh";
+            }
+            {
               name = "RegexCheatSheet - DaveChild";
               tags = [
                 "Reference"

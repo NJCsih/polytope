@@ -7,12 +7,12 @@
 }:
 
 let
-  # inherit (lib.polytope) enabled;
 in
+# inherit (lib.polytope) enabled;
 {
   imports = [
     # Include the results of the hardware scan.
-      ./hardware-configuration.nix
+    ./hardware-configuration.nix
     # ./hardware.nix
   ];
 
@@ -49,9 +49,6 @@ in
 
   boot.loader.systemd-boot.enable = true;
 
-
-
-
   # Zen is for desktop computing, so lower latency? I'm not gonna touch it
   boot.kernelPackages = pkgs.linuxPackages_zen;
 
@@ -71,8 +68,8 @@ in
   # Wallpapers TODO: Redo the whole wallpaper thing, they should probably be defined per-user
   environment.pathsToLink = [ "/share/wallpapers" ];
 
-    # Enable the X11 windowing system.
-    services.xserver.enable = true;
+  # Enable the X11 windowing system.
+  services.xserver.enable = true;
 
   # User Stuff ------------------------------------------------------------------------------------
 
@@ -102,8 +99,9 @@ in
   # polytope.tools.kanata.enable = true;
 
   # Systemwide Packages ---------------------------------------------------------------------------
-  environment.systemPackages =
-    (with pkgs; [
+  environment.systemPackages = (
+    with pkgs;
+    [
 
       # Apps
       firefox
@@ -151,7 +149,8 @@ in
       wget
       wl-clipboard
 
-    ]);
+    ]
+  );
   # ])
   # ++ ([
   #   (inputs.nazarick.packages.x86_64-linux.system-wallpapers.override {
