@@ -19,7 +19,7 @@
   home.file.".config/rofi/catppuccin.rasi" = {
     text = builtins.readFile ./rofi-catppuccin.rasi;
   };
- 
+
   # Set wpaperd config
   home.file.".config/wpaperd/config.toml" = {
     text = builtins.readFile ./wpaperd-config.toml;

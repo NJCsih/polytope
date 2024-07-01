@@ -109,13 +109,14 @@ in
       gparted
       keepassxc
       kitty
-      neovim
-      zls
-      stylua
       lua-language-server
+      neovim
       networkmanager
+      nix-tree
+      stylua
       syncthing
       yazi
+      zls
 
       # Utils
       bandwhich
@@ -147,11 +148,6 @@ in
         wallpapers = ./wallpapers.yml;
       })
     ]);
-
-
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-
 
   # Specilizations for different display-managers -------------------------------------------------
   #   We'd technically want to just have different lemurs entries, but because plasma does too much
