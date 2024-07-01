@@ -15,7 +15,6 @@ in
     ./hardware.nix
   ];
 
-
   # NixOS Stuff -----------------------------------------------------------------------------------
 
   # Enable experimental features
@@ -36,13 +35,13 @@ in
   # TODO: What is this?
   #nix.package = inputs.lix-module.packages.x86_64-linux.default;
 
-
   # System Stuff ----------------------------------------------------------------------------------
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true; # "I have it enabled tho I don't remember quite
-                                               # exactly what it does" - DarkKronicle
+  boot.loader.efi.canTouchEfiVariables = true;
+  # [Re efi canTouchEfiVariables] "I have it enabled tho I don't remember quite
+  # exactly what it does" - DarkKronicle -- I'm trusting them
 
   # Zen is for desktop computing, so lower latency? I'm not gonna touch it
   boot.kernelPackages = pkgs.linuxPackages_zen;
@@ -60,6 +59,8 @@ in
   # Wallpapers TODO: Redo the whole wallpaper thing, they should probably be defined per-user
   environment.pathsToLink = [ "/share/wallpapers" ];
 
+  # Enable the X11 windowing system.
+  services.xserver.enable = true;
 
   # User Stuff ------------------------------------------------------------------------------------
 
@@ -68,7 +69,11 @@ in
   # Define my user
   users.users.juliet = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" "seat" ]; # What is seat for? Lemurs?
+    extraGroups = [
+      "wheel"
+      "networkmanager"
+      "seat"
+    ]; # What is seat for? Lemurs? Vbox?
     initialPassword = "password";
     shell = pkgs.nushell;
   };
@@ -83,7 +88,6 @@ in
   # Use custom fonts
   polytope = {
     desktop = {
-
       fonts = enabled;
     };
   };
@@ -91,9 +95,8 @@ in
   # enable kanata systemwide -- TODO: maybe make this a user thing?
   polytope.tools.kanata.enable = true;
 
-
   # Systemwide Packages ---------------------------------------------------------------------------
-  environment.systemPackages = #TODO: Group these properly
+  environment.systemPackages =
     (with pkgs; [
 
       # Apps
@@ -119,9 +122,9 @@ in
       keepassxc
       kitty
       neovim
-        zls
-        stylua
-        lua-language-server
+      zls
+      stylua
+      lua-language-server
       networkmanager
       syncthing
       yazi
@@ -137,24 +140,17 @@ in
       kanata
       libqalculate
       nixfmt-rfc-style
-      nvtop
+      nvtopPackages.full
       pipes-rs
       polytope.poly
       pueue
       ripgrep
       tealdeer
       tomb
-        gnupg
-        pinentry
+      gnupg # tomb dep
+      pinentry # tomb dep
       wget
       wl-clipboard
-
-      # System # TODO: Move to being only included by home-manager not here so they can be
-      lemurs   # uninstalled if not needed for a setup
-      picom
-      swayfx   # I think the thing I'm trying to do in home-manager is what specilizations are fo
-      wayland
-      wpaperd
 
     ])
     ++ ([
@@ -164,6 +160,48 @@ in
         wallpapers = ./wallpapers.yml;
       })
     ]);
+
+  # Specilizations for different display-managers -------------------------------------------------
+  #   We'd technically want to just have different lemurs entries, but because plasma does too much
+  #     I wanted to have the ability to enable/disable different programs completely from nix
+  specialisation = {
+
+    # Sway/Swayfx
+    swayfx.configuration = {
+      # Lemurs boot entry for sway
+      # Sway should handle everything else, and home-manager handles it's (and other's) configs
+      environment.etc."lemurs/wayland/Sway.sh".source = pkgs.writeTextFile {
+        name = "lemursSwayEntry";
+        text = ''
+          #! /bin/sh
+          exec sway --unsupported-gpu
+        '';
+        executable = true;
+      };
+
+      # Install sway specific stuff
+      environment.systemPackages = (
+        with pkgs;
+        [
+          swayfx
+          lemurs
+          wayland
+          wpaperd
+          # Enable lemurs here so it handles the greeter
+          # Will need to edit that startup systemd task here
+        ]
+      );
+    };
+
+    # Plasma 6
+    plasma6.configuration = {
+
+      # Enable plasma6
+      services.displayManager.sddm.enable = true;
+      services.desktopManager.plasma6.enable = true;
+
+    };
+  };
 
   system.stateVersion = "24.05"; # Don't touch
 }

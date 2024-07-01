@@ -7,12 +7,13 @@
 }:
 
 let
-  inherit (lib.polytope) enabled;
+  # inherit (lib.polytope) enabled;
 in
 {
   imports = [
     # Include the results of the hardware scan.
-    ./hardware.nix
+      ./hardware-configuration.nix
+    # ./hardware.nix
   ];
 
   # NixOS Stuff -----------------------------------------------------------------------------------
@@ -27,7 +28,7 @@ in
   nixpkgs.config.allowUnfree = true;
 
   # Enable global settings in :
-  polytope.system.nix.enable = true;
+  #polytope.system.nix.enable = true;
 
   # Enable sound.
   hardware.pulseaudio.enable = true;
@@ -35,10 +36,21 @@ in
   # System Stuff ----------------------------------------------------------------------------------
 
   # Use the systemd-boot EFI boot loader.
-  boot.loader.systemd-boot.enable = true;
+  #boot.loader.grub.enable = true;
+  #boot.loader.grub.efiSupport = true;
   boot.loader.efi.canTouchEfiVariables = true;
   # [Re efi canTouchEfiVariables] "I have it enabled tho I don't remember quite
   # exactly what it does" - DarkKronicle -- I'm trusting them
+  #boot.loader.grub.device = "/dev/disk/by-uuid/F75B-4E87"; # or "nodev" for efi only
+  #boot.loader.grub.useOSProber = true;
+  # boot.loader.grub.efiInstallAsRemovable = true;
+  # boot.loader.efi.efiSysMountPoint = "/boot/efi";
+  # Define on which hard drive you want to install Grub.
+
+  boot.loader.systemd-boot.enable = true;
+
+
+
 
   # Zen is for desktop computing, so lower latency? I'm not gonna touch it
   boot.kernelPackages = pkgs.linuxPackages_zen;
@@ -59,8 +71,8 @@ in
   # Wallpapers TODO: Redo the whole wallpaper thing, they should probably be defined per-user
   environment.pathsToLink = [ "/share/wallpapers" ];
 
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
+    # Enable the X11 windowing system.
+    services.xserver.enable = true;
 
   # User Stuff ------------------------------------------------------------------------------------
 
@@ -80,14 +92,14 @@ in
   # Customization Stuff ----------------------------------------------------------------------------
 
   # Use custom fonts
-  polytope = {
-    desktop = {
-      fonts = enabled;
-    };
-  };
+  # polytope = {
+  #   desktop = {
+  #     fonts = enabled;
+  #   };
+  # };
 
   # enable kanata systemwide -- TODO: maybe make this a user thing?
-  polytope.tools.kanata.enable = true;
+  # polytope.tools.kanata.enable = true;
 
   # Systemwide Packages ---------------------------------------------------------------------------
   environment.systemPackages =
@@ -130,7 +142,7 @@ in
       nixfmt-rfc-style
       nvtopPackages.full
       pipes-rs
-      polytope.poly
+      # polytope.poly
       ripgrep
       tealdeer
       tomb
@@ -139,19 +151,15 @@ in
       wget
       wl-clipboard
 
-    ])
-    ++ ([
-      (inputs.nazarick.packages.x86_64-linux.system-wallpapers.override {
-        # Todo: make this managed on a per-user basis not per-system
-        #wallpapers = ../../../modules/nixos/desktop/wallpapers/wallpapers.yml;
-        wallpapers = ./wallpapers.yml;
-      })
     ]);
-
-
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-
+  # ])
+  # ++ ([
+  #   (inputs.nazarick.packages.x86_64-linux.system-wallpapers.override {
+  #     # Todo: make this managed on a per-user basis not per-system
+  #     #wallpapers = ../../../modules/nixos/desktop/wallpapers/wallpapers.yml;
+  #     wallpapers = ./wallpapers.yml;
+  #   })
+  # ]);
 
   # Specilizations for different display-managers -------------------------------------------------
   #   We'd technically want to just have different lemurs entries, but because plasma does too much
