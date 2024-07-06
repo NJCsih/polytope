@@ -109,7 +109,8 @@ in
       pfetch
       qmk
       rofi
-      #steam
+      snes9x
+      steam
       virtualbox
 
       # School stuff
@@ -122,13 +123,14 @@ in
       gparted
       keepassxc
       kitty
-      neovim
-      zls
-      stylua
+      kmix
       lua-language-server
+      neovim
       networkmanager
+      stylua
       syncthing
       yazi
+      zls
 
       # Utils
       acpi
@@ -138,7 +140,9 @@ in
       compsize # for showing size on disk of a file
       dust
       htop
+      iotop
       kanata
+      kdePackages.dolphin
       libqalculate
       nixfmt-rfc-style
       nvtopPackages.full

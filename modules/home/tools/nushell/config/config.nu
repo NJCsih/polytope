@@ -874,6 +874,7 @@ def cl [] { clear; pfetch }
 def ysch [] { cd ~/school/_TWTF-CS2420/; yazi }
 def yply [] { cd ~/polytope/; yazi }
 def ynvrc [] { cd ~/.config/nvim; yazi }
+def ydcs [] { cd ~/Documents/; yazi }
 
 
 
