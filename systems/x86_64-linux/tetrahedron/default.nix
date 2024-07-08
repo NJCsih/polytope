@@ -117,18 +117,22 @@ in
       jetbrains.idea-community
 
       # Tools
+      audacity
       borgbackup
       gimp
       git
       gparted
+      grim
       keepassxc
       kitty
       kmix
       lua-language-server
       neovim
       networkmanager
+      slurp
       stylua
       syncthing
+      vlc
       yazi
       zls
 
@@ -156,6 +160,13 @@ in
       pinentry # tomb dep
       wget
       wl-clipboard
+
+      # myPackages
+      #packages.system-wallpapers.override {
+      #polytope.wallpapers.override {
+      #     polytope.wallpapers
+      #wappapers = ./wallpapers.yml;
+      #}
 
     ])
     ++ ([

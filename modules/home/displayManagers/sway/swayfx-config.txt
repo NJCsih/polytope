@@ -63,6 +63,8 @@ bindsym $mod+Return exec "kitty"
 
 # take screenshot with ksnip and move it to ~/Pictures/Screenshots
 #bindsym $mod+Shift+p exec $HOME/.config/i3/takeScreenshot.sh
+bindsym $mod+p exec grim -g "$(slurp)" - | wl-copy
+
 
 # adjust brightness -- req chmod of brightness file
 #bindsym XF86MonBrightnessUp exec "xbacklight -inc 25"
@@ -110,9 +112,9 @@ exec pueue start -g swayKeepassShenanagains
 # bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
 
 # class                 border  bground text    indicator child_border
-client.focused          #458588 #458588 #FFFFFF #689D6A   #458588
+client.focused          #83a598 #458588 #FFFFFF #689D6A   #458588
 client.focused_inactive #83a598 #83a598 #FFFFFF #458588   #5F676A00
-client.unfocused        #458588 #83a598 #FFFFFF #292D2E   #2222f200
+client.unfocused        #83a598 #83a598 #FFFFFF #292D2E   #2222f200
 client.urgent           #FB4934 #CC241D #FFFFFF #CC241D   #CC241D
 client.placeholder      #000000 #0C0C0C #FFFFFF #000000   #0C0C0C
 
@@ -128,10 +130,8 @@ gaps inner 4
 gaps outer -5
 smart_gaps on
 smart_borders on
-#gaps outer current plus 5
-#gaps horizontal current plus 40
-#gaps outer current toggle 60
 
+# controll ---------------------------------------------------------------------
 # change focus
 bindsym $mod+h focus left
 bindsym $mod+j focus down
@@ -145,13 +145,14 @@ bindsym $mod+Shift+k move up 15 px
 bindsym $mod+Shift+l move right 15 px
 
 # split in horizontal orientation
-#bindsym $mod+h split n
+bindsym $mod+s split n
+bindsym $mod+Shift+s split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
+bindsym $mod+q layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
