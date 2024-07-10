@@ -868,6 +868,7 @@ $env.config = {
 # My aliases:
 alias ll = ls -a
 alias lsblk = lsblk -f
+alias cat = bat
 def cl [] { clear; pfetch }
 
 # Remaps to open yazi at comvenient locations
