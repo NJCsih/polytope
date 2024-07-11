@@ -115,6 +115,7 @@ in
 
       # School stuff
       jetbrains.idea-community
+      openjdk
 
       # Tools
       audacity

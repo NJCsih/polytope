@@ -868,6 +868,7 @@ $env.config = {
 # My aliases:
 alias ll = ls -a
 alias lsblk = lsblk -f
+alias z = systemd-inhibit sleep infinity
 def cl [] { clear; pfetch }
 
 # Remaps to open yazi at comvenient locations
@@ -876,7 +877,8 @@ def yply [] { cd ~/polytope/; yazi }
 def ynvrc [] { cd ~/.config/nvim; yazi }
 def ydcs [] { cd ~/Documents/; yazi }
 
-
+# Open nil editor, this has to use cd because of the direnv stuff
+def nil [] { cd ~/Documents/nil/; SHELL=bash zk edit --interactive }
 
 # Open htop on open because I'm annoying
 def run_fetch [] { clear; pfetch }

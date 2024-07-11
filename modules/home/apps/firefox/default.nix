@@ -104,6 +104,11 @@ in
               install_url = "https://addons.mozilla.org/firefox/downloads/latest/dearrow/latest.xpi";
               installation_mode = "normal_installed";
             };
+            # YT auto full hd
+            #"jump-cutter@example.com.xpi" = {
+            #  install_url = "https://addons.mozilla.org/firefox/downloads/file/4285305/youtube_auto_hd_fps-1.8.25.xpi";
+            #  installation_mode = "normal_installed";
+            #};
           };
         };
       };
@@ -216,6 +221,11 @@ in
               name = "Sort Visualizer";
               tags = [ "Reference" ];
               url = "https://www.sortvisualizer.com";
+            }
+            {
+              name = "OEIS";
+              tags = [ "Reference" ];
+              url = "https://oeis.org/A000040";
             }
           ];
 

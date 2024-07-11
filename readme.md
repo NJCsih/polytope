@@ -7,11 +7,17 @@ They've since moved to a fully custom structure without snowfall, but I'd still 
 
 Todo:
 ```neorg
+- lix on stable branch for less recompiles
+
 - (-) Switch to sway. Plasma has been completely servicable, like no complaints, but I want my i3 workflow back :p
+-- Literally just like steal the xdg portal stuff Kronicle wrote, and that'll be like it for a full switch
+-- Or at the very least murder kwallet
+-- I guess volume? But I always use my dac anyway. Would be nice if the buttons worked though I guess
+
 -- Mostly working, I'm there 98% of the time, just missing a few things from plama to make it feel fully featured
 --- ( ) Volume controll -- Yes I can `nix shell nixpkgs#kmix` but that sucks
 --- ( ) Big one: no login manager. I want to use a cool rewrite of ly called lemurs, I've been trying to get that setup, there's just some issues with the custom systemd service I need to finish
---- ( ) Screenshot program. -- Sway's not as complete, especially as far as stuff like xdg options are concerned, so many things wont be able to see an open display.
+--- (x) Screenshot program. -- Sway's not as complete, especially as far as stuff like xdg options are concerned, so many things wont be able to see an open display.
 --- (x) I'm back in my rofi config, how that currently works has the feel I want the whole system to eventually
 - (-) hardware config -- apparnetly there's a repo for a bunch of different laptops I can steal from
 -- Nearly done with hardware stuff, Nvidia drivers work on tetrahedron, havent bothered yet on hex. -- Need to get a better workflow setup with the nvidia-offload script and stuff, I want to just whitelist a few programs not have to specify at launch-time
@@ -26,8 +32,9 @@ Todo:
 -- (x) add default bookmarks for things I'll want everywhere, my github, the davechild regex cheat sheet, etc
 -- ( ) Setup custom css
 -- ( ) Setup tridactly
--- ( ) jump cutter
 -- ( ) vencord plugin
+-- (x) jump cutter
+-- (x) yt auto hd
 - (x) gpu: drivers and config, maybe make a powersave profile
 -- Still need to to powersave config, but drivers are doing good
 - (x) git
