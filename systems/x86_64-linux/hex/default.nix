@@ -43,6 +43,10 @@ in
   # Zen is for desktop computing, so lower latency? I'm not gonna touch it
   boot.kernelPackages = pkgs.linuxPackages_zen;
 
+  environment.sessionVariables = rec {
+    WLR_NO_HARDWARE_CURSORS = "1";
+  };
+
   # Enable CUPS to print documents.
   # services.printing.enable = true;
 
@@ -115,6 +119,7 @@ in
       nix-tree
       stylua
       syncthing
+      wireshark
       yazi
       zls
 
@@ -124,6 +129,7 @@ in
       bottom
       compsize # for showing size on disk of a file
       dust
+      gparted
       htop
       iotop
       kanata
