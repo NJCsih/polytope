@@ -13,6 +13,11 @@
   #   enable = true;
   #   execCmd = lib.mkForce "exec /run/current-system/sw/bin/lemurs";
   # };
+  #services.displayManager = {
+  #  enable = true;
+  #  execCmd = "${pkgs.lemurs}/bin/lemurs --no-log";
+  #};
+
   # Config file
   environment.etc."lemurs/config.toml".source = pkgs.writeTextFile {
     name = "lemursConfig";

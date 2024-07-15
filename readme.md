@@ -46,3 +46,12 @@ Todo:
 -- (x) Setup all my extentions -- I dont want to have to use nur just for this
 --- Making progress, need to add either the NUR, or that one package. My structure is different enough finding good docs has been hard. -- I dont really want nur just for this?
 ```
+
+Notes:
+```neorg
+- Make a java link within an intelij project:
+-- @code bash
+   nix-build '<nixpkgs>' -A jdk -o jdk
+   @end
+
+```

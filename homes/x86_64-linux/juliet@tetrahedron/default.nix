@@ -22,5 +22,11 @@
       yazi.enable = true;
       tealdeer.enable = true;
     };
+    #displayManagers = {
+    #  plasma = {
+    #    enable = true;
+    #    noBorders = true;
+    #  };
+    #};
   };
 }

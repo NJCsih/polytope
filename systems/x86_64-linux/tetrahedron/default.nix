@@ -187,13 +187,22 @@ in
     swayfx.configuration = {
       # Lemurs boot entry for sway
       # Sway should handle everything else, and home-manager handles it's (and other's) configs
-      environment.etc."lemurs/wayland/Sway.sh".source = pkgs.writeTextFile {
-        name = "lemursSwayEntry";
-        text = ''
-          #! /bin/sh
-          exec sway --unsupported-gpu
-        '';
-        executable = true;
+      #environment.etc."lemurs/wayland/Sway.sh".source = pkgs.writeTextFile {
+      #  name = "lemursSwayEntry";
+      #  text = ''
+      #    #! /bin/sh
+      #    exec sway --unsupported-gpu
+      #  '';
+      #  executable = true;
+      #};
+
+      services.greetd = {
+        enable = true;
+        settings = {
+          default_session = {
+            command = "${pkgs.sway}/bin/sway --unsupported-gpu -c /home/juliet/.config/swayfx/config";
+          };
+        };
       };
 
       # Install sway specific stuff
@@ -201,7 +210,6 @@ in
         with pkgs;
         [
           swayfx
-          lemurs
           wayland
           wpaperd
           # Enable lemurs here so it handles the greeter
@@ -214,8 +222,15 @@ in
     plasma6.configuration = {
 
       # Enable plasma6
-      services.displayManager.sddm.enable = true;
       services.desktopManager.plasma6.enable = true;
+      services.greetd = {
+        enable = true;
+        settings = {
+          default_session = {
+            command = "${pkgs.sway}/bin/sway --config ~/.config/swayfx/config --unsupported-gpu";
+          };
+        };
+      };
 
     };
   };
