@@ -102,3 +102,20 @@
     sha256: a873f7e147b929361898ac1ad5d78baa0246ae9415d7c1fc9258033997ccdfc2
   tags:
   - furry
+
+# https://e621.net/posts/2075665
+- src:
+    url: https://static1.e926.net/data/03/3c/033c88b941a220d9e77c2aaf3924d448.png
+    name: 2075665-Kanizo01.png
+    sha256: b0fe0364f625296558bbdc57bc9045597eb8a48d5f6da48bd32f096775076b3e
+  tags:
+  - furry
+
+# https://e621.net/posts/4627128
+- src:
+    url: https://static1.e621.net/data/a9/bb/a9bb2ab03e0f272134d231a0fdcbf9e0.jpg
+    name: 4627128-LawyerDog01.png
+    sha256: b4e288c504b05ce9c2dc16b6e90f4aa67604770281d23d1f3dcb8f6368cafe5e
+  tags:
+  - furry
+  - overtly_furry
