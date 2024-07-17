@@ -18,10 +18,10 @@ Todo:
 -- auto wifi connection on sway
 -- xdg portal
 -- Fix firefox for crucial websites and some canvas page issues
--- Update firefox lockdown settings for FF128
 -- Firefox custom css
 -- Firefox tridactyl
 -- Firefox vencord
+-- (x) Update firefox lockdown settings for FF128
 
 - (x) Switch to sway. Plasma has been completely servicable, like no complaints, but I want my i3 workflow back :p
 -- Literally just like steal the xdg portal stuff Kronicle wrote, and that'll be like it for a full switch
