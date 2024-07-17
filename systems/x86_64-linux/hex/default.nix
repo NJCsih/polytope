@@ -111,14 +111,18 @@ in
       gimp
       git
       gparted
+      grim
       keepassxc
       kitty
+      kmix
       lua-language-server
       neovim
       networkmanager
       nix-tree
+      slurp
       stylua
       syncthing
+      vlc
       wireshark
       yazi
       zls
@@ -133,7 +137,6 @@ in
       htop
       iotop
       kanata
-      keepassxc
       libqalculate
       nixfmt-rfc-style
       nvtopPackages.full
@@ -163,15 +166,16 @@ in
 
     # Sway/Swayfx
     swayfx.configuration = {
-      # Lemurs boot entry for sway
-      # Sway should handle everything else, and home-manager handles it's (and other's) configs
-      environment.etc."lemurs/wayland/Sway.sh".source = pkgs.writeTextFile {
-        name = "lemursSwayEntry";
-        text = ''
-          #! /bin/sh
-          exec sway --unsupported-gpu
-        '';
-        executable = true;
+
+      # Login manager:
+      services.greetd = {
+        enable = true;
+        settings = {
+          default_session = {
+            command = "${pkgs.greetd.tuigreet}/bin/tuigreet --remember --time --cmd '${pkgs.sway}/bin/sway --unsupported-gpu -c ~/.config/swayfx/config'";
+            user = "greeter";
+          };
+        };
       };
 
       # Install sway specific stuff
@@ -179,11 +183,8 @@ in
         with pkgs;
         [
           swayfx
-          lemurs
           wayland
           wpaperd
-          # Enable lemurs here so it handles the greeter
-          # Will need to edit that startup systemd task here
         ]
       );
     };
@@ -192,7 +193,6 @@ in
     plasma6.configuration = {
 
       # Enable plasma6
-      services.displayManager.sddm.enable = true;
       services.desktopManager.plasma6.enable = true;
 
     };

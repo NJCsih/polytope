@@ -1,5 +1,26 @@
 {
   "nodes": {
+    "ags": {
+      "inputs": {
+        "nixpkgs": [
+          "nazarick",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1721074762,
+        "narHash": "sha256-RhqFBMLh6G5vAo7Jz9mdsworI50E4FAAg7rPho4CNfY=",
+        "owner": "Aylur",
+        "repo": "ags",
+        "rev": "8194f0c9546a150525a2022c17aed51df1464b80",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Aylur",
+        "repo": "ags",
+        "type": "github"
+      }
+    },
     "blocklist": {
       "flake": false,
       "locked": {
@@ -367,11 +388,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1720734513,
-        "narHash": "sha256-neWQ8eNtLTd+YMesb7WjKl1SVCbDyCm46LUgP/g/hdo=",
+        "lastModified": 1721135958,
+        "narHash": "sha256-H548rpPMsn25LDKn1PCFmPxmWlClJJGnvdzImHkqjuY=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "90ae324e2c56af10f20549ab72014804a3064c7f",
+        "rev": "afd2021bedff2de92dfce0e257a3d03ae65c603d",
         "type": "github"
       },
       "original": {
@@ -532,6 +553,7 @@
     },
     "nazarick": {
       "inputs": {
+        "ags": "ags",
         "blocklist": "blocklist",
         "faerber": "faerber",
         "fenix": "fenix",
@@ -556,11 +578,11 @@
         "waveforms": "waveforms"
       },
       "locked": {
-        "lastModified": 1721054435,
-        "narHash": "sha256-sS7hQlltX4/Pm3IM2iKcNZq5Oq9K2TsaaTLC4EMlBI4=",
+        "lastModified": 1721170380,
+        "narHash": "sha256-3tgk0q7FqOI/lpT6IMUxzlDDXgKW0Q5C1S31I7KKpFg=",
         "owner": "DarkKronicle",
         "repo": "nazarick",
-        "rev": "d76d653e43b905c6f445453776ae60a1ea69d37f",
+        "rev": "b32e74623ae8581976447906775611a3990688ac",
         "type": "github"
       },
       "original": {

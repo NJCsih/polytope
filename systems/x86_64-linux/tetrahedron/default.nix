@@ -134,6 +134,7 @@ in
       stylua
       syncthing
       vlc
+      wireshark
       yazi
       zls
 
@@ -186,24 +187,12 @@ in
     # Sway/Swayfx
     swayfx.configuration = {
 
-      # services.greetd = {
-      #   enable = true;
-      #   settings = {
-      #     #default_session = {
-      #     #  command = "${pkgs.sway}/bin/sway --unsupported-gpu -c /home/juliet/.config/swayfx/config";
-      #     #};
-      #     default_session = {
-      #       #command = "${pkgs.greetd.greetd}/bin/agreety --cmd sway";
-      #       command = "${pkgs.sway}/bin/sway --unsupported-gpu -c /home/juliet/.config/swayfx/config";
-      #     };
-      #   };
-      # };
-
+      # Login manager:
       services.greetd = {
         enable = true;
         settings = {
           default_session = {
-            command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd '${pkgs.sway}/bin/sway --unsupported-gpu -c ~/.config/swayfx/config'";
+            command = "${pkgs.greetd.tuigreet}/bin/tuigreet --remember --time --cmd '${pkgs.sway}/bin/sway --unsupported-gpu -c ~/.config/swayfx/config'";
             user = "greeter";
           };
         };
@@ -214,7 +203,6 @@ in
         with pkgs;
         [
           swayfx
-          #greetd
           wayland
           wpaperd
         ]
