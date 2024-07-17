@@ -5,11 +5,25 @@ The majority of my config, it's structure and many of the options, were based of
 
 They've since moved to a fully custom structure without snowfall, but I'd still reccomend checking out their config. They do a lot of really neat stuff.
 
+
+THE GREETER WORKS WOO
+
 Todo:
 ```neorg
 - lix on stable branch for less recompiles
 
-- (-) Switch to sway. Plasma has been completely servicable, like no complaints, but I want my i3 workflow back :p
+- Still need to do:
+-- volume controll via keybinds
+-- power menu
+-- auto wifi connection on sway
+-- xdg portal
+-- Fix firefox for crucial websites and some canvas page issues
+-- Update firefox lockdown settings for FF128
+-- Firefox custom css
+-- Firefox tridactyl
+-- Firefox vencord
+
+- (x) Switch to sway. Plasma has been completely servicable, like no complaints, but I want my i3 workflow back :p
 -- Literally just like steal the xdg portal stuff Kronicle wrote, and that'll be like it for a full switch
 -- Or at the very least murder kwallet
 -- I guess volume? But I always use my dac anyway. Would be nice if the buttons worked though I guess
@@ -23,11 +37,13 @@ Todo:
 -- Nearly done with hardware stuff, Nvidia drivers work on tetrahedron, havent bothered yet on hex. -- Need to get a better workflow setup with the nvidia-offload script and stuff, I want to just whitelist a few programs not have to specify at launch-time
 -- Most of it's done as far as swap and stuff is concerned, really just the nvidia tweaks above, and 
 -- oh and hex needs drivers too. Maybe I'll do that now
+
 - ( ) nvim
 -- I manually installed the lua TS parser? I want that to be done via nix? Or is that okay?
---- Same with java
+--- Same with java -- I think I may not nix my nvimrc? That may be sacrelig, but I need it to be able to drag and drop into a non-HM/Nixos system.
 -- I need to port to nix, currently just threw my config into ~/.config/nvim
 -- I'm thinking nixCats, I want to stick with lazy, but have nix handle the parsers. -- some cool effects from doing it that way
+
 - (x) firefox
 -- (x) add default bookmarks for things I'll want everywhere, my github, the davechild regex cheat sheet, etc
 -- ( ) Setup custom css
