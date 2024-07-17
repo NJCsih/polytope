@@ -878,6 +878,8 @@ def yply [] { cd ~/polytope/; yazi }
 def ynvrc [] { cd ~/.config/nvim; yazi }
 def ydcs [] { cd ~/Documents/; yazi }
 
+def clipshrug [] { echo "¯\\(ツ)/¯" | wl-copy }
+
 # Open nil editor, this has to use cd because of the direnv stuff
 def nil [] { cd ~/Documents/nil/; SHELL=bash zk edit --interactive } # Still has issues currently
 
