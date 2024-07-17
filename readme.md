@@ -6,8 +6,6 @@ The majority of my config, it's structure and many of the options, were based of
 They've since moved to a fully custom structure without snowfall, but I'd still reccomend checking out their config. They do a lot of really neat stuff.
 
 
-THE GREETER WORKS WOO
-
 Todo:
 ```neorg
 - lix on stable branch for less recompiles
@@ -21,6 +19,8 @@ Todo:
 -- Firefox custom css
 -- Firefox tridactyl
 -- Firefox vencord
+-- steal Kronicle's dns stuff
+-- Switch to the kanata+sway paradigm Kronicle's a madlad for writing
 -- (x) Update firefox lockdown settings for FF128
 
 - (x) Switch to sway. Plasma has been completely servicable, like no complaints, but I want my i3 workflow back :p

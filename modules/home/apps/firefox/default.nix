@@ -105,7 +105,7 @@ in
               installation_mode = "normal_installed";
             };
             # YT auto full hd
-            #"jump-cutter@example.com.xpi" = {
+            #"why it no have a thing I can find for here" = {
             #  install_url = "https://addons.mozilla.org/firefox/downloads/file/4285305/youtube_auto_hd_fps-1.8.25.xpi";
             #  installation_mode = "normal_installed";
             #};
@@ -249,6 +249,7 @@ in
             "browser.newtabpage.activity-stream.feeds.section.topstories" = false;
             "browser.shell.checkDefaultBrowser" = false;
             "browser.shell.skipDefaultBrowserCheckOnFirstRun" = true;
+            "dom.private-attribution.submission.enabled" = false; # New firefox 128 'privacy respecting attribution"
 
             # Arkenfox: stolen from nazarick config:
             # https://github.com/DarkKronicle/nazarick/blob/main/modules/home/apps/firefox/default.nix

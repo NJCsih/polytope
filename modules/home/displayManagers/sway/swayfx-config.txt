@@ -90,15 +90,15 @@ bindsym $mod+Shift+d exec --no-startup-id "rofi -show run"
 # TODO: Good luck I guess :p
 # Start keepassxc in the void, and connect to wifi
 # This is super scuffed I'm sorry
-exec pueue group add -p 2 swayKeepassShenanagains
-exec pueue pause -g swayKeepassShenanagains
-exec pueue add -p 6 -g swayKeepassShenanagains swaymsg "workspace 11"
-exec pueue add -p 5 -g swayKeepassShenanagains ${pkgs.keepassxc}/bin/keepassxc /home/juliet/Keyring-Tetrahedron.kdbx --keyfile /home/juliet/Keyring-Tetrahedron.key
-exec pueue add -p 4 -g swayKeepassShenanagains ${pkgs.bash}/bin/bash sleep 1
-exec pueue add -p 3 -g swayKeepassShenanagains ${pkgs.nm-applet}/bin/nm-applet
-exec pueue add -p 2 -g swayKeepassShenanagains ${pkgs.bash}/bin/bash sleep 1
-exec pueue add -p 1 -g swayKeepassShenanagains swaymsg "workspace 1"
-exec pueue start -g swayKeepassShenanagains
+#exec pueue group add -p 2 swayKeepassShenanagains
+#exec pueue pause -g swayKeepassShenanagains
+#exec pueue add -p 6 -g swayKeepassShenanagains swaymsg "workspace 11"
+#exec pueue add -p 5 -g swayKeepassShenanagains ${pkgs.keepassxc}/bin/keepassxc /home/juliet/Keyring-Tetrahedron.kdbx --keyfile /home/juliet/Keyring-Tetrahedron.key
+#exec pueue add -p 4 -g swayKeepassShenanagains ${pkgs.bash}/bin/bash sleep 1
+#exec pueue add -p 3 -g swayKeepassShenanagains ${pkgs.nm-applet}/bin/nm-applet
+#exec pueue add -p 2 -g swayKeepassShenanagains ${pkgs.bash}/bin/bash sleep 1
+#exec pueue add -p 1 -g swayKeepassShenanagains swaymsg "workspace 1"
+#exec pueue start -g swayKeepassShenanagains
 
 # Launch clipcat in rofi, like with win+v on windows :p
 # Clipcat is started by systemd
