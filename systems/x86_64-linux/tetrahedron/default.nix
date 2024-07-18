@@ -62,6 +62,9 @@ in
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
+  # Set for Kanata/the sway keybind system
+  hardware.uinput.enable = true;
+
   # User Stuff ------------------------------------------------------------------------------------
 
   networking.hostName = "tetrahedron"; # Define your hostname.
@@ -72,6 +75,8 @@ in
     extraGroups = [
       "wheel"
       "networkmanager"
+      "uinput" # for kanata
+      "input" # for kanata
       "seat"
     ]; # What is seat for? Lemurs? Vbox?
     initialPassword = "password";
@@ -91,9 +96,6 @@ in
       fonts = enabled;
     };
   };
-
-  # enable kanata systemwide -- TODO: maybe make this a user thing?
-  polytope.tools.kanata.enable = true;
 
   # Systemwide Packages ---------------------------------------------------------------------------
   environment.systemPackages =
@@ -147,7 +149,7 @@ in
       dust
       htop
       iotop
-      kanata
+      polytope.kanata # They maintain latest as a nix pkg
       kdePackages.dolphin
       libqalculate
       nixfmt-rfc-style
@@ -192,7 +194,8 @@ in
         enable = true;
         settings = {
           default_session = {
-            command = "${pkgs.greetd.tuigreet}/bin/tuigreet --remember --time --cmd '${pkgs.sway}/bin/sway --unsupported-gpu -c ~/.config/swayfx/config'";
+            # command = "${pkgs.greetd.tuigreet}/bin/tuigreet --remember --time --cmd '${pkgs.sway}/bin/sway --unsupported-gpu -c ~/.config/swayfx/config'";
+            command = "${pkgs.greetd.tuigreet}/bin/tuigreet --remember --time --cmd '${pkgs.sway}/bin/sway --unsupported-gpu'";
             user = "greeter";
           };
         };

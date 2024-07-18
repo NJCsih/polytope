@@ -90,9 +90,6 @@ in
     };
   };
 
-  # enable kanata systemwide -- TODO: maybe make this a user thing?
-  polytope.tools.kanata.enable = true;
-
   # Systemwide Packages ---------------------------------------------------------------------------
   environment.systemPackages =
     (with pkgs; [

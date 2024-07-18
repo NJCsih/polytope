@@ -5,15 +5,18 @@ The majority of my config, it's structure and many of the options, were based of
 
 They've since moved to a fully custom structure without snowfall, but I'd still reccomend checking out their config. They do a lot of really neat stuff.
 
+Fix the sway config, have it with some home manager stuff, then load the file as extraconfig. Dont need to send -c to ~/.conf then
+
 
 Todo:
 ```neorg
 - lix on stable branch for less recompiles
 
 - Still need to do:
+-- auto wifi connection on sway
+--- Maybe gnome keyring isnt a bad idea
 -- volume controll via keybinds
 -- power menu
--- auto wifi connection on sway
 -- xdg portal
 -- Fix firefox for crucial websites and some canvas page issues
 -- Firefox custom css

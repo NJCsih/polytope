@@ -21,7 +21,9 @@
       nushell.enable = true;
       yazi.enable = true;
       tealdeer.enable = true;
+      kanata.enable = true;
     };
+
     #displayManagers = {
     #  plasma = {
     #    enable = true;
