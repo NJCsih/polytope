@@ -113,6 +113,8 @@ in
       rofi
       snes9x
       steam
+      protonup # steam dep -- not technically but like, it's for steam
+      gamemode
       virtualbox
 
       # School stuff

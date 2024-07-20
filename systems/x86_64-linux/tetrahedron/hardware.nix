@@ -125,8 +125,9 @@
       nvidiaBusId = "PCI:1:0:0";
 
       offload = {
-        enable = true;
-        enableOffloadCmd = true;
+        # I'm gonna try without offloading
+        enable = false;
+        enableOffloadCmd = false;
       };
     };
   };
