@@ -66,6 +66,9 @@ in
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
+  # Set for Kanata/the sway keybind system
+  hardware.uinput.enable = true;
+
   # User Stuff ------------------------------------------------------------------------------------
 
   networking.hostName = "hex"; # Define your hostname.
@@ -76,7 +79,12 @@ in
     extraGroups = [
       "wheel"
       "networkmanager"
-    ];
+      "uinput" # for kanata
+      "input" # for kanata
+      "seat"
+      "dialout" # for serial
+      "wireshark"
+    ]; # What is seat for? Lemurs? Vbox?
     initialPassword = "password";
     shell = pkgs.nushell;
   };
@@ -133,7 +141,8 @@ in
       gparted
       htop
       iotop
-      kanata
+      polytope.kanata # Latest version
+      kdePackages.dolphin
       libqalculate
       nixfmt-rfc-style
       nvtopPackages.full
@@ -169,7 +178,8 @@ in
         enable = true;
         settings = {
           default_session = {
-            command = "${pkgs.greetd.tuigreet}/bin/tuigreet --remember --time --cmd '${pkgs.sway}/bin/sway --unsupported-gpu -c ~/.config/swayfx/config'";
+            # command = "${pkgs.greetd.tuigreet}/bin/tuigreet --remember --time --cmd '${pkgs.sway}/bin/sway --unsupported-gpu -c ~/.config/swayfx/config'";
+            command = "${pkgs.greetd.tuigreet}/bin/tuigreet --remember --time --cmd '${pkgs.sway}/bin/sway --unsupported-gpu'";
             user = "greeter";
           };
         };

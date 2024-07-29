@@ -149,7 +149,7 @@ in
       dust
       htop
       iotop
-      polytope.kanata # They maintain latest as a nix pkg
+      polytope.kanata # Latest version
       kdePackages.dolphin
       libqalculate
       nixfmt-rfc-style
