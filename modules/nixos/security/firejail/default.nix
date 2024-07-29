@@ -14,6 +14,21 @@
     programs.firejail = {
       enable = true;
       wrappedBinaries = {
+        brave = {
+          executable = "${pkgs.brave}/bin/brave";
+          profile = "${pkgs.firejail}/etc/firejail/brave.profile";
+          extraArgs = [
+            "--ignore=no-root"
+            #"--browser-allow-drm=yes"
+            ''--ignore=noexec ''${HOME}''
+            ''--ignore=noexec ''${RUNUSER}''
+            "--dbus-user.own=org.mpris.MediaPlayer2.plasma-browser-integration"
+            "--dbus-user.talk=org.kde.JobViewServer"
+            "--dbus-user.talk=org.kde.kuiserver"
+            "--dbus-user.talk=org.freedesktop.portal.Desktop"
+            "--dbus-user.talk=org.freedesktop.portal.Desktop"
+          ];
+        };
         firefox = {
           executable = "${pkgs.firefox}/bin/firefox";
           profile = "${pkgs.firejail}/etc/firejail/firefox.profile";

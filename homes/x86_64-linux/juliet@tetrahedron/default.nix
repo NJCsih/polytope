@@ -22,6 +22,7 @@
       yazi.enable = true;
       tealdeer.enable = true;
       kanata.enable = true;
+      easyeffects.enable = true;
     };
 
     #displayManagers = {

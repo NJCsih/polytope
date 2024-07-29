@@ -75,13 +75,13 @@ in
     ];
 
     systemd.user.services = {
-      "kanata-k65" = mkKanataService {
-        name = "k65";
-        file = ./k65.kbd;
+      "kanata-builtin" = mkKanataService {
+        name = "builtin";
+        file = ./builtin.kbd;
       };
-      "kanata-kone" = mkKanataService {
-        name = "kone";
-        file = ./kone.kbd;
+      "kanata-logitec" = mkKanataService {
+        name = "logitec";
+        file = ./logitec.kbd;
       };
     };
   };

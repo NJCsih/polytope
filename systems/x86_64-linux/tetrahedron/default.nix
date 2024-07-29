@@ -31,6 +31,15 @@ in
 
   # Enable sound.
   hardware.pulseaudio.enable = true;
+  #security.rtkit.enable = true;
+  #services.pipewire = {
+  #  enable = true;
+  #  alsa.enable = true;
+  #  alsa.support32Bit = true;
+  #  pulse.enable = true;
+  #  # If you want to use JACK applications, uncomment this
+  #  #jack.enable = true;
+  #};
 
   # TODO: What is this?
   #nix.package = inputs.lix-module.packages.x86_64-linux.default;
@@ -103,8 +112,10 @@ in
 
       # Apps
       blender
+      brave
       firefox
       inkscape
+      logisim-evolution
       mumble
       nheko
       nushell
@@ -113,13 +124,12 @@ in
       rofi
       snes9x
       steam
-      protonup # steam dep -- not technically but like, it's for steam
-      gamemode
       virtualbox
 
       # School stuff
       jetbrains.idea-community
       openjdk
+      jprofiler
 
       # Tools
       audacity
@@ -134,6 +144,7 @@ in
       lua-language-server
       neovim
       networkmanager
+      networkmanagerapplet
       slurp
       stylua
       syncthing
@@ -151,12 +162,13 @@ in
       dust
       htop
       iotop
-      polytope.kanata # They maintain latest as a nix pkg
       kdePackages.dolphin
       libqalculate
+      networkmanagerapplet
       nixfmt-rfc-style
       nvtopPackages.full
       pipes-rs
+      polytope.kanata # They maintain latest as a nix pkg
       polytope.poly
       pueue
       ripgrep
@@ -166,6 +178,7 @@ in
       pinentry # tomb dep
       wget
       wl-clipboard
+      wmname
 
       # myPackages
       #packages.system-wallpapers.override {
@@ -208,6 +221,7 @@ in
         with pkgs;
         [
           swayfx
+          i3lock
           wayland
           wpaperd
         ]

@@ -25,7 +25,7 @@
     enable = true;
     package = null; # Let NixOS handle this one
     checkConfig = false; # Annoying with swayfx
-    # good luck lol
+
     extraConfig = builtins.readFile (./swayfx-config.txt);
     # This is some neat code stolen from nazarick, which can be used to replace arbitrary text, which would be nice for consistent colorschemes
     # pkgs.substitute {
@@ -40,12 +40,13 @@
     # ];
     # }
     # ); # closes extraConfig
+
     systemd.enable = true; # This is the important bit
-    #config = { # I'm just gonna do it all from the config file
-    #  menu = launcher;
-    #  terminal = "kitty";
-    #  keybindings = { }; # Remove default
-    #  bars = [ ]; # Remove default
-    #};
+    config = {
+      # I'm just gonna do it all from the config file
+      terminal = "kitty";
+      keybindings = { }; # Remove default
+      bars = [ ]; # Remove default
+    };
   };
 }
