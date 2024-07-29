@@ -87,6 +87,7 @@ in
       "uinput" # for kanata
       "input" # for kanata
       "seat"
+      "wireshark"
     ]; # What is seat for? Lemurs? Vbox?
     initialPassword = "password";
     shell = pkgs.nushell;
