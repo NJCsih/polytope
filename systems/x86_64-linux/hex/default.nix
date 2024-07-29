@@ -141,12 +141,12 @@ in
       gparted
       htop
       iotop
-      polytope.kanata # Latest version
       kdePackages.dolphin
       libqalculate
       nixfmt-rfc-style
       nvtopPackages.full
       pipes-rs
+      polytope.kanata # Latest version
       polytope.poly
       ripgrep
       tealdeer
@@ -155,6 +155,7 @@ in
       pinentry # tomb dep
       wget
       wl-clipboard
+      wmname
 
     ])
     ++ ([
@@ -164,6 +165,8 @@ in
         wallpapers = ./wallpapers.yml;
       })
     ]);
+
+  programs.wireshark.enable = true; # set extra stuff for wireshark
 
   # Specilizations for different display-managers -------------------------------------------------
   #   We'd technically want to just have different lemurs entries, but because plasma does too much
@@ -190,6 +193,7 @@ in
         with pkgs;
         [
           swayfx
+          waybar
           wayland
           wpaperd
         ]

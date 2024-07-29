@@ -168,7 +168,7 @@ in
       nixfmt-rfc-style
       nvtopPackages.full
       pipes-rs
-      polytope.kanata # They maintain latest as a nix pkg
+      polytope.kanata # Latest version
       polytope.poly
       pueue
       ripgrep
@@ -221,7 +221,7 @@ in
         with pkgs;
         [
           swayfx
-          i3lock
+          waybar
           wayland
           wpaperd
         ]
