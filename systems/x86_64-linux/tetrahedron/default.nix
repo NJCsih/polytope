@@ -88,6 +88,7 @@ in
       "input" # for kanata
       "seat"
       "wireshark"
+      "dialout" # for serial
     ]; # What is seat for? Lemurs? Vbox?
     initialPassword = "password";
     shell = pkgs.nushell;
@@ -124,7 +125,6 @@ in
       qmk
       rofi
       snes9x
-      steam
       virtualbox
 
       # School stuff
@@ -196,6 +196,16 @@ in
         wallpapers = ./wallpapers.yml;
       })
     ]);
+
+  programs.wireshark.enable = true; # set extra stuff for wireshark
+
+  # Make firefox work
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
+    dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
+    localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
+  };
 
   # Specilizations for different display-managers -------------------------------------------------
   #   We'd technically want to just have different lemurs entries, but because plasma does too much

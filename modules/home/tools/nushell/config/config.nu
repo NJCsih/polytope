@@ -870,6 +870,7 @@ alias ll = ls -a
 alias lsblk = lsblk -f
 alias z = systemd-inhibit sleep infinity
 alias cat = bat
+alias sss = sha256sum
 def cl [] { clear; pfetch }
 
 # Remaps to open yazi at comvenient locations

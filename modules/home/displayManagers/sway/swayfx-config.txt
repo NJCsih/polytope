@@ -6,8 +6,8 @@ exec_always --no-startup-id "wpaperd"                      # Wallpaper daemon
 
 # Held-over keybinds
 bindsym Mod4+p exec grim -g "$(slurp)" - | wl-copy         # take screenshot
-bindsym Mod4+Mod1+d exec --no-startup-id "rofi -show drun"      # rofi launcher
-bindsym Mod4+Mod1+Shift+d exec --no-startup-id "rofi -show run" # rofi launcher
+bindsym Mod4+d exec --no-startup-id "rofi -show drun"      # rofi launcher
+bindsym Mod4+Shift+d exec --no-startup-id "rofi -show run" # rofi launcher
 
 
 # Set Colors and graphical options: --------------------------------------------
