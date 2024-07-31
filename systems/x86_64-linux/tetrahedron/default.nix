@@ -149,6 +149,7 @@ in
       slurp
       stylua
       syncthing
+      tio # serial client
       vlc
       wireshark
       yazi
