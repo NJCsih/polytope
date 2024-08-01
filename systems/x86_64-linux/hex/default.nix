@@ -110,6 +110,7 @@ in
 
       # Work stuff
       thunderbird
+      freerdp3
 
       # Tools
       borgbackup
