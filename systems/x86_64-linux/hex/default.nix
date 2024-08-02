@@ -15,6 +15,8 @@ in
     ./hardware.nix
   ];
 
+  networking.firewall.enable = false; # TESTING
+
   # NixOS Stuff -----------------------------------------------------------------------------------
 
   # Enable experimental features
@@ -111,6 +113,7 @@ in
       # Work stuff
       thunderbird
       freerdp3
+      krb5
 
       # Tools
       borgbackup
@@ -169,6 +172,7 @@ in
     ]);
 
   programs.wireshark.enable = true; # set extra stuff for wireshark
+  services.xrdp.enable = true; # remote desktop service
 
   # Specilizations for different display-managers -------------------------------------------------
   #   We'd technically want to just have different lemurs entries, but because plasma does too much
