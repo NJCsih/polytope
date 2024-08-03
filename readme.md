@@ -13,13 +13,14 @@ Todo:
 
 - fix sway rofi bindings
 - lix on stable branch for less recompiles
-- auto wifi connection
 - xdg portal
 - fix firefox for canvas
 - get nvim fully working
-- install quartus, see Kronicle's Notes
-- firefox custom css, vencord, tridactyl
 - Install ram
+- install quartus, see Kronicle's Notes
+- auto wifi connection
+- firefox custom css, vencord, tridactyl
+- install mutt
 - Volume keybinds
 - Kronicle's DNS
 - consider a bar like Kronicle, idk, literally I just need battery and time
