@@ -884,6 +884,6 @@ def clipshrug [] { echo "¯\\(ツ)/¯" | wl-copy }
 # Open nil editor, this has to use cd because of the direnv stuff
 def nil [] { cd ~/Documents/nil/; SHELL=bash zk edit --interactive } # Still has issues currently
 
-# Open htop on open because I'm annoying
+# Open pfetch on open because I'm annoying
 def run_fetch [] { clear; pfetch }
 run_fetch
