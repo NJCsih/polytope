@@ -1,35 +1,49 @@
-# My Nixos config, Uses snowfall-lib, which I'm only now really understanding.
+# My Nixos config -- Getting by
 
-The majority of my config, it's structure and many of the options, were based off:
-> https://github.com/DarkKronicle/nazarick
+I'm not good at this, I don't claim to be. It's been a fun summer project though, and I think I'll stick with it.
 
-They've since moved to a fully custom structure without snowfall, but I'd still reccomend checking out their config. They do a lot of really neat stuff.
-
-Fix the sway config, have it with some home manager stuff, then load the file as extraconfig. Dont need to send -c to ~/.conf then
+I don't spend that much time on this? It could be nicer. If you want something better, look at [DarkKronicle's config](https://github.com/DarkKronicle/nazarick), they've done so much to help me while I learn nix. There's no chance I would have done any of this without them.
 
 
 Todo:
 ```neorg
 
-- fix sway rofi bindings
-- lix on stable branch for less recompiles
-- xdg portal
-- fix firefox for canvas
-- get nvim fully working
-- Install ram
-- install quartus, see Kronicle's Notes
-- auto wifi connection
-- firefox custom css, vencord, tridactyl
-- install mutt
-- Volume keybinds
-- Kronicle's DNS
-- consider a bar like Kronicle, idk, literally I just need battery and time
 
+* Before Fall (Make my system 'fully competent'):
+- ( ) Install new ram
+- (x) fix sway rofi bindings -- Done, pretty easy to fix, but the keyboards are not idea... so many nkro issues :(
+- (x) xdg portal -- Works! I'm happy, but could do with a bit of themeing. I don't care for the moment however.
+-- I did see someone use nix to just text replace in coloration into config files from global vars, that seemed pretty slick.
+- ( ) fix firefox for canvas -- doesn't load on pages that arent quizzes?!
+- ( ) install quartus, see Kronicle's Notes
 - ( ) nvim
+-- What's up with neorg? I think it's just mad about luarocks?
 -- I manually installed the lua TS parser? I want that to be done via nix? Or is that okay?
 --- Same with java -- I think I may not nix my nvimrc? That may be sacrelig, but I need it to be able to drag and drop into a non-HM/Nixos system.
 -- I need to port to nix, currently just threw my config into ~/.config/nvim
 -- I'm thinking nixCats, I want to stick with lazy, but have nix handle the parsers. -- some cool effects from doing it that way
+-- Also still need to work out how to make jdtls not complain if no dir root is found :/
+
+
+* Fixes that would be nice:
+- ( ) firefox custom css, vencord, tridactyl
+- ( ) lix on stable branch for less recompiles -- probably *really* easy, just havent bothered
+- ( ) Work out a better method for ssh and kerberos configs which I don't want to be in git. -- Is this what sops is for?!
+- ( ) get a notification daemon? I never use notifications, except for thunderbird (should probably leave for mutt) which has decided to pop up a full sway window on my current workspace whenever nagios wants to tell me that things which arent my problem are really not any worse than they were, but are still not perfect
+- ( ) acpilight installed at system level on tetrahedron, then let polkit let it through without sudo? -- keybinds would be nice
+-- after making polkit let it through, just drop bindings into sway config?
+-- the package acpilight works, the command's still xbacklight, despite being on wayland.
+- ( ) auto wifi connection -- This is probably just gonna require a broader switch to gnome-keyring from keepass. -- I'm still holding on hope to a keepass db reading a keyfile from sops!
+-- What is sops even for? Like... I haven't really had any situations where I've needed it
+
+
+* New stuff that would be nice:
+- ( ) install mutt
+- ( ) firenvim
+- ( ) Kronicle's DNS -- seems nice, not *needed* more of a infosec philosophy thing.
+- ( ) consider a bar like Kronicle's, idk, literally I just need battery and time...... pfetch entries? host and memory could probably go?
+-- I think 'just hold all the workspaces in your head' is categorically worse, but I don't mind? Like it's not *that* hard, I have standard places things always go, and it's not like the thing saying what of them are occupied is that usefull.
+-- For volume and stuff the number isnt that important to me? I just to be able to make it louder or quieter.
 ```
 
 Notes:

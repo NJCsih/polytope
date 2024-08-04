@@ -49,4 +49,26 @@
       bars = [ ]; # Remove default
     };
   };
+
+  xdg.portal = {
+    enable = true;
+    xdgOpenUsePortal = true;
+    extraPortals = with pkgs; [
+      kdePackages.xdg-desktop-portal-kde
+      xdg-desktop-portal-gtk
+      xdg-desktop-portal-wlr
+    ];
+    #configPackages = with pkgs; [ gnome-keyring ];
+    #config = {
+    #  common = {
+    #    default = [
+    #      "gtk"
+    #      "wlr"
+    #      "kde"
+    #    ];
+    #    "org.freedesktop.impl.portal.Secret" = [ "gnome-keyring" ];
+    #  };
+    #};
+  };
+
 }

@@ -45,8 +45,9 @@ in
   # Zen is for desktop computing, so lower latency? I'm not gonna touch it
   boot.kernelPackages = pkgs.linuxPackages_zen;
 
-  environment.sessionVariables = rec { # fix for sway on this computer
-    WLR_NO_HARDWARE_CURSORS = "1";     # Maybe I should try disabling it because it *slow*?
+  environment.sessionVariables = rec {
+    # fix for sway on this computer
+    WLR_NO_HARDWARE_CURSORS = "1"; # Maybe I should try disabling it because it *slow*?
   };
 
   # Enable CUPS to print documents.

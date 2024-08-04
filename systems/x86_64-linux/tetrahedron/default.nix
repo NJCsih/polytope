@@ -161,6 +161,7 @@ in
       compsize # for showing size on disk of a file
       dust
       htop
+      gnome-keyring
       iotop
       kdePackages.dolphin
       libqalculate

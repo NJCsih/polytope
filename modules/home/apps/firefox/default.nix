@@ -255,7 +255,7 @@ in
             # https://github.com/DarkKronicle/nazarick/blob/main/modules/home/apps/firefox/default.nix
             # https://arkenfox.github.io/gui/
             "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
-            "widget.use-xdg-desktop-portal.file-picker" = 1;
+            "widget.use-xdg-desktop-portal.file-picker" = 1; # Okay so it's a xdg issue not firefox config issue?
             "browser.aboutConfig.showWarning" = false;
             "browser.newtabpage.activity-stream.showSponsored" = false;
             "browser.newtabpage.activity-stream.showSponsoredTopSites" = false;

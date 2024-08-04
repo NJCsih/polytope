@@ -20,6 +20,9 @@
       kanata.enable = true;
       #easyeffects.enable = true;
     };
+    system = {
+      xdg.enable = true;
+    };
 
     #displayManagers = {
     #  plasma = {
