@@ -83,12 +83,12 @@ in
     isNormalUser = true;
     extraGroups = [
       "wheel"
-      "networkmanager"
-      "uinput" # for kanata
-      "input" # for kanata
-      "seat"
-      "wireshark"
       "dialout" # for serial
+      "input" # for kanata
+      "networkmanager"
+      "seat"
+      "uinput" # for kanata
+      "wireshark"
     ]; # What is seat for? Lemurs? Vbox?
     initialPassword = "password";
     shell = pkgs.nushell;
@@ -130,7 +130,6 @@ in
       # School stuff
       jetbrains.idea-community
       openjdk
-      jprofiler
 
       # Tools
       audacity
@@ -145,7 +144,6 @@ in
       lua-language-server
       neovim
       networkmanager
-      networkmanagerapplet
       slurp
       stylua
       syncthing
@@ -163,6 +161,7 @@ in
       compsize # for showing size on disk of a file
       dust
       htop
+      gnome-keyring
       iotop
       kdePackages.dolphin
       libqalculate
@@ -200,7 +199,7 @@ in
 
   programs.wireshark.enable = true; # set extra stuff for wireshark
 
-  # Make firefox work
+  # Make steam work
   programs.steam = {
     enable = true;
     remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play

@@ -46,7 +46,8 @@ in
   boot.kernelPackages = pkgs.linuxPackages_zen;
 
   environment.sessionVariables = rec {
-    WLR_NO_HARDWARE_CURSORS = "1";
+    # fix for sway on this computer
+    WLR_NO_HARDWARE_CURSORS = "1"; # Maybe I should try disabling it because it *slow*?
   };
 
   # Enable CUPS to print documents.
@@ -80,11 +81,11 @@ in
     isNormalUser = true;
     extraGroups = [
       "wheel"
-      "networkmanager"
-      "uinput" # for kanata
-      "input" # for kanata
-      "seat"
       "dialout" # for serial
+      "input" # for kanata
+      "networkmanager"
+      "seat"
+      "uinput" # for kanata
       "wireshark"
     ]; # What is seat for? Lemurs? Vbox?
     initialPassword = "password";

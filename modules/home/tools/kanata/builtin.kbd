@@ -446,9 +446,11 @@ danger-enable-cmd yes
 )
 
 (defchords sway-quick 100
-    ;; 0 1 2 3 4
-    (0        ) (cmd-log none error swaymsg exec tofi_app)
-    ;; (      3  ) (cmd-log none error swaymsg workspace back_and_forth)
+  ;; n m , . /   ;; . doesnt work due to hardware :p
+  ;; 0 1 2 3 4
+    (0        ) (cmd-log none error swaymsg exec "rofi -show drun")
+    (0 1      ) (cmd-log none error swaymsg exec "rofi -show run")
+
     (      3  ) (cmd-log none error swaymsg workspace back_and_forth)
     (  1 2    ) (cmd-log none error swaymsg kill)
     (  1   3  ) (t! meta1-fork (cmd-log none error swaymsg exec swaylock) (cmd-log none error swaymsg exec wlogout))
