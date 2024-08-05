@@ -14,8 +14,9 @@ Todo:
 - (x) fix sway rofi bindings -- Done, pretty easy to fix, but the keyboards are not idea... so many nkro issues :(
 - (x) xdg portal -- Works! I'm happy, but could do with a bit of themeing. I don't care for the moment however.
 -- I did see someone use nix to just text replace in coloration into config files from global vars, that seemed pretty slick.
-- ( ) fix firefox for canvas -- doesn't load on pages that arent quizzes?!
+- ( ) fix firefox for canvas -- doesn't load on pages that arent quizzes?! -- Seems to have started after my ff -v 120 change?
 - ( ) install quartus, see Kronicle's Notes
+-- This looks.... hard...
 - ( ) nvim
 -- What's up with neorg? I think it's just mad about luarocks?
 -- I manually installed the lua TS parser? I want that to be done via nix? Or is that okay?
