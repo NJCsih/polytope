@@ -6,7 +6,7 @@
     apps = {
       firefox = {
         enable = true;
-        userCss = false; # Not setup yet, need to steal from nazarick
+        userCss = true;
       };
       kitty.enable = true;
       neovim.enable = true;

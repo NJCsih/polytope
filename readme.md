@@ -10,7 +10,7 @@ Todo:
 
 
 * Before Fall (Make my system 'fully competent'):
-- ( ) Install new ram
+- (x) Install new ram
 - (x) fix sway rofi bindings -- Done, pretty easy to fix, but the keyboards are not idea... so many nkro issues :(
 - (x) xdg portal -- Works! I'm happy, but could do with a bit of themeing. I don't care for the moment however.
 -- I did see someone use nix to just text replace in coloration into config files from global vars, that seemed pretty slick.

@@ -146,6 +146,7 @@ in
       networkmanager
       slurp
       stylua
+      antimicrox # windows joy2key replacement -- this one's pretty cool
       syncthing
       tio # serial client
       vlc
