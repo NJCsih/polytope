@@ -10,9 +10,6 @@ Todo:
 
 
 * Before Fall (Make my system 'fully competent'):
-- (x) Install new ram
-- (x) fix sway rofi bindings -- Done, pretty easy to fix, but the keyboards are not idea... so many nkro issues :(
-- (x) xdg portal -- Works! I'm happy, but could do with a bit of themeing. I don't care for the moment however.
 -- I did see someone use nix to just text replace in coloration into config files from global vars, that seemed pretty slick.
 - ( ) fix firefox for canvas -- doesn't load on pages that arent quizzes?! -- Seems to have started after my ff -v 120 change?
 - ( ) install quartus, see Kronicle's Notes
@@ -24,10 +21,14 @@ Todo:
 -- I need to port to nix, currently just threw my config into ~/.config/nvim
 -- I'm thinking nixCats, I want to stick with lazy, but have nix handle the parsers. -- some cool effects from doing it that way
 -- Also still need to work out how to make jdtls not complain if no dir root is found :/
+- ( ) Fix audio -- switch to pipewire and use easyeffects, maybe try to do that one at a time...
+- (x) xdg portal -- Works! I'm happy, but could do with a bit of themeing. I don't care for the moment however.
+- (x) fix sway rofi bindings -- Done, pretty easy to fix, but the keyboards are not idea... so many nkro issues :(
+- (x) Install new ram
 
 
 * Fixes that would be nice:
-- ( ) firefox custom css, vencord, tridactyl
+- ( ) firefox vencord, tridactyl
 - ( ) lix on stable branch for less recompiles -- probably *really* easy, just havent bothered
 - ( ) Work out a better method for ssh and kerberos configs which I don't want to be in git. -- Is this what sops is for?!
 - ( ) get a notification daemon? I never use notifications, except for thunderbird (should probably leave for mutt) which has decided to pop up a full sway window on my current workspace whenever nagios wants to tell me that things which arent my problem are really not any worse than they were, but are still not perfect
@@ -36,6 +37,7 @@ Todo:
 -- the package acpilight works, the command's still xbacklight, despite being on wayland.
 - ( ) auto wifi connection -- This is probably just gonna require a broader switch to gnome-keyring from keepass. -- I'm still holding on hope to a keepass db reading a keyfile from sops!
 -- What is sops even for? Like... I haven't really had any situations where I've needed it
+- (x) firefox custom css
 
 
 * New stuff that would be nice:

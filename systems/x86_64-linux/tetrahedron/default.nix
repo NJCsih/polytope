@@ -119,6 +119,7 @@ in
       inkscape
       logisim-evolution
       mumble
+      prusa-slicer
       nheko
       nushell
       pfetch
@@ -130,12 +131,15 @@ in
       # School stuff
       jetbrains.idea-community
       openjdk
+      quartus-prime-lite
 
       # Tools
+      antimicrox # windows joy2key replacement -- this one's pretty cool
       audacity
       borgbackup
       gimp
       git
+      glava # visualizer, may change to a diff one at some point
       gparted
       grim
       keepassxc
@@ -146,7 +150,6 @@ in
       networkmanager
       slurp
       stylua
-      antimicrox # windows joy2key replacement -- this one's pretty cool
       syncthing
       tio # serial client
       vlc
