@@ -82,7 +82,7 @@ in
             # Sidebery
             "{3c078156-979c-498b-8990-85f7987dd929}" = {
               install_url = "https://addons.mozilla.org/firefox/downloads/latest/sidebery/latest.xpi";
-              installation_mode = "normal_installed";
+              installation_mode = "force_installed";
             };
             # Jump-Cutter
             "jump-cutter@example.com.xpi" = {
@@ -216,11 +216,6 @@ in
                 "Reference"
               ];
               url = "https://github.com/darkkronicle/nazarick";
-            }
-            {
-              name = "Sort Visualizer";
-              tags = [ "Reference" ];
-              url = "https://www.sortvisualizer.com";
             }
             {
               name = "OEIS";
