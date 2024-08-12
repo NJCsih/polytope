@@ -19,5 +19,8 @@
       tealdeer.enable = true;
       kanata.enable = true;
     };
+    system = {
+      xdg.enable = true;
+    };
   };
 }

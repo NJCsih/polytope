@@ -53,8 +53,6 @@ in
 
   config = mkIf cfg.enable {
 
-    xdg.enable = true;
-
     xdg.mimeApps =
       let
         associations = flipAssocs {

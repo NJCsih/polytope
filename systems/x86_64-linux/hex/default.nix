@@ -72,6 +72,32 @@ in
   # Set for Kanata/the sway keybind system
   hardware.uinput.enable = true;
 
+  # Enable xdg portal
+  #xdg.portal.enable = true;
+  xdg.portal = {
+    enable = true;
+    xdgOpenUsePortal = true;
+    extraPortals = with pkgs; [
+      kdePackages.xdg-desktop-portal-kde
+      xdg-desktop-portal-gtk
+      xdg-desktop-portal-wlr
+    ];
+    #configPackages = with pkgs; [ gnome-keyring ];
+    config = {
+      common = {
+        default = [
+          "gtk"
+          "wlr"
+          "kde"
+        ];
+        #"org.freedesktop.impl.portal.Secret" = [ "gnome-keyring" ];
+      };
+    };
+  };
+
+  # Flatpak for rdp
+  services.flatpak.enable = true;
+
   # User Stuff ------------------------------------------------------------------------------------
 
   networking.hostName = "hex"; # Define your hostname.
@@ -112,9 +138,9 @@ in
       rofi
 
       # Work stuff
-      thunderbird
-      freerdp3
+      #freerdp3
       krb5
+      thunderbird
 
       # Tools
       borgbackup
@@ -132,6 +158,7 @@ in
       slurp
       stylua
       syncthing
+      syncthing
       tio # serial client
       vlc
       wireshark
@@ -144,7 +171,6 @@ in
       bottom
       compsize # for showing size on disk of a file
       dust
-      gparted
       htop
       iotop
       kdePackages.dolphin
@@ -174,6 +200,7 @@ in
 
   programs.wireshark.enable = true; # set extra stuff for wireshark
   services.xrdp.enable = true; # remote desktop service
+  services.xrdp.openFirewall = true;
 
   # Specilizations for different display-managers -------------------------------------------------
   #   We'd technically want to just have different lemurs entries, but because plasma does too much

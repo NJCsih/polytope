@@ -144,6 +144,7 @@ in
       lua-language-server
       neovim
       networkmanager
+      nix-tree
       slurp
       stylua
       syncthing
@@ -171,7 +172,6 @@ in
       pipes-rs
       polytope.kanata # Latest version
       polytope.poly
-      pueue
       ripgrep
       tealdeer
       tomb
