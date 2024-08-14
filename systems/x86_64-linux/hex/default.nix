@@ -185,6 +185,7 @@ in
       tomb
       gnupg # tomb dep
       pinentry # tomb dep
+      unzip
       wget
       wl-clipboard
       wmname

@@ -176,11 +176,13 @@ in
       pipes-rs
       polytope.kanata # Latest version
       polytope.poly
+      polytope.sn
       ripgrep
       tealdeer
       tomb
       gnupg # tomb dep
       pinentry # tomb dep
+      unzip
       wget
       wl-clipboard
       wmname
@@ -231,6 +233,12 @@ in
         };
       };
 
+      # 'Enable' sway (set all the nice stuff)
+      # should probably do this
+
+      # Set pam to not have swaylock lock me out
+      security.pam.services.swaylock = { };
+
       # Install sway specific stuff
       environment.systemPackages = (
         with pkgs;
@@ -239,6 +247,7 @@ in
           waybar
           wayland
           wpaperd
+          swaylock
         ]
       );
     };
