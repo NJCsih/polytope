@@ -111,3 +111,11 @@
   tags:
   - furry
   - overtly_furry
+
+# https://commons.wikimedia.org/wiki/File:Perth_(AU),_Elizabeth_Quay_Bridge_--_2019_--_0375-9.jpg
+- src:
+    url: https://upload.wikimedia.org/wikipedia/commons/f/f6/Perth_%28AU%29%2C_Elizabeth_Quay_Bridge_--_2019_--_0375-9.jpg
+    name: PerthBridge.png
+    sha256: 5009d605abe8d0f5668869941561e65a1f8d79f14ddc152800bccd13ee3f8c07
+  tags:
+  - Architecture
