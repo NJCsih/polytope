@@ -139,6 +139,7 @@ in
       borgbackup
       gimp
       git
+      gitoxide
       glava # visualizer, may change to a diff one at some point
       gparted
       grim
@@ -165,19 +166,21 @@ in
       bottom
       compsize # for showing size on disk of a file
       dust
-      htop
       gnome-keyring
+      htop
       iotop
       kdePackages.dolphin
       libqalculate
       networkmanagerapplet
       nixfmt-rfc-style
       nvtopPackages.full
+      pciutils
       pipes-rs
       polytope.kanata # Latest version
       polytope.poly
       polytope.sn
       ripgrep
+      tcpdump
       tealdeer
       tomb
       gnupg # tomb dep

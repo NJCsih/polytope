@@ -872,6 +872,7 @@ alias z = systemd-inhibit sleep infinity
 #alias cat = bat
 alias sss = sha256sum
 def cl [] { clear; pfetch }
+alias ssh = kitty +kitten ssh
 
 # Remaps to open yazi at comvenient locations
 def ysch [] { cd ~/school/_TWTF-CS2420/; yazi }

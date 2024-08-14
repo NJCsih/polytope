@@ -39,6 +39,8 @@ in
         background_opacity = "0.90";
         cursor_blink_interval = 0;
 
+        term = "xterm-256color";
+
         # font_size = "11.3";
 
         background = "#16161D";
