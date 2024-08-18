@@ -180,6 +180,7 @@ in
       polytope.poly
       polytope.sn
       ripgrep
+      swww
       tcpdump
       tealdeer
       tomb

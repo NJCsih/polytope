@@ -183,6 +183,7 @@ in
       polytope.kanata # Latest version
       polytope.poly
       ripgrep
+      swww
       tcpdump
       tealdeer
       tomb

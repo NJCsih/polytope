@@ -2,7 +2,6 @@
 
 # Start stuff:
 exec workspace_helper init                                 # For kanata
-exec_always --no-startup-id "wpaperd"                      # Wallpaper daemon
 
 # Held-over keybinds
 bindsym Mod4+p exec grim -g "$(slurp)" - | wl-copy         # take screenshot
@@ -21,9 +20,11 @@ client.placeholder      #000000 #0C0C0C #FFFFFF #000000   #0C0C0C
 client.background       #FFFFFF
 
 # Gaps and stuff
-default_border pixel 1
+#default_border pixel 1
+default_border pixel 3
 gaps inner 4
-gaps outer -5
+#gaps outer -5
+gaps outer -7
 smart_gaps on
 smart_borders on
 
