@@ -177,8 +177,8 @@ in
       pciutils
       pipes-rs
       polytope.kanata # Latest version
+      polytope.lock
       polytope.poly
-      polytope.sn
       ripgrep
       swww
       tcpdump

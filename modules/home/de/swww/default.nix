@@ -90,7 +90,7 @@ in
     systemd.user.services."swww-switch" = {
 
       Install = {
-      WantedBy = [ "graphical-session.target" ];
+        WantedBy = [ "graphical-session.target" ];
       };
 
       Unit = {

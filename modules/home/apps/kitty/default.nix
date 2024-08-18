@@ -36,7 +36,7 @@ in
         listen_on = "unix:/tmp/mykitty";
         enable_audio_bell = false;
 
-        background_opacity = "0.90";
+        background_opacity = "0.93";
         cursor_blink_interval = 0;
 
         term = "xterm-256color";
