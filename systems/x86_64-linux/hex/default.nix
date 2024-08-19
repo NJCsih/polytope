@@ -163,6 +163,7 @@ in
       tio # serial client
       vlc
       wireshark
+      freerdp3
       yazi
       zls
 
@@ -202,7 +203,10 @@ in
     ]);
 
   programs.wireshark.enable = true; # set extra stuff for wireshark
+
+  # enable xrdp stuff
   services.xrdp.enable = true; # remote desktop service
+  services.xrdp.defaultWindowManager = "${pkgs.sway}/bin/sway";
   services.xrdp.openFirewall = true;
 
   # Specilizations for different display-managers -------------------------------------------------
@@ -212,6 +216,11 @@ in
 
     # Sway/Swayfx
     swayfx.configuration = {
+
+      programs.sway = {
+        enable = true;
+        xwayland.enable = true;
+      };
 
       # Login manager:
       services.greetd = {

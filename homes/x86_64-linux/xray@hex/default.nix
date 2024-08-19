@@ -13,11 +13,12 @@
       nheko.enable = true;
     };
     tools = {
-      git.enable = false; # disabled so that .ssh can be done manually
-      nushell.enable = true;
-      yazi.enable = true;
-      tealdeer.enable = true;
+      git.enable = true; # disabled so that .ssh can be done manually -- but I need it tho!
       kanata.enable = true;
+      nushell.enable = true;
+      sshExtraConf.enable = true;
+      tealdeer.enable = true;
+      yazi.enable = true;
     };
     system = {
       xdg.enable = true;
