@@ -3,12 +3,15 @@
 danger-enable-cmd yes
   log-layer-changes no
 
-  ;;  linux-dev /dev/input/by-path/pci-0000\:00\:14.0-usbv2-0\:5\:1.1-event-kbd:/dev/input/by-path/pci-0000\:00\:14.0-usb-0\:5\:1.1-event-kbd:/dev/input/by-path/pci-0000\:00\:14.0-usb-0\:4\:1.0-event-kbd:/dev/input/by-path/pci-0000\:00\:14.0-usbv2-0\:4\:1.0-event-kbd:/dev/input/by-path/pci-0000\:00\:14.0-usb-0\:4\:1.1-event:/dev/input/by-path/pci-0000\:00\:14.0-usbv2-0\:4\:1.1-event
+  ;; laptop logitech -- both work?
+  ;;   /dev/input/by-path/pci-0000\:00\:14.0-usbv2-0\:5\:1.1-event-kbd
+  ;;   /dev/input/by-path/pci-0000\:00\:14.0-usb-0\:5\:1.1-event-kbd
+  ;; hex logitech
+  ;;   /dev/input/by-path/pci-0000\:00\:14.0-usb-0\:9\:1.0-event-kbd   ;; k120 logitec
 
-  ;;/dev/input/by-path/platform-i8042-serio-0-event-kbd   ;; ps2
-  linux-dev /dev/input/by-path/pci-0000\:00\:14.0-usb-0\:9\:1.0-event-kbd   ;; k120 logitec
-  
-  ;;linux-dev  /dev/input/by-path/pci-0000\:00\:14.0-usb-0\:4\:1.0-event-kbd:/dev/input/by-path/pci-0000\:00\:14.0-usb-0\:4\:1.1-event:/dev/input/by-path/pci-0000\:00\:14.0-usb-0\:5\:1.1-event-kbd:/dev/input/by-path/pci-0000\:00\:14.0-usbv2-0\:4\:1.0-event-kbd:/dev/input/by-path/pci-0000\:00\:14.0-usbv2-0\:4\:1.1-event/dev/input/by-path/pci-0000\:00\:14.0-usbv2-0\:5\:1.1-event-kbd:
+  linux-dev /dev/input/by-path/pci-0000\:00\:14.0-usb-0\:5\:1.1-event-kbd:/dev/input/by-path/pci-0000\:00\:14.0-usb-0\:9\:1.0-event-kbd
+
+>>>>>>> 29699606f0c8ef159c2d7da42de8dc5f4cbbf8cc
   linux-continue-if-no-devs-found yes
 )
 

@@ -24,11 +24,8 @@
       xdg.enable = true;
     };
 
-    #displayManagers = {
-    #  plasma = {
-    #    enable = true;
-    #    noBorders = true;
-    #  };
-    #};
+    de = {
+      #swww.enable = true; # I dont actually need it to be enabled/disabled, just always run, and what wps it does are not it's problem
+    };
   };
 }

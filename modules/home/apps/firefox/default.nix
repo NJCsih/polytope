@@ -169,6 +169,14 @@ in
               url = "https://cheatography.com/davechild/cheat-sheets/regular-expressions/";
             }
             {
+              name = "Unicode Compart";
+              tags = [
+                "Reference"
+                "Unicode"
+              ];
+              url = "https://www.compart.com/en/unicode";
+            }
+            {
               name = "Monkeytype";
               tags = [ "Fun" ];
               url = "https://monkeytype.com/";

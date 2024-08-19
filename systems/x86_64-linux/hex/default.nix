@@ -184,11 +184,13 @@ in
       polytope.kanata # Latest version
       polytope.poly
       ripgrep
+      swww
       tcpdump
       tealdeer
       tomb
       gnupg # tomb dep
       pinentry # tomb dep
+      unzip
       wget
       wl-clipboard
       wmname

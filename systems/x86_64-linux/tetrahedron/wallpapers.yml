@@ -119,3 +119,79 @@
   tags:
   - furry
   - overtly_furry
+
+
+  # New stuff
+
+# https://e621.net/posts/4222172
+- src:
+    url: https://static1.e621.net/data/bf/e4/bfe43ba264ad68e5d8a101ecef69c03e.png
+    name: 4222172-neotheta01.png
+    sha256: 67ea27411639ce50d63e9e7fcb813a72b2f3dd368c08d8a97311043121ee2e43
+  tags:
+  - furry
+  - overtly_furry
+  - xenia
+
+# https://e621.net/posts/4118832
+- src:
+    url: https://static1.e621.net/data/0a/61/0a617f9c455822acb31c556f938f6fbb.png
+    name: 4118832-zepto01.png
+    sha256: 7ad9b08f6a8692e744348f9dcee74fd514afc4ee7404a9fab77664a1321b56ac
+  tags:
+  - furry
+  - overtly_furry
+  - 
+
+# https://e621.net/posts/3824614
+- src:
+    url: https://static1.e621.net/data/23/f9/23f90be6ffff0d0e47eecc0908e20df1.jpg
+    name: 3824614-luminous_slime01.jpg
+    sha256: c43f37891eb370e9c3755b386cf7de47d0ff48b2dc2cd10dbba7c21a52a40228
+  tags:
+  - furry
+  - walf_in_boots
+
+# https://e621.net/posts/3822579
+- src:
+    url: https://static1.e621.net/data/db/b0/dbb06d5213364ba85af2883b92455a63.jpg
+    name: 3822579-windwttom01.jpg
+    sha256: c05d2661bd7a9be6f0ff2daf71b65d7e50604f159599a210b3b5a4a4ec89f863
+  tags:
+  - furry
+  - walf_in_boots
+
+# https://e621.net/posts/3684403
+- src:
+    url: https://static1.e621.net/data/8d/43/8d4368b5fdd3d951963dadd3db426525.png
+    name: 3684403-nomax14.png
+    sha256: e5f102274d950b05ddd95aa37d146b274297ea29d9a3d658d8ccd83a6e8a9f22
+  tags:
+  - furry
+
+# https://e621.net/posts/3063239
+- src:
+    url: https://static1.e621.net/data/a9/36/a9362c22c1cc7bf428231517d27019c6.png
+    name: 3063239-rudidri01.png
+    sha256: 0a76ea71d0686ee5397add23f4a5d47c502de7fa61f3fdf752eb551cd4b6f75b
+  tags:
+  - furry
+
+# https://e621.net/posts/1905773
+- src:
+    url: https://static1.e621.net/data/e4/89/e489b795e93d3a428a6052b699264d40.jpg
+    name: 1905773-fumiko-rokito01.jpg
+    sha256: 891d30b1af7af8cbdc84b670ad7282818d7d9698bc0bbc6be3d9b74d7ca061f1
+  tags:
+  - furry
+  - overtly_furry
+
+# https://e621.net/posts/4450545
+- src:
+    url: https://static1.e621.net/data/da/cf/dacf5cf2f8ff8b960f6ecdb8347f4ad5.png
+    name: 4450545-nomax15.png
+    sha256: c8613a357e9bccb0fd9c2c85893a563bb217bb51fb0128710e63f27466050d4f
+  tags:
+  - furry
+
+# 

@@ -100,6 +100,16 @@
   # Load nvidia driver for Xorg and Wayland
   services.xserver.videoDrivers = [ "nvidia" ];
 
+  hardware.graphics = {
+    enable = true;
+    extraPackages = with pkgs; [
+      vulkan-loader
+      vulkan-validation-layers
+      vulkan-extension-layer
+      vaapiVdpau
+    ];
+  };
+
   hardware.nvidia = {
 
     modesetting.enable = true; # Modesetting is required.
@@ -120,15 +130,17 @@
 
     # set IDs and prime offloading
     prime = {
-      # amdgpuBusId = "PCI:54:0:0"; For AMD GPU
       intelBusId = "PCI:0:2:0";
+      # amdgpuBusId = "PCI:54:0:0"; For AMD GPU
       nvidiaBusId = "PCI:1:0:0";
 
-      offload = {
-        # I'm gonna try without offloading
-        enable = false;
-        enableOffloadCmd = false;
-      };
+      sync.enable = true;
+
+      #offload = {
+      #  # I'm gonna try without offloading
+      #  enable = false;
+      #  enableOffloadCmd = false;
+      #};
     };
   };
 

@@ -11,7 +11,8 @@ Todo:
 
 * Before Fall (Make my system 'fully competent'):
 -- I did see someone use nix to just text replace in coloration into config files from global vars, that seemed pretty slick.
-- ( ) fix firefox for canvas -- doesn't load on pages that arent quizzes?! -- Seems to have started after my ff -v 120 change?
+- ( ) Screnlocker
+- ( ) swww
 - ( ) install quartus, see Kronicle's Notes
 -- This looks.... hard...
 - ( ) nvim
@@ -22,6 +23,7 @@ Todo:
 -- I'm thinking nixCats, I want to stick with lazy, but have nix handle the parsers. -- some cool effects from doing it that way
 -- Also still need to work out how to make jdtls not complain if no dir root is found :/
 - ( ) Fix audio -- switch to pipewire and use easyeffects, maybe try to do that one at a time...
+- (x) fix firefox for canvas -- doesn't load on pages that arent quizzes?! -- Seems to have started after my ff -v 120 change?
 - (x) xdg portal -- Works! I'm happy, but could do with a bit of themeing. I don't care for the moment however.
 - (x) fix sway rofi bindings -- Done, pretty easy to fix, but the keyboards are not idea... so many nkro issues :(
 - (x) Install new ram
