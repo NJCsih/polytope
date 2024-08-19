@@ -6,7 +6,10 @@
   ...
 }:
 let
-  requiredPackages = with pkgs; [ nushell swaylock ];
+  requiredPackages = with pkgs; [
+    nushell
+    swaylock
+  ];
 in
 stdenv.mkDerivation {
   pname = "lock";

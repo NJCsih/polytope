@@ -2,6 +2,7 @@
 
 # Start stuff:
 exec workspace_helper init                                 # For kanata
+exec systemctl --user start swww-switch                    # Wallpapers
 
 # Held-over keybinds
 bindsym Mod4+p exec grim -g "$(slurp)" - | wl-copy         # take screenshot

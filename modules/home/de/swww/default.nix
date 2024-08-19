@@ -89,9 +89,9 @@ in
 
     systemd.user.services."swww-switch" = {
 
-      Install = {
-        WantedBy = [ "graphical-session.target" ];
-      };
+      # Install = {
+      #   WantedBy = [ "graphical-session.target" ];
+      # };
 
       Unit = {
         Description = "rotate swww wallpaper";
