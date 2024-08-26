@@ -22,10 +22,10 @@ client.background       #FFFFFF
 
 # Gaps and stuff
 #default_border pixel 1
-default_border pixel 3
-gaps inner 4
+default_border pixel 2
+gaps inner 1
 #gaps outer -5
-gaps outer -7
+gaps outer -6
 smart_gaps on
 smart_borders on
 

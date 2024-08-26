@@ -144,6 +144,7 @@ in
 
       # Tools
       borgbackup
+      freerdp3
       gimp
       git
       gitoxide
@@ -156,6 +157,7 @@ in
       neovim
       networkmanager
       nix-tree
+      okular
       slurp
       stylua
       syncthing
@@ -163,7 +165,6 @@ in
       tio # serial client
       vlc
       wireshark
-      freerdp3
       yazi
       zls
 
@@ -178,6 +179,7 @@ in
       kdePackages.dolphin
       libqalculate
       nixfmt-rfc-style
+      nixcats
       nvtopPackages.full
       pciutils
       pipes-rs

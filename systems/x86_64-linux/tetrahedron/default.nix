@@ -134,6 +134,7 @@ in
       quartus-prime-lite
 
       # Tools
+      acpilight
       antimicrox # windows joy2key replacement -- this one's pretty cool
       audacity
       borgbackup
@@ -150,9 +151,11 @@ in
       neovim
       networkmanager
       nix-tree
+      okular
       slurp
       stylua
       syncthing
+      taskwarrior
       tio # serial client
       vlc
       wireshark
@@ -161,7 +164,7 @@ in
 
       # Utils
       acpi
-      bandwhich
+      #bandwhich
       bat
       bottom
       compsize # for showing size on disk of a file

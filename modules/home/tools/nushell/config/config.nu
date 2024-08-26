@@ -874,7 +874,7 @@ def cl [] { clear; pfetch }
 alias ssh = kitty +kitten ssh
 
 # Remaps to open yazi at comvenient locations
-def ysch [] { cd ~/school/_TWTF-CS2420/; yazi }
+def ysch [] { cd ~/school/; yazi }
 def yply [] { cd ~/polytope/; yazi }
 def ynvrc [] { cd ~/.config/nvim; yazi }
 def ydcs [] { cd ~/Documents/; yazi }

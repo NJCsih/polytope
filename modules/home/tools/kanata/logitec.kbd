@@ -11,7 +11,6 @@ danger-enable-cmd yes
 
   linux-dev /dev/input/by-path/pci-0000\:00\:14.0-usb-0\:5\:1.1-event-kbd:/dev/input/by-path/pci-0000\:00\:14.0-usb-0\:9\:1.0-event-kbd
 
->>>>>>> 29699606f0c8ef159c2d7da42de8dc5f4cbbf8cc
   linux-continue-if-no-devs-found yes
 )
 
