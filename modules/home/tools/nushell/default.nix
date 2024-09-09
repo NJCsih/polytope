@@ -5,13 +5,13 @@
 {
   lib,
   config,
-  pkgs,
-  inputs,
+  #pkgs,
+  #inputs,
   ...
 }:
 
 let
-  inherit (lib) types mkEnableOption mkIf;
+  inherit (lib) mkEnableOption mkIf;
   cfg = config.polytope.tools.nushell;
 in
 {
@@ -25,6 +25,7 @@ in
       enable = true;
       configFile.source = ./config/config.nu;
       envFile.source = ./config/env.nu;
+      extraConfig = builtins.readFile ./config/starship.nu;
 
       environmentVariables = config.home.sessionVariables;
     };

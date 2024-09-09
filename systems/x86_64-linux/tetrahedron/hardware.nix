@@ -87,6 +87,23 @@
     ];
   };
 
+  # sudo mount -o uid=1000,gid=100,rw,user,exec,umask=000,noauto,windows_names -t ntfs /dev/sda2 /mnt/fluder
+  fileSystems."/winDrive" = {
+    device = "/dev/disk/by-uuid/";
+    fsType = "ntfs";
+    options = [
+      "uid=1000"
+      "gid=100"
+      "rw"
+      "user"
+      "exec"
+      "umask=000"
+      "noauto"
+      "windows_names"
+      # "nofail" -- we want it to complain if there's an issue, just to noauto on startup
+      "noauto" # Is this the right one? -- just dont automatically mount, but I want it in fstab
+    ];
+  };
   swapDevices = [ { device = "/swap/swapfile"; } ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
