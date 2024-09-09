@@ -22,6 +22,7 @@ Todo:
 - (x) fix sway rofi bindings -- Done, pretty easy to fix, but the keyboards are not idea... so many nkro issues :(
 - (x) Install new ram
 
+- ( ) Make this installed via nix: https://addons.mozilla.org/en-US/firefox/addon/complete-black-theme-for-firef/
 
 * Fixes that would be nice:
 - ( ) Add battery into pfetch, make pfetch not query packages

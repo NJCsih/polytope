@@ -872,6 +872,7 @@ alias z = systemd-inhibit sleep infinity
 alias sss = sha256sum
 def cl [] { clear; pfetch }
 alias ssh = kitty +kitten ssh
+alias pq8 = ping 8.8.8.8
 
 # Remaps to open yazi at comvenient locations
 def ysch [] { cd ~/school/; yazi }

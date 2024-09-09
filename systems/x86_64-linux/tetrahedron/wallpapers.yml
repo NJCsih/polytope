@@ -8,100 +8,100 @@
   - anime
 
 # https://e926.net/posts/2954614
-# - src:
-#     url: https://static1.e621.net/data/b0/ff/b0ff1fc3275a6f05bcc9cd8d4c33ece3.jpg
-#     name: 2954614-Nomax01.jpg
-#     sha256: c1a1035fe398c60a3379e443fbfb60f64401d8eb195c4b1f045253a55654567b
-#   tags:
-#   - furry
+- src:
+    url: https://static1.e621.net/data/b0/ff/b0ff1fc3275a6f05bcc9cd8d4c33ece3.jpg
+    name: 2954614-Nomax01.jpg
+    sha256: c1a1035fe398c60a3379e443fbfb60f64401d8eb195c4b1f045253a55654567b
+  tags:
+  - furry
 
 # https://e926.net/posts/3073048
-# - src:
-#     url: https://static1.e621.net/data/04/10/04108072d4900a6c60d4e3ddb0cf0629.jpg
-#     name: 3073048-Nomax03.jpg
-#     sha256: 46989a8091e56c49f8d2454368e8146e6f71e229b5683496550b3059a9fbc167
-#   tags:
-#   - furry
+- src:
+    url: https://static1.e621.net/data/04/10/04108072d4900a6c60d4e3ddb0cf0629.jpg
+    name: 3073048-Nomax03.jpg
+    sha256: 46989a8091e56c49f8d2454368e8146e6f71e229b5683496550b3059a9fbc167
+  tags:
+  - furry
 
 # https://e926.net/posts/2822842
-# - src:
-#     url: https://static1.e621.net/data/90/53/9053242e921f7949e9d17939a2dc7ee1.png
-#     name: 2822842-Nomax04.png
-#     sha256: 4d28089d4e80083043ec3fddf1028949530a2d9fb3c760bec19d24032c2c016e
-#   tags:
-#   - furry
+- src:
+    url: https://static1.e621.net/data/90/53/9053242e921f7949e9d17939a2dc7ee1.png
+    name: 2822842-Nomax04.png
+    sha256: 4d28089d4e80083043ec3fddf1028949530a2d9fb3c760bec19d24032c2c016e
+  tags:
+  - furry
 
 # https://e926.net/posts/2639369
-# - src:
-#     url: https://static1.e621.net/data/58/3b/583b69e8f4beeb0a9e0d4f9624efa2ff.png
-#     name: 2639369-Nomax05.png
-#     sha256: 04e3a78da6b8d1a98c9dffd124a4530c1c05a39dc946c1260f2613bcc8f245c9
-#   tags:
-#   - furry
+- src:
+    url: https://static1.e621.net/data/58/3b/583b69e8f4beeb0a9e0d4f9624efa2ff.png
+    name: 2639369-Nomax05.png
+    sha256: 04e3a78da6b8d1a98c9dffd124a4530c1c05a39dc946c1260f2613bcc8f245c9
+  tags:
+  - furry
 
 # https://e926.net/posts/2803310
-# - src:
-#     url: https://static1.e621.net/data/92/16/9216122780159b8b7b682370f6d0c25a.png
-#     name: 2803310-Nomax06.png
-#     sha256: e8677e6e6bc18a0fcf6256bab2e9d72f8a159eb283cbd68423b57613f1b8c410
-#   tags:
-#   - furry
+- src:
+    url: https://static1.e621.net/data/92/16/9216122780159b8b7b682370f6d0c25a.png
+    name: 2803310-Nomax06.png
+    sha256: e8677e6e6bc18a0fcf6256bab2e9d72f8a159eb283cbd68423b57613f1b8c410
+  tags:
+  - furry
 
 # https://e926.net/posts/2403137
-# - src:
-#     url: https://static1.e621.net/data/ae/5c/ae5c2c9e8cbe2b700cbe926eed720687.jpg
-#     name: 2403137-Nomax07.jpg
-#     sha256: 3c21b9a3f34881694b619f1e49b8b4606b2318d32ac3d1d2a43af0e9779bde44
-#   tags:
-#   - furry
+- src:
+    url: https://static1.e621.net/data/ae/5c/ae5c2c9e8cbe2b700cbe926eed720687.jpg
+    name: 2403137-Nomax07.jpg
+    sha256: 3c21b9a3f34881694b619f1e49b8b4606b2318d32ac3d1d2a43af0e9779bde44
+  tags:
+  - furry
 
 # https://e926.net/posts/2208285
-# - src:
-#     url: https://static1.e621.net/data/b1/d7/b1d7ede274f8cd1dabd2dd4a6e38b6cd.png
-#     name: 2208285-Nomax08.png
-#     sha256: 5fb8031d01a7fa010111157e946647697b4388d800ae5b38f1ba70348c0f3a7c
-#   tags:
-#   - furry
+- src:
+    url: https://static1.e621.net/data/b1/d7/b1d7ede274f8cd1dabd2dd4a6e38b6cd.png
+    name: 2208285-Nomax08.png
+    sha256: 5fb8031d01a7fa010111157e946647697b4388d800ae5b38f1ba70348c0f3a7c
+  tags:
+  - furry
 
 # https://e926.net/posts/3009247
-# - src:
-#     url: https://static1.e621.net/data/b5/ac/b5ac31d5a0f4a3b69891ff7fd8293134.jpg
-#     name: 3009247-Nomax09.jpg
-#     sha256: 31848c130150d3f21ee318433725f3d840d32f26517d80b73d2dee2945bc2ef9
-#   tags:
-#   - furry
+- src:
+    url: https://static1.e621.net/data/b5/ac/b5ac31d5a0f4a3b69891ff7fd8293134.jpg
+    name: 3009247-Nomax09.jpg
+    sha256: 31848c130150d3f21ee318433725f3d840d32f26517d80b73d2dee2945bc2ef9
+  tags:
+  - furry
 
 # https://e926.net/posts/2750316
-# - src:
-#     url: https://static1.e621.net/data/c6/61/c66147820078604a0f50c6f6bded0716.jpg
-#     name: 2750316-Nomax10.jpg
-#     sha256: ba7a91f0983b2905e6b36df78e9dbd3ff72addc1b28def6cd6e77e8c34037538
-#   tags:
-#   - furry
+- src:
+    url: https://static1.e621.net/data/c6/61/c66147820078604a0f50c6f6bded0716.jpg
+    name: 2750316-Nomax10.jpg
+    sha256: ba7a91f0983b2905e6b36df78e9dbd3ff72addc1b28def6cd6e77e8c34037538
+  tags:
+  - furry
 
 # https://e926.net/posts/2755717
-# - src:
-#     url: https://static1.e621.net/data/d6/f9/d6f9acd664dd290bd686c3fec3282286.png
-#     name: 2755717-Nomax11.png
-#     sha256: bde60884d15ab6164e595e3fb77f4c78f79e239ca81539feb693dd30379db541
-#   tags:
-#   - furry
+- src:
+    url: https://static1.e621.net/data/d6/f9/d6f9acd664dd290bd686c3fec3282286.png
+    name: 2755717-Nomax11.png
+    sha256: bde60884d15ab6164e595e3fb77f4c78f79e239ca81539feb693dd30379db541
+  tags:
+  - furry
 
 # https://e926.net/posts/3766955
-# - src:
-#     url: https://static1.e621.net/data/e3/ba/e3ba808efa8e18ad8d2321365f895072.jpg
-#     name: 3766955-Nomax12.png
-#     sha256: f5ca677884f2c9214592ec6b7ba5b5c561c3ecbd1dbfe561682c6032928f8eb8
-#   tags:
-#   - furry
+- src:
+    url: https://static1.e621.net/data/e3/ba/e3ba808efa8e18ad8d2321365f895072.jpg
+    name: 3766955-Nomax12.png
+    sha256: f5ca677884f2c9214592ec6b7ba5b5c561c3ecbd1dbfe561682c6032928f8eb8
+  tags:
+  - furry
 
 # https://e926.net/posts/3138686
-# - src:
-#     url: https://static1.e621.net/data/6c/64/6c645fd27ac9f44f7f70ad23351ced19.jpg
-#     name: 3138686-Nomax13.png
-#     sha256: a873f7e147b929361898ac1ad5d78baa0246ae9415d7c1fc9258033997ccdfc2
-#   tags:
-#   - furry
+- src:
+    url: https://static1.e621.net/data/6c/64/6c645fd27ac9f44f7f70ad23351ced19.jpg
+    name: 3138686-Nomax13.png
+    sha256: a873f7e147b929361898ac1ad5d78baa0246ae9415d7c1fc9258033997ccdfc2
+  tags:
+  - furry
 
 # https://e621.net/posts/3684403
 - src:
@@ -112,18 +112,10 @@
   - furry
 
 # https://e621.net/posts/4450545
-# - src:
-#     url: https://static1.e621.net/data/da/cf/dacf5cf2f8ff8b960f6ecdb8347f4ad5.png
-#     name: 4450545-nomax15.png
-#     sha256: c8613a357e9bccb0fd9c2c85893a563bb217bb51fb0128710e63f27466050d4f
-#   tags:
-#   - furry
-
-# https://e621.net/posts/2075665
 - src:
-    url: https://static1.e926.net/data/03/3c/033c88b941a220d9e77c2aaf3924d448.png
-    name: 2075665-Kanizo01.png
-    sha256: b0fe0364f625296558bbdc57bc9045597eb8a48d5f6da48bd32f096775076b3e
+    url: https://static1.e621.net/data/da/cf/dacf5cf2f8ff8b960f6ecdb8347f4ad5.png
+    name: 4450545-nomax15.png
+    sha256: c8613a357e9bccb0fd9c2c85893a563bb217bb51fb0128710e63f27466050d4f
   tags:
   - furry
 
@@ -136,13 +128,19 @@
   - furry
   - overtly_furry
 
-
-  # New stuff
+# https://commons.wikimedia.org/wiki/File:Perth_(AU),_Elizabeth_Quay_Bridge_--_2019_--_0375-9.jpg
+- src:
+    url: https://upload.wikimedia.org/wikipedia/commons/f/f6/Perth_%28AU%29%2C_Elizabeth_Quay_Bridge_--_2019_--_0375-9.jpg
+    name: PerthBridge.png
+    sha256: 5009d605abe8d0f5668869941561e65a1f8d79f14ddc152800bccd13ee3f8c07
+  tags:
+  - Architecture
+  - Non Furry
 
 # https://e621.net/posts/4222172
 - src:
     url: https://static1.e621.net/data/bf/e4/bfe43ba264ad68e5d8a101ecef69c03e.png
-    name: 4222172-neotheta01.png
+    name: 4222172-Neotheta01.png
     sha256: 67ea27411639ce50d63e9e7fcb813a72b2f3dd368c08d8a97311043121ee2e43
   tags:
   - furry
@@ -152,7 +150,7 @@
 # https://e621.net/posts/4118832
 - src:
     url: https://static1.e621.net/data/0a/61/0a617f9c455822acb31c556f938f6fbb.png
-    name: 4118832-zepto01.png
+    name: 4118832-Zepto01.png
     sha256: 7ad9b08f6a8692e744348f9dcee74fd514afc4ee7404a9fab77664a1321b56ac
   tags:
   - furry
@@ -161,7 +159,7 @@
 # https://e621.net/posts/1876191
 - src:
     url: https://static1.e621.net/data/35/1f/351f73269c7b7e35d913760ae0bdc171.png
-    name: 1876191-zepto02.png
+    name: 1876191-Zepto02.png
     sha256: 473e34431c5ba10692bc09705acc358bcdef9f7b5f10bf30f732fbe5e8c2b178
   tags:
   - furry
@@ -170,7 +168,7 @@
 # https://e621.net/posts/3824614
 - src:
     url: https://static1.e621.net/data/23/f9/23f90be6ffff0d0e47eecc0908e20df1.jpg
-    name: 3824614-luminous_slime01.jpg
+    name: 3824614-Luminous_Slime01.jpg
     sha256: c43f37891eb370e9c3755b386cf7de47d0ff48b2dc2cd10dbba7c21a52a40228
   tags:
   - furry
@@ -179,7 +177,7 @@
 # https://e621.net/posts/3822579
 - src:
     url: https://static1.e621.net/data/db/b0/dbb06d5213364ba85af2883b92455a63.jpg
-    name: 3822579-windwttom01.jpg
+    name: 3822579-Windwttom01.jpg
     sha256: c05d2661bd7a9be6f0ff2daf71b65d7e50604f159599a210b3b5a4a4ec89f863
   tags:
   - furry
@@ -188,7 +186,7 @@
 # https://e621.net/posts/3063239
 - src:
     url: https://static1.e621.net/data/a9/36/a9362c22c1cc7bf428231517d27019c6.png
-    name: 3063239-rudidri01.png
+    name: 3063239-Rudidri01.png
     sha256: 0a76ea71d0686ee5397add23f4a5d47c502de7fa61f3fdf752eb551cd4b6f75b
   tags:
   - furry
@@ -220,19 +218,10 @@
   - furry
   - overtly_furry
 
-# https://e621.net/posts/2720549
-- src:
-    url: https://static1.e621.net/data/55/b3/55b39071bfc401d2b3109455fe55f7ce.jpg
-    name: 2720549-angiewolf03.png
-    sha256: 4cb8c0ad8cb50dfc5c70789f16f456bf36ab49da0e3ca9c0fa252fced4afc61f
-  tags:
-  - furry
-  - overtly_furry
-
 # https://e621.net/posts/1610085
 - src:
     url: https://static1.e621.net/data/10/de/10de59a4cf581321fa7a9d5e18f43a99.png
-    name: 1610085-angiewolf04.png
+    name: 1610085-angiewolf03.png
     sha256: 9a648323eafe1b077e8485c904a51d6b786185da326e35b8d08e30ef454c45b3
   tags:
   - furry
@@ -241,20 +230,19 @@
 # https://e621.net/posts/1576851
 - src:
     url: https://static1.e621.net/data/47/66/47666f3f4e090c059ddf863d29f29e8d.png
-    name: 1576851-angiewolf05.png
+    name: 1576851-angiewolf04.png
     sha256: ca974e20eedd3d3d244b082e1329ccfdd36077fc102cf709284b335c46a690c5
   tags:
   - furry
   - overtly_furry
 
-# https://e621.net/posts/1461523
+# https://e621.net/posts/2075665
 - src:
-    url: https://static1.e621.net/data/3c/0e/3c0eed634c4c793ea7ba5a3a789c4b95.png
-    name: 1461523-Kanizo19.png
-    sha256: 3fc822f3d00c379a5338c9436ba8529978b2b1d5b4704033935718687ab7ff6e
+    url: https://static1.e926.net/data/03/3c/033c88b941a220d9e77c2aaf3924d448.png
+    name: 2075665-Kanizo01.png
+    sha256: b0fe0364f625296558bbdc57bc9045597eb8a48d5f6da48bd32f096775076b3e
   tags:
   - furry
-  - overtly_furry
 
 # https://e621.net/posts/3148719
 - src:
@@ -393,3 +381,11 @@
   tags:
   - covert
 
+# https://e621.net/posts/1461523
+- src:
+    url: https://static1.e621.net/data/3c/0e/3c0eed634c4c793ea7ba5a3a789c4b95.png
+    name: 1461523-Kanizo19.png
+    sha256: 3fc822f3d00c379a5338c9436ba8529978b2b1d5b4704033935718687ab7ff6e
+  tags:
+  - furry
+  - overtly_furry

@@ -16,6 +16,7 @@ in
 {
   options.polytope.apps.kitty = {
     enable = mkEnableOption "Kitty";
+    #opacity = mkOption "Kitty_Opacity";
   };
 
   config = mkIf cfg.enable {

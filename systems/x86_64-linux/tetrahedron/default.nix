@@ -30,7 +30,7 @@ in
   polytope.system.nix.enable = true;
 
   # Enable sound.
-  hardware.pulseaudio.enable = true;
+  hardware.pulseaudio.enable = false;
   #security.rtkit.enable = true;
   #services.pipewire = {
   #  enable = true;
@@ -120,6 +120,7 @@ in
       logisim-evolution
       mumble
       prusa-slicer
+      #polytope.nheko
       nheko
       nushell
       pfetch

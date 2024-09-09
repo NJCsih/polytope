@@ -56,7 +56,7 @@
     lib.mkFlake {
       channels-config = {
         allowUnfree = true;
-        # permittedUnsecurePackages = [];
+        permittedInsecurePackages = [ "olm-3.2.16" ];
       };
 
       systems.modules.nixos = with inputs; [ home-manager.nixosModules.home-manager ];
