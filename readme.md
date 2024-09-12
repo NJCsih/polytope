@@ -8,13 +8,13 @@ I don't spend that much time on this? It could be nicer. If you want something b
 Todo:
 ```neorg
 * 'Full Competence' from my device
+- ( ) Install/configure zelij
+- ( ) Use zoxide?
+- ( ) Actually use atuin
 - ( ) Make taskwarrior configured via hm/nix, I just ran `task config dateformat Y_M_D-H_N` but it would be cool if nix did that
 - (-) swww -- just need it to run when sway starts
 - ( ) install quartus, see Kronicle's Notes
 -- This looks.... hard...
-- (-) nvim
--- Making progress, slowly s
--- Also still need to work out how to make jdtls not complain if no dir root is found :/
 - ( ) Fix audio -- switch to pipewire and use easyeffects, maybe try to do that one at a time...
 - (x) Screnlocker
 - (x) fix firefox for canvas -- doesn't load on pages that arent quizzes?! -- Seems to have started after my ff -v 120 change?
@@ -23,6 +23,10 @@ Todo:
 - (x) Install new ram
 
 - ( ) Make this installed via nix: https://addons.mozilla.org/en-US/firefox/addon/complete-black-theme-for-firef/
+
+- (x) nvim -- I'm gonna keep working on it, but I'm very happy wiht it currently.
+-- Making progress, slowly s
+-- Also still need to work out how to make jdtls not complain if no dir root is found :/
 
 * Fixes that would be nice:
 - ( ) Add battery into pfetch, make pfetch not query packages

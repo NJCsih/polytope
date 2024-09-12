@@ -120,9 +120,9 @@ in
       logisim-evolution
       mumble
       prusa-slicer
-      #polytope.nheko
       nheko
       nushell
+      starship # for nushell
       pfetch
       qmk
       rofi
@@ -133,6 +133,11 @@ in
       jetbrains.idea-community
       openjdk
       quartus-prime-lite
+
+      # Cryptography
+      age
+      magic-wormhole-rs
+      picocrypt-cli
 
       # Tools
       acpilight
@@ -165,7 +170,7 @@ in
 
       # Utils
       acpi
-      #bandwhich
+      bandwhich
       bat
       bottom
       compsize # for showing size on disk of a file
@@ -203,13 +208,13 @@ in
       #}
 
     ])
-    ++ ([
+    ++ [
       (inputs.nazarick.packages.x86_64-linux.system-wallpapers.override {
         # Todo: make this managed on a per-user basis not per-system
         #wallpapers = ../../../modules/nixos/desktop/wallpapers/wallpapers.yml;
         wallpapers = ./wallpapers.yml;
       })
-    ]);
+    ];
 
   programs.wireshark.enable = true; # set extra stuff for wireshark
 

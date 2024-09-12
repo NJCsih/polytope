@@ -236,6 +236,7 @@ in
             # My user settings:
             "browser.ctrlTab.sortByRecentlyUsed" = true;
             "browser.toolbars.bookmarks.visibility" = "never";
+            "browser.newtab.url" = "about:blank";
 
             # My added settings:
             "browser.firefox-view.feature-tour" = "{\"screen\":\"FIREFOX_VIEW_SPOTLIGHT\",\"complete\":true}";
