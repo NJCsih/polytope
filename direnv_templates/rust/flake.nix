@@ -14,17 +14,14 @@
           inherit system;
         };
 
-        tex = (pkgs.texlive.combine {
-          inherit (pkgs.texlive) scheme-full
-          biber; # needed for vimtex
-        });
-
       in
       {
         devShells.default = pkgs.mkShell {
           packages = [
-            tex
-            pkgs.texlivePackages.latexmk
+            pkgs.rustc
+            pkgs.cargo
+            pkgs.rustfmt
+            pkgs.rustPackages.clippy
           ];
         };
       }
