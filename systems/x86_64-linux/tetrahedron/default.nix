@@ -74,6 +74,32 @@ in
   # Set for Kanata/the sway keybind system
   hardware.uinput.enable = true;
 
+  # Enable xdg portal
+  #xdg.portal.enable = true;
+  xdg.portal = {
+    enable = true;
+    xdgOpenUsePortal = true;
+    extraPortals = with pkgs; [
+      kdePackages.xdg-desktop-portal-kde
+      xdg-desktop-portal-gtk
+      xdg-desktop-portal-wlr
+    ];
+    #configPackages = with pkgs; [ gnome-keyring ];
+    config = {
+      common = {
+        default = [
+          "gtk"
+          "wlr"
+          "kde"
+        ];
+        #"org.freedesktop.impl.portal.Secret" = [ "gnome-keyring" ];
+      };
+    };
+  };
+
+  # Flatpak for rdp
+  services.flatpak.enable = true;
+
   # User Stuff ------------------------------------------------------------------------------------
 
   networking.hostName = "tetrahedron"; # Define your hostname.
@@ -175,7 +201,6 @@ in
       bottom
       compsize # for showing size on disk of a file
       dust
-      gnome-keyring
       htop
       iotop
       kdePackages.dolphin
@@ -233,6 +258,11 @@ in
 
     # Sway/Swayfx
     swayfx.configuration = {
+
+      programs.sway = {
+        enable = true;
+        xwayland.enable = true;
+      };
 
       # Login manager:
       services.greetd = {

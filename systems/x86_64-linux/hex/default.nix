@@ -15,8 +15,6 @@ in
     ./hardware.nix
   ];
 
-  networking.firewall.enable = false; # TESTING
-
   # NixOS Stuff -----------------------------------------------------------------------------------
 
   # Enable experimental features
@@ -32,7 +30,7 @@ in
   polytope.system.nix.enable = true;
 
   # Enable sound.
-  hardware.pulseaudio.enable = true;
+  hardware.pulseaudio.enable = false;
 
   # System Stuff ----------------------------------------------------------------------------------
 
@@ -134,8 +132,14 @@ in
       # Apps
       firefox
       nushell
+      starship # for nushell
       pfetch
       rofi
+
+      # Cryptography
+      age
+      magic-wormhole-rs
+      picocrypt-cli
 
       # Work stuff
       #freerdp3
@@ -161,7 +165,6 @@ in
       slurp
       stylua
       syncthing
-      syncthing
       tio # serial client
       vlc
       wireshark
@@ -179,7 +182,7 @@ in
       kdePackages.dolphin
       libqalculate
       nixfmt-rfc-style
-      nixcats
+      #nixcats
       nvtopPackages.full
       pciutils
       pipes-rs
@@ -246,6 +249,7 @@ in
           waybar
           wayland
           wpaperd
+          swaylock
         ]
       );
     };

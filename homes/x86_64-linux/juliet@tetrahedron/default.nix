@@ -14,11 +14,11 @@
     };
     tools = {
       git.enable = true;
-      nushell.enable = true;
-      yazi.enable = true;
-      tealdeer.enable = true;
       kanata.enable = true;
+      nushell.enable = true;
       sshExtraConf.enable = false;
+      tealdeer.enable = true;
+      yazi.enable = true;
       #easyeffects.enable = true;
     };
     system = {
