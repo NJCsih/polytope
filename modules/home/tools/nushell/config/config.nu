@@ -892,6 +892,9 @@ $env.config = {
     ]
 }
 
+# No colon for prompt
+$env.PROMPT_INDICATOR = ""
+
 # My aliases:
 alias ll = ls -a
 alias lsblk = lsblk -f
