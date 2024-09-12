@@ -1,0 +1,156 @@
+format = """
+[ ](bg:###COL1## ###COL1##)\
+(###COL1##)$directory(fg:###COL4#)\
+[](fg:###COL1## bg:###COL2##)\
+$git_branch(fg:###COL1##)\
+$git_status(fg:###COL1##)\
+[](fg:###COL2## bg:###COL3##)\
+$c(fg:###COL2##)\
+$elixir(fg:###COL2##)\
+$elm(fg:###COL2##)\
+$golang(fg:###COL2##)\
+$gradle(fg:###COL2##)\
+$haskell(fg:###COL2##)\
+$java(fg:###COL2##)\
+$julia(fg:###COL2##)\
+$nodejs(fg:###COL2##)\
+$nim(fg:###COL2##)\
+$rust(fg:###COL2##)\
+$scala(fg:###COL2##)\
+$direnv(fg:###COL2##)\
+[](fg:###COL3## bg:###COL4##)\
+$time(fg:###COL1##)\
+[ ](fg:###COL4##)
+[ ](bg:###COL1##)\
+$os(fg:###COL4## bg:###COL1###)$username(fg:###COL4## bg:###COL1##)\
+[@](bg:###COL1## fg:###COL4##)\
+$hostname(fg:###COL4##)\
+[ ](fg:###COL1##)\
+"""
+
+#[](fg:###COL3## bg:#06969A)\
+#[](fg:#06969A bg:###COL4##)\
+#$docker_context\
+
+
+# Disable the blank line at the start of the prompt
+# add_newline = false
+
+# You can also replace your username with a neat symbol like   or disable this
+# and use the os module below
+[username]
+show_always = true
+style_user = "bg:###COL1##"
+style_root = "bg:###COL1##"
+format = '[$user]($style)'
+disabled = false
+
+[hostname]
+ssh_only = false
+trim_at = ''
+detect_env_vars = []
+format = '[$hostname](bg:###COL1##)'
+style = "bg:###COL1## fg:###COL3##"
+disabled = false
+
+[direnv]
+format = '[$symbol$loaded$allowed](fg:###COL1## bg:###COL3##)'
+symbol = ' '
+disabled = false
+detect_extensions = []
+detect_files = ['.envrc']
+detect_folders = []
+allowed_msg = ' ✓'
+not_allowed_msg = ' ✗'
+denied_msg = ' Denied'
+loaded_msg = ''
+unloaded_msg = 'not loaded'
+
+# An alternative to the username module which displays a symbol that
+# represents the current operating system
+[os]
+style = "bg:###COL1##"
+disabled = false # Disabled by default
+
+[directory]
+style = "bg:###COL1##"
+#format = "[ $path ]($style)"
+format = "[$path]($style)[$read_only]($style)"
+truncation_length = 3
+read_only = ' 󰍁 '
+truncate_to_repo = true
+truncation_symbol = "…/"
+
+[c]
+symbol = " "
+style = "bg:###COL3##"
+format = '[ $symbol ($version) ]($style)'
+
+[docker_context]
+symbol = " "
+style = "bg:#06969A"
+format = '[ $symbol $context ]($style)'
+
+[elixir]
+symbol = " "
+style = "bg:###COL3##"
+format = '[ $symbol ($version) ]($style)'
+
+[elm]
+symbol = " "
+style = "bg:###COL3##"
+format = '[ $symbol ($version) ]($style)'
+
+[git_branch]
+symbol = ""
+style = "bg:###COL2## fg:###COL4##"
+format = '[ $symbol $branch ]($style)'
+
+[git_status]
+style = "bg:###COL2## fg:###COL4##"
+format = '[$all_status$ahead_behind ]($style)'
+
+[golang]
+symbol = " "
+style = "bg:###COL3##"
+format = '[ $symbol ($version) ]($style)'
+
+[gradle]
+style = "bg:###COL3##"
+format = '[ $symbol ($version) ]($style)'
+
+[haskell]
+symbol = " "
+style = "bg:###COL3##"
+format = '[ $symbol ($version) ]($style)'
+
+[java]
+symbol = " "
+style = "bg:###COL3##"
+format = '[ $symbol ($version) ]($style)'
+
+[julia]
+symbol = " "
+style = "bg:###COL3##"
+format = '[ $symbol ($version) ]($style)'
+
+[nim]
+symbol = "󰆥 "
+style = "bg:###COL3##"
+format = '[ $symbol ($version) ]($style)'
+
+[rust]
+symbol = ""
+style = "bg:###COL3##"
+format = '[ $symbol ($version) ]($style)'
+
+[scala]
+symbol = " "
+style = "bg:###COL3##"
+format = '[ $symbol ($version) ]($style)'
+
+[time]
+disabled = false
+time_format = "%R" # Hour:Minute Format
+style = "bg:###COL4## fg:###COL1##"
+format = '[ $time ]($style)'

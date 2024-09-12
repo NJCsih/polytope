@@ -5,7 +5,7 @@
 {
   lib,
   config,
-  #pkgs,
+  pkgs,
   #inputs,
   ...
 }:
@@ -29,5 +29,29 @@ in
 
       environmentVariables = config.home.sessionVariables;
     };
+
+    #programs.starship.enable = true;
+    #programs.starship.enableNushellIntegration = true;
+    xdg.configFile."starship.toml" = {
+      enable = true;
+      source = pkgs.substitute {
+        src = ./config/starship.toml;
+        substitutions = [
+          "--replace-fail"
+          "##COL1##"
+          "486878"
+          "--replace-fail"
+          "##COL2##"
+          "7898a8"
+          "--replace-fail"
+          "##COL3##"
+          "a8a8b8"
+          "--replace-fail"
+          "##COL4##"
+          "d8d8d8"
+        ];
+      };
+    };
+
   };
 }
