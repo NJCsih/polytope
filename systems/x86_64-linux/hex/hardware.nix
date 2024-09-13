@@ -102,38 +102,50 @@
   # Load nvidia driver for Xorg and Wayland
   services.xserver.videoDrivers = [ "nvidia" ];
 
-  hardware.nvidia.open = true;
-  #  hardware.nvidia = {
-  #
-  #    modesetting.enable = true; # Modesetting is required.
-  #    powerManagement.enable = false; # Can cause crashes after waking from sleep
-  #
-  #    # Fine-grained power management. Turns off GPU when not in use.
-  #    # Experimental and only works on modern Nvidia GPUs (Turing or newer).
-  #    powerManagement.finegrained = false;
-  #
-  #    open = false; # Use open kernel, (this is not nouveau), only some cards supported
-  #
-  #    # Enable the Nvidia settings menu,
-  #    # accessible via `nvidia-settings`.
-  #    nvidiaSettings = true;
-  #
-  #    # Optionally, you may need to select the appropriate driver version for your specific GPU.
-  #    package = config.boot.kernelPackages.nvidiaPackages.stable;
-  #
-  #    # set IDs and prime offloading
-  #    prime = {
-  #      # amdgpuBusId = "PCI:54:0:0"; For AMD GPU
-  #      intelBusId = "PCI:0:2:0";
-  #      nvidiaBusId = "PCI:1:0:0";
-  #
-  #      offload = {
-  #        # I'm gonna try without offloading
-  #        enable = false;
-  #        enableOffloadCmd = false;
-  #      };
-  #    };
-  #  };
+  hardware.graphics = {
+    enable = true;
+    extraPackages = with pkgs; [
+      vulkan-loader
+      vulkan-validation-layers
+      vulkan-extension-layer
+      vaapiVdpau
+    ];
+  };
+
+  hardware.nvidia = {
+
+    modesetting.enable = true; # Modesetting is required.
+    powerManagement.enable = false; # Can cause crashes after waking from sleep
+
+    # Fine-grained power management. Turns off GPU when not in use.
+    # Experimental and only works on modern Nvidia GPUs (Turing or newer).
+    powerManagement.finegrained = false;
+
+    # THIS BREAKS EVERYTHING NO TOUCHING
+    open = false; # Use open kernel, (this is not nouveau), only some cards supported
+
+    # Enable the Nvidia settings menu,
+    # accessible via `nvidia-settings`.
+    nvidiaSettings = true;
+
+    # Optionally, you may need to select the appropriate driver version for your specific GPU.
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
+
+    # set IDs and prime offloading
+    prime = {
+      intelBusId = "PCI:0:2:0";
+      # amdgpuBusId = "PCI:54:0:0"; For AMD GPU
+      nvidiaBusId = "PCI:1:0:0";
+
+      sync.enable = false; # Unsupported on older cards ig?
+
+      offload = {
+        # I'm gonna try without offloading
+        enable = false;
+        enableOffloadCmd = false;
+      };
+    };
+  };
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;

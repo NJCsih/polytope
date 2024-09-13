@@ -241,6 +241,12 @@ in
         };
       };
 
+      # 'Enable' sway (set all the nice stuff)
+      # should probably do this
+
+      # Set pam to not have swaylock lock me out
+      security.pam.services.swaylock = { };
+
       # Install sway specific stuff
       environment.systemPackages = (
         with pkgs;
