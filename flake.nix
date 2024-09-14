@@ -23,6 +23,18 @@
       inputs.home-manager.follows = "home-manager";
     };
 
+    # Neovim inputs
+    nvim-cats = {
+      url = "github:NJCsih/nvim-nixCats";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nixCats.url = "github:BirdeeHub/nixCats-nvim?dir=nix";
+    neovim-nightly-overlay = {
+      url = "github:nix-community/neovim-nightly-overlay";
+    };
+    neorg-overlay.url = "github:nvim-neorg/nixpkgs-neorg-overlay";
+    neorg-overlay.inputs.nixpkgs.follows = "nixpkgs";
+
     #   snowfall-flake = {
     #     url = "github:snowfallorg/flake";
     #     inputs.nixpkgs.follows = "nixpkgs";

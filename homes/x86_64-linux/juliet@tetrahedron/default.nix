@@ -18,6 +18,7 @@
       yazi.enable = true;
       tealdeer.enable = true;
       kanata.enable = true;
+      cryptscript.enable = true;
       sshExtraConf.enable = false;
       #easyeffects.enable = true;
     };

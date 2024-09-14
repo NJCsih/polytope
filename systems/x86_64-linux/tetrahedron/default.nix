@@ -74,6 +74,9 @@ in
   # Set for Kanata/the sway keybind system
   hardware.uinput.enable = true;
 
+  # Set custom udev rules for qmk
+  services.udev.extraRules = builtins.readFile ./qmk-udev-rules.txt;
+
   # User Stuff ------------------------------------------------------------------------------------
 
   networking.hostName = "tetrahedron"; # Define your hostname.
@@ -106,6 +109,7 @@ in
     desktop = {
       fonts = enabled;
     };
+    tools.kerberosConfig.enable = false;
   };
 
   # Systemwide Packages ---------------------------------------------------------------------------
@@ -132,7 +136,6 @@ in
       # School stuff
       jetbrains.idea-community
       openjdk
-      quartus-prime-lite
 
       # Cryptography
       age
