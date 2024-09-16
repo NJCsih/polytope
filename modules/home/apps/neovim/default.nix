@@ -1,13 +1,13 @@
 {
   lib,
   config,
-  pkgs,
+  #pkgs,
   inputs,
   ...
 }:
 
 let
-  inherit (lib) types mkEnableOption mkIf;
+  inherit (lib) mkEnableOption mkIf;
   cfg = config.polytope.apps.neovim;
 in
 {
@@ -17,16 +17,8 @@ in
 
   config = mkIf cfg.enable {
 
-    home.sessionVariables = {
-      EDITOR = "nvim";
-    };
-
-    programs.neovim = {
-      enable = true;
-      defaultEditor = true;
-      withNodeJs = false;
-      withRuby = false;
-      withPython3 = false;
-    };
+    # Use nvim cats
+    home.packages = [ inputs.nvim-cats.packages.x86_64-linux.default ];
+    home.sessionVariables.EDITOR = "nvim-cats";
   };
 }

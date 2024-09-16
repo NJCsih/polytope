@@ -123,6 +123,7 @@ in
     desktop = {
       fonts = enabled;
     };
+    tools.kerberosConfig.enable = true;
   };
 
   # Systemwide Packages ---------------------------------------------------------------------------
@@ -141,10 +142,6 @@ in
       magic-wormhole-rs
       picocrypt-cli
 
-      # Work stuff
-      #freerdp3
-      krb5
-      thunderbird
 
       # Tools
       borgbackup
@@ -157,6 +154,7 @@ in
       keepassxc
       kitty
       kmix
+      krb5
       lua-language-server
       neovim
       networkmanager
@@ -182,7 +180,6 @@ in
       kdePackages.dolphin
       libqalculate
       nixfmt-rfc-style
-      #nixcats
       nvtopPackages.full
       pciutils
       pipes-rs
