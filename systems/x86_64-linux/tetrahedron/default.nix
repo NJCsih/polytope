@@ -75,7 +75,7 @@ in
   hardware.uinput.enable = true;
 
   # Set custom udev rules for qmk
-  services.udev.extraRules = builtins.readFile ./qmk-udev-rules.txt;
+  #services.udev.extraRules = builtins.readFile ./qmk-udev-rules.txt;
 
   # User Stuff ------------------------------------------------------------------------------------
 
@@ -156,11 +156,11 @@ in
       keepassxc
       kitty
       kmix
-      lua-language-server
       neovim
       networkmanager
       nix-tree
       okular
+      pdfarranger
       slurp
       stylua
       syncthing
