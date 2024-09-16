@@ -182,11 +182,11 @@ in
       keepassxc
       kitty
       kmix
-      lua-language-server
       neovim
       networkmanager
       nix-tree
       okular
+      pdfarranger
       slurp
       stylua
       syncthing

@@ -8,6 +8,7 @@
         enable = true;
         userCss = true;
       };
+      gimp.enable = true;
       kitty.enable = true;
       neovim.enable = true;
       nheko.enable = true;
