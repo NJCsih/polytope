@@ -28,14 +28,14 @@ in
             PreferredAuthentications = "publickey";
           };
         };
-        # "github.com" = {
-        #   host = "github-sch";
-        #   hostname = "github.com";
-        #   identityFile = [ "~/.ssh/github_auth_key-sch" ];
-        #   extraOptions = {
-        #     PreferredAuthentications = "publickey";
-        #   };
-        # };
+        "github-sch" = {
+          host = "github-sch";
+          hostname = "github.com";
+          identityFile = [ "~/.ssh/github_auth_key-sch" ];
+          extraOptions = {
+            PreferredAuthentications = "publickey";
+          };
+        };
       };
     };
 

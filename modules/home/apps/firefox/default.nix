@@ -233,6 +233,12 @@ in
           ];
 
           settings = {
+
+            "browser.newtabpage.activity-stream.feeds.weatherfeed" = false;
+            "browser.newtabpage.activity-stream.showWeather" = false;
+            "browser.newtabpage.activity-stream.system.showWeather" = false;
+            "browser.newtabpage.activity-stream.weather.locationSearchEnabled" = false;
+
             # My user settings:
             "browser.ctrlTab.sortByRecentlyUsed" = true;
             "browser.toolbars.bookmarks.visibility" = "never";
