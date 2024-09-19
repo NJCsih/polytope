@@ -142,7 +142,6 @@ in
       magic-wormhole-rs
       picocrypt-cli
 
-
       # Tools
       borgbackup
       freerdp3
