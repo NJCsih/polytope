@@ -164,6 +164,7 @@ in
       openjdk
 
       # Cryptography
+      # DarkKronicle's crypt-scripts are handled by a hm module
       age
       magic-wormhole-rs
       picocrypt-cli
