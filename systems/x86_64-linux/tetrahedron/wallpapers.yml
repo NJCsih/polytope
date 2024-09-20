@@ -95,13 +95,13 @@
   tags:
   - furry
 
-# https://e926.net/posts/3138686
-- src:
-    url: https://static1.e621.net/data/6c/64/6c645fd27ac9f44f7f70ad23351ced19.jpg
-    name: 3138686-Nomax13.jpg
-    sha256: a873f7e147b929361898ac1ad5d78baa0246ae9415d7c1fc9258033997ccdfc2
-  tags:
-  - furry
+# # https://e926.net/posts/3138686
+# - src:
+#     url: https://static1.e621.net/data/6c/64/6c645fd27ac9f44f7f70ad23351ced19.jpg
+#     name: 3138686-Nomax13.jpg
+#     sha256: a873f7e147b929361898ac1ad5d78baa0246ae9415d7c1fc9258033997ccdfc2
+#   tags:
+#   - furry
 
 # https://e621.net/posts/3684403
 - src:
