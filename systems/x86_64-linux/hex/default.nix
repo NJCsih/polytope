@@ -123,7 +123,7 @@ in
     desktop = {
       fonts = enabled;
     };
-    tools.kerberosConfig.enable = true;
+    tools.kerberosConfig.enable = false;
   };
 
   # Systemwide Packages ---------------------------------------------------------------------------
