@@ -17,6 +17,7 @@ in
 {
   options.polytope.tools.nushell = {
     enable = mkEnableOption "Nushell";
+    zoxide.enable = mkEnableOption "zoxide integration";
   };
 
   config = mkIf cfg.enable {
@@ -56,5 +57,13 @@ in
       };
     };
 
+    programs.zoxide = mkIf cfg.zoxide.enable {
+      enable = true;
+      enableNushellIntegration = true;
+     #options = [
+     #  ''--hook none''
+     #];
+      #package
+    };
   };
 }

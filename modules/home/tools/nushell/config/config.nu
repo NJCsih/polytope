@@ -897,7 +897,7 @@ $env.PROMPT_INDICATOR = ""
 # My aliases:
 alias ll = ls -a
 alias lsblk = lsblk -f
-alias z = systemd-inhibit sleep infinity
+alias zz = systemd-inhibit sleep infinity
 alias sss = sha256sum
 def cl [] { clear; pfetch }
 alias ssh = kitty +kitten ssh
