@@ -27,11 +27,14 @@ in
       envFile.source = ./config/env.nu;
       extraConfig = builtins.readFile ./config/starship.nu;
 
-      environmentVariables = config.home.sessionVariables;
+      environmentVariables = lib.listToAttrs (
+        lib.mapAttrsToList (key: var: {
+          name = key;
+          value = ''r####'${var}'####'';
+        }) config.home.sessionVariables
+      );
     };
 
-    #programs.starship.enable = true;
-    #programs.starship.enableNushellIntegration = true;
     xdg.configFile."starship.toml" = {
       enable = true;
       source = pkgs.substitute {
