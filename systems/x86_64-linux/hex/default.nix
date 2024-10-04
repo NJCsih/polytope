@@ -154,19 +154,21 @@ in
       kitty
       kmix
       krb5
-      lua-language-server
+      libqalculate
       neovim
       networkmanager
-      nix-tree
       okular
       slurp
-      stylua
       syncthing
       tio # serial client
       vlc
-      wireshark
       yazi
-      zls
+
+      # Testing Tools
+      door-knocker
+      nix-tree
+      rustscan
+      wireshark
 
       # Utils
       bandwhich
@@ -177,7 +179,6 @@ in
       htop
       iotop
       kdePackages.dolphin
-      libqalculate
       nixfmt-rfc-style
       nvtopPackages.full
       pciutils
