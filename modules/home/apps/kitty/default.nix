@@ -24,7 +24,7 @@ in
     programs.kitty = {
       #package = pkgs.kitty;
       enable = true;
-      theme = "Catppuccin-Mocha";
+      themeFile = "Catppuccin-Mocha";
       settings = {
         font_family = "CaskaydiaCove";
         italic_font = "Operator-caskabold";

@@ -83,11 +83,7 @@ in
     #configPackages = with pkgs; [ gnome-keyring ];
     config = {
       common = {
-        default = [
-          "gtk"
-          "wlr"
-          "kde"
-        ];
+        default = "*";
         #"org.freedesktop.impl.portal.Secret" = [ "gnome-keyring" ];
       };
     };
