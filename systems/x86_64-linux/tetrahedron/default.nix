@@ -183,7 +183,7 @@ in
       grim
       keepassxc
       kitty
-      kmix
+      lxqt.pavucontrol-qt
       neovim
       networkmanager
       nix-tree

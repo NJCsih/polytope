@@ -152,9 +152,9 @@ in
       grim
       keepassxc
       kitty
-      kmix
       krb5
       lua-language-server
+      lxqt.pavucontrol-qt
       neovim
       networkmanager
       nix-tree
