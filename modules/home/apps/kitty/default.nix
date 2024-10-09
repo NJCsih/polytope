@@ -9,14 +9,14 @@
 # *very* much stolen from nazarick. This is why you should always have your friends do the hard stuff first. :p
 
 let
-  inherit (lib) mkEnableOption mkIf;
+  inherit (lib) types mkOption mkEnableOption mkIf;
 
   cfg = config.polytope.apps.kitty;
 in
 {
   options.polytope.apps.kitty = {
     enable = mkEnableOption "Kitty";
-    #opacity = mkOption "Kitty_Opacity";
+    opacity = mkOption {type = types.str;};
   };
 
   config = mkIf cfg.enable {
@@ -37,7 +37,7 @@ in
         listen_on = "unix:/tmp/mykitty";
         enable_audio_bell = false;
 
-        background_opacity = "0.90";
+        background_opacity = cfg.opacity;
         cursor_blink_interval = 0;
 
         term = "xterm-256color";
