@@ -15,6 +15,7 @@
       };
       gimp.enable = true;
       kitty.enable = true;
+      mpv.enable = true;
       neovim.enable = true;
       nheko.enable = true;
     };
