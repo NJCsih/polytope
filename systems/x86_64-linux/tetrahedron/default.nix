@@ -146,6 +146,7 @@ in
       blender
       brave
       firefox
+      gwenview
       inkscape
       logisim-evolution
       mumble
@@ -193,7 +194,7 @@ in
       syncthing
       taskwarrior
       tio # serial client
-      vlc
+      mpv
       wireshark
       yazi
       zls

@@ -163,7 +163,7 @@ in
       stylua
       syncthing
       tio # serial client
-      vlc
+      mpv
       wireshark
       yazi
       zls
