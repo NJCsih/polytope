@@ -83,11 +83,7 @@ in
     #configPackages = with pkgs; [ gnome-keyring ];
     config = {
       common = {
-        default = [
-          "gtk"
-          "wlr"
-          "kde"
-        ];
+        default = "*";
         #"org.freedesktop.impl.portal.Secret" = [ "gnome-keyring" ];
       };
     };
@@ -152,16 +148,17 @@ in
       grim
       keepassxc
       kitty
-      kmix
       krb5
       libqalculate
+      lxqt.pavucontrol-qt
       neovim
       networkmanager
       okular
       slurp
       syncthing
       tio # serial client
-      vlc
+      mpv
+      wireshark
       yazi
 
       # Testing Tools

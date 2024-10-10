@@ -15,6 +15,12 @@ in
     ./hardware.nix
   ];
 
+  # Make my laptop a router
+  # networking.nat = {
+  #   enable = true;
+  #   internalInterfaces = [ "eno0" ];
+  # };
+
   # NixOS Stuff -----------------------------------------------------------------------------------
 
   # Enable experimental features
@@ -87,11 +93,7 @@ in
     #configPackages = with pkgs; [ gnome-keyring ];
     config = {
       common = {
-        default = [
-          "gtk"
-          "wlr"
-          "kde"
-        ];
+        default = "*";
         #"org.freedesktop.impl.portal.Secret" = [ "gnome-keyring" ];
       };
     };
@@ -146,6 +148,7 @@ in
       blender
       brave
       firefox
+      gwenview
       inkscape
       logisim-evolution
       mumble
@@ -182,7 +185,7 @@ in
       grim
       keepassxc
       kitty
-      kmix
+      lxqt.pavucontrol-qt
       neovim
       networkmanager
       nix-tree
@@ -191,9 +194,9 @@ in
       slurp
       stylua
       syncthing
-      taskwarrior
+      taskwarrior3
       tio # serial client
-      vlc
+      mpv
       wireshark
       yazi
       zls

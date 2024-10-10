@@ -47,6 +47,16 @@
     ];
   };
 
+  fileSystems."/mount" = {
+    device = "/dev/disk/by-uuid/d05ebcdc-704d-4c22-8666-df6e17e2276c";
+    fsType = "btrfs";
+    options = [
+      "subvol=@media"
+      "compress=zstd"
+      "noatime"
+    ];
+  };
+
   fileSystems."/persist" = {
     device = "/dev/disk/by-uuid/d05ebcdc-704d-4c22-8666-df6e17e2276c";
     fsType = "btrfs";
