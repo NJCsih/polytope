@@ -60,9 +60,9 @@ in
     programs.zoxide = mkIf cfg.zoxide.enable {
       enable = true;
       enableNushellIntegration = true;
-     #options = [
-     #  ''--hook none''
-     #];
+      #options = [
+      #  ''--hook none''
+      #];
       #package
     };
   };
