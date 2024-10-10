@@ -9,14 +9,19 @@
 # *very* much stolen from nazarick. This is why you should always have your friends do the hard stuff first. :p
 
 let
-  inherit (lib) types mkOption mkEnableOption mkIf;
+  inherit (lib)
+    types
+    mkOption
+    mkEnableOption
+    mkIf
+    ;
 
   cfg = config.polytope.apps.kitty;
 in
 {
   options.polytope.apps.kitty = {
     enable = mkEnableOption "Kitty";
-    opacity = mkOption {type = types.str;};
+    opacity = mkOption { type = types.str; };
   };
 
   config = mkIf cfg.enable {

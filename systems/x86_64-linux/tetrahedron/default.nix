@@ -15,6 +15,12 @@ in
     ./hardware.nix
   ];
 
+  # Make my laptop a router
+  # networking.nat = {
+  #   enable = true;
+  #   internalInterfaces = [ "eno0" ];
+  # };
+
   # NixOS Stuff -----------------------------------------------------------------------------------
 
   # Enable experimental features
@@ -188,7 +194,7 @@ in
       slurp
       stylua
       syncthing
-      taskwarrior
+      taskwarrior3
       tio # serial client
       mpv
       wireshark
