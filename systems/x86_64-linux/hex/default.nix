@@ -130,7 +130,7 @@ in
       firefox
       nushell
       starship # for nushell
-      pfetch
+      pfetch-rs
       rofi
 
       # Cryptography

@@ -156,7 +156,7 @@ in
       nheko
       nushell
       starship # for nushell
-      pfetch
+      pfetch-rs
       qmk
       rofi
       snes9x

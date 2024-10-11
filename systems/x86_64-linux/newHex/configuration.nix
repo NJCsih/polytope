@@ -106,7 +106,7 @@ in
       # Apps
       firefox
       nushell
-      pfetch
+      pfetch-rs
       rofi
 
       # Work stuff
