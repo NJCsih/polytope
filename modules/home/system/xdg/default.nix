@@ -53,7 +53,7 @@ in
 
   config = mkIf cfg.enable {
 
-    xdg.portal.config.common.default="*";
+    xdg.portal.config.common.default = "*";
 
     xdg.mimeApps =
       let

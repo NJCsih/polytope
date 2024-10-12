@@ -63,6 +63,10 @@ in
 
   # Enable networkmanager for internet
   networking.networkmanager.enable = true; # Easiest to use and most distros use this by default.
+  networking.nameservers = [
+    "1.1.1.1"
+    "9.9.9.9"
+  ];
 
   # Set your time zone.
   time.timeZone = "America/Denver";
@@ -154,12 +158,15 @@ in
       mumble
       prusa-slicer
       nheko
-      nushell
-      starship # for nushell
       pfetch-rs
       qmk
       rofi
       snes9x
+
+      # Programs
+      nushell
+      starship # for nushell
+      mullvad-vpn
       virtualbox
 
       # School stuff

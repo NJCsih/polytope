@@ -22,6 +22,7 @@ in
   options.polytope.apps.kitty = {
     enable = mkEnableOption "Kitty";
     opacity = mkOption { type = types.str; };
+    fontSize = mkOption { type = types.str; };
   };
 
   config = mkIf cfg.enable {
@@ -47,7 +48,7 @@ in
 
         term = "xterm-256color";
 
-        # font_size = "11.3";
+        font_size = cfg.fontSize;
 
         background = "#16161D";
       };
