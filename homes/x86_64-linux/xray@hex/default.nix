@@ -23,6 +23,7 @@
     };
     tools = {
       cryptscript.enable = true;
+      stl.enable = true;
       git.enable = true;
       kanata.enable = true;
       nushell.enable = true;
