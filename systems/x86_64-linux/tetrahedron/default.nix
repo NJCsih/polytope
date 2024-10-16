@@ -16,10 +16,10 @@ in
   ];
 
   # Make my laptop a router
-  # networking.nat = {
-  #   enable = true;
-  #   internalInterfaces = [ "eno0" ];
-  # };
+  networking.nat = {
+    enable = true;
+    internalInterfaces = [ "eno0" ];
+  };
 
   # NixOS Stuff -----------------------------------------------------------------------------------
 
