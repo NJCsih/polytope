@@ -43,14 +43,13 @@ in
         listen_on = "unix:/tmp/mykitty";
         enable_audio_bell = false;
 
+        background = "#16161D";
         background_opacity = cfg.opacity;
         cursor_blink_interval = 0;
 
         term = "xterm-256color";
 
         font_size = cfg.fontSize;
-
-        background = "#16161D";
       };
       keybindings = {
         "alt+l" = "next_tab";

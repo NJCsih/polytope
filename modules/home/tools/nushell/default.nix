@@ -17,7 +17,7 @@ in
 {
   options.polytope.tools.nushell = {
     enable = mkEnableOption "Nushell";
-    zoxide.enable = mkEnableOption "zoxide integration";
+    zoxide.enable = mkEnableOption "Zoxide integration";
   };
 
   config = mkIf cfg.enable {
@@ -57,13 +57,15 @@ in
       };
     };
 
+    programs.zellij.enable = true;
+    #xdg.configFile."zellij/config.kdl" = mkIf cfg.zellij.enable {
+    home.file.".config/zellij/config.kdl" = {
+      text = builtins.readFile ./config/zellij.kdl;
+    };
+
     programs.zoxide = mkIf cfg.zoxide.enable {
       enable = true;
       enableNushellIntegration = true;
-      #options = [
-      #  ''--hook none''
-      #];
-      #package
     };
   };
 }

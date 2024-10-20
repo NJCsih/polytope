@@ -27,8 +27,10 @@
       #easyeffects.enable = true;
       git.enable = true;
       kanata.enable = true;
-      nushell.enable = true;
-      nushell.zoxide.enable = true;
+      nushell = {
+        enable = true;
+        zoxide.enable = true;
+      };
       sshExtraConf.enable = false;
       tealdeer.enable = true;
       yazi.enable = true;

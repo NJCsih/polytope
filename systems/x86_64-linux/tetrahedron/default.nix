@@ -206,7 +206,6 @@ in
       mpv
       wireshark
       yazi
-      zls
 
       # Utils
       acpi
