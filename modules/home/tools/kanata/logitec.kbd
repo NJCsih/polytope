@@ -350,7 +350,8 @@ danger-enable-cmd yes
     (  1 2 3 4) a
     (  5 6 7 8) b
     (        8) (multi (on-press press-virtualkey sw-meta1) (on-release release-virtualkey sw-meta1))
-    (  5      ) (cmd-log none error swaymsg exec "kitty -e zellij")
+    (  5      ) (cmd-log none error swaymsg exec kitty)
+    ;;(  5      ) (cmd-log none error swaymsg exec "kitty -e zellij")
     (  5 6    ) (cmd-log none error swaymsg exec firefox)
 )
 
@@ -502,7 +503,8 @@ danger-enable-cmd yes
 (deflayer sway
 	_    XX  XX  XX  XX  XX  XX  XX  XX  XX  XX  XX  XX  XX
 	_    XX  XX  XX  XX  XX  XX  @sw1  @sw2  @sw3  @sw4  XX  XX  XX
-	_    XX  XX (multi (on-press press-virtualkey dsway) (on-release release-virtualkey dsway)) XX  XX XX @sw5 @sw6 @sw7 @sw8  XX  (cmd-log none error swaymsg exec "kitty -e zellij")
+	_    XX  XX (multi (on-press press-virtualkey dsway) (on-release release-virtualkey dsway)) XX  XX XX @sw5 @sw6 @sw7 @sw8  XX  (cmd-log none error swaymsg exec kitty)
+	;;_    XX  XX (multi (on-press press-virtualkey dsway) (on-release release-virtualkey dsway)) XX  XX XX @sw5 @sw6 @sw7 @sw8  XX  (cmd-log none error swaymsg exec "kitty -e zellij")
 	_    XX  XX  XX  XX  XX  @qs0  @qs1  @qs2  @qs3 @qs4  XX
 	_    _   _      _    _      _    _
 )

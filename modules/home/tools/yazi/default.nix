@@ -25,6 +25,23 @@ in
           show_hidden = true;
           scrolloff = 8;
         };
+        opener = {
+          edit = [
+            {
+              run = ''${pkgs.okular} "$@"'';
+              for = "linux";
+              block = false;
+            }
+          ];
+          play = [
+            {
+              run = ''${pkgs.mpv} "$@"'';
+              orphan = true;
+              for = "linux";
+              block = true;
+            }
+          ];
+        };
       };
     };
   };

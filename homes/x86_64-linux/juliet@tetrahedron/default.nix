@@ -24,7 +24,7 @@
     tools = {
       cryptscript.enable = true;
       stl.enable = true;
-      #easyeffects.enable = true;
+      easyeffects.enable = true;
       git.enable = true;
       kanata.enable = true;
       nushell = {

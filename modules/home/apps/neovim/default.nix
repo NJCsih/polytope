@@ -17,8 +17,7 @@ in
 
   config = mkIf cfg.enable {
 
-    # Use nvim cats
     home.packages = [ inputs.nvim-cats.packages.x86_64-linux.default ];
-    home.sessionVariables.EDITOR = "nvim-cats";
+    home.sessionVariables.EDITOR = "nvim";
   };
 }

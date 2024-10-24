@@ -168,6 +168,7 @@ in
       starship # for nushell
       mullvad-vpn
       virtualbox
+      stellarium
 
       # School stuff
       jetbrains.idea-community
