@@ -32,7 +32,7 @@
   networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
 
   # Set your time zone.
-  # time.timeZone = "America/Denver";
+  time.timeZone = "America/Denver";
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -46,16 +46,6 @@
   #   useXkbConfig = true; # use xkb.options in tty.
   # };
 
-  # Enable the X11 windowing system.
-  # services.xserver.enable = true;
-
-  # Configure keymap in X11
-  # services.xserver.xkb.layout = "us";
-  # services.xserver.xkb.options = "eurosign:e,caps:escape";
-
-  # Enable CUPS to print documents.
-  # services.printing.enable = true;
-
   # Enable sound.
 
   # User Stuff ------------------------------------------------------------------------------------
@@ -68,13 +58,12 @@
     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
     initialPassword = "password";
     shell = pkgs.nushell;
-    openssh.authorizedKeys.keys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAII1nAUrHB4fRm0J9EKHHC7qX3Q4lwuao9QUPD2/lPEKj" ];
+    openssh.authorizedKeys.keys = [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAII1nAUrHB4fRm0J9EKHHC7qX3Q4lwuao9QUPD2/lPEKj" # xray@hex
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIH0aC1qvRV1JTNU6JNOGL4E0Bb/WaPuddsStuq1Z2oZL" # juliet@tetrahedron
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAweQUAfQeJbYaR8LOoaNBbsTJPpOGnbsF4SxO7nSbst" # voxel
+    ];
   };
-
-  # environment.systemPackages = with pkgs; [
-  #   vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  #   wget
-  # ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
