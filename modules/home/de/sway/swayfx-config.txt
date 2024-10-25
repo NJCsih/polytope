@@ -2,7 +2,7 @@
 
 # Start stuff:
 exec workspace_helper init                                 # For kanata
-exec systemctl --user start swww-switch                    # Wallpapers
+exec swww img /run/current-system/sw/share/wallpapers/system-wallpapers/*-1905773-fumiko-rokito01.jpg # Wallpapers
 
 # Held-over keybinds
 bindsym Mod4+p exec grim -g "$(slurp)" - | wl-copy         # take screenshot
