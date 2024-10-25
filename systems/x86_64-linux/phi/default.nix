@@ -68,6 +68,7 @@
     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
     initialPassword = "password";
     shell = pkgs.nushell;
+    openssh.authorizedKeys.keys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAII1nAUrHB4fRm0J9EKHHC7qX3Q4lwuao9QUPD2/lPEKj" ];
   };
 
   # environment.systemPackages = with pkgs; [
@@ -157,7 +158,8 @@
     enable = true;
     ports = [ 37485 ];
     settings = {
-      PasswordAuthentication = true;
+      PasswordAuthentication = false;
+      KbdInteractiveAuthentication = false;
       AllowUsers = [ "quebec" ];
       UseDns = true;
       X11Forwarding = false;
@@ -167,8 +169,9 @@
   services.fail2ban.enable = true;
 
   # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ 37485 ];
+  networking.firewall.allowedTCPPorts = [ 37485 ];
   # networking.firewall.allowedUDPPorts = [ ... ];
+
 
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you
