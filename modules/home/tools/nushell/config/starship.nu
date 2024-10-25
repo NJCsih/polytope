@@ -5,7 +5,7 @@
 export-env { $env.STARSHIP_SHELL = "nu"; load-env {
     STARSHIP_SESSION_KEY: (random chars -l 16)
     PROMPT_MULTILINE_INDICATOR: (
-        ^/nix/store/4p70zxjhfzc95sfgzr9bnj8b0whxsjx8-starship-1.20.1/bin/starship prompt --continuation
+        ^/run/current-system/sw/bin/starship prompt --continuation
     )
 
     # Does not play well with default character module.
@@ -15,7 +15,7 @@ export-env { $env.STARSHIP_SHELL = "nu"; load-env {
     PROMPT_COMMAND: {||
         # jobs are not supported
         (
-            ^/nix/store/4p70zxjhfzc95sfgzr9bnj8b0whxsjx8-starship-1.20.1/bin/starship prompt
+            ^/run/current-system/sw/bin/starship prompt
                 --cmd-duration $env.CMD_DURATION_MS
                 $"--status=($env.LAST_EXIT_CODE)"
                 --terminal-width (term size).columns
@@ -28,7 +28,7 @@ export-env { $env.STARSHIP_SHELL = "nu"; load-env {
 
     PROMPT_COMMAND_RIGHT: {||
         (
-            ^/nix/store/4p70zxjhfzc95sfgzr9bnj8b0whxsjx8-starship-1.20.1/bin/starship prompt
+            ^/run/current-system/sw/bin/starship prompt
                 --right
                 --cmd-duration $env.CMD_DURATION_MS
                 $"--status=($env.LAST_EXIT_CODE)"

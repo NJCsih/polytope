@@ -195,13 +195,13 @@ in
       wmname
 
     ])
-    ++ ([
+    ++ [
       (inputs.nazarick.packages.x86_64-linux.system-wallpapers.override {
         # Todo: make this managed on a per-user basis not per-system
         #wallpapers = ../../../modules/nixos/desktop/wallpapers/wallpapers.yml;
         wallpapers = ./wallpapers.yml;
       })
-    ]);
+    ];
 
   programs.wireshark.enable = true; # set extra stuff for wireshark
 
