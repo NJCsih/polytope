@@ -110,6 +110,10 @@ in
     ]; # What is seat for? Lemurs? Vbox?
     initialPassword = "password";
     shell = pkgs.nushell;
+    openssh.authorizedKeys.keys = [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDRrhxeyOqZvgrpJUhqy6QryNZ0Eq24INsdedeBBgSPs" # juliet@tetrahedron
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMvH5PDc2pZkNK6hsQg81mICTspHIe2LrxJrxLHYmiQ8" # voxel
+    ];
   };
 
   # Customization Stuff ----------------------------------------------------------------------------
@@ -202,6 +206,22 @@ in
         wallpapers = ./wallpapers.yml;
       })
     ];
+
+
+# Enable the OpenSSH daemon.
+  services.openssh = {
+    enable = true;
+    ports = [ 37485 ];
+    settings = {
+      PasswordAuthentication = false;
+      KbdInteractiveAuthentication = false;
+      AllowUsers = [ "xray" ];
+      UseDns = true;
+      X11Forwarding = false;
+      #PermitRootLogin = "no";
+    };
+  };
+  services.fail2ban.enable = true;
 
   programs.wireshark.enable = true; # set extra stuff for wireshark
 
