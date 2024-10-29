@@ -6,6 +6,11 @@
   ...
 }:
 
+
+# TODO:
+# Install dark theme
+# Instal tridactyl via Kronicle's method
+
 let
   inherit (lib) mkEnableOption mkIf;
   cfg = config.polytope.apps.firefox;
@@ -125,6 +130,7 @@ in
           search = {
             force = true;
             default = "Kagi";
+            privateDefault = "SearXNG";
             engines = {
               "Kagi" = {
                 definedAliases = [ "@kg" ];
@@ -348,3 +354,4 @@ in
     };
   };
 }
+
