@@ -52,6 +52,18 @@ in
 
   # System Stuff ----------------------------------------------------------------------------------
 
+  # Add TIP for laptop power
+  services.tlp = {
+    enable = true;
+    settings = {
+      CPU_BOOST_ON_AC = 1;
+      CPU_BOOST_ON_BAT = 0;
+      CPU_SCALING_GOVERNOR_ON_AC = "performance";
+      CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
+    };
+  };
+
+
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -154,11 +166,12 @@ in
       firefox
       gwenview
       inkscape
+      krita
       logisim-evolution
       mumble
-      prusa-slicer
       nheko
       pfetch-rs
+      prusa-slicer
       qmk
       rofi
       snes9x
