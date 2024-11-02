@@ -28,12 +28,7 @@ in
       envFile.source = ./config/env.nu;
       extraConfig = builtins.readFile ./config/starship.nu;
 
-      environmentVariables = lib.listToAttrs (
-        lib.mapAttrsToList (key: var: {
-          name = key;
-          value = ''r####'${var}'####'';
-        }) config.home.sessionVariables
-      );
+      environmentVariables = config.home.sessionVariables;
     };
 
     xdg.configFile."starship.toml" = {
