@@ -32,7 +32,7 @@ let
 
       for display in $displays {
         let choice = ls $path | shuffle | get 0.name
-        ${pkgs.swww}/bin/swww img -o $display --transition-fps 60 $choice
+        ${pkgs.swww}/bin/swww img -o $display --transition-fps 120 $choice
       }
     '';
 

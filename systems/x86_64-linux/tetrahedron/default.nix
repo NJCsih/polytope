@@ -241,6 +241,12 @@ in
       polytope.kanata # Latest version
       polytope.lock
       polytope.poly
+      (proxmark3.override {
+        withGui = false;
+        withPython = true;
+        withGeneric = true;
+        withSmall = false;
+      })
       ripgrep
       swww
       tcpdump
