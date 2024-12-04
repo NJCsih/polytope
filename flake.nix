@@ -3,42 +3,22 @@
 
   inputs = {
 
+    #---------------------------------------------------------------------------
+    # Primary inputs:
+
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.11";
-
-    nazarick = {
-      url = "github:DarkKronicle/nazarick";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
 
     snowfall-lib = {
       url = "github:snowfallorg/lib";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    plasma-manager = {
-      url = "github:nix-community/plasma-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.home-manager.follows = "home-manager";
-    };
-
-    # Neovim inputs
-    nvim-cats = {
-      url = "github:NJCsih/nvim-nixCats";
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nixCats.url = "github:BirdeeHub/nixCats-nvim?dir=nix";
-    neovim-nightly-overlay = {
-      url = "github:nix-community/neovim-nightly-overlay";
-    };
-    neorg-overlay.url = "github:nvim-neorg/nixpkgs-neorg-overlay";
-    neorg-overlay.inputs.nixpkgs.follows = "nixpkgs";
-
-    #   snowfall-flake = {
-    #     url = "github:snowfallorg/flake";
-    #     inputs.nixpkgs.follows = "nixpkgs";
-    #   };
 
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
@@ -48,6 +28,51 @@
       #inputs.nixpkgs.follows = "nixpkgs-stable";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    #---------------------------------------------------------------------------
+    # General inputs:
+
+    nazarick = {
+      url = "github:DarkKronicle/nazarick";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    #---------------------------------------------------------------------------
+    # [Application] Specific inputs:
+
+    # Neovim inputs:
+    nvim-cats = {
+      url = "github:NJCsih/nvim-nixCats";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    neovim-nightly-overlay = {
+      url = "github:nix-community/neovim-nightly-overlay";
+    };
+    neorg-overlay.url = "github:nvim-neorg/nixpkgs-neorg-overlay";
+    neorg-overlay.inputs.nixpkgs.follows = "nixpkgs";
+
+    # Firefox:
+    firefox-arkenfox = {
+      url = "github:dwarfmaster/arkenfox-nixos";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    firefox-addons = {
+      url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    blocklist = {
+      url = "github:StevenBlack/hosts?dir=alternates/gambling-porn";
+      flake = false;
+    };
+
+    # Plasma manager:
+    #TODO: Check if this still works? I havent ran plasma in a *while*
+    plasma-manager = {
+      url = "github:nix-community/plasma-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
+    };
+
   };
 
   outputs =
@@ -71,6 +96,10 @@
         permittedInsecurePackages = [ "olm-3.2.16" ];
       };
 
-      systems.modules.nixos = with inputs; [ home-manager.nixosModules.home-manager ];
+      # https://github.com/snowfallorg/lib/issues/79#issuecomment-2221697884
+      # Random code excerpt in an unrelated github issue comment, thank you for the seemingly undocumented syntax (but probably skill issue on my part) :p
+      homes.modules = [
+        inputs.firefox-arkenfox.hmModules.arkenfox
+      ];
     };
 }

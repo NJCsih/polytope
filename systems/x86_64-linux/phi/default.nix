@@ -103,6 +103,7 @@
       neovim
       networkmanager
       nix-tree
+      onionshare
       slurp
       syncthing
       tio # serial client

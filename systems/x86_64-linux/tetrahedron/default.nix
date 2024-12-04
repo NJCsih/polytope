@@ -35,6 +35,9 @@ in
   # Enable global settings in :
   polytope.system.nix.enable = true;
 
+  # Use encrypted dns resolving
+  polytope.network.dnscrypt.enable = true;
+
   # Enable sound.
   hardware.pulseaudio.enable = false;
   #security.rtkit.enable = true;
@@ -140,6 +143,10 @@ in
     ]; # What is seat for? Lemurs? Vbox?
     initialPassword = "password";
     shell = pkgs.nushell;
+    openssh.authorizedKeys.keys = [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBBlXd+xhJKsXh7ssfNCO+JdAPf1gh62aN/xqqi4aSFC" # voxel
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEJOUaZUx+doReFTwnb486qFA8iz4tIfm7lD2qXjbUqb" # xray
+    ];
   };
 
   # Virtualbox stuff
@@ -183,6 +190,9 @@ in
       mullvad-vpn
       virtualbox
       stellarium
+
+      # NameMe
+      nebula
 
       # School stuff
       jetbrains.idea-community
@@ -275,7 +285,66 @@ in
       })
     ];
 
+# Enable the OpenSSH daemon.
+  services.openssh = {
+    enable = true;
+    ports = [ 56412 ];
+    settings = {
+      PasswordAuthentication = false;
+      KbdInteractiveAuthentication = false;
+      AllowUsers = [ "juliet" ];
+      UseDns = true;
+      X11Forwarding = false;
+      #PermitRootLogin = "no";
+    };
+  };
+  services.fail2ban.enable = true;
+
   programs.wireshark.enable = true; # set extra stuff for wireshark
+
+  networking.firewall.allowedTCPPorts = [ 56412 ];
+  networking.firewall.allowedUDPPorts = [ 4242 ]; 
+
+  services.nebula.networks.mesh = {
+    enable = true;
+    isLighthouse = false;
+    cert = "/etc/nebula/tetrahedron.crt";
+    key = "/etc/nebula/tetrahedron.key";
+    ca = "/etc/nebula/ca.crt";
+    staticHostMap = {
+      "192.168.100.1" = [
+        "xxx.xxx.xxx.xxx:4242" # This is the default addr from the nebula readme, I need to replace it with sops
+      ];
+    };
+    lighthouses = [ "192.168.100.1" ];
+    firewall = {
+      outbound = [{
+        host = "any";
+        port = "any";
+        proto = "any";
+      }];
+      inbound = [{
+        host = "any";
+        port = "any";
+        proto = "any";
+      }];
+    };
+    relays = [ "192.168.100.1" ];
+  };
+
+  # sops
+#   sops = {
+#     age.keyFile = "/var/lib/sops/sops.age.key";
+#     defaultSopsFile = ./secrets/secrets.yaml;
+#     defaultSopsFormat = "yaml";
+#   };
+
+  # netbird
+  services.netbird.enable = true;
+
+  # testing for netbird/kdeconnect:
+  networking.firewall.allowedTCPPortRanges = [ { from = 1714; to = 1764; } ];
+  networking.firewall.allowedUDPPortRanges = [ { from = 1714; to = 1764; } ];
 
   # Make steam work
   programs.steam = {

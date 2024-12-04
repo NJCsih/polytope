@@ -12,16 +12,6 @@ let
   #wallpaperPath = "${mypkgs.system-wallpapers}/share/wallpapers/system-wallpapers";
   wallpaperPath = "/run/current-system/sw/share/wallpapers/system-wallpapers";
 
-  writeScript =
-    pkgs: name: content:
-    pkgs.writeTextFile {
-      inherit name;
-      executable = true;
-      text = content;
-      destination = "/bin/${name}";
-      meta.mainProgram = name;
-    };
-
   swwwScriptContent = # nu
     ''
       #!/usr/bin/env nu
@@ -32,11 +22,11 @@ let
 
       for display in $displays {
         let choice = ls $path | shuffle | get 0.name
-        ${pkgs.swww}/bin/swww img -o $display --transition-fps 120 $choice
+        ${pkgs.swww}/bin/swww img -o $display --transition-fps 60 --transition-duration 5 $choice
       }
     '';
 
-  swwwScript = writeScript pkgs "swww-switch" swwwScriptContent;
+  swwwScript = lib.polytope.writeScript pkgs "swww-switch" swwwScriptContent;
 in
 {
   options.polytope.de.swww = {

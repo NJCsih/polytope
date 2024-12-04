@@ -1,0 +1,78 @@
+" vim: filetype=vim
+
+sanitize tridactyllocal tridactylsync
+
+set newtab about:blank
+set modeindicator false
+set smoothscroll true
+set allowautofocus true
+set completions.Tab.statusstylepretty true
+
+bind --mode=browser <A-a> escapehatch
+set escapehatchsidebarhack false
+
+bind J tabnext
+bind K tabprev
+
+bind j scrollline 7
+bind k scrollline -7
+
+
+bindurl wikiwand.com yy composite js document.location.href.replace("wikiwand.com/en","wikipedia.org/wiki") | clipboard yank
+
+unbind --mode=ex <C-a>
+unbind --mode=ex <C-c>
+bind s fillcmdline tabopen search
+bind S fillcmdline open search
+
+
+unbind <C-f>
+bind / fillcmdline find
+bind ? fillcmdline find -?
+
+bind n findnext 1
+bind N findnext -1
+
+bind gh followpage prev
+bind gl followpage next w
+
+autocmd DocStart mail.google.com mode ignore
+autocmd DocStart monkeytype.com mode ignore
+
+
+set searchurls.k https://kagi.com/html/search?q=%s
+set searchurls.sx https://etsi.me/search?q=%s
+" set searchurls.nh https://home-manager-options.extranix.com/?query=%s
+set searchurls.no https://searchix.alanpearce.eu/options/nixos/search?query=%s
+set searchurls.nh https://searchix.alanpearce.eu/options/home-manager/search?query=%s
+set searchurls.np https://searchix.alanpearce.eu/packages/nixpkgs/search?query=%s
+set searchurls.npp https://search.nixos.org/packages?channel=unstable&query=%s
+set searchurls.nw https://wiki.nixos.org/w/index.php?search=%s
+set searchurls.noo https://search.nixos.org/options?channel=unstable&query=%s
+set searchurls.j https://jisho.org/search/%s
+set searchurls.gh https://github.com/search?q=%s
+
+" https://github.com/simonwjackson/mountainous/blob/c5e1a055a8ace26e5f7a7bbd42f3260852b92671/modules/home/firefox/tridactyl/default.nix#L38
+" this will send through sway so that GPU acceleration isn't blocked bc of
+" firejail
+alias mpvvideo composite get_current_url | js -p tri.excmds.shellescape(JS_ARG).then(url => tri.excmds.exclaim_quiet(`swaymsg exec mpv ${url}`))
+alias js -p tri.excmds.shellescape(JS_ARG).then(url => tri.excmds.exclaim_quiet(`swaymsg exec mpv ${url}`))
+
+bind ;m hint -W mpvvideogo
+bind gm mpvvideo
+
+bind ;I hint -I
+" Focus an element
+bind ;f hint -; 
+bind ;qb hint -qb 
+
+set hintchars 5432167890
+set hintfiltermode vimperator-reflow
+set hintnames short
+set hintuppercase false
+
+" See other file for where this gets saved
+colourscheme catppuccin
+tabmove << tabmove -1
+tabmove << tabmove +1
+bind ' gobble 1 markjump

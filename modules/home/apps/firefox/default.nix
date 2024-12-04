@@ -6,116 +6,151 @@
   ...
 }:
 
-
-# TODO:
-# Install dark theme
-# Instal tridactyl via Kronicle's method
-
 let
   inherit (lib) mkEnableOption mkIf;
   cfg = config.polytope.apps.firefox;
 
-  firefox-cascade = pkgs.fetchFromGitHub {
-    # Using darkKronicle's cascade theme
-    name = "firefox-cascade";
-    owner = "DarkKronicle";
-    repo = "cascade";
-    rev = "994edba071341b4afa9483512d320696ea10c0a6";
-    sha256 = "sha256-DX77qLtDktv077YksxnrSoqa8O0ujJF2NH36GkENaXI=";
+  # https://github.com/gvolpe/nix-config/blob/6feb7e4f47e74a8e3befd2efb423d9232f522ccd/home/programs/browsers/firefox.nix
+  custom-addons = pkgs.callPackage ./addons.nix {
+    inherit (inputs.firefox-addons.lib.${pkgs.system}) buildFirefoxXpiAddon;
   };
+
+  firefox-potatofox = pkgs.fetchFromGitea {
+    domain = "codeberg.org";
+    owner = "awwpotato";
+    repo = "potatofox";
+    rev = "aefcbb2f2cadada84415a00031ae82f82c197461";
+    hash = "sha256-b32sJxzEV4napqIWNNEOlHXUQzaZVBmx/jSUBOxzPjw=";
+  };
+
+  catppuccinTridactyl = pkgs.fetchFromGitHub {
+      owner = "lonepie";
+    repo = "catppuccin-tridactyl";
+    rev = "a77c65f7ab5946b37361ae935d2192a9a714f960";
+    hash = "sha256-LjLMq7vUwDdxgpdP9ClRae+gN11IPc+XMsx8/+bwUy4=";
+  };
+
+  extensions =
+    (with inputs.firefox-addons.packages.${pkgs.system}; [
+      # UI and functionality extensions
+      sidebery
+      userchrome-toggle-extended
+      tridactyl
+      adaptive-tab-bar-colour # *needed* if using letterboxing
+      no-pdf-download
+
+      # NOTE: probably fingerprintable, but I like good looking websites
+      stylus
+      darkreader
+
+      # Github
+      lovely-forks # Shows forks on github projects
+      refined-github
+      catppuccin-gh-file-explorer
+
+      keepassxc-browser
+
+      # website "privacy" and tweaks
+      dearrow
+      jump-cutter
+      redirector
+      sponsorblock
+      libredirect
+      remove-youtube-s-suggestions # removes a bunch from youtube which is nice
+
+      # Privacy ones
+      ublock-origin # extremely good. Don't need noscript or other blocking extensions because of this
+      localcdn # discouraged on arkenfox github. I just don't think it'll hurt here
+      smart-referer # certain websites need this, so get ready to blacklist them. (similar about:config setting)
+      foxyproxy-standard # proxy through VPN for most things
+
+      # creates a new container for each new website. arkenfox somewhat discourages this because they're "unnecessary" with their settings.
+      # I am not clearing cookies on close, so I really like this middle ground. I could whitelist a bunch of stuff, but in
+      # personal containers I'm not too worried about being tracked because I'm logged into a lot.
+      temporary-containers
+
+      terms-of-service-didnt-read
+      #yomitan
+    ])
+    ++ (with custom-addons; [
+      better-canvas
+      better-history-ng
+    ]);
 in
 {
   options.polytope.apps.firefox = {
     enable = mkEnableOption "Firefox";
-    userCss = mkEnableOption "Use Custom CSS Theming"; # Todo: nake this actually work :p
+    userCss = mkEnableOption "Use Custom CSS Theming";
   };
 
   config = mkIf cfg.enable {
+
+    xdg.configFile."tridactyl/tridactylrc" = {
+      enable = true;
+      source = ./tridactylrc;
+    };
+
     programs.firefox = {
       enable = true;
 
+      nativeMessagingHosts = with pkgs; [
+        kdePackages.plasma-browser-integration
+        tridactyl-native
+        keepassxc
+      ];
+
       # This method for installing plugins here largely from:
       # https://discourse.nixos.org/t/declare-firefox-extensions-and-settings/36265/7
-      package = pkgs.wrapFirefox pkgs.firefox-unwrapped {
-        extraPolicies = {
+      package = pkgs.firefox;
+      policies = {
 
-          # Settings:
-          # https://mozilla.github.io/policy-templates/
-          DisableTelemetry = true;
-          DisableFirefoxAccounts = true;
-          DisablePocket = true;
-          OfferToSaveLogins = false;
-          OfferToSaveLoginsDefault = false;
+        # Settings:
+        # https://mozilla.github.io/policy-templates/
+        DisableFeedbackCommands = true;
+        DisableFirefoxAccounts = true;
+        DisablePocket = true;
+        DisableTelemetry = true;
+        OfferToSaveLogins = false;
+        OfferToSaveLoginsDefault = false;
 
-          # // -- Extensions -- //
-          ExtensionSettings = {
-            # This does not manage the settings of the extension
-
-            #"*".installation_mode = "blocked"; # blocks all addons except the ones specified below
-
-            # The workflow seems to be:
-            # ~ Manually install the extension, get the filename created in ~/.mozilla/firefox/[Profile]/extensions/[newExtensionEntry]
-            # ~ Right click copy url the install link from firefox to get the "simple name" for the extension (replace '_' with '-')
-            # ~ Create a new instance here, using the new filename from above as the string, the simple name in the install url
-            # - install modes include "blocked", "normal_installed", "force_installed"
-
-            # uBlock Origin:
-            "uBlock0@raymondhill.net" = {
-              install_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
-              installation_mode = "force_installed";
-            };
-            # Privacy Badger
-            "jid1-MnnxcxisBPnSXQ@jetpack" = {
-              install_url = "https://addons.mozilla.org/firefox/downloads/latest/privacy-badger17/latest.xpi";
-              installation_mode = "force_installed";
-            };
-            # KeepassXC
-            "keepassxc-browser@keepassxc.org" = {
-              install_url = "https://addons.mozilla.org/firefox/downloads/latest/keepassxc-browser/latest.xpi";
-              installation_mode = "normal_installed";
-            };
-            # Dark Reader
-            "addon@darkreader.org" = {
-              install_url = "https://addons.mozilla.org/firefox/downloads/latest/darkreader/latest.xpi";
-              installation_mode = "normal_installed";
-            };
-            # Better Canvas
-            "{8927f234-4dd9-48b1-bf76-44a9e153eee0}" = {
-              install_url = "https://addons.mozilla.org/firefox/downloads/latest/better-canvas/latest.xpi";
-              installation_mode = "normal_installed";
-            };
-            # Sidebery
-            "{3c078156-979c-498b-8990-85f7987dd929}" = {
-              install_url = "https://addons.mozilla.org/firefox/downloads/latest/sidebery/latest.xpi";
-              installation_mode = "force_installed";
-            };
-            # Jump-Cutter
-            "jump-cutter@example.com.xpi" = {
-              install_url = "https://addons.mozilla.org/firefox/downloads/latest/jump-cutter/latest.xpi";
-              installation_mode = "normal_installed";
-            };
-            # Old-Reddit redirect
-            "{9063c2e9-e07c-4c2c-9646-cfe7ca8d0498}" = {
-              install_url = "https://addons.mozilla.org/firefox/downloads/latest/old-reddit-redirect/latest.xpi";
-              installation_mode = "normal_installed";
-            };
-            # Sponsorblock
-            "sponsorBlocker@ajay.app" = {
-              install_url = "https://addons.mozilla.org/firefox/downloads/latest/sponsorblock/latest.xpi";
-              installation_mode = "normal_installed";
-            };
-            # Dearrow
-            "deArrow@ajay.app" = {
-              install_url = "https://addons.mozilla.org/firefox/downloads/latest/dearrow/latest.xpi";
-              installation_mode = "normal_installed";
-            };
-            # YT auto full hd
-            #"why it no have a thing I can find for here" = {
-            #  install_url = "https://addons.mozilla.org/firefox/downloads/file/4285305/youtube_auto_hd_fps-1.8.25.xpi";
-            #  installation_mode = "normal_installed";
-            #};
-          };
+        EncryptedMediaExtensions = {
+          Enabled = true;
+          Locked = true;
         };
+
+        UserMessaging = {
+          SkipOnboarding = true;
+          Locked = true;
+        };
+
+        ExtensionSettings = lib.mkMerge [
+          {
+            "*" = {
+              "blocked_install_message" = "Extensions are handled by Nix!";
+              "installation_mode" = "blocked";
+            };
+          }
+          (builtins.listToAttrs (
+            lib.forEach extensions (ext: {
+              name = ext.addonId;
+              value = {
+                installation_mode = "force_installed";
+                install_url = "file://${ext}/share/mozilla/extensions/{ec8030f7-c20a-464f-9b0e-13a3a9e97384}/${ext.addonId}.xpi";
+              };
+            })
+          ))
+        ];
+
+       # TODO: Encrypted client hello through dnscrypt
+       Certifications = {
+         # InstallEnterpriseRoots does not work on linux
+         "Install" = [ "${lib.polytope.mkCA pkgs}/rootCA.pem" ];
+       };
+      };
+
+      arkenfox = {
+        enable = true;
+        version = "128.0";
       };
 
       profiles = {
@@ -124,7 +159,7 @@ in
           name = "main";
           isDefault = true;
           userChrome = mkIf cfg.userCss ''
-            @import "${firefox-cascade}/chrome/userChrome.css";
+            @import "${firefox-potatofox}/chrome/userChrome.css";
           '';
 
           search = {
@@ -163,6 +198,234 @@ in
                 ];
               };
             };
+          };
+
+          arkenfox = {
+            enable = true;
+
+            "0000".enable = true;
+            # STARTUP
+            "0100" = {
+              enable = true;
+              # Start page: resume last session
+              "0102"."browser.startup.page".value = 3;
+              # home page = new tab page
+              "0103"."browser.startup.homepage".value = "about:home";
+              # New tab page = home page
+              "0104"."browser.newtabpage.enabled".value = true;
+            };
+            # GEOLOCATION
+            "0200".enable = true;
+            # QUIETER FOX
+            "0300" = {
+              enable = true;
+              # NOTE: captive portal detection is off here, use another browser
+            };
+            # SAFEBROWSING
+            "0400" = {
+              # This automatically disables SB for downloads
+              enable = true;
+            };
+            # BLOCK IMPLICIT OUTBOUND
+            "0600" = {
+              enable = true;
+              # no hyperlink auditing
+              "0610"."browser.send_pings".enable = true; # value = false
+            };
+            # DNS / DoH / PROXY / SOCKS
+            "0700" = {
+              enable = true;
+              # NOTE: this is kind of sketch depending on what you're using it for
+              # I use dnscrypt-proxy2 and mainly worry about connected to websites
+              # finding things
+              "0702"."network.proxy.socks_remote_dns".value = false;
+              "0710"."network.trr.mode".enable = true; # TRR only
+              # dnscrypt-proxy2
+              "0712"."network.trr.uri" = {
+                enable = true;
+                value = "https://127.0.0.1:3000/dns-query";
+              };
+              "0712"."network.trr.custom_uri" = {
+                enable = true;
+                value = "https://127.0.0.1:3000/dns-query";
+              };
+            };
+            # LOCATION BAR / SEARCH BAR / SUGGESTIONS / HISTORY / FORMS
+            "0800" = {
+              enable = true;
+              # TODO: do I want this?
+              "0802"."browser.urlbar.quicksuggest.enabled".value = true;
+              "0807"."browser.urlbar.clipboard.featureGate".enable = true; # value = false
+              # I like keeping my history, so that's why I disable this
+              "0820"."layout.css.visited_links_enabled".enable = true; # value = false
+            };
+            # PASSWORDS
+            "0900" = {
+              enable = true;
+            };
+            # DISK AVOIDANCE
+            "1000" = {
+              enable = true;
+              # Don't really know if this helps anything, but doesn't hurt
+              # I also have FDE
+              "1001"."browser.cache.disk.enable".value = true;
+              # Keep cookies everywhere (I like not having to relog in everywhere)
+              "1003"."browser.sessionstore.privacy_level".value = 0;
+            };
+            # HTTPS
+            "1200" = {
+              enable = true;
+              # Have some issues with it being blocked in proxies
+              "1212"."security.OCSP.require".value = false;
+            };
+            # REFERERS
+            "1600".enable = true;
+            # CONTAINERS
+            "1700".enable = true;
+            # PLUGINS / MEDIA / WEBRTC
+            # Will have some breakage on video conference sites, but again, use another temp browser 
+            "2000".enable = true;
+            # DOM
+            "2400".enable = true;
+            # MISCELLANEOUS
+            "2600" = {
+              enable = true;
+              # TODO: I don't think these affect me
+              # "2603"."browser.download.start_downloads_in_tmp_dir".value = false;
+              # "2603"."browser.helperApps.deleteTempFileOnExit".value = false;
+
+              "2654"."browser.download.always_ask_before_handling_new_types".value = false;
+
+              # Extensions are managed by system, so they can be wherever 
+              "2660"."extensions.enabledScopes" = {
+                enable = true;
+                value = 31;
+              };
+              "2660"."extensions.autoDisableScopes" = {
+                enable = true;
+                value = 0;
+              };
+              # I like the new extension popups
+              "2661"."extensions.postDownloadThirdPartyPrompt".value = true;
+              "2662"."extensions.webextensions.restrictedDomains" = {
+                enable = true;
+                value = lib.concatStringsSep "," [
+                  "accounts-static.cdn.mozilla.net"
+                  "accounts.firefox.com"
+                  "addons.cdn.mozilla.net"
+                  # "addons.mozilla.org" # extensions can't even do anything here
+                  "api.accounts.firefox.com"
+                  "content.cdn.mozilla.net"
+                  "discovery.addons.mozilla.org"
+                  "install.mozilla.org"
+                  "oauth.accounts.firefox.com"
+                  "profile.accounts.firefox.com"
+                  # "support.mozilla.org" # I don't think anything is going to try to mess up the support page
+                  "sync.services.mozilla.com"
+                ];
+              };
+            };
+            # ETP
+            "2700".enable = true;
+            # SHUTDOWN & SANITIZING
+            # I want to keep everything on shut down, I don't want an ephemeral browser
+            "2800".enable = false;
+            # "FPP"
+            "4000" = {
+              enable = true;
+              "4001"."privacy.fingerprintingProtection.pbmode".enable = true;
+            };
+            # OPTIONAL RFP
+            "4500" = {
+              enable = true;
+              "4501"."privacy.resistFingerprinting".enable = true;
+              "4501"."privacy.resistFingerprinting.pbmode".enable = true;
+              # TODO: Large screen, do I need this, enabling it would be good for privacy,
+              # but not for looks.
+              "4502"."privacy.window.maxInnerWidth".enable = false;
+              "4502"."privacy.window.maxInnerHeight".enable = false;
+              # Tho keep letterboxing
+              "4504"."privacy.resistFingerprinting.letterboxing".enable = true;
+              "4506"."privacy.spoof_english".value = 2; # enabled
+              "4520"."webgl.disabled".enable = true;
+            };
+            # Disk avoidance, application data isolation, eyeballs
+            "5000" = {
+              enable = true;
+              "5003"."signon.rememberSignons" = {
+                enable = true;
+                value = false;
+              };
+              "5017"."extensions.formautofill.addresses.enabled".enable = true; # value = false
+              "5017"."extensions.formautofill.creditCards.enabled".enable = true; # value = false
+              # Make search explicit
+              "5021"."keyword.enabled".enable = true; # value = false
+            };
+            # OPTIONAL HARDENING
+            "5500".enable = false;
+            # DON'T TOUCH
+            "6000".enable = true;
+            # DON'T BOTHER
+            "7000".enable = false;
+            # DON'T BOTHER
+            "8000".enable = false;
+            # NON_PROJECT RELATED
+            "9000".enable = false;
+          };
+
+          settings = {
+            # dnscrypt-proxy2 baybee so encrypted client hello wworks
+            "network.dns.echconfig.enabled" = true;
+            "network.dns.use_https_rr_as_altsvc" = true;
+
+            # ui
+            "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
+            # potato
+            "uc.tweak.translucency" = true;
+            "uc.tweak.sidebar.wide" = true;
+            "uc.tweak.urlbar.not-floating" = true;
+            "uc.tweak.no-custom-icons" = true;
+
+            "browser.uidensity" = 1;
+
+            "browser.uiCustomization.state" = ((lib.polytope.miniJSON pkgs) ./ui_state.json); # This has to be mini or it won't read it
+
+            # Good-bye weather
+            "browser.newtabpage.activity-stream.feeds.weatherfeed" = false;
+            "browser.newtabpage.activity-stream.showWeather" = false;
+            "browser.newtabpage.activity-stream.system.showWeather" = false;
+            "browser.newtabpage.activity-stream.weather.locationSearchEnabled" = false;
+
+            # Memory management
+            "browser.low_commit_space_threshold_percent" = 30; # When 70% of system memory is used, start unloading
+            "browser.tabs.unloadOnLowMemory" = true;
+            "browser.tabs.min_inactive_duration_before_unload" = 1000 * 60 * 5; # 5 minutes before a tab can be unloaded
+            "browser.tabs.inTitlebar" = 0; # Window border shadow (this turns it off) https://bugzilla.mozilla.org/show_bug.cgi?id=1765171
+
+            # Reader mode always available
+            "reader.parse-on-load.force-enabled" = true;
+
+            "dom.private-attribution.submission.enabled" = false; # Could be cool eventually, but no incentive for websites to actually use this
+            "middlemouse.paste" = false; # Disable paste on middle mouse button
+
+            "widget.use-xdg-desktop-portal.file-picker" = 1;
+
+            # https://github.com/yokoffing/Betterfox/blob/main/user.js
+            "gfx.canvas.accelerated.cache-items" = 4096;
+            "gfx.canvas.accelerated.cache-size" = 512;
+            "gfx.content.skia-font-cache-size" = 20;
+            "browser.cache.jsbc_compression_level" = 3;
+
+            # Reject if cookie banner is one button
+            "cookiebanners.service.mode" = 1;
+            "cookiebanners.service.mode.privateBrowsing" = 1;
+
+            # Remove fullscreen delay
+            "full-screen-api.transition-duration.enter" = "0 0"; # default=200 200
+            "full-screen-api.transition-duration.leave" = "0 0"; # default=200 200
+
+            "full-screen-api.warning.delay" = -1; # default=500
+            "full-screen-api.warning.timeout" = 0; # default=3000
           };
 
           # Custom bookmarks
@@ -254,104 +517,37 @@ in
             }
           ];
 
-          settings = {
+        #  settings = {
 
-            "browser.newtabpage.activity-stream.feeds.weatherfeed" = false;
-            "browser.newtabpage.activity-stream.showWeather" = false;
-            "browser.newtabpage.activity-stream.system.showWeather" = false;
-            "browser.newtabpage.activity-stream.weather.locationSearchEnabled" = false;
+        #    #"browser.newtabpage.activity-stream.feeds.weatherfeed" = false;
+        #    #"browser.newtabpage.activity-stream.showWeather" = false;
+        #    #"browser.newtabpage.activity-stream.system.showWeather" = false;
+        #    #"browser.newtabpage.activity-stream.weather.locationSearchEnabled" = false;
 
-            # My user settings:
-            "browser.ctrlTab.sortByRecentlyUsed" = true;
-            "browser.toolbars.bookmarks.visibility" = "never";
-            "browser.newtab.url" = "about:blank";
+        #    # My user settings:
+        #    "browser.ctrlTab.sortByRecentlyUsed" = true;
+        #    "browser.toolbars.bookmarks.visibility" = "never";
+        #    "browser.newtab.url" = "about:blank";
 
-            # My added settings:
-            "browser.firefox-view.feature-tour" = "{\"screen\":\"FIREFOX_VIEW_SPOTLIGHT\",\"complete\":true}";
-            "browser.pdfjs.feature-tour" = "{\"screen\":\"\",\"complete\":false}";
-            "browser.newtabpage.activity-stream.system.showSponsored" = false;
-            "browser.newtabpage.activity-stream.discoverystream.enabled" = false;
-            "browser.newtabpage.activity-stream.discoverystream.sendToPocket.enabled" = false;
-            "extensions.pocket.enabled" = false;
-            "browser.newtabpage.activity-stream.discoverystream.saveToPocketCard.enabled" = false;
-            "browser.newtabpage.activity-stream.improvesearch.topSiteSearchShortcuts.havePinned" = "";
-            "browser.newtabpage.activity-stream.improvesearch.topSiteSearchShortcuts.searchEngines" = "";
-            "services.sync.prefs.sync.browser.newtabpage.activity-stream.showSponsored" = false;
-            "services.sync.prefs.sync.browser.newtabpage.activity-stream.showSponsoredTopSites" = false;
-            "browser.newtabpage.activity-stream.feeds.section.topstories" = false;
-            "browser.shell.checkDefaultBrowser" = false;
-            "browser.shell.skipDefaultBrowserCheckOnFirstRun" = true;
-            "dom.private-attribution.submission.enabled" = false; # New firefox 128 'privacy respecting attribution"
-
-            # Arkenfox: stolen from nazarick config:
-            # https://github.com/DarkKronicle/nazarick/blob/main/modules/home/apps/firefox/default.nix
-            # https://arkenfox.github.io/gui/
-            "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
-            "widget.use-xdg-desktop-portal.file-picker" = 1; # Okay so it's a xdg issue not firefox config issue?
-            "browser.aboutConfig.showWarning" = false;
-            "browser.newtabpage.activity-stream.showSponsored" = false;
-            "browser.newtabpage.activity-stream.showSponsoredTopSites" = false;
-            "browser.newtabpage.activity-stream.default.sites" = "";
-            "extensions.getAddons.showPane" = false;
-            "extensions.htmlaboutaddons.recommendations.enabled" = false;
-            "browser.discovery.enabled" = false;
-            "browser.shopping.experience2023.enabled" = false;
-            "datareporting.policy.dataSubmissionEnabled" = false;
-            "datareporting.healthreport.uploadEnabled" = false;
-            "toolkit.telemetry.unified" = false;
-            "toolkit.telemetry.enabled" = false;
-            "toolkit.telemetry.server" = "data:,";
-            "toolkit.telemetry.archive.enabled" = false;
-            "toolkit.telemetry.newProfilePing.enabled" = false;
-            "toolkit.telemetry.shutdownPingSender.enabled" = false;
-            "toolkit.telemetry.updatePing.enabled" = false;
-            "toolkit.telemetry.bhrPing.enabled" = false;
-            "toolkit.telemetry.firstShutdownPing.enabled" = false;
-            "toolkit.telemetry.coverage.opt-out" = true;
-            "toolkit.telemetry.opt-out" = true;
-            "toolkit.telemetry.endpoint.base" = "";
-            "browser.ping-centre.telemetry" = false;
-            "browser.newtabpage.activity-stream.feeds.telemetry" = false;
-            "browser.newtabpage.activity-stream.telemetry" = false;
-            "breakpad.reportURL" = false;
-            "browser.tabs.crashReporting.sendReport" = false;
-            "browser.crashReports.unsubmittedCheck.enabled" = false;
-            "browser.crashReports.unsubmittedCheck.autoSubmit2" = false;
-            "network.http.speculative-parallel-limit" = false;
-            "browser.send_pings" = false;
-            "browser.urlbar.pocket.featureGate" = false;
-            "browser.urlbar.weather.featureGate" = false;
-            "browser.urlbar.mdn.featureGate" = false;
-            "browser.urlbar.addons.featureGate" = false;
-            "browser.urlbar.trending.featureGate" = false;
-            "browser.urlbar.suggest.quicksuggest.sponsored" = false;
-            "browser.urlbar.suggest.quicksuggest.nonsponsored" = false;
-            "browser.urlbar.speculativeConnect.enabled" = false;
-            "security.ssl.require_safe_negotiation" = true; # May cause issues
-            "dom.security.https_only_mode" = true;
-            "network.http.referer.XOriginTrimmingPolicy" = 2; # May cause issues
-            "network.IDN_show_punycode" = true;
-            "browser.download.useDownloadDir" = false;
-            "browser.download.alwaysOpenPanel" = false;
-            "browser.download.manager.addToRecentDocs" = false;
-            "browser.download.always_ask_before_handling_new_types" = false;
-            "browser.contentblocking.category" = "strict"; # May cause issues
-            "browser.link.open_newwindow" = 3; # May cause issues
-
-            # Nazarick does this at system level, I dont yet
-            "network.trr.uri" = "https://dns.quad9.net/dns-query";
-            "network.trr.custom_uri" = "https://dns.quad9.net/dns-query";
-
-            # Don't touch
-            "extensions.blocklist.enabled" = true;
-            "network.http.referer.spoofSource" = false;
-            "security.dialog_enable_delay" = 1000;
-            "extensions.webcompat.enable_shims" = true;
-            "extensions.webcompat-reporter.enabled" = false;
-          };
+        #    # My added settings:
+        #    "browser.firefox-view.feature-tour" = "{\"screen\":\"FIREFOX_VIEW_SPOTLIGHT\",\"complete\":true}";
+        #    "browser.pdfjs.feature-tour" = "{\"screen\":\"\",\"complete\":false}";
+        #    "browser.newtabpage.activity-stream.system.showSponsored" = false;
+        #    "browser.newtabpage.activity-stream.discoverystream.enabled" = false;
+        #    "browser.newtabpage.activity-stream.discoverystream.sendToPocket.enabled" = false;
+        #    "extensions.pocket.enabled" = false;
+        #    "browser.newtabpage.activity-stream.discoverystream.saveToPocketCard.enabled" = false;
+        #    "browser.newtabpage.activity-stream.improvesearch.topSiteSearchShortcuts.havePinned" = "";
+        #    "browser.newtabpage.activity-stream.improvesearch.topSiteSearchShortcuts.searchEngines" = "";
+        #    "services.sync.prefs.sync.browser.newtabpage.activity-stream.showSponsored" = false;
+        #    "services.sync.prefs.sync.browser.newtabpage.activity-stream.showSponsoredTopSites" = false;
+        #    "browser.newtabpage.activity-stream.feeds.section.topstories" = false;
+        #    "browser.shell.checkDefaultBrowser" = false;
+        #    "browser.shell.skipDefaultBrowserCheckOnFirstRun" = true;
+        #    #"dom.private-attribution.submission.enabled" = false; # New firefox 128 'privacy respecting attribution"
+        #  };
         };
       };
     };
   };
 }
-
