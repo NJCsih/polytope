@@ -17,11 +17,13 @@ in
   config = mkIf cfg.enable {
     fonts = {
       packages = with pkgs; [
-        (nerdfonts.override { fonts = [ "CascadiaCode" ]; })
+        nerd-fonts.caskaydia-cove
+        nerd-fonts.fantasque-sans-mono
+        nerd-fonts.fira-code
         inter
         noto-fonts
-        noto-fonts-emoji
         noto-fonts-cjk-sans
+        noto-fonts-emoji
         roboto
       ];
       fontconfig = {

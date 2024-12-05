@@ -392,7 +392,6 @@ in
           swayfx
           waybar
           wayland
-          wpaperd
           swaylock
         ]
       );
@@ -400,8 +399,8 @@ in
 
     # Plasma 6
     plasma6.configuration = {
-
       # Enable plasma6
+
       services.desktopManager.plasma6.enable = true;
 
     };
