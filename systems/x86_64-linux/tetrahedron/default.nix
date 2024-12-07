@@ -123,7 +123,7 @@ in
   services.flatpak.enable = true;
 
   # Set custom udev rules for qmk
-  #services.udev.extraRules = builtins.readFile ./qmk-udev-rules.txt;
+  services.udev.extraRules = builtins.readFile ./qmk-udev-rules.txt;
 
   # User Stuff ------------------------------------------------------------------------------------
 
