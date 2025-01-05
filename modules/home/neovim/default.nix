@@ -8,10 +8,10 @@
 
 let
   inherit (lib) mkEnableOption mkIf;
-  cfg = config.polytope.apps.neovim;
+  cfg = config.polytope.neovim;
 in
 {
-  options.polytope.apps.neovim = {
+  options.polytope.neovim = {
     enable = mkEnableOption "neovim";
   };
 

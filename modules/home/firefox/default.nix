@@ -8,7 +8,7 @@
 
 let
   inherit (lib) mkEnableOption mkIf;
-  cfg = config.polytope.apps.firefox;
+  cfg = config.polytope.firefox;
 
   # https://github.com/gvolpe/nix-config/blob/6feb7e4f47e74a8e3befd2efb423d9232f522ccd/home/programs/browsers/firefox.nix
   custom-addons = pkgs.callPackage ./addons.nix {
@@ -78,7 +78,7 @@ let
     ]);
 in
 {
-  options.polytope.apps.firefox = {
+  options.polytope.firefox = {
     enable = mkEnableOption "Firefox";
     userCss = mkEnableOption "Use Custom CSS Theming";
   };

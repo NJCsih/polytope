@@ -134,11 +134,10 @@ in
     isNormalUser = true;
     extraGroups = [
       "wheel"
-      "dialout" # for serial
       "input" # for kanata
+      "uinput" # for kanata
       "networkmanager"
       "seat"
-      "uinput" # for kanata
       "wireshark"
     ]; # What is seat for? Lemurs? Vbox?
     initialPassword = "password";
@@ -161,7 +160,6 @@ in
     desktop = {
       fonts = enabled;
     };
-    tools.kerberosConfig.enable = false;
   };
 
   # Systemwide Packages ---------------------------------------------------------------------------
@@ -171,7 +169,6 @@ in
       # Apps
       blender
       brave
-      firefox
       gwenview
       inkscape
       krita
@@ -218,7 +215,6 @@ in
       keepassxc
       kitty
       lxqt.pavucontrol-qt
-      neovim
       networkmanager
       nix-tree
       okular
