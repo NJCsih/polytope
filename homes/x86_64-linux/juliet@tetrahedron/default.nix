@@ -13,5 +13,6 @@
       userCss = true;
     };
     neovim.enable = true;
+    xdg.enable = true;
   };
 }

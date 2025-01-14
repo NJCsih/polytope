@@ -175,6 +175,7 @@ in
       logisim-evolution
       mumble
       nheko
+      obsidian
       pfetch-rs
       prusa-slicer
       qmk
@@ -182,11 +183,15 @@ in
       snes9x
 
       # Programs
+      atuin
+      chezmoi
+      mullvad-vpn
+      nix-direnv
       nushell
       starship # for nushell
-      mullvad-vpn
-      virtualbox
       stellarium
+      virtualbox
+      zoxide
 
       # NameMe
       nebula
