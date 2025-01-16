@@ -162,120 +162,34 @@ in
     };
   };
 
+  polytope.mypackages.enable = true;
+
   # Systemwide Packages ---------------------------------------------------------------------------
   environment.systemPackages =
+    (config.polytope.mypackages.base) ++
+    (config.polytope.mypackages.extra) ++
+    (config.polytope.mypackages.gui.base) ++
+    (config.polytope.mypackages.gui.extra) ++
     (with pkgs; [
 
-      # Apps
-      blender
-      brave
-      gwenview
-      inkscape
-      krita
+      # Specific to this system
       logisim-evolution
-      mumble
-      nheko
-      obsidian
-      pfetch-rs
-      prusa-slicer
       qmk
-      rofi
-      snes9x
-
-      # Programs
-      atuin
-      chezmoi
-      mullvad-vpn
-      nix-direnv
-      nushell
-      starship # for nushell
-      stellarium
-      virtualbox
-      zoxide
-
-      # NameMe
-      nebula
-
-      # School stuff
-      jetbrains.idea-community
-      openjdk
-
-      # Cryptography
-      # DarkKronicle's crypt-scripts are handled by a hm module
-      age
-      magic-wormhole-rs
-      picocrypt-cli
-
-      # Tools
       acpilight
-      antimicrox # windows joy2key replacement -- this one's pretty cool
-      audacity
-      borgbackup
-      gimp
-      git
-      gitoxide
-      glava # visualizer, may change to a diff one at some point
-      gparted
-      grim
-      keepassxc
-      kitty
-      lxqt.pavucontrol-qt
-      networkmanager
-      nix-tree
-      okular
-      pdfarranger
-      slurp
-      stylua
-      syncthing
-      taskwarrior3
       tio # serial client
-      mpv
-      wireshark
-      yazi
-
-      # Utils
       acpi
-      bandwhich
-      bat
-      bottom
-      compsize # for showing size on disk of a file
-      dust
-      htop
-      iotop
-      kdePackages.dolphin
-      libqalculate
-      networkmanagerapplet
-      nixfmt-rfc-style
-      nvtopPackages.full
-      pciutils
-      pipes-rs
-      polytope.kanata # Latest version
-      polytope.lock
-      polytope.poly
+      antimicrox # windows joy2key replacement -- this one's pretty cool
       (proxmark3.override {
         withGui = false;
         withPython = true;
         withGeneric = true;
         withSmall = false;
       })
-      ripgrep
-      swww
-      tcpdump
-      tealdeer
-      tomb
-      gnupg # tomb dep
-      pinentry # tomb dep
-      unzip
-      wget
-      wl-clipboard
-      wmname
 
-      # myPackages
-      #packages.system-wallpapers.override {
-      #polytope.wallpapers.override {
-      #     polytope.wallpapers
-      #wappapers = ./wallpapers.yml;
-      #}
+      # Utils
+      polytope.kanata # Latest version
+      polytope.lock
+      polytope.poly
 
     ])
     ++ [
