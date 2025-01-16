@@ -2,6 +2,7 @@
   pkgs,
   config,
   options,
+  inputs,
   lib,
   ...
 }:
@@ -38,57 +39,58 @@ in
   config = mkIf cfg.enable {
     polytope.mypackages.base = (with pkgs; [
 
-
       # Shell
-      atuin
       nushell
-      pfetch-rs
-      starship # for nushell
-      zoxide
+      atuin       # History
+      pfetch-rs   # :3
+      starship    # Prompt
+      zoxide      # cd jumps
 
       # Cli tools
-      age
-      bat
-      borgbackup
-      broot
-      fd
+      age # better encryption tool than gpg
+      bat # better cat
+      borgbackup # backup tool, dedup+remote+encrpytion
+      broot # fast recursive cd
+      fd # fast cd search
       file # stat and such
-      fzf
+      fzf # fast cd search
       git
-      gitoxide
+      gitoxide # git rewrite, faster for large clones
       inxi # pulls system info
-      libqalculate
-      magic-wormhole-rs
+      libqalculate # best tui calculator
+      magic-wormhole-rs # large file transfer
       ov # pager (nice for man pages)
-      ripgrep
-      skim
-      sshfs
-      unzip
+      ripgrep # faster grep
+      skim # fast search
+      sshfs # mount fs over ssh (very cool)
+      tealdeer # Shows usage examples
+      unzip # decompress zips
       wget
-      yazi
+      yazi # tui file explorer
 
       # Sysinfo tools
-      bandwhich
-      bottom
-      btop
+      bandwhich # show network i/o
+      rustscan # Fast port scanner
+      bottom # btm, slightly worse btop
+      btop # best pretty looking full-system usage info
       compsize # for showing size on disk of a file
-      dust
-      htop
-      iotop
-      nvtopPackages.full
-      usbutils
+      dust # really nice for getting size of directory
+      htop # the classic sysinfo tool
+      iotop # shows drive i/o stats (req sudo)
+      nvtopPackages.full # show nvidia usage info
+      usbutils # provides utils
 
       # Tools
-      chezmoi
-      imagemagick
-      nixfmt-rfc-style
-      nix-direnv
-      nix-tree
-      qrencode
+      chezmoi # for dotfile management (I mostly left home manager)
+      imagemagick # good for easy img manipulation (like downnsizing)
+      nix-direnv # for auto nix develop on cd (very nice)
+      nix-tree # shows tree graph of nix flake
+      nixfmt-rfc-style # nixos autoformatter
+      qrencode # generates qrcodes
 
       # Networking
-      nebula
-      networkmanager
+      nebula # for direct connection of multiple devices behind nats
+      networkmanager # for wifi connection
 
       # tomb:
       tomb # For on-disk luks
@@ -101,7 +103,6 @@ in
       pipes-rs
       gnumake
       gcc
-      tealdeer
     ]);
     polytope.mypackages.gui.base = (with pkgs; [
       mumble

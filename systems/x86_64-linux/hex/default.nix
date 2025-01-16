@@ -29,8 +29,10 @@ in
   # Enable global settings in :
   polytope.system.nix.enable = true;
 
+  # Use encrypted dns resolving
+  polytope.network.dnscrypt.enable = true;
   # Enable sound.
-  hardware.pulseaudio.enable = false;
+  services.pulseaudio.enable = false;
 
   # System Stuff ----------------------------------------------------------------------------------
 
@@ -53,6 +55,10 @@ in
 
   # Enable networkmanager for internet
   networking.networkmanager.enable = true; # Easiest to use and most distros use this by default.
+  networking.nameservers = [
+    "1.1.1.1"
+    "9.9.9.9"
+  ];
 
   # Set your time zone.
   time.timeZone = "America/Denver";
@@ -123,86 +129,29 @@ in
     desktop = {
       fonts = enabled;
     };
-    tools.kerberosConfig.enable = false;
   };
 
   # Systemwide Packages ---------------------------------------------------------------------------
   environment.systemPackages =
+    (config.polytope.mypackages.base) ++
+    (config.polytope.mypackages.extra) ++
+    (config.polytope.mypackages.gui.base) ++
+    #(config.polytope.mypackages.gui.extra) ++
     (with pkgs; [
 
-      # Apps
-      firefox
-      nushell
-      starship # for nushell
-      pfetch-rs
-      rofi
-
-      # Cryptography
-      age
-      magic-wormhole-rs
-      picocrypt-cli
-
-      # Tools
-      borgbackup
-      freerdp3
-      gimp
-      git
-      gitoxide
-      gparted
-      grim
-      keepassxc
-      kitty
-      krb5
-      libqalculate
-      lxqt.pavucontrol-qt
-      neovim
-      networkmanager
-      okular
-      slurp
-      syncthing
+      # Specific to this system
       tio # serial client
-      mpv
-      wireshark
-      yazi
+      freerdp3 # RD client
+      krb5 # For kerberos auth
 
-      # Testing Tools
-      door-knocker
-      nix-tree
-      rustscan
-      wireshark
+      # Yes in gui.extra but I want it without that
+      brave
 
-      # Utils
-      bandwhich
-      bat
-      bottom
-      compsize # for showing size on disk of a file
-      dust
-      htop
-      iotop
-      kdePackages.dolphin
-      nixfmt-rfc-style
-      nvtopPackages.full
-      pciutils
-      pipes-rs
-      polytope.kanata # Latest version
-      polytope.poly
-      ripgrep
-      swww
-      tcpdump
-      tealdeer
-      tomb
-      gnupg # tomb dep
-      pinentry # tomb dep
-      unzip
-      wget
-      wl-clipboard
-      wmname
-
+      # For nicer sway nav
+      polytope.kanata
     ])
     ++ [
       (inputs.nazarick.packages.x86_64-linux.system-wallpapers.override {
-        # Todo: make this managed on a per-user basis not per-system
-        #wallpapers = ../../../modules/nixos/desktop/wallpapers/wallpapers.yml;
         wallpapers = ./wallpapers.yml;
       })
     ];
@@ -268,7 +217,6 @@ in
           swayfx
           waybar
           wayland
-          wpaperd
           swaylock
         ]
       );

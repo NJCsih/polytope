@@ -39,7 +39,7 @@ in
   polytope.network.dnscrypt.enable = true;
 
   # Enable sound.
-  hardware.pulseaudio.enable = false;
+  services.pulseaudio.enable = false;
   #security.rtkit.enable = true;
   #services.pipewire = {
   #  enable = true;
@@ -174,9 +174,9 @@ in
 
       # Specific to this system
       logisim-evolution
+      wmname # for weird logism thing with sway
       qmk
       acpilight
-      tio # serial client
       acpi
       antimicrox # windows joy2key replacement -- this one's pretty cool
       (proxmark3.override {
@@ -188,14 +188,11 @@ in
 
       # Utils
       polytope.kanata # Latest version
-      polytope.lock
-      polytope.poly
-
+      #polytope.poly # TODO: I forgot about this, need to update ig
+      #polytope.lock # TODO: also this one
     ])
     ++ [
       (inputs.nazarick.packages.x86_64-linux.system-wallpapers.override {
-        # Todo: make this managed on a per-user basis not per-system
-        #wallpapers = ../../../modules/nixos/desktop/wallpapers/wallpapers.yml;
         wallpapers = ./wallpapers.yml;
       })
     ];
@@ -217,8 +214,11 @@ in
 
   programs.wireshark.enable = true; # set extra stuff for wireshark
 
-  networking.firewall.allowedTCPPorts = [ 56412 ];
-  networking.firewall.allowedUDPPorts = [ 4242 ]; 
+  # 56412 is for ssh
+  # 22000 is for syncthing
+  # 4242 is for nebula
+  networking.firewall.allowedTCPPorts = [ 56412 22000 ];
+  networking.firewall.allowedUDPPorts = [ 4242 22000 ]; 
 
   services.nebula.networks.mesh = {
     enable = true;
