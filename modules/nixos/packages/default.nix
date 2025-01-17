@@ -66,6 +66,7 @@ in
       tealdeer # Shows usage examples
       unzip # decompress zips
       wget
+      wl-clipboard # for cli access to clipboard
       yazi # tui file explorer
 
       # Sysinfo tools

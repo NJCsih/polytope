@@ -162,9 +162,9 @@ in
     };
   };
 
-  polytope.mypackages.enable = true;
 
   # Systemwide Packages ---------------------------------------------------------------------------
+  polytope.mypackages.enable = true;
   environment.systemPackages =
     (config.polytope.mypackages.base) ++
     (config.polytope.mypackages.extra) ++
@@ -188,8 +188,7 @@ in
 
       # Utils
       polytope.kanata # Latest version
-      #polytope.poly # TODO: I forgot about this, need to update ig
-      #polytope.lock # TODO: also this one
+
     ])
     ++ [
       (inputs.nazarick.packages.x86_64-linux.system-wallpapers.override {

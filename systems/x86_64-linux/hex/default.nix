@@ -132,6 +132,7 @@ in
   };
 
   # Systemwide Packages ---------------------------------------------------------------------------
+  polytope.mypackages.enable = true;
   environment.systemPackages =
     (config.polytope.mypackages.base) ++
     (config.polytope.mypackages.extra) ++
