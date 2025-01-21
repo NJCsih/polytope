@@ -31,6 +31,7 @@ in
 
   # Use encrypted dns resolving
   polytope.network.dnscrypt.enable = true;
+
   # Enable sound.
   services.pulseaudio.enable = false;
 
@@ -41,6 +42,8 @@ in
   boot.loader.efi.canTouchEfiVariables = true;
   # [Re efi canTouchEfiVariables] "I have it enabled tho I don't remember quite
   # exactly what it does" - DarkKronicle -- I'm trusting them
+
+  boot.loader.timeout = 0;
 
   # Zen is for desktop computing, so lower latency? I'm not gonna touch it
   boot.kernelPackages = pkgs.linuxPackages_zen;
@@ -157,7 +160,6 @@ in
       })
     ];
 
-
 # Enable the OpenSSH daemon.
   services.openssh = {
     enable = true;
@@ -180,57 +182,28 @@ in
   services.xrdp.defaultWindowManager = "${pkgs.sway}/bin/sway";
   services.xrdp.openFirewall = true;
 
-  # Specilizations for different display-managers -------------------------------------------------
-  #   We'd technically want to just have different lemurs entries, but because plasma does too much
-  #     I wanted to have the ability to enable/disable different programs completely from nix
-  specialisation = {
 
-    # Sway/Swayfx
-    swayfx.configuration = {
+  programs.sway = {
+    package = pkgs.swayfx;
+    enable = true;
+    xwayland.enable = true;
+  };
 
-      programs.sway = {
-        enable = true;
-        xwayland.enable = true;
+  # Set pam to not have swaylock lock me out
+  security.pam.services.swaylock = { };
+
+  # Login manager:
+  services.greetd = {
+    enable = true;
+    settings = {
+      default_session = {
+        # command = "${pkgs.greetd.tuigreet}/bin/tuigreet --remember --time --cmd '${pkgs.sway}/bin/sway --unsupported-gpu -c ~/.config/swayfx/config'";
+        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --remember --time --cmd '${lib.getExe config.programs.sway.package}/bin/sway --unsupported-gpu'";
+        user = "greeter";
       };
-
-      # Login manager:
-      services.greetd = {
-        enable = true;
-        settings = {
-          default_session = {
-            # command = "${pkgs.greetd.tuigreet}/bin/tuigreet --remember --time --cmd '${pkgs.sway}/bin/sway --unsupported-gpu -c ~/.config/swayfx/config'";
-            command = "${pkgs.greetd.tuigreet}/bin/tuigreet --remember --time --cmd '${pkgs.sway}/bin/sway --unsupported-gpu'";
-            user = "greeter";
-          };
-        };
-      };
-
-      # 'Enable' sway (set all the nice stuff)
-      # should probably do this
-
-      # Set pam to not have swaylock lock me out
-      security.pam.services.swaylock = { };
-
-      # Install sway specific stuff
-      environment.systemPackages = (
-        with pkgs;
-        [
-          swayfx
-          waybar
-          wayland
-          swaylock
-        ]
-      );
-    };
-
-    # Plasma 6
-    plasma6.configuration = {
-
-      # Enable plasma6
-      services.desktopManager.plasma6.enable = true;
-
     };
   };
+
 
   system.stateVersion = "24.05"; # Don't touch
 }

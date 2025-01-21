@@ -123,6 +123,11 @@ in
 
       keepassxc
 
+      swayfx
+      waybar
+      wayland
+      swaylock
+
       # For screenshotting
       grim
       slurp

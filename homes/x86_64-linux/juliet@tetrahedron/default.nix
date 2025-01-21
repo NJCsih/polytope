@@ -14,5 +14,6 @@
     };
     neovim.enable = true;
     xdg.enable = true;
+    swww.enable = true;
   };
 }
