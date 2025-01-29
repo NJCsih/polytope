@@ -133,19 +133,20 @@ in
       slurp
     ]);
     polytope.mypackages.gui.extra = (with pkgs; [
+      audacity
+      blender
+      brave
+      easyeffects
+      glava # visualizer, may change to a diff one at some point
+      gwenview
+      inkscape
+      kdePackages.dolphin
+      krita
       mpv
       obsidian
-      glava # visualizer, may change to a diff one at some point
-      audacity
-      kdePackages.dolphin
-      stellarium
-      snes9x
-      blender
       prusa-slicer
-      inkscape
-      brave
-      gwenview
-      krita
+      snes9x
+      stellarium
     ]);
 
   };
