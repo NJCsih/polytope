@@ -81,6 +81,8 @@ in
         require_nofilter = false; # quad9 has some nice security filters
         require_dnssec = true;
 
+        forwarding_rules = "${./forwarding-rules.txt}";
+
         sources.quad9-resolvers = {
           urls = [
             "https://quad9.net/dnscrypt/quad9-resolvers.md"
