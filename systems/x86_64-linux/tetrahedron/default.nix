@@ -125,7 +125,13 @@ in
   services.flatpak.enable = true;
 
   # Set custom udev rules for qmk
-  services.udev.extraRules = builtins.readFile ./qmk-udev-rules.txt;
+  # TODO Pull the stm32 out of the bottom of the temp qmk rules file
+  services.udev.extraRules = (builtins.readFile ./qmk-udev-rules.txt) +
+  ''
+    # Udev rules required for stm32 flashing
+    SUBSYSTEM=="usb", ATTRS{idVendor}=="0483", MODE="0666"
+    SUBSYSTEM=="usb_device", ATTRS{idVendor}=="0483", MODE="0666"
+  '';
 
   # User Stuff ------------------------------------------------------------------------------------
 
@@ -174,12 +180,19 @@ in
     (with pkgs; [
 
       # Specific to this system
-      logisim-evolution
+
+      signal-desktop # yes it's a gross electron app
+
+      logisim-evolution # Circuit simulator
       wmname # for weird logism thing with sway
+
       qmk
+
       acpilight
       acpi
+
       antimicrox # windows joy2key replacement -- this one's pretty cool
+
       (proxmark3.override {
         withGui = false;
         withPython = true;
@@ -284,9 +297,7 @@ in
     enable = true;
     settings = {
       default_session = {
-        # command = "${pkgs.greetd.tuigreet}/bin/tuigreet --remember --time --cmd '${pkgs.sway}/bin/sway --unsupported-gpu -c ~/.config/swayfx/config'";
-        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --remember --time --cmd '${lib.getExe config.programs.sway.package}/bin/sway --unsupported-gpu'";
-
+        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --remember --time --cmd '${lib.getExe config.programs.sway.package} --unsupported-gpu'";
         user = "greeter";
       };
     };
