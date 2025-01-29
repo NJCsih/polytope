@@ -81,7 +81,7 @@
   };
 
   fileSystems."/mnt/driveroot" = {
-    device = "/dev/disk/by-uuid/d05ebcdc-704d-4c22-8666-df6e17e2276c";
+    device = "/dev/disk/by-uuid/4a7a74e0-8a17-4925-bbc2-850cc9d63abc";
     fsType = "btrfs";
     options = [
       "compress=zstd"

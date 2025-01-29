@@ -152,7 +152,7 @@ in
       brave
 
       # For nicer sway nav
-      polytope.kanata
+      #polytope.kanata
     ])
     ++ [
       (inputs.nazarick.packages.x86_64-linux.system-wallpapers.override {
@@ -179,7 +179,7 @@ in
 
   # enable xrdp stuff
   services.xrdp.enable = true; # remote desktop service
-  services.xrdp.defaultWindowManager = "${pkgs.sway}/bin/sway";
+  services.xrdp.defaultWindowManager = "${lib.getExe config.programs.sway.package}";
   services.xrdp.openFirewall = true;
 
 
@@ -198,7 +198,7 @@ in
     settings = {
       default_session = {
         # command = "${pkgs.greetd.tuigreet}/bin/tuigreet --remember --time --cmd '${pkgs.sway}/bin/sway --unsupported-gpu -c ~/.config/swayfx/config'";
-        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --remember --time --cmd '${lib.getExe config.programs.sway.package}/bin/sway --unsupported-gpu'";
+        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --remember --time --cmd '${lib.getExe config.programs.sway.package} --unsupported-gpu'";
         user = "greeter";
       };
     };

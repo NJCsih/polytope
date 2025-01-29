@@ -275,6 +275,7 @@ in
     xwayland.enable = true;
   };
 
+
   # Set pam to not have swaylock lock me out
   security.pam.services.swaylock = { };
 
@@ -285,6 +286,7 @@ in
       default_session = {
         # command = "${pkgs.greetd.tuigreet}/bin/tuigreet --remember --time --cmd '${pkgs.sway}/bin/sway --unsupported-gpu -c ~/.config/swayfx/config'";
         command = "${pkgs.greetd.tuigreet}/bin/tuigreet --remember --time --cmd '${lib.getExe config.programs.sway.package}/bin/sway --unsupported-gpu'";
+
         user = "greeter";
       };
     };
