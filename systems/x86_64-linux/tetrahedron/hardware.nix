@@ -149,13 +149,13 @@
   hardware.nvidia = {
 
     modesetting.enable = true; # Modesetting is required.
-    powerManagement.enable = false; # Can cause crashes after waking from sleep
 
     # Fine-grained power management. Turns off GPU when not in use.
     # Experimental and only works on modern Nvidia GPUs (Turing or newer).
     powerManagement.finegrained = false;
+    powerManagement.enable = true; # We can now do this woo
 
-    open = false; # Use open kernel, (this is not nouveau), only some cards supported
+    open = true; # Use open kernel, (this is not nouveau), only some cards supported
 
     # Enable the Nvidia settings menu,
     # accessible via `nvidia-settings`.
