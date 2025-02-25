@@ -107,7 +107,7 @@ in
     ]);
     polytope.mypackages.gui.base = (with pkgs; [
       mumble
-      okular # I know this is gonna pull so many kde dependencies but eh
+      kdePackages.okular # I know this is gonna pull so many kde dependencies but eh
       nheko
       swww
       rofi
@@ -138,7 +138,7 @@ in
       brave
       easyeffects
       glava # visualizer, may change to a diff one at some point
-      gwenview
+      kdePackages.gwenview
       inkscape
       kdePackages.dolphin
       krita

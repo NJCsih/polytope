@@ -200,9 +200,6 @@ in
         withSmall = false;
       })
 
-      # Utils
-      polytope.kanata # Latest version
-
     ])
     ++ [
       (inputs.nazarick.packages.x86_64-linux.system-wallpapers.override {

@@ -73,6 +73,9 @@
       inputs.home-manager.follows = "home-manager";
     };
 
+    # Darkly for qt theming
+    lightly.url = "github:Bali10050/Darkly";
+
   };
 
   outputs =
