@@ -1286,11 +1286,11 @@
         "norg-meta": "norg-meta_3"
       },
       "locked": {
-        "lastModified": 1737742863,
-        "narHash": "sha256-ZJMWB7OIKrNpxpd6GLX5MaMo0xVKsDUDWaUaGc7QmzU=",
+        "lastModified": 1740446136,
+        "narHash": "sha256-KGVHTFItRLCulyshPoJmkZvD//a0cQUNNTbF/Z0CTHU=",
         "owner": "nvim-neorg",
         "repo": "nixpkgs-neorg-overlay",
-        "rev": "4d37bea98a9d9b364261ca339e55b1cf9bda83ce",
+        "rev": "4ce2a29c4f12b66ec0e74a2c6b088d5587211ebe",
         "type": "github"
       },
       "original": {
@@ -1366,11 +1366,11 @@
     "neorg_3": {
       "flake": false,
       "locked": {
-        "lastModified": 1737594734,
-        "narHash": "sha256-on2XKJ884X1tgALfgxmcieBCkw1bafwPQYTGT/hBH7c=",
+        "lastModified": 1740325949,
+        "narHash": "sha256-2we6H3PuvuWGC7tmPeIVdUBb2ugpfYyY1t0/FImYOvU=",
         "owner": "nvim-neorg",
         "repo": "neorg",
-        "rev": "d88a9ade8b888723a142e4e6cc7e6bf1dc1eed4f",
+        "rev": "b47b4d3138beef51ffbf59bcbd7d149150b4bd2e",
         "type": "github"
       },
       "original": {
@@ -1495,11 +1495,11 @@
     },
     "nixCats_2": {
       "locked": {
-        "lastModified": 1737742551,
-        "narHash": "sha256-Iz3ACMX23fbbeOBuf9+/Ho2cGNeTUFqp2ANJUHEllxE=",
+        "lastModified": 1740442327,
+        "narHash": "sha256-2p1UIb2YVOIqL4kruVtCTHCdRU3sBk5vUh/zVC4bc8g=",
         "owner": "BirdeeHub",
         "repo": "nixCats-nvim",
-        "rev": "95f08ac899038b0d7cedaabdbbcf363dff93094d",
+        "rev": "2a9d2a7307ddd1d66e332fbf1680950f069ff104",
         "type": "github"
       },
       "original": {
@@ -2068,11 +2068,11 @@
         "plugins-heirline-components-nvim": "plugins-heirline-components-nvim_2"
       },
       "locked": {
-        "lastModified": 1740505944,
-        "narHash": "sha256-tufNGrzdjfhJFz6juYgtH/X0+Po5U4eFAcFD4jHSlRU=",
+        "lastModified": 1740519788,
+        "narHash": "sha256-k6ynKo+pBN+Q5gcqcnjYu9gVdDaGyzM1nyRAXXCnPa0=",
         "owner": "NJCsih",
         "repo": "nvim-nixCats",
-        "rev": "09d3ee8cb54f5683bf4a16f96fe2cfeb607b0273",
+        "rev": "b9a492cbae963331f4b65a786a6d8a3dcc1a7c84",
         "type": "github"
       },
       "original": {
