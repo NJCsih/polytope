@@ -58,6 +58,7 @@ in
       gitoxide # git rewrite, faster for large clones
       inxi # pulls system info
       libqalculate # best tui calculator
+      libsecret # cli secret access -- needed for script to check keepass state
       lsof # cool tool, shows open files and sockets
       magic-wormhole-rs # large file transfer
       ov # pager (nice for man pages)
@@ -102,8 +103,14 @@ in
     polytope.mypackages.extra = (with pkgs; [
       mullvad-vpn
       pipes-rs
+
+      # Compilation stuff
       gnumake
       gcc
+      clang
+      pkgs.man-pages
+      pkgs.man-pages-posix
+
     ]);
     polytope.mypackages.gui.base = (with pkgs; [
       mumble

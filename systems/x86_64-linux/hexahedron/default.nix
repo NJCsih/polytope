@@ -54,7 +54,7 @@ in
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true; # Nobody understands this, I'm just trusting dark
 
-  boot.loader.timeout = 30;
+  boot.loader.timeout = 0;
 
   # Zen is for desktop computing, so lower latency? I'm not gonna touch it
   boot.kernelPackages = pkgs.linuxPackages_zen;
@@ -146,6 +146,9 @@ in
     ]; # What is seat for? Lemurs? Vbox?
     initialPassword = "password";
     shell = pkgs.nushell;
+    openssh.authorizedKeys.keys = [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO/Gg0Y2x4jG7H4P4X6szZG0KHWSaiq6WcQJDZVcVKFd juliet@tetrahedron"
+    ];
   };
 
   # Virtualbox stuff
@@ -174,6 +177,8 @@ in
       # Specific to this system
 
       signal-desktop # yes it's a gross electron app
+
+      neomutt # tui email client
 
       logisim-evolution # Circuit simulator
       wmname # for weird logism thing with sway
