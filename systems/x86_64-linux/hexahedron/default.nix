@@ -15,12 +15,6 @@ in
     ./hardware.nix
   ];
 
-  # Make my laptop a router
-  networking.nat = {
-    enable = true;
-    internalInterfaces = [ "eno0" ];
-  };
-
   # NixOS Stuff -----------------------------------------------------------------------------------
 
   # Enable experimental features
@@ -40,20 +34,10 @@ in
 
   # Enable sound.
   services.pulseaudio.enable = false;
-  #security.rtkit.enable = true;
-  #services.pipewire = {
-  #  enable = true;
-  #  alsa.enable = true;
-  #  alsa.support32Bit = true;
-  #  pulse.enable = true;
-  #  # If you want to use JACK applications, uncomment this
-  #  #jack.enable = true;
-  #};
-
-  # TODO: What is this?
-  #nix.package = inputs.lix-module.packages.x86_64-linux.default;
 
   # System Stuff ----------------------------------------------------------------------------------
+
+  networking.hostName = "hexahedron"; # Define your hostname.
 
   # Add TIP for laptop power
   services.power-profiles-daemon.enable = false;
@@ -66,21 +50,17 @@ in
       CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
     };
   };
-
-
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-  # [Re efi canTouchEfiVariables] "I have it enabled tho I don't remember quite
-  # exactly what it does" - DarkKronicle -- I'm trusting them
+  boot.loader.efi.canTouchEfiVariables = true; # Nobody understands this, I'm just trusting dark
 
-  boot.loader.timeout = 0;
+  boot.loader.timeout = 30;
 
   # Zen is for desktop computing, so lower latency? I'm not gonna touch it
   boot.kernelPackages = pkgs.linuxPackages_zen;
 
-  # Enable networkmanager for internet
-  networking.networkmanager.enable = true; # Easiest to use and most distros use this by default.
+  # Networking
+  networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
   networking.nameservers = [
     "1.1.1.1"
     "9.9.9.9"
@@ -89,12 +69,17 @@ in
   # Set your time zone.
   time.timeZone = "America/Denver";
 
-  # TODO: move this to modules/../nvim, but not sure why that doesnt work?
-  programs.neovim.enable = true;
-  programs.neovim.defaultEditor = true;
+  # Configure network proxy if necessary
+  # networking.proxy.default = "http://user:password@proxy:port/";
+  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
-  # Wallpapers TODO: Redo the whole wallpaper thing, they should probably be defined per-user
-  environment.pathsToLink = [ "/share/wallpapers" ];
+  # Select internationalisation properties.
+  # i18n.defaultLocale = "en_US.UTF-8";
+  # console = {
+  #   font = "Lat2-Terminus16";
+  #   keyMap = "us";
+  #   useXkbConfig = true; # use xkb.options in tty.
+  # };
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
@@ -133,11 +118,22 @@ in
     SUBSYSTEM=="usb_device", ATTRS{idVendor}=="0483", MODE="0666"
   '';
 
-  # User Stuff ------------------------------------------------------------------------------------
+  # Medium system level Stuff ------------------------------------------------------------------------------------
 
-  networking.hostName = "tetrahedron"; # Define your hostname.
+  programs.neovim.enable = true;
+  programs.neovim.defaultEditor = true;
 
-  # Define my user
+  # Wallpapers TODO: Redo the whole wallpaper thing, they should probably be defined per-user
+  environment.pathsToLink = [ "/share/wallpapers" ];
+  
+
+
+  # Enable sound.
+
+  # Enable touchpad support (enabled default in most desktopManager).
+  # services.libinput.enable = true;
+
+  # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.juliet = {
     isNormalUser = true;
     extraGroups = [
@@ -150,10 +146,6 @@ in
     ]; # What is seat for? Lemurs? Vbox?
     initialPassword = "password";
     shell = pkgs.nushell;
-    openssh.authorizedKeys.keys = [
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBBlXd+xhJKsXh7ssfNCO+JdAPf1gh62aN/xqqi4aSFC" # voxel
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEJOUaZUx+doReFTwnb486qFA8iz4tIfm7lD2qXjbUqb" # xray
-    ];
   };
 
   # Virtualbox stuff
@@ -185,8 +177,6 @@ in
 
       logisim-evolution # Circuit simulator
       wmname # for weird logism thing with sway
-
-      nvtopPackages.full # show nvidia usage info
 
       qmk
 
@@ -230,34 +220,7 @@ in
   # 22000 is for syncthing
   # 4242 is for nebula
   networking.firewall.allowedTCPPorts = [ 56412 22000 ];
-  networking.firewall.allowedUDPPorts = [ 4242 22000 ]; 
-
-  services.nebula.networks.mesh = {
-    enable = true;
-    isLighthouse = false;
-    cert = "/etc/nebula/tetrahedron.crt";
-    key = "/etc/nebula/tetrahedron.key";
-    ca = "/etc/nebula/ca.crt";
-    staticHostMap = {
-      "192.168.100.1" = [
-        "xxx.xxx.xxx.xxx:4242" # This is the default addr from the nebula readme, I need to replace it with sops
-      ];
-    };
-    lighthouses = [ "192.168.100.1" ];
-    firewall = {
-      outbound = [{
-        host = "any";
-        port = "any";
-        proto = "any";
-      }];
-      inbound = [{
-        host = "any";
-        port = "any";
-        proto = "any";
-      }];
-    };
-    relays = [ "192.168.100.1" ];
-  };
+  networking.firewall.allowedUDPPorts = [ 22000 ]; 
 
   # sops
 #   sops = {
@@ -302,7 +265,7 @@ in
     };
   };
 
+  system.stateVersion = "24.11"; # Did you read the comment?
 
-
-  system.stateVersion = "24.05"; # Don't touch
 }
+

@@ -58,6 +58,7 @@ in
       gitoxide # git rewrite, faster for large clones
       inxi # pulls system info
       libqalculate # best tui calculator
+      lsof # cool tool, shows open files and sockets
       magic-wormhole-rs # large file transfer
       ov # pager (nice for man pages)
       ripgrep # faster grep
@@ -78,7 +79,6 @@ in
       dust # really nice for getting size of directory
       htop # the classic sysinfo tool
       iotop # shows drive i/o stats (req sudo)
-      nvtopPackages.full # show nvidia usage info
       usbutils # provides utils
 
       # Tools
@@ -145,7 +145,7 @@ in
       mpv
       obsidian
       prusa-slicer
-      snes9x
+      #snes9x # TODO: -- failed?
       stellarium
     ]);
 

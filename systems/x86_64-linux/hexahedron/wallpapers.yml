@@ -1,0 +1,760 @@
+# Cool nu script to fetch the hash if you copy the url and name line (in order)
+# wl-paste | split row (char newline) | each {|x| $x | parse -r '^\s+\w+: (?P<value>\S+)' | get value.0} | nix-prefetch-url $in.0 --name $in.1 | str trim | wl-copy
+- src:
+    url: https://raw.githubusercontent.com/ryan4yin/wallpapers/main/anime-girls_balloon_long-hair.jpg
+    name: anime_girls_balloon.jpg
+    sha256: 05azqn3v2rqkafxkasap9v4mjfkmdr3lmkw21s8z8ficdz1w3li2
+  tags:
+  - anime
+
+# https://e926.net/posts/2954614
+- src:
+    url: https://static1.e621.net/data/b0/ff/b0ff1fc3275a6f05bcc9cd8d4c33ece3.jpg
+    name: 2954614-Nomax01.jpg
+    sha256: c1a1035fe398c60a3379e443fbfb60f64401d8eb195c4b1f045253a55654567b
+  tags:
+  - furry
+
+# https://e926.net/posts/3073048
+- src:
+    url: https://static1.e621.net/data/04/10/04108072d4900a6c60d4e3ddb0cf0629.jpg
+    name: 3073048-Nomax03.jpg
+    sha256: 46989a8091e56c49f8d2454368e8146e6f71e229b5683496550b3059a9fbc167
+  tags:
+  - furry
+
+# https://e926.net/posts/2822842
+- src:
+    url: https://static1.e621.net/data/90/53/9053242e921f7949e9d17939a2dc7ee1.png
+    name: 2822842-Nomax04.png
+    sha256: 4d28089d4e80083043ec3fddf1028949530a2d9fb3c760bec19d24032c2c016e
+  tags:
+  - furry
+
+# https://e926.net/posts/2639369
+- src:
+    url: https://static1.e621.net/data/58/3b/583b69e8f4beeb0a9e0d4f9624efa2ff.png
+    name: 2639369-Nomax05.png
+    sha256: 04e3a78da6b8d1a98c9dffd124a4530c1c05a39dc946c1260f2613bcc8f245c9
+  tags:
+  - furry
+
+# https://e926.net/posts/2803310
+- src:
+    url: https://static1.e621.net/data/92/16/9216122780159b8b7b682370f6d0c25a.png
+    name: 2803310-Nomax06.png
+    sha256: e8677e6e6bc18a0fcf6256bab2e9d72f8a159eb283cbd68423b57613f1b8c410
+  tags:
+  - furry
+
+# https://e926.net/posts/2403137
+- src:
+    url: https://static1.e621.net/data/ae/5c/ae5c2c9e8cbe2b700cbe926eed720687.jpg
+    name: 2403137-Nomax07.jpg
+    sha256: 3c21b9a3f34881694b619f1e49b8b4606b2318d32ac3d1d2a43af0e9779bde44
+  tags:
+  - furry
+
+# https://e926.net/posts/2208285
+- src:
+    url: https://static1.e621.net/data/b1/d7/b1d7ede274f8cd1dabd2dd4a6e38b6cd.png
+    name: 2208285-Nomax08.png
+    sha256: 5fb8031d01a7fa010111157e946647697b4388d800ae5b38f1ba70348c0f3a7c
+  tags:
+  - furry
+
+# https://e926.net/posts/3009247
+- src:
+    url: https://static1.e621.net/data/b5/ac/b5ac31d5a0f4a3b69891ff7fd8293134.jpg
+    name: 3009247-Nomax09.jpg
+    sha256: 31848c130150d3f21ee318433725f3d840d32f26517d80b73d2dee2945bc2ef9
+  tags:
+  - furry
+
+# https://e926.net/posts/2750316
+- src:
+    url: https://static1.e621.net/data/c6/61/c66147820078604a0f50c6f6bded0716.jpg
+    name: 2750316-Nomax10.jpg
+    sha256: ba7a91f0983b2905e6b36df78e9dbd3ff72addc1b28def6cd6e77e8c34037538
+  tags:
+  - furry
+
+# https://e926.net/posts/2755717
+- src:
+    url: https://static1.e621.net/data/d6/f9/d6f9acd664dd290bd686c3fec3282286.png
+    name: 2755717-Nomax11.png
+    sha256: bde60884d15ab6164e595e3fb77f4c78f79e239ca81539feb693dd30379db541
+  tags:
+  - furry
+
+# https://e926.net/posts/3766955
+- src:
+    url: https://static1.e621.net/data/e3/ba/e3ba808efa8e18ad8d2321365f895072.jpg
+    name: 3766955-Nomax12.jpg
+    sha256: f5ca677884f2c9214592ec6b7ba5b5c561c3ecbd1dbfe561682c6032928f8eb8
+  tags:
+  - furry
+
+# # https://e926.net/posts/3138686
+# - src:
+#     url: https://static1.e621.net/data/6c/64/6c645fd27ac9f44f7f70ad23351ced19.jpg
+#     name: 3138686-Nomax13.jpg
+#     sha256: a873f7e147b929361898ac1ad5d78baa0246ae9415d7c1fc9258033997ccdfc2
+#   tags:
+#   - furry
+
+# https://e621.net/posts/3684403
+- src:
+    url: https://static1.e621.net/data/8d/43/8d4368b5fdd3d951963dadd3db426525.png
+    name: 3684403-nomax14.png
+    sha256: e5f102274d950b05ddd95aa37d146b274297ea29d9a3d658d8ccd83a6e8a9f22
+  tags:
+  - furry
+
+# https://e621.net/posts/4450545
+- src:
+    url: https://static1.e621.net/data/da/cf/dacf5cf2f8ff8b960f6ecdb8347f4ad5.png
+    name: 4450545-nomax15.png
+    sha256: c8613a357e9bccb0fd9c2c85893a563bb217bb51fb0128710e63f27466050d4f
+  tags:
+  - furry
+
+# https://e621.net/posts/4627128
+- src:
+    url: https://static1.e621.net/data/a9/bb/a9bb2ab03e0f272134d231a0fdcbf9e0.jpg
+    name: 4627128-LawyerDog01.jpg
+    sha256: b4e288c504b05ce9c2dc16b6e90f4aa67604770281d23d1f3dcb8f6368cafe5e
+  tags:
+  - furry
+  - overtly_furry
+
+# https://commons.wikimedia.org/wiki/File:Perth_(AU),_Elizabeth_Quay_Bridge_--_2019_--_0375-9.jpg
+- src:
+    url: https://upload.wikimedia.org/wikipedia/commons/f/f6/Perth_%28AU%29%2C_Elizabeth_Quay_Bridge_--_2019_--_0375-9.jpg
+    name: PerthBridge.jpg
+    sha256: 5009d605abe8d0f5668869941561e65a1f8d79f14ddc152800bccd13ee3f8c07
+  tags:
+  - Architecture
+  - Non Furry
+
+# https://e621.net/posts/4222172
+- src:
+    url: https://static1.e621.net/data/bf/e4/bfe43ba264ad68e5d8a101ecef69c03e.png
+    name: 4222172-Neotheta01.png
+    sha256: 67ea27411639ce50d63e9e7fcb813a72b2f3dd368c08d8a97311043121ee2e43
+  tags:
+  - furry
+  - overtly_furry
+  - xenia
+
+# https://e621.net/posts/4118832
+- src:
+    url: https://static1.e621.net/data/0a/61/0a617f9c455822acb31c556f938f6fbb.png
+    name: 4118832-Zepto01.png
+    sha256: 7ad9b08f6a8692e744348f9dcee74fd514afc4ee7404a9fab77664a1321b56ac
+  tags:
+  - furry
+  - overtly_furry
+
+# https://e621.net/posts/1876191
+- src:
+    url: https://static1.e621.net/data/35/1f/351f73269c7b7e35d913760ae0bdc171.png
+    name: 1876191-Zepto02.png
+    sha256: 473e34431c5ba10692bc09705acc358bcdef9f7b5f10bf30f732fbe5e8c2b178
+  tags:
+  - furry
+  - overtly_furry
+
+# https://e621.net/posts/3824614
+- src:
+    url: https://static1.e621.net/data/23/f9/23f90be6ffff0d0e47eecc0908e20df1.jpg
+    name: 3824614-Luminous_Slime01.jpg
+    sha256: c43f37891eb370e9c3755b386cf7de47d0ff48b2dc2cd10dbba7c21a52a40228
+  tags:
+  - furry
+  - walf_in_boots
+
+# https://e621.net/posts/3822579
+- src:
+    url: https://static1.e621.net/data/db/b0/dbb06d5213364ba85af2883b92455a63.jpg
+    name: 3822579-Windwttom01.jpg
+    sha256: c05d2661bd7a9be6f0ff2daf71b65d7e50604f159599a210b3b5a4a4ec89f863
+  tags:
+  - furry
+  - walf_in_boots
+
+# https://e621.net/posts/3063239
+- src:
+    url: https://static1.e621.net/data/a9/36/a9362c22c1cc7bf428231517d27019c6.png
+    name: 3063239-Rudidri01.png
+    sha256: 0a76ea71d0686ee5397add23f4a5d47c502de7fa61f3fdf752eb551cd4b6f75b
+  tags:
+  - furry
+
+# https://e621.net/posts/1905773
+- src:
+    url: https://static1.e621.net/data/e4/89/e489b795e93d3a428a6052b699264d40.jpg
+    name: 1905773-fumiko-rokito01.jpg
+    sha256: 891d30b1af7af8cbdc84b670ad7282818d7d9698bc0bbc6be3d9b74d7ca061f1
+  tags:
+  - furry
+  - overtly_furry
+
+# https://e621.net/posts/3505067
+- src:
+    url: https://static1.e621.net/data/13/a1/13a166d71efb4cc7ea27577962fdfee5.png
+    name: 3505067-angiewolf01.png
+    sha256: 433e9abac7b9d768a75e9043c5ab45b8b5393acd14343204984bf5caacbcd3de
+  tags:
+  - furry
+  - overtly_furry
+
+# https://e621.net/posts/3421116
+- src:
+    url: https://static1.e621.net/data/17/24/172433f5e28117e46a0cca0a0bf5d751.jpg
+    name: 3421116-angiewolf02.jpg
+    sha256: e4ed6e5c39c5127f177894b3c7072dd07d8b2bbe6bfe2d4b9ea0cdae0358e32d
+  tags:
+  - furry
+  - overtly_furry
+
+# https://e621.net/posts/1610085
+- src:
+    url: https://static1.e621.net/data/10/de/10de59a4cf581321fa7a9d5e18f43a99.png
+    name: 1610085-angiewolf03.png
+    sha256: 9a648323eafe1b077e8485c904a51d6b786185da326e35b8d08e30ef454c45b3
+  tags:
+  - furry
+  - overtly_furry
+
+# https://e621.net/posts/1576851
+- src:
+    url: https://static1.e621.net/data/47/66/47666f3f4e090c059ddf863d29f29e8d.png
+    name: 1576851-angiewolf04.png
+    sha256: ca974e20eedd3d3d244b082e1329ccfdd36077fc102cf709284b335c46a690c5
+  tags:
+  - furry
+  - overtly_furry
+
+# https://e621.net/posts/2075665
+- src:
+    url: https://static1.e926.net/data/03/3c/033c88b941a220d9e77c2aaf3924d448.png
+    name: 2075665-Kanizo01.png
+    sha256: b0fe0364f625296558bbdc57bc9045597eb8a48d5f6da48bd32f096775076b3e
+  tags:
+  - furry
+
+# https://e621.net/posts/3148719
+- src:
+    url: https://static1.e621.net/data/01/1e/011edca33f8f919675dd2d84a7696fa5.jpg
+    name: 3148719-Kanizo02.jpg
+    sha256: d90194109fa70927358c333e010e1ef7fb983fdc8aa61494111cbd7e995520bf
+  tags:
+  - covert
+
+# https://e621.net/posts/2916652
+- src:
+    url: https://static1.e621.net/data/41/60/4160cdd63c68009d8eeff1e78625bdee.jpg
+    name: 2916652-Kanizo03.jpg
+    sha256: f21cba8a43a8c817079a5f3a1455e30817f6585af91e6c6cd7dbb994b08568f5
+  tags:
+  - covert
+
+# https://e621.net/posts/3015341
+- src:
+    url: https://static1.e621.net/data/97/c2/97c25e787d153f7d752659cc39b9c84a.jpg
+    name: 3015341-Kanizo04.jpg
+    sha256: 2ed7932ebf0b2b81548ccb17245ad9edd074c17f79dd2128a93987f9ca2631ce
+  tags:
+  - covert
+
+# https://e621.net/posts/2965143
+- src:
+    url: https://static1.e621.net/data/e5/49/e549321d781d1da2c5cfbdfb957d27d8.jpg
+    name: 2965143-Kanizo05.jpg
+    sha256: 30c2086f718f3f19059cd72cef52aa6d1ff9bb797fc3afdf2707e7362854ffba
+  tags:
+  - covert
+
+# https://e621.net/posts/3083641
+- src:
+    url: https://static1.e621.net/data/0b/a8/0ba8af5f59134aac9094db46bb9af7b6.jpg
+    name: 3083641-Kanizo06.jpg
+    sha256: 5cb3ec99e2362e1f0ed4082a6b2196116021ec27b9175b37b9f41a2d3de58acd
+  tags:
+  - covert
+
+# https://e621.net/posts/2708960
+- src:
+    url: https://static1.e621.net/data/f6/d1/f6d113ba7842f1319ae03c0a54148a76.png
+    name: 2708960-Kanizo07.png
+    sha256: ea6a633097590a281ab93152985a50ba949555348642645937e3a6062384a485
+  tags:
+  - covert
+
+# https://e621.net/posts/2719062
+- src:
+    url: https://static1.e621.net/data/c8/78/c8786589e6b254344faa05e493eec411.png
+    name: 2719062-Kanizo08.png
+    sha256: 693d192005f8973739ee4d205e639d262fc61505808ac776a79756187e70a298
+  tags:
+  - covert
+
+# https://e621.net/posts/2641574
+- src:
+    url: https://static1.e621.net/data/7b/0e/7b0e371463d7c3c7508847c0f81ec696.jpg
+    name: 2641574-Kanizo09.jpg
+    sha256: 78ccf2e3a4e3cd48cba8d6b9a3b416c6e69d9ea043eda541f873fa746c13ee26
+  tags:
+  - covert
+
+# https://e621.net/posts/2635991
+- src:
+    url: https://static1.e621.net/data/58/28/5828311ae99f288ab55fc37aa8259405.jpg
+    name: 2635991-Kanizo10.jpg
+    sha256: 55caa797e72c39f26acee4fb6ac9d31671723a780ea970771955dec3447f90c2
+  tags:
+  - covert
+
+# https://e621.net/posts/2506450
+- src:
+    url: https://static1.e621.net/data/ce/dd/cedd6aeb7f373c1dd82ac258e541eb63.jpg
+    name: 2506450-Kanizo11.jpg
+    sha256: 1df0eb147918a8bc136c70bb637afa68935b83f83281e196c006ce7d405a0142
+  tags:
+  - covert
+
+# https://e621.net/posts/2422826
+- src:
+    url: https://static1.e621.net/data/86/aa/86aacc02faf5aa89ed51ef195ca9473a.jpg
+    name: 2422826-Kanizo12.jpg
+    sha256: 858834030c6fcbedbeb460162293010c977d10e309b03a7992661679bdea34ab
+  tags:
+  - covert
+
+# https://e621.net/posts/2091519
+- src:
+    url: https://static1.e621.net/data/e2/d7/e2d76497158554f8f65bc711cee663ea.jpg
+    name: 2091519-Kanizo13.jpg
+    sha256: 7d06058e01d283d7b0c40d33eb4b9112f9f1b557ca8d4e529c075006841e796b
+  tags:
+    - covert
+
+# https://e621.net/posts/2091288
+- src:
+    url: https://static1.e621.net/data/a8/55/a8557589a57f61f30c365a7a6a54eb59.jpg
+    name: 2091288-Kanizo14.jpg
+    sha256: b9d001b1183a433e11971f31ae8bdb16adc9de2b0d3bfde611c542800eb60b27
+  tags:
+    - covert
+
+# https://e621.net/posts/2090458
+- src:
+    url: https://static1.e621.net/data/64/d9/64d98115e7f7ee8f80a492bf4cc9742a.png
+    name: 2090458-Kanizo15.png
+    sha256: eadf33a42370142eb743a2c6ff6ee45a9e1b14026f3c95f0b02d012fe4042f61
+  tags:
+    - covert
+
+# https://e621.net/posts/2090403
+- src:
+    url: https://static1.e621.net/data/7a/a7/7aa740e9d6a4861a5a3136919827c0ae.jpg
+    name: 2090403-Kanizo16.jpg
+    sha256: 7897fdf4176fd8e514964ac381154717265bc9661ea1c85bf2e2c2640f626e4b
+  tags:
+    - covert
+    - bright
+
+# https://e621.net/posts/2090389
+- src:
+    url: https://static1.e621.net/data/17/dc/17dc1bba787457c2938bb87ceb36c83f.jpg
+    name: 2090389-Kanizo17.jpg
+    sha256: 05b62b28e187e06d2ce0f25d7dd941c67f816d4e27e56e398e9cbac6ce8a6def
+  tags:
+    - covert
+
+# https://e621.net/posts/2075847
+- src:
+    url: https://static1.e621.net/data/25/04/25040ed776802302b3cb8f3286b22ea4.jpg
+    name: 2075847-Kanizo18.jpg
+    sha256: 70fc5308da34130a985b5deb9624af0b12d75007e5448ab1272635939de29334
+  tags:
+    - covert
+
+# https://e621.net/posts/1461523
+- src:
+    url: https://static1.e621.net/data/3c/0e/3c0eed634c4c793ea7ba5a3a789c4b95.png
+    name: 1461523-Kanizo19.png
+    sha256: 3fc822f3d00c379a5338c9436ba8529978b2b1d5b4704033935718687ab7ff6e
+  tags:
+    - furry
+    - overtly_furry
+
+# # https://www.artstation.com/artwork/EzvaqN Blue Dragon # hash mismatch
+# # - src:
+# #     url: https://cdna.artstation.com/p/assets/images/images/080/081/094/large/gui-yuan-20240918090037.jpg
+# #     name: AS-Gui_yuan-01.jpg
+# #     sha256: 074my9h2a3ahjnj7x5vxjn3risnnqpdgqvsy17nh685mlli0804d
+# #   tags:
+# #     - landscape
+# #     - art_station
+# 
+# # https://www.artstation.com/artwork/8BRNvQ Overlook
+# - src:
+#     url: https://cdna.artstation.com/p/assets/images/images/083/760/138/large/hongyu-yin-1.jpg
+#     name: AS-Hongyu_Yin-01-Overlook.jpg
+#     sha256: 189ycfbnrb6k7bsm2v9y72nf5iz2dm3c33kx6d51vi25pmijccgj
+#   tags:
+#     - art_station
+# 
+# # https://www.artstation.com/artwork/8BRNvQ Building Lineart
+# - src:
+#     url: https://cdna.artstation.com/p/assets/images/images/083/759/484/large/hongyu-yin-0-1.jpg
+#     name: AS-Gui_yuan-02-Lineart.jpg
+#     sha256: 1agrggxxc76wkbl8aq77i4rl4s61lci2szxgf4306yfn6fqv52gj
+#   tags:
+#     - art_station
+#     - PROCESS-invert
+# 
+# 
+# # https://www.artstation.com/artwork/lG6zdo Japanese(?) version of that room from maquia
+# - src:
+#     url: https://cdnb.artstation.com/p/assets/images/images/083/542/295/large/hongyu-yin-06-h72.jpg
+#     name: AS-Hongyu_Yin-02-Maquia.jpg
+#     sha256: 121883w03kcm9dqdv2lg3aa0nlyv526f0nkb09zhyi6sg5jl12a5
+#   tags:
+#     - art_station
+#     - interior
+# 
+# # https://www.artstation.com/artwork/ob5qLJ Giant industrial complex entrance
+# - src:
+#     url: https://cdna.artstation.com/p/assets/images/images/073/275/026/large/hangfevef-fin-001.jpg
+#     name: AS-hangfevef-01-Industrial.jpg
+#     sha256: 1qkrfv4njvi08flh2m5v5f4g4274qv3sf7hw8sbcpdvcwqgjw8i9
+#   tags:
+#     - art_station
+#     - industrial
+# 
+# # https://www.artstation.com/artwork/8bn23E Neocity
+# # - src:
+# #     url: https://cdna.artstation.com/p/assets/images/images/069/411/332/large/lihang-w-final001-01.jpg
+# #     name: AS-lihang-01-Neocity.jpg
+# #     sha256: 1d9jd7shi8zmi80xq1kr0hpl67pf27sa0cp08mxhlc6fhv7mlblz
+# #   tags:
+# #   - art_station
+# #   - urban
+# 
+# # https://www.artstation.com/artwork/B3B1Jl Giant Skull
+# - src:
+#     url: https://cdnb.artstation.com/p/assets/images/images/057/660/201/large/xiao-jin-asset.jpg
+#     name: AS-xiao_jin-01-GiantSkull.jpg
+#     sha256: 1rb6ld20ss2algib86jxs8blc31qzll8jnijpncpqk0vifvs0wdr
+#   tags:
+#   - art_station
+#   - landscape
+# 
+# # https://www.artstation.com/artwork/wJa6n5 Fantasy Victorian City
+# - src:
+#     url: https://cdnb.artstation.com/p/assets/images/images/057/660/809/large/xiao-jin-asset.jpg
+#     name: AS-xiao_jin-02-VictorianCity.jpg
+#     sha256: 1qwsvl84p9jcmm9hfzykp7yh1saq1a0ckbcyc7csg26kfzibb73g
+#   tags:
+#   - art_station
+#   - urban
+# 
+# # https://www.artstation.com/artwork/lDqdKe Seeker (Giant thing in hillside)
+# - src:
+#     url: https://cdna.artstation.com/p/assets/images/images/071/029/450/large/saiko-seeker2059.jpg
+#     name: AS-saiko-01-Seeker.jpg
+#     sha256: 158s4crbqr7wnpq86231qs8by249izq5a7r3li627p15ya1041f3
+#   tags:
+#   - art_station
+#   - landscape
+# 
+# # https://www.artstation.com/artwork/1xy0ZL [coworker] called it dystopian
+# - src:
+#     url: https://cdnb.artstation.com/p/assets/images/images/073/373/615/large/zheng-xu-.jpg
+#     name: AS-zheng-xu-01-Embers.jpg
+#     sha256: 0s92aark890rxaypqh5ddbjwp2nnvpkmi7nj5b5f740c2nyzmsp1
+#   tags:
+#   - art_station
+#   - landscape
+# 
+# # https://www.artstation.com/artwork/rAmX96 So close to gruvbox, various themes
+# - src:
+#     url: https://cdnb.artstation.com/p/assets/images/images/038/546/781/large/tobi-2021061001.jpg
+#     name: AS-tobi-01-01.jpg
+#     sha256: 1fcz2azk27d6mnw0h00phrpn11396gcl3zgqz00774h45l5kwvb5
+#   tags:
+#   - art_station
+#   - landscape
+# - src:
+#     url: https://cdnb.artstation.com/p/assets/images/images/038/546/787/large/tobi-2021061003.jpg
+#     name: AS-tobi-01-02.jpg
+#     sha256: 13vq9xiwg163pzaf80v3s2988fpi3h0qrab7z3m61p43lcs0n2sa
+#   tags:
+#   - art_station
+# - src:
+#     url: https://cdnb.artstation.com/p/assets/images/images/038/546/789/large/tobi-2021061004.jpg
+#     name: AS-tobi-01-03.jpg
+#     sha256: 0rm1g1nwqig1q5h6rgqla6ybpvncbyyck90b14wvfp9xj13vp56f
+#   tags:
+#   - art_station
+# - src:
+#     url: https://cdna.artstation.com/p/assets/images/images/038/546/792/large/tobi-2021061005.jpg
+#     name: AS-tobi-01-04.jpg
+#     sha256: 11g50rqqhxg1bg6ajjc67064vb32c0mc1vwkbamlac4vnghi6dkc
+#   tags:
+#   - art_station
+# - src:
+#     url: https://cdnb.artstation.com/p/assets/images/images/038/546/795/large/tobi-2021061006.jpg
+#     name: AS-tobi-01-05.jpg
+#     sha256: 1v7852qafir9g888s0aq6yz0rdq3l5mvqjqs8lv1fdmdfihnibdm
+#   tags:
+#   - art_station
+# - src:
+#     url: https://cdna.artstation.com/p/assets/images/images/038/546/796/large/tobi-2021061007.jpg
+#     name: AS-tobi-01-06.jpg
+#     sha256: 0dyljs6vgh2lws9in2cv87dagnzd6hrwibjrrc3ayh0sg71l96ck
+#   tags:
+#   - art_station
+# - src:
+#     url: https://cdnb.artstation.com/p/assets/images/images/038/546/797/large/tobi-2021061008.jpg
+#     name: AS-tobi-01-07.jpg
+#     sha256: 0dk4szv0szcp3nj17i9m2q63k0kzaz3jdlq8dnsk0jiimvncagvb
+#   tags:
+#   - art_station
+# - src:
+#     url: https://cdna.artstation.com/p/assets/images/images/038/546/800/large/tobi-2021061009.jpg
+#     name: AS-tobi-01-08.jpg
+#     sha256: 0c67skkhlcwjqadpfx88sx6pvkazan3qjbhjrsm57cymzjrcfmf2
+#   tags:
+#   - art_station
+# 
+# # https://www.artstation.com/artwork/Xg8vAR White dragon # Hash mismatch
+# # - src:
+# #     url: https://cdnb.artstation.com/p/assets/images/images/071/024/249/4k/earl-lan-dragon-002.jpg
+# #     name: AS-earl_lan-01-DRAGON.jpg
+# #     sha256: 0f7d8x4awzzjny8mxk7i4v6hcr5kb5g6vz7l86cjwph1dwd55cya
+# #   tags:
+# #   - art_station
+# #   - landscape
+# 
+# # https://www.artstation.com/artwork/RyVNvO Dragon Heir
+# - src:
+#     url: https://cdna.artstation.com/p/assets/images/images/069/134/032/large/tobi-2.jpg
+#     name: AS-tobi-02-01.jpg
+#     sha256: 039lhy8vd8casld8jyl4i0mfy1ng9dk3agpwdycpf6p7hphhfclf
+#   tags:
+#   - art_station
+# - src:
+#     url: https://cdna.artstation.com/p/assets/images/images/069/134/038/large/tobi-3.jpg
+#     name: AS-tobi-02-02.jpg
+#     sha256: 0131bqq9wr4zi6kyj43g31fqrd6clsli4gscj32d7rf1dbwwmnkz
+#   tags:
+#   - art_station
+# - src:
+#     url: https://cdna.artstation.com/p/assets/images/images/069/134/044/large/tobi-1.jpg
+#     name: AS-tobi-02-03.jpg
+#     sha256: 10fclmc4m2ln741ag6843818bxhrppn45sqgb7cryj7rf1nqwfkk
+#   tags:
+#   - art_station
+# - src:
+#     url: https://cdnb.artstation.com/p/assets/images/images/069/134/113/large/tobi-4.jpg
+#     name: AS-tobi-02-04.jpg
+#     sha256: 07zhxikj20gk4p5lwxv6dxc0152scizi7hz4n2k47mfa5zyd69fp
+#   tags:
+#   - art_station
+# - src:
+#     url: https://cdna.artstation.com/p/assets/images/images/069/134/118/large/tobi-5.jpg
+#     name: AS-tobi-02-05.jpg
+#     sha256: 0hdiz0r8qg801gz21kd6a136lxx2cnzibkbwpjfj48kf381ybj5r
+#   tags:
+#   - art_station
+# - src:
+#     url: https://cdna.artstation.com/p/assets/images/images/069/134/120/large/tobi-6.jpg
+#     name: AS-tobi-02-06.jpg
+#     sha256: 1iyqdg8gm7c3iw6jkgpax25l1513p3cf84sgdxiyd2bw5rca4r88
+#   tags:
+#   - art_station
+# - src:
+#     url: https://cdnb.artstation.com/p/assets/images/images/069/134/123/large/tobi-0.jpg
+#     name: AS-tobi-02-07.jpg
+#     sha256: 1a5q9zy5mbvrwksnq9g0cbqd0idq036ss4znnwny0lg2kaaxa3n0
+#   tags:
+#   - art_station
+# - src:
+#     url: https://cdnb.artstation.com/p/assets/images/images/069/134/151/large/tobi-7.jpg
+#     name: AS-tobi-02-08.jpg
+#     sha256: 18pjb14zl3x7mf44xcjm32mzrgia2i222y3wa8qi5qhngddr8gad
+#   tags:
+#   - art_station
+# 
+# # https://www.artstation.com/artwork/aoKP5L
+# - src:
+#     url: https://cdnb.artstation.com/p/assets/images/images/069/134/151/large/tobi-7.jpg
+#     name: AS-tobi-03-EncrustedDragon.jpg
+#     sha256: 0ps0yg78k4hdz71sg4b1ihp8633mz01mmk1vn21i5v1g9y7c96va
+#   tags:
+#   - art_station
+# 
+# # https://www.artstation.com/artwork/49Kwl4 Ice fight
+# - src:
+#     url: https://cdnb.artstation.com/p/assets/images/images/073/454/215/large/tobi-13.jpg?1709695157&dl=1
+#     name: AS-tobi-04-01.jpg
+#     sha256: 0qslglakd1kmbn1p96mvk6yzwg6w6hia4a8ayfnqa1wnnbsci6vx
+#   tags:
+#   - art_station
+# - src:
+#     url: https://cdnb.artstation.com/p/assets/images/images/073/454/219/large/tobi-14.jpg?1709695164&dl=1
+#     name: AS-tobi-04-02.jpg
+#     sha256: 0kjyngm5g0wfc0zpyclkb0vrfz3hmwfv4pfl4f0p7mm5lsz1chrn
+#   tags:
+#   - art_station
+# - src:
+#     url: https://cdnb.artstation.com/p/assets/images/images/073/454/221/large/tobi-15.jpg?1709695170&dl=1
+#     name: AS-tobi-04-03.jpg
+#     sha256: 1bgc6mv36ip6i9jhjj6pxizin7mx1nxffg9qfbn9rxv4y8sib51k
+#   tags:
+#   - art_station
+# - src:
+#     url: https://cdna.artstation.com/p/assets/images/images/073/454/226/large/tobi-16.jpg?1709695178&dl=1
+#     name: AS-tobi-04-04.jpg
+#     sha256: 0shym64fr56ba0w3z9i70j004pc1kgpvdqd6syrlf3ax4kac0n8f
+#   tags:
+#   - art_station
+# - src:
+#     url: https://cdna.artstation.com/p/assets/images/images/073/454/230/large/tobi-17.jpg?1709695185&dl=1
+#     name: AS-tobi-04-05.jpg
+#     sha256: 1pmzjvpp1kiqxg0rgqsh4720gq2bxq487m6z8n7y8giwl8d92i6f
+#   tags:
+#   - art_station
+# - src:
+#     url: https://cdna.artstation.com/p/assets/images/images/073/454/232/large/tobi-18.jpg?1709695191&dl=1
+#     name: AS-tobi-04-06.jpg
+#     sha256: 0rx9i2byyyfaqwfmk5s94x59sfpdxbfchiy6b9zc5kqpsh0zim8n
+#   tags:
+#   - art_station
+# - src:
+#     url: https://cdna.artstation.com/p/assets/images/images/073/454/236/large/tobi-19.jpg?1709695198&dl=1
+#     name: AS-tobi-04-07.jpg
+#     sha256: 06dnd01hrhr71ydnlsh327m8z9sy6786l8zp8737by9sr50fagrl
+#   tags:
+#   - art_station
+# - src:
+#     url: https://cdna.artstation.com/p/assets/images/images/073/454/242/large/tobi-20.jpg?1709695207&dl=1
+#     name: AS-tobi-04-08.jpg
+#     sha256: 0njgg2lwfczh4wfawigg9qmnjkbvwc4vyyvh2s3zp0gcsyj3xrcf
+#   tags:
+#   - art_station
+# 
+# # https://www.artstation.com/artwork/lDdbX5 Emblazened pheonix
+# - src:
+#     url: https://cdna.artstation.com/p/assets/images/images/070/568/634/large/tobi-18.jpg
+#     name: AS-tobi-05-PheonixPerch.jpg
+#     sha256: 1gaf76zvidbygk6fwg75ibgp1zqbbz7ajpfb8pfjgjk57vzw52p4
+#   tags:
+#   - art_station
+# 
+# # https://www.artstation.com/artwork/XgwD9y Dwarven
+# - src:
+#     url: https://cdna.artstation.com/p/assets/images/images/070/437/584/large/tobi-6.jpg
+#     name: AS-tobi-06-01.jpg
+#     sha256: 0li9fb9gpxqkpsb2rqzizn6hcvjbaxpdyzi031lgs5dcbwc2qvbi
+#   tags:
+#   - art_station
+# - src:
+#     url: https://cdnb.artstation.com/p/assets/images/images/070/437/585/large/tobi-5.jpg
+#     name: AS-tobi-06-02.jpg
+#     sha256: 1ha6ld8xv3mcm13pvs0w6d9y7xfnq4wixryjh81g812p1f4g85jp
+#   tags:
+#   - art_station
+# - src:
+#     url: https://cdna.artstation.com/p/assets/images/images/070/437/586/large/tobi-4.jpg
+#     name: AS-tobi-06-03.jpg
+#     sha256: 1b937jsg9jc1w0jrh8m60dqfc5mhf4ci70xgkxidmjkg594l6y21
+#   tags:
+#   - art_station
+# - src:
+#     url: https://cdnb.artstation.com/p/assets/images/images/070/437/587/large/tobi-7.jpg
+#     name: AS-tobi-06-04.jpg
+#     sha256: 1ncj0cgn6izz6m214g4nw0qywwvpkkhk1ihiamadvg9ywayy1fz5
+#   tags:
+#   - art_station
+# - src:
+#     url: https://cdna.artstation.com/p/assets/images/images/070/437/588/large/tobi-12.jpg
+#     name: AS-tobi-06-05.jpg
+#     sha256: 0fsb1gsx6m5n73h5xr0iy81crixcal6h9m4ffmxbsa1ndlkgzf09
+#   tags:
+#   - art_station
+# - src:
+#     url: https://cdna.artstation.com/p/assets/images/images/070/437/590/large/tobi-11.jpg
+#     name: AS-tobi-06-06.jpg
+#     sha256: 1jzfwrj5maw3nj0zik2zgjixmcwvxsn08nl2gn79gdxbk77d91ll
+#   tags:
+#   - art_station
+# - src:
+#     url: https://cdna.artstation.com/p/assets/images/images/070/437/592/large/tobi-8.jpg
+#     name: AS-tobi-06-07.jpg
+#     sha256: 10l5fsz6k476n4wzqnw6y1391p048m32ydiqxhy6w1kz5mw8r7s8
+#   tags:
+#   - art_station
+# - src:
+#     url: https://cdna.artstation.com/p/assets/images/images/070/437/594/large/tobi-20.jpg
+#     name: AS-tobi-06-08.jpg
+#     sha256: 13zsq0b4z4vbb8dvjqrnxxhmwr23z39xn56mrp95la1xf91339vj
+#   tags:
+#   - art_station
+# 
+# # https://www.artstation.com/artwork/qwX6y
+# - src:
+#     url: https://cdna.artstation.com/p/assets/images/images/009/771/908/large/olya-bossak-1.jpg
+#     name: AS-olya-bossak-01
+#     sha256: 127ch0mx45z2aq8815asd2w1vyif6nn97ycw6mip2fw23dqvl88q
+#   tags:
+#   - art_station
+#   - landscape
+
+# Todo:
+# https://www.artstation.com/artwork/8bgWqm
+# https://www.artstation.com/artwork/rJya6J
+# https://www.artstation.com/artwork/LRb8nv
+# https://www.artstation.com/artwork/Ker1lG
+# https://www.artstation.com/artwork/EVAxEv
+# https://www.artstation.com/artwork/kQWElz
+# https://www.artstation.com/artwork/w0ed2Y
+# https://www.artstation.com/artwork/QX6Pv8
+# https://www.artstation.com/artwork/5vEmNW
+# https://www.artstation.com/artwork/04rgoY
+# https://www.artstation.com/artwork/blZann
+# https://www.artstation.com/artwork/Xg2a8D
+# https://www.artstation.com/artwork/9EXmko
+# https://www.artstation.com/artwork/Nyo6xz
+# https://www.artstation.com/artwork/6NkqVw
+# https://www.artstation.com/artwork/04neWE
+# https://www.artstation.com/artwork/aRgGDJ
+# https://www.artstation.com/artwork/yDJNx8
+# https://www.artstation.com/artwork/aooox9
+# https://www.artstation.com/artwork/nEo0OX
+# https://www.artstation.com/artwork/Dv5zR0
+# https://www.artstation.com/artwork/3qGE3v
+# https://www.artstation.com/artwork/m8qeN8
+# https://www.artstation.com/artwork/3qod42
+# https://www.artstation.com/artwork/4Xw06n
+# https://www.artstation.com/artwork/WmLYYv
+# https://www.artstation.com/artwork/6bKyX6
+# https://www.artstation.com/artwork/OmWgGk
+# https://www.artstation.com/artwork/aRdV3X
+# https://www.artstation.com/artwork/vJN0xA
+#
+# https://www.artstation.com/qing0ying0
+# https://www.artstation.com/artwork/ZaLyWZ
+# https://www.artstation.com/el1j4h
+# https://www.artstation.com/artwork/3qwKWm
+# https://www.artstation.com/artwork/48BgL8
+# https://www.artstation.com/artwork/Pen0ey
+# https://www.artstation.com/artwork/q98qx2
+# https://www.artstation.com/guiyuan
+# https://www.artstation.com/quietvictories
+# https://www.artstation.com/artwork/qwX6y
+#

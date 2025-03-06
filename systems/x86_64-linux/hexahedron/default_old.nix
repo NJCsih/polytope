@@ -186,8 +186,6 @@ in
       logisim-evolution # Circuit simulator
       wmname # for weird logism thing with sway
 
-      nvtopPackages.full # show nvidia usage info
-
       qmk
 
       acpilight
