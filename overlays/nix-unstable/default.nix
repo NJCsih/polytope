@@ -5,6 +5,9 @@ final: prev:
 {
   nixUnstable = prev.nixVersions.git; 
 
+  # tomb forge --kdf 32 --kdftype argon2 --kdfmem 22 -f my_tomb.tomb.key
+  # kdf is rounds, standard argon stuff
+  # kdfmem is given by 2^n kB
   tomb =
     let
       extras-kdf = prev.stdenv.mkDerivation {

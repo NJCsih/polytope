@@ -70,31 +70,29 @@ in
       magic-wormhole-rs # large file transfer
       ov # pager (nice for man pages)
       ripgrep # faster grep
-      skim # fast search
+      skim # fast search, like fzf, but I have fzf for the easy file search without `find | sk`
       sshfs # mount fs over ssh (very cool)
-      tealdeer # Shows usage examples
+      tealdeer # Shows usage examples, this is the caching rust one
       unzip # decompress zips
       wget
       wl-clipboard # for cli access to clipboard
       yazi # tui file explorer
+      zellij # terminal multiplexer
 
       # Sysinfo tools
       bandwhich # show network i/o
       rustscan # Fast port scanner
-      bottom # btm, slightly worse btop
+      bottom # btm, slightly worse btop, but a bit cleaner
       btop # best pretty looking full-system usage info
       compsize # for showing size on disk of a file
-      dust # really nice for getting size of directory
+      dust # really nice for getting size of directory, or seeing what's using space
       htop # the classic sysinfo tool
       iotop # shows drive i/o stats (req sudo)
-      usbutils # provides utils
+      usbutils # don't remember what I needed this for, but real nice
 
       # Tools
       chezmoi # for dotfile management (I mostly left home manager)
-      imagemagick # good for easy img manipulation (like downnsizing)
-      nix-direnv # for auto nix develop on cd (very nice)
-      nix-tree # shows tree graph of nix flake
-      nixfmt-rfc-style # nixos autoformatter
+      imagemagick # good for easy img manipulation (like downnsizing/compression)
       qrencode # generates qrcodes
 
       # Networking
