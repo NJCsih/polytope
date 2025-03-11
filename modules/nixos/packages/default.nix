@@ -46,6 +46,13 @@ in
       starship    # Prompt
       zoxide      # cd jumps
 
+      # Nix
+      nh # nicer script for rebuilding
+      nom # cool build tree visualizer
+      nix-direnv # for auto nix develop on cd (very nice)
+      nix-tree # shows tree graph of nix flake
+      nixfmt-rfc-style # nixos autoformatter
+
       # Cli tools
       age # better encryption tool than gpg
       bat # better cat

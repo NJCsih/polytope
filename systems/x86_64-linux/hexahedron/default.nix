@@ -106,9 +106,6 @@ in
     };
   };
 
-  # Flatpak for rdp
-  services.flatpak.enable = true;
-
   # Set custom udev rules for qmk
   # TODO Pull the stm32 out of the bottom of the temp qmk rules file
   services.udev.extraRules = (builtins.readFile ./qmk-udev-rules.txt) +
@@ -181,7 +178,6 @@ in
       neomutt # tui email client
 
       logisim-evolution # Circuit simulator
-      wmname # for weird logism thing with sway
 
       qmk
 
@@ -204,6 +200,15 @@ in
       })
     ];
 
+    # Flatpak for rdp and betterbird
+    services.flatpak = {
+      enable = true;
+      update.auto.enable = true;
+      packages = [
+        "eu.betterbird.Betterbird"
+      ];
+    };
+
 # Enable the OpenSSH daemon.
   services.openssh = {
     enable = true;
@@ -223,8 +228,9 @@ in
 
   # 56412 is for ssh
   # 22000 is for syncthing
+  # 2465, 2993 is for email
   # 4242 is for nebula
-  networking.firewall.allowedTCPPorts = [ 56412 22000 ];
+  networking.firewall.allowedTCPPorts = [ 56412 22000 2465 2993 ];
   networking.firewall.allowedUDPPorts = [ 22000 ]; 
 
   # sops
@@ -253,6 +259,11 @@ in
     package = pkgs.swayfx;
     enable = true;
     xwayland.enable = true;
+    extraSessionCommands = ''
+      export QT_QPA_PLATFORM=wayland
+      export QT_QPA_PLATFORMTHEME=qt5ct
+      export _JAVA_AWT_WM_NONREPARENTIMG=1
+    '';
   };
 
 

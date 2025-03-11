@@ -187,6 +187,11 @@ in
     package = pkgs.swayfx;
     enable = true;
     xwayland.enable = true;
+    extraSessionCommands = ''
+      export QT_QPA_PLATFORM=wayland
+      export QT_QPA_PLATFORMTHEME=qt5ct
+      export _JAVA_AWT_WM_NONREPARENTIMG=1
+    '';
   };
 
   # Set pam to not have swaylock lock me out

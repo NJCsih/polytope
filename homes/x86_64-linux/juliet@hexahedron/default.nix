@@ -13,7 +13,8 @@
       userCss = true;
     };
     neovim.enable = true;
-    xdg.enable = true;
+    qt.enable = true;
     swww.enable = true;
+    xdg.enable = true;
   };
 }

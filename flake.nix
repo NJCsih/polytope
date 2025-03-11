@@ -15,6 +15,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
+
     sops-nix = {
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -74,7 +76,10 @@
     };
 
     # Darkly for qt theming
-    lightly.url = "github:Bali10050/Darkly";
+    darkly = {
+      url = "github:Bali10050/Darkly";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
   };
 
@@ -103,6 +108,10 @@
       # Random code excerpt in an unrelated github issue comment, thank you for the seemingly undocumented syntax (but probably skill issue on my part) :p
       homes.modules = [
         inputs.firefox-arkenfox.hmModules.arkenfox
+      ];
+
+      systems.modules.nixos = [
+        inputs.nix-flatpak.nixosModules.nix-flatpak
       ];
     };
 }

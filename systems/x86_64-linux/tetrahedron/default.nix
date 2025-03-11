@@ -184,7 +184,6 @@ in
       signal-desktop # yes it's a gross electron app
 
       logisim-evolution # Circuit simulator
-      wmname # for weird logism thing with sway
 
       nvtopPackages.full # show nvidia usage info
 
@@ -285,6 +284,11 @@ in
     package = pkgs.swayfx;
     enable = true;
     xwayland.enable = true;
+    extraSessionCommands = ''
+      export QT_QPA_PLATFORM=wayland
+      export QT_QPA_PLATFORMTHEME=qt5ct
+      export _JAVA_AWT_WM_NONREPARENTIMG=1
+    '';
   };
 
 
