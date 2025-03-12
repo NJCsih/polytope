@@ -43,15 +43,9 @@
     # [Application] Specific inputs:
 
     # Neovim inputs:
-    nvim-cats = {
+    nvim-cats = { # Make nvim *perfectly* isolated to it's own flake
       url = "github:NJCsih/nvim-nixCats";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
-    neovim-nightly-overlay = {
-      url = "github:nix-community/neovim-nightly-overlay";
-    };
-    neorg-overlay.url = "github:nvim-neorg/nixpkgs-neorg-overlay";
-    neorg-overlay.inputs.nixpkgs.follows = "nixpkgs";
 
     # Firefox:
     firefox-arkenfox = {

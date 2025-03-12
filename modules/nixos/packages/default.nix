@@ -116,6 +116,9 @@ in
       pkgs.man-pages
       pkgs.man-pages-posix
 
+      # Cool tools
+      phraze # cool wordlist generator
+
     ]);
     polytope.mypackages.gui.base = (with pkgs; [
       mumble
