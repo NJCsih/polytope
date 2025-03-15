@@ -181,10 +181,9 @@ in
 
       qmk
 
+      # Laptop stuff
       acpilight
       acpi
-
-      antimicrox # windows joy2key replacement -- this one's pretty cool
 
       (proxmark3.override {
         withGui = false;

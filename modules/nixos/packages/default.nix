@@ -40,7 +40,7 @@ in
     polytope.mypackages.base = (with pkgs; [
 
       # Shell
-      nushell
+      nushell     # Structured data woo
       atuin       # History
       pfetch-rs   # :3
       starship    # Prompt
@@ -54,7 +54,7 @@ in
       nixfmt-rfc-style # nixos autoformatter
 
       # Cli tools
-      age # better encryption tool than gpg
+      age # better encryption tool than gpg fight me
       bat # better cat
       borgbackup # backup tool, dedup+remote+encrpytion
       broot # fast recursive cd
@@ -73,6 +73,7 @@ in
       skim # fast search, like fzf, but I have fzf for the easy file search without `find | sk`
       sshfs # mount fs over ssh (very cool)
       tealdeer # Shows usage examples, this is the caching rust one
+      syncthing # Probably should be a gui app, but can be used remotely on a headless box
       unzip # decompress zips
       wget
       wl-clipboard # for cli access to clipboard
@@ -106,8 +107,6 @@ in
 
     ]);
     polytope.mypackages.extra = (with pkgs; [
-      mullvad-vpn
-      pipes-rs
 
       # Compilation stuff
       gnumake
@@ -118,50 +117,63 @@ in
 
       # Cool tools
       phraze # cool wordlist generator
+      pipes-rs # 2d little pipes thing
 
     ]);
     polytope.mypackages.gui.base = (with pkgs; [
-      mumble
+
+      # main apps
+      brave # firefox installed by home manager
+      keepassxc # password database
+      mullvad-vpn # my vpn
+
+      # Other apps
+      gimp # the classic
       kdePackages.okular # I know this is gonna pull so many kde dependencies but eh
-      nheko
-      swww
-      rofi
-      virtualbox
-      gimp
-      kitty
-      lxqt.pavucontrol-qt
-      pdfarranger
-      syncthing
-      wireshark
+      nheko # matrix client
+      pdfarranger # for rearranging, concatenating, and separating pdfs
+      wireshark # network analysis / packet capture
 
-      networkmanagerapplet
+      # Interaction
+      wayland # probably don't need to manually install wayland but eh
+      swayfx # window manager
+      waybar # bae
+      kitty # Terminal emulator, this one's rad, see chezmoi for dots
+      swaylock # screen locker
+      wdisplays # for managing and rearranging displays
+      swww # Wallpaper display
+      rofi # app launcher
+      networkmanagerapplet # for configuring wifi
+      grim # screenshotting 1/2
+      slurp # screenshotting 2/2
 
-      keepassxc
+      # Audio
+      mumble # foss voice chat
+      easyeffects # noise canceling + audio tools
+      lxqt.pavucontrol-qt # volume control
+      qpwgraph # pipewire nodes graph viewer
 
-      swayfx
-      waybar
-      wayland
-      swaylock
-
-      # For screenshotting
-      grim
-      slurp
     ]);
     polytope.mypackages.gui.extra = (with pkgs; [
-      audacity
-      blender
-      brave
-      easyeffects
+
+      # Audio
+      audacity # the classic foss audio recording/editing
       glava # visualizer, may change to a diff one at some point
-      kdePackages.gwenview
-      inkscape
-      kdePackages.dolphin
-      krita
-      mpv
-      obsidian
-      prusa-slicer
-      #snes9x # TODO: -- failed?
-      stellarium
+
+      # Extra apps
+      blender # whole bunch of rendering/video/editing tools in a great foss app
+      inkscape # foss vector editing tool
+      kdePackages.dolphin # file viewer, as nice as it is with themeing, I just use yazi mostly
+      kdePackages.gwenview # image viewer
+      krita # drawing all, nice for pdf markup along with pdfarranger
+      mpv # video player -- config should be via home manager #TODO
+      obsidian # For notes, but I don't use it much
+      prusa-slicer # 3d printer slicer, I never use this on these machines
+      snes9x # snes emulator
+      antimicrox # windows joy2key replacement for games/remaps of controllers
+      stellarium # planet/night sky program
+      virtualbox # virtual machines
+
     ]);
 
   };
