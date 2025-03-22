@@ -429,93 +429,96 @@ in
           };
 
           # Custom bookmarks
-          bookmarks = [
-            {
-              name = "wormhole - fileSharing";
-              tags = [ "Tools" ];
-              url = "https://wormhole.app/";
-            }
-            {
-              name = "flashpaper - secretSharing";
-              tags = [ "Tools" ];
-              url = "https://darkkronicle.com/";
-            }
-            {
-              name = "gartbin";
-              tags = [ "Tools" ];
-              url = "https://bin.gart.sh";
-            }
-            {
-              name = "RegexCheatSheet - DaveChild";
-              tags = [
-                "Reference"
-                "Regex"
-              ];
-              url = "https://cheatography.com/davechild/cheat-sheets/regular-expressions/";
-            }
-            {
-              name = "Unicode Compart";
-              tags = [
-                "Reference"
-                "Unicode"
-              ];
-              url = "https://www.compart.com/en/unicode";
-            }
-            {
-              name = "Monkeytype";
-              tags = [ "Fun" ];
-              url = "https://monkeytype.com/";
-            }
-            {
-              name = "Linux Weekly News";
-              tags = [ "Reading" ];
-              url = "https://lwn.net/Archives/";
-            }
-            {
-              name = "Blahaj Zone";
-              tags = [ "Reading" ];
-              url = "https://shonk.social/";
-            }
-            {
-              name = "Lospec Palettes";
-              tags = [ "Reference" ];
-              url = "https://lospec.com/palette-list";
-            }
-            {
-              name = "Downgit";
-              tags = [ "Tools" ];
-              url = "https://minhaskamal.github.io/DownGit/#/home";
-            }
-            {
-              name = "Homemanger Options";
-              tags = [
-                "Nix"
-                "Reference"
-              ];
-              url = "https://home-manager-options.extranix.com/";
-            }
-            {
-              name = "Nix Package Search";
-              tags = [
-                "Nix"
-                "Reference"
-              ];
-              url = "https://search.nixos.org/packages";
-            }
-            {
-              name = "Nazarick";
-              tags = [
-                "Nix"
-                "Reference"
-              ];
-              url = "https://github.com/darkkronicle/nazarick";
-            }
-            {
-              name = "OEIS";
-              tags = [ "Reference" ];
-              url = "https://oeis.org/A000040";
-            }
-          ];
+          bookmarks = {
+            force = true;
+            settings = [
+              {
+                name = "wormhole - fileSharing";
+                tags = [ "Tools" ];
+                url = "https://wormhole.app/";
+              }
+              {
+                name = "flashpaper - secretSharing";
+                tags = [ "Tools" ];
+                url = "https://darkkronicle.com/";
+              }
+              {
+                name = "gartbin";
+                tags = [ "Tools" ];
+                url = "https://bin.gart.sh";
+              }
+              {
+                name = "RegexCheatSheet - DaveChild";
+                tags = [
+                  "Reference"
+                    "Regex"
+                ];
+                url = "https://cheatography.com/davechild/cheat-sheets/regular-expressions/";
+              }
+              {
+                name = "Unicode Compart";
+                tags = [
+                  "Reference"
+                    "Unicode"
+                ];
+                url = "https://www.compart.com/en/unicode";
+              }
+              {
+                name = "Monkeytype";
+                tags = [ "Fun" ];
+                url = "https://monkeytype.com/";
+              }
+              {
+                name = "Linux Weekly News";
+                tags = [ "Reading" ];
+                url = "https://lwn.net/Archives/";
+              }
+              {
+                name = "Blahaj Zone";
+                tags = [ "Reading" ];
+                url = "https://shonk.social/";
+              }
+              {
+                name = "Lospec Palettes";
+                tags = [ "Reference" ];
+                url = "https://lospec.com/palette-list";
+              }
+              {
+                name = "Downgit";
+                tags = [ "Tools" ];
+                url = "https://minhaskamal.github.io/DownGit/#/home";
+              }
+              {
+                name = "Homemanger Options";
+                tags = [
+                  "Nix"
+                    "Reference"
+                ];
+                url = "https://home-manager-options.extranix.com/";
+              }
+              {
+                name = "Nix Package Search";
+                tags = [
+                  "Nix"
+                    "Reference"
+                ];
+                url = "https://search.nixos.org/packages";
+              }
+              {
+                name = "Nazarick";
+                tags = [
+                  "Nix"
+                    "Reference"
+                ];
+                url = "https://github.com/darkkronicle/nazarick";
+              }
+              {
+                name = "OEIS";
+                tags = [ "Reference" ];
+                url = "https://oeis.org/A000040";
+              }
+            ];
+          };
 
         #  settings = {
 
