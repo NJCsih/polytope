@@ -70,6 +70,16 @@
     ];
   };
 
+  fileSystems."/vms" = {
+    device = "/dev/disk/by-uuid/4a7a74e0-8a17-4925-bbc2-850cc9d63abc";
+    fsType = "btrfs";
+    options = [
+      "subvol=@vm"
+      "compress=zstd"
+      "noatime"
+    ];
+  };
+
   fileSystems."/home" = {
     device = "/dev/disk/by-uuid/4a7a74e0-8a17-4925-bbc2-850cc9d63abc";
     fsType = "btrfs";
