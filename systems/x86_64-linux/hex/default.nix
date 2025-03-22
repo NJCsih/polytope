@@ -121,6 +121,7 @@ in
     shell = pkgs.nushell;
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDRrhxeyOqZvgrpJUhqy6QryNZ0Eq24INsdedeBBgSPs" # juliet@tetrahedron
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPIj1yGIgjwj+o6mfn43JC3m8puUzQhMi1sTI5Y99Fn4" # juliet@hexahedron
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMvH5PDc2pZkNK6hsQg81mICTspHIe2LrxJrxLHYmiQ8" # voxel
     ];
   };
