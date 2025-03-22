@@ -122,8 +122,9 @@ in
 
   # Wallpapers TODO: Redo the whole wallpaper thing, they should probably be defined per-user
   environment.pathsToLink = [ "/share/wallpapers" ];
-  
 
+  # udisk 2 nice for things, allows unprivileged users to mount
+  services.udisks2.enable = true;
 
   # Enable sound.
 
@@ -241,6 +242,10 @@ in
 
   # netbird
   services.netbird.enable = true;
+
+  # mullvad
+  #services.mullvad-vpn.enable = true;
+  #services.mullvad-vpn.package = pkgs.mullvad-vpn;
 
   # testing for netbird/kdeconnect:
   networking.firewall.allowedTCPPortRanges = [ { from = 1714; to = 1764; } ];

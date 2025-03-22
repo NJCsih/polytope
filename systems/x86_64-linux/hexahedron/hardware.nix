@@ -116,6 +116,17 @@
       ];
     };
 
+  fileSystems."/mnt/tmpfs" =
+    { device = "none";
+      fsType = "tmpfs";
+      options = [
+        "noatime"
+        "defaults"
+        "size=50%"
+        "mode=755"
+      ];
+    };
+
 
 
   swapDevices = [ { device = "/swap/swapfile"; } ];

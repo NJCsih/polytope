@@ -95,6 +95,8 @@ in
       chezmoi # for dotfile management (I mostly left home manager)
       imagemagick # good for easy img manipulation (like downnsizing/compression)
       qrencode # generates qrcodes
+      kdePackages.kio-fuse # For mount fs via fuse
+      kdePackages.kio-extras # extra filesystem support
 
       # Networking
       nebula # for direct connection of multiple devices behind nats
@@ -125,7 +127,7 @@ in
       # main apps
       brave # firefox installed by home manager
       keepassxc # password database
-      mullvad-vpn # my vpn
+      #mullvad-vpn # my vpn
 
       # Other apps
       gimp # the classic
