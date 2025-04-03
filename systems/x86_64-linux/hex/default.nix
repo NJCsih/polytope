@@ -30,7 +30,7 @@ in
   polytope.system.nix.enable = true;
 
   # Use encrypted dns resolving
-  polytope.network.dnscrypt.enable = true;
+  polytope.network.dnscrypt.enable = false;
 
   # Enable sound.
   services.pulseaudio.enable = false;
