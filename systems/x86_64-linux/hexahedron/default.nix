@@ -180,6 +180,8 @@ in
 
       logisim-evolution # Circuit simulator
 
+      tor-browser
+
       qmk
 
       # Laptop stuff
@@ -283,6 +285,12 @@ in
         user = "greeter";
       };
     };
+  };
+
+  specialisation.vpn.configuration = {
+    polytope.network.dnscrypt.enable = lib.mkOverride 50 false;
+    services.mullvad-vpn.enable = true;
+    services.mullvad-vpn.package = pkgs.mullvad-vpn;
   };
 
   system.stateVersion = "24.11"; # Did you read the comment?
