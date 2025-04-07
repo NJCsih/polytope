@@ -135,6 +135,7 @@ in
       nheko # matrix client
       pdfarranger # for rearranging, concatenating, and separating pdfs
       wireshark # network analysis / packet capture
+      qbittorrent
 
       # Interaction
       wayland # probably don't need to manually install wayland but eh
