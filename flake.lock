@@ -1735,11 +1735,11 @@
         "plugins-heirline-components-nvim": "plugins-heirline-components-nvim_2"
       },
       "locked": {
-        "lastModified": 1744051492,
-        "narHash": "sha256-PbMn9VYANIOl0/c/V21d9246TSr4YrdPAoUDH/MRvXc=",
+        "lastModified": 1744642416,
+        "narHash": "sha256-rtsxPPjL4xt+ePBw2bwtYX1ifmrs+x03ieog4DKPBHk=",
         "owner": "NJCsih",
         "repo": "nvim-nixCats",
-        "rev": "19cf7dd67457f884a4b08aa289da6f96217c2e41",
+        "rev": "5e0664d30150979e933002b79fb9d317e935d6a4",
         "type": "github"
       },
       "original": {
