@@ -117,6 +117,9 @@ in
       pkgs.man-pages
       pkgs.man-pages-posix
 
+      # I needed this for a thing
+      ffmpeg-full
+
       # Cool tools
       phraze # cool wordlist generator
       pipes-rs # 2d little pipes thing
