@@ -184,6 +184,8 @@ in
 
       qmk
 
+      prismlauncher
+
       # Laptop stuff
       acpilight
       acpi
