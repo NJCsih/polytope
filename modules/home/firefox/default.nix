@@ -46,7 +46,7 @@ let
       # Github
       lovely-forks # Shows forks on github projects
       refined-github
-      catppuccin-gh-file-explorer
+      catppuccin-web-file-icons
 
       keepassxc-browser
 
@@ -70,7 +70,6 @@ let
       temporary-containers
 
       terms-of-service-didnt-read
-      #yomitan
     ])
     ++ (with custom-addons; [
       better-canvas
@@ -90,18 +89,20 @@ in
       source = ./tridactylrc;
     };
 
+    xdg.configFile."tridactyl/themes/catppuccin.css" = {
+      enable = true;
+      source = "${catppuccinTridactyl}/catppuccin.css";
+    };
+
     programs.firefox = {
       enable = true;
-
+      # https://discourse.nixos.org/t/declare-firefox-extensions-and-settings/36265/7
+      package = pkgs.firefox;
       nativeMessagingHosts = with pkgs; [
         kdePackages.plasma-browser-integration
         tridactyl-native
         keepassxc
       ];
-
-      # This method for installing plugins here largely from:
-      # https://discourse.nixos.org/t/declare-firefox-extensions-and-settings/36265/7
-      package = pkgs.firefox;
       policies = {
 
         # Settings:
@@ -489,12 +490,9 @@ in
                 url = "https://minhaskamal.github.io/DownGit/#/home";
               }
               {
-                name = "Homemanger Options";
-                tags = [
-                  "Nix"
-                    "Reference"
-                ];
-                url = "https://home-manager-options.extranix.com/";
+                name = "Emoji Combos"; # they got emojis yo
+                tags = [ "Reference" ];
+                url = "https://emojicombos.com/furry";
               }
               {
                 name = "Nix Package Search";
@@ -519,36 +517,6 @@ in
               }
             ];
           };
-
-        #  settings = {
-
-        #    #"browser.newtabpage.activity-stream.feeds.weatherfeed" = false;
-        #    #"browser.newtabpage.activity-stream.showWeather" = false;
-        #    #"browser.newtabpage.activity-stream.system.showWeather" = false;
-        #    #"browser.newtabpage.activity-stream.weather.locationSearchEnabled" = false;
-
-        #    # My user settings:
-        #    "browser.ctrlTab.sortByRecentlyUsed" = true;
-        #    "browser.toolbars.bookmarks.visibility" = "never";
-        #    "browser.newtab.url" = "about:blank";
-
-        #    # My added settings:
-        #    "browser.firefox-view.feature-tour" = "{\"screen\":\"FIREFOX_VIEW_SPOTLIGHT\",\"complete\":true}";
-        #    "browser.pdfjs.feature-tour" = "{\"screen\":\"\",\"complete\":false}";
-        #    "browser.newtabpage.activity-stream.system.showSponsored" = false;
-        #    "browser.newtabpage.activity-stream.discoverystream.enabled" = false;
-        #    "browser.newtabpage.activity-stream.discoverystream.sendToPocket.enabled" = false;
-        #    "extensions.pocket.enabled" = false;
-        #    "browser.newtabpage.activity-stream.discoverystream.saveToPocketCard.enabled" = false;
-        #    "browser.newtabpage.activity-stream.improvesearch.topSiteSearchShortcuts.havePinned" = "";
-        #    "browser.newtabpage.activity-stream.improvesearch.topSiteSearchShortcuts.searchEngines" = "";
-        #    "services.sync.prefs.sync.browser.newtabpage.activity-stream.showSponsored" = false;
-        #    "services.sync.prefs.sync.browser.newtabpage.activity-stream.showSponsoredTopSites" = false;
-        #    "browser.newtabpage.activity-stream.feeds.section.topstories" = false;
-        #    "browser.shell.checkDefaultBrowser" = false;
-        #    "browser.shell.skipDefaultBrowserCheckOnFirstRun" = true;
-        #    #"dom.private-attribution.submission.enabled" = false; # New firefox 128 'privacy respecting attribution"
-        #  };
         };
       };
     };

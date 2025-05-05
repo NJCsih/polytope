@@ -177,7 +177,7 @@ in
       prusa-slicer # 3d printer slicer, I never use this on these machines
       snes9x # snes emulator
       antimicrox # windows joy2key replacement for games/remaps of controllers
-      stellarium # planet/night sky program
+      #stellarium # planet/night sky program
       virtualbox # virtual machines
 
     ]);
