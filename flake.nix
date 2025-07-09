@@ -8,7 +8,7 @@
 
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     unstable.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.11";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.05";
 
     snowfall-lib = {
       url = "github:snowfallorg/lib";
@@ -26,8 +26,7 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     lix-module = {
-      url = "https://git.lix.systems/lix-project/nixos-module/archive/2.91.1-2.tar.gz";
-      #inputs.nixpkgs.follows = "nixpkgs-stable";
+      url = "https://git.lix.systems/lix-project/nixos-module/archive/2.93.0.tar.gz";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -49,7 +48,7 @@
 
     # Firefox:
     firefox-arkenfox = {
-      url = "github:dwarfmaster/arkenfox-nixos";
+      url = "github:DarkKronicle/arkenfox-nixos";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     firefox-addons = {
@@ -57,7 +56,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     blocklist = {
-      url = "github:StevenBlack/hosts?dir=alternates/gambling-porn";
+      url = "github:hagezi/dns-blocklists";
       flake = false;
     };
 

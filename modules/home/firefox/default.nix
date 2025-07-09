@@ -449,6 +449,11 @@ in
                 url = "https://bin.gart.sh";
               }
               {
+                name = "abomunism";
+                tags = [ "Tools" ];
+                url = "https://eclipsearchive.org/projects/ABOMUNIST/Abomunist.pdf";
+              }
+              {
                 name = "RegexCheatSheet - DaveChild";
                 tags = [
                   "Reference"

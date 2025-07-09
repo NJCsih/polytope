@@ -38,8 +38,8 @@ let
   generate-domains-blocklist = pkgs.callPackage ./python-blocklist.nix { };
 
   blocklist = pkgs.callPackage (import ./generate-blocklist.nix {
-    blocklist = "${inputs.blocklist}/alternates/gambling-porn/hosts";
-    name = "gambling-porn";
+    blocklist = "${inputs.blocklist}/hosts/pro.plus.txt";
+    name = "pro-plus-blocklist";
     version = inputs.blocklist.shortRev;
     generate-domains-blocklist = "${generate-domains-blocklist}/generate-domains-blocklist.py";
   }) { };
@@ -53,7 +53,6 @@ in
 
   config = mkIf cfg.enable {
 
-    #security.pki.certificateFiles = [ "${lib.mkCA pkgs}/rootCA.pem" ]; #TODO
     security.pki.certificateFiles = [ "${mkCA pkgs}/rootCA.pem" ];
 
     networking = {
@@ -94,7 +93,7 @@ in
         };
 
         blocked_names = {
-          blocked_names_file = "${blocklist}/share/blocklist/gambling-porn.txt";
+          blocked_names_file = "${blocklist}/share/blocklist/pro-plus-blocklist.txt";
         };
 
         local_doh = {

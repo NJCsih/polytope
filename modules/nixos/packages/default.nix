@@ -117,8 +117,9 @@ in
       pkgs.man-pages
       pkgs.man-pages-posix
 
-      # I needed this for a thing
+      # Nice video/stuff
       ffmpeg-full
+      yt-dlp
 
       # Cool tools
       phraze # cool wordlist generator
@@ -150,6 +151,7 @@ in
       swww # Wallpaper display
       rofi # app launcher
       networkmanagerapplet # for configuring wifi
+      mako # lightweight notification daemon
       grim # screenshotting 1/2
       slurp # screenshotting 2/2
 
@@ -177,7 +179,7 @@ in
       prusa-slicer # 3d printer slicer, I never use this on these machines
       snes9x # snes emulator
       antimicrox # windows joy2key replacement for games/remaps of controllers
-      #stellarium # planet/night sky program
+      stellarium # planet/night sky program
       virtualbox # virtual machines
 
     ]);
