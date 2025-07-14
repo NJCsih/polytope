@@ -32,6 +32,9 @@ in
   # Use encrypted dns resolving
   polytope.network.dnscrypt.enable = true;
 
+  # Netbird settings and auto-restart timer
+  polytope.network.netbird.enable = true;
+
   # Enable sound.
   services.pulseaudio.enable = false;
 
@@ -148,6 +151,7 @@ in
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO/Gg0Y2x4jG7H4P4X6szZG0KHWSaiq6WcQJDZVcVKFd juliet@tetrahedron"
     ];
   };
+  environment.shells = [ pkgs.nushell ];
 
   # Virtualbox stuff
   virtualisation.virtualbox.host.enable = true;
@@ -185,6 +189,8 @@ in
       qmk
 
       prismlauncher
+
+      plasma5Packages.kdeconnect-kde
 
       # Laptop stuff
       acpilight
@@ -247,6 +253,8 @@ in
   # netbird
   services.netbird.enable = true;
 
+  programs.kdeconnect.enable = true;
+
   # mullvad
   #services.mullvad-vpn.enable = true;
   #services.mullvad-vpn.package = pkgs.mullvad-vpn;
@@ -291,6 +299,8 @@ in
 
   specialisation.vpn.configuration = {
     polytope.network.dnscrypt.enable = lib.mkOverride 50 false;
+    polytope.network.netbird.enable = lib.mkOverride 50 false;
+    services.netbird.enable = lib.mkOverride 50 false;
     services.mullvad-vpn.enable = true;
     services.mullvad-vpn.package = pkgs.mullvad-vpn;
   };
