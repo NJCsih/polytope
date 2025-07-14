@@ -254,6 +254,13 @@ in
   services.netbird.enable = true;
 
   programs.kdeconnect.enable = true;
+  home-manager.users.juliet = {  # Some cursed shenangains to make a home manager scope,
+    services.kdeconnect = {      # Curacy of darkkronicle's evil genius
+      enable = true;
+      indicator = true;
+      package = pkgs.kdePackages.kdeconnect-kde;
+    };
+  };
 
   # mullvad
   #services.mullvad-vpn.enable = true;
