@@ -124,6 +124,7 @@
         "defaults"
         "size=50%"
         "mode=755"
+        "uid=1000"
       ];
     };
 

@@ -124,14 +124,14 @@ in
       # Cool tools
       phraze # cool wordlist generator
       pipes-rs # 2d little pipes thing
+      pandoc # I guess doesnt need as many deps on nix
 
     ]);
     polytope.mypackages.gui.base = (with pkgs; [
 
       # main apps
-      brave # firefox installed by home manager
+      chromium # preferred to brave, ff is via hm
       keepassxc # password database
-      #mullvad-vpn # my vpn
 
       # Other apps
       gimp # the classic
@@ -150,6 +150,7 @@ in
       wdisplays # for managing and rearranging displays
       swww # Wallpaper display
       rofi # app launcher
+      kanata-with-cmd # Keyboard remapping tool
       networkmanagerapplet # for configuring wifi
       mako # lightweight notification daemon
       grim # screenshotting 1/2
@@ -182,6 +183,8 @@ in
       stellarium # planet/night sky program
       virtualbox # virtual machines
 
+      localsend
+      libreoffice
     ]);
 
   };

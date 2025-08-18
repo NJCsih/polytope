@@ -57,7 +57,7 @@ in
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true; # Nobody understands this, I'm just trusting dark
 
-  boot.loader.timeout = 0;
+  boot.loader.timeout = 60;
 
   # Zen is for desktop computing, so lower latency? I'm not gonna touch it
   boot.kernelPackages = pkgs.linuxPackages_zen;
@@ -138,11 +138,11 @@ in
   users.users.juliet = {
     isNormalUser = true;
     extraGroups = [
-      "wheel"
       "input" # for kanata
-      "uinput" # for kanata
       "networkmanager"
       "seat"
+      "uinput" # for kanata
+      "wheel"
       "wireshark"
     ]; # What is seat for? Lemurs? Vbox?
     initialPassword = "password";
@@ -185,6 +185,8 @@ in
       logisim-evolution # Circuit simulator
 
       tor-browser
+
+      mullvad-browser
 
       qmk
 
@@ -255,7 +257,7 @@ in
 
   programs.kdeconnect.enable = true;
   home-manager.users.juliet = {  # Some cursed shenangains to make a home manager scope,
-    services.kdeconnect = {      # Curacy of darkkronicle's evil genius
+    services.kdeconnect = {      # Curtsey of darkkronicle's evil genius
       enable = true;
       indicator = true;
       package = pkgs.kdePackages.kdeconnect-kde;
