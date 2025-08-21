@@ -312,6 +312,12 @@ in
     services.netbird.enable = lib.mkOverride 50 false;
     services.mullvad-vpn.enable = true;
     services.mullvad-vpn.package = pkgs.mullvad-vpn;
+    # Todo: write a nix crime to set the home manager option of what dns firefox uses
+    home-manager.users.juliet = {  # Some cursed shenangains to make a home manager scope,
+      programs.firefox.profiles.main.arkenfox."0700".enable = lib.mkOverride 150 false;
+      programs.firefox.profiles.main.arkenfox."0700"."0710"."network.trr.mode".enable = true; # Set this setting
+      programs.firefox.profiles.main.arkenfox."0700"."0710"."network.trr.mode".value = lib.mkOverride 150 0; # use default resolver
+    };
   };
 
   system.stateVersion = "24.11"; # Did you read the comment?
