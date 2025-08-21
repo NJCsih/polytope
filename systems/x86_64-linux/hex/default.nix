@@ -150,7 +150,7 @@ in
       krb5 # For kerberos auth
 
       # Yes in gui.extra but I want it without that
-      brave
+      chromium
 
       # For nicer sway nav
       #polytope.kanata

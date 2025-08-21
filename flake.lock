@@ -1726,14 +1726,15 @@
         "neorg-overlay": "neorg-overlay_2",
         "nixCats": "nixCats_2",
         "nixpkgs": "nixpkgs_16",
-        "plugins-heirline-components-nvim": "plugins-heirline-components-nvim_2"
+        "plugins-heirline-components-nvim": "plugins-heirline-components-nvim_2",
+        "plugins-scrollEOF-nvim": "plugins-scrollEOF-nvim_2"
       },
       "locked": {
-        "lastModified": 1748033962,
-        "narHash": "sha256-Ax259gRVux2tfiPXjs3FlOKr0neKtKpkTi08R417I/A=",
+        "lastModified": 1756226621,
+        "narHash": "sha256-cO0Xg8Vjwp6N7C5TchIWGp9pGzt7d2/X0tMi0Z9NVgU=",
         "owner": "NJCsih",
         "repo": "nvim-nixCats",
-        "rev": "ad8d8f580927ef2f71561ba6ef50c80972cceac6",
+        "rev": "712ffe7f41d58024ff7d4484deb8dd46744c3734",
         "type": "github"
       },
       "original": {
@@ -1997,6 +1998,22 @@
         "owner": "Aasim-A",
         "repo": "scrollEOF.nvim",
         "rev": "9dd748a45c61acb7d70c4990cd770c3531700596",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Aasim-A",
+        "repo": "scrollEOF.nvim",
+        "type": "github"
+      }
+    },
+    "plugins-scrollEOF-nvim_2": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1755701126,
+        "narHash": "sha256-qm0q1MPxN7ZJfdQ82so+hERoaP/o22TZ/XPX/L2eF7c=",
+        "owner": "Aasim-A",
+        "repo": "scrollEOF.nvim",
+        "rev": "2bfe89a8b6669bca27ab2790965205017a84f50a",
         "type": "github"
       },
       "original": {
