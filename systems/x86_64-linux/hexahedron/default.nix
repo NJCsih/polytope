@@ -185,7 +185,6 @@ in
       logisim-evolution # Circuit simulator
 
       tor-browser
-
       mullvad-browser
 
       qmk
@@ -197,6 +196,9 @@ in
       # Laptop stuff
       acpilight
       acpi
+
+      anki
+      rnote
 
       (proxmark3.override {
         withGui = false;

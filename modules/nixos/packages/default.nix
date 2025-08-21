@@ -64,6 +64,7 @@ in
       git
       gitoxide # git rewrite, faster for large clones
       inxi # pulls system info
+      jujutsu # hip new vcs
       libqalculate # best tui calculator
       libsecret # cli secret access -- needed for script to check keepass state
       lsof # cool tool, shows open files and sockets
