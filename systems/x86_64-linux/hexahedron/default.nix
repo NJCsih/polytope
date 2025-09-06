@@ -158,6 +158,10 @@ in
   users.extraGroups.vboxusers.members = [ "juliet" ];
   virtualisation.virtualbox.host.enableHardening = false;
 
+  # Use gnome-keyring for secrets, keepass has been annoying, (It's like *finnneee* and kinda my fault)
+  programs.seahorse.enable = true;
+  services.gnome.gnome-keyring.enable = true;
+
   # Customization Stuff ----------------------------------------------------------------------------
 
   # Use custom fonts
