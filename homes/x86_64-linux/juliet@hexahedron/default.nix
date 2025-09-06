@@ -16,6 +16,6 @@
     qt.enable = true;
     swww.enable = true;
     xdg.enable = true;
-    mpv.enable = false;
+    mpv.enable = true;
   };
 }

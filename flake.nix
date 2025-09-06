@@ -60,6 +60,12 @@
       flake = false;
     };
 
+    # For jj in prompt
+    starship-jj = {
+      url = "gitlab:lanastara_foss/starship-jj";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # Plasma manager:
     #TODO: Check if this still works? I havent ran plasma in a *while*
     plasma-manager = {

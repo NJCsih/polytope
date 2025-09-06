@@ -194,6 +194,7 @@ in
       qmk
 
       prismlauncher
+      vcv-rack
 
       plasma5Packages.kdeconnect-kde
 
@@ -203,6 +204,8 @@ in
 
       anki
       rnote
+
+      quartus-prime-lite
 
       (proxmark3.override {
         withGui = false;
@@ -294,6 +297,7 @@ in
       export QT_QPA_PLATFORM=wayland
       export QT_QPA_PLATFORMTHEME=qt5ct
       export _JAVA_AWT_WM_NONREPARENTIMG=1
+      export QT_QPA_PLATFORM=xcb
     '';
   };
 

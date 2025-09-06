@@ -65,16 +65,20 @@ in
       gitoxide # git rewrite, faster for large clones
       inxi # pulls system info
       jujutsu # hip new vcs
+      inputs.starship-jj.packages.x86_64-linux.default # for jj
+      difftastic # for jj
       libqalculate # best tui calculator
       libsecret # cli secret access -- needed for script to check keepass state
       lsof # cool tool, shows open files and sockets
       magic-wormhole-rs # large file transfer
       ov # pager (nice for man pages)
+      pastel # cli color tool
       ripgrep # faster grep
       skim # fast search, like fzf, but I have fzf for the easy file search without `find | sk`
       sshfs # mount fs over ssh (very cool)
       tealdeer # Shows usage examples, this is the caching rust one
       syncthing # Probably should be a gui app, but can be used remotely on a headless box
+      uni # unicode cli tool
       unzip # decompress zips
       wget
       wl-clipboard # for cli access to clipboard
@@ -176,7 +180,8 @@ in
       kdePackages.dolphin # file viewer, as nice as it is with themeing, I just use yazi mostly
       kdePackages.gwenview # image viewer
       krita # drawing all, nice for pdf markup along with pdfarranger
-      mpv # video player -- config should be via home manager #TODO
+      mpv # video player -- config should be via home manager
+      vlc # video player -- mpv scares me, a little, this one's simple
       obsidian # For notes, but I don't use it much
       prusa-slicer # 3d printer slicer, I never use this on these machines
       snes9x # snes emulator
