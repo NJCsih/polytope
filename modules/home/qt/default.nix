@@ -7,13 +7,6 @@
 }:
 let
   cfg = config.polytope.qt;
-
-  catpuccinQtct = pkgs.fetchFromGitHub {
-    owner = "catppuccin";
-    repo = "qt5ct";
-    rev = "89ee948e72386b816c7dad72099855fb0d46d41e";
-    hash = "sha256-t/uyK0X7qt6qxrScmkTU2TvcVJH97hSQuF0yyvSO/qQ=";
-  };
 in
 {
 
@@ -151,14 +144,14 @@ in
         }/share/color-schemes/CatppuccinMochaMauve.colors");
     };
 
-    xdg.configFile."qt5ct/colors/Catppuccin-Mocha.conf" = {
+    xdg.configFile."qt5ct/colors/gruvbox.conf" = {
       enable = true;
-      source = "${catpuccinQtct}/themes/Catppuccin-Mocha.conf";
+      source = ./gruvbox.conf;
     };
 
-    xdg.configFile."qt6ct/colors/Catppuccin-Mocha.conf" = {
+    xdg.configFile."qt6ct/colors/gruvbox.conf" = {
       enable = true;
-      source = "${catpuccinQtct}/themes/Catppuccin-Mocha.conf";
+      source = ./gruvbox.conf;
     };
 
     xdg.configFile."qt5ct/qt5ct.conf" = {
@@ -168,7 +161,7 @@ in
         substitutions = [
           "--replace-fail"
           "##COLORSCHEME##"
-          "/home/${config.home.username}/.config/qt6ct/colors/Catppuccin-Mocha.conf"
+          "/home/${config.home.username}/.config/qt6ct/colors/gruvbox.conf"
         ];
       };
     };
@@ -180,7 +173,7 @@ in
         substitutions = [
           "--replace-fail"
           "##COLORSCHEME##"
-          "/home/${config.home.username}/.config/qt6ct/colors/Catppuccin-Mocha.conf"
+          "/home/${config.home.username}/.config/qt6ct/colors/gruvbox.conf"
         ];
       };
     };
