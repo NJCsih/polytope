@@ -208,6 +208,9 @@ in
 
       quartus-prime-lite
 
+      rustdesk
+      rustdesk-server
+
       (proxmark3.override {
         withGui = false;
         withPython = true;
