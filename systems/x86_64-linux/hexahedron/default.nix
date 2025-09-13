@@ -25,6 +25,8 @@ in
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
+  home-manager.useGlobalPkgs = true;
+  home-manager.useUserPackages = true;
 
   # Enable global settings in :
   polytope.system.nix.enable = true;

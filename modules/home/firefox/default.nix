@@ -24,7 +24,7 @@ let
   };
 
   catppuccinTridactyl = pkgs.fetchFromGitHub {
-      owner = "lonepie";
+    owner = "lonepie";
     repo = "catppuccin-tridactyl";
     rev = "a77c65f7ab5946b37361ae935d2192a9a714f960";
     hash = "sha256-LjLMq7vUwDdxgpdP9ClRae+gN11IPc+XMsx8/+bwUy4=";
@@ -57,6 +57,7 @@ let
       sponsorblock
       libredirect
       remove-youtube-s-suggestions # removes a bunch from youtube which is nice
+      tampermonkey
 
       # Privacy ones
       ublock-origin # extremely good. Don't need noscript or other blocking extensions because of this
@@ -128,7 +129,7 @@ in
           {
             "*" = {
               "blocked_install_message" = "Extensions are handled by Nix!";
-              "installation_mode" = "blocked";
+              "installation_mode" = "allowed";
             };
           }
           (builtins.listToAttrs (
