@@ -49,9 +49,11 @@ in
       # Nix
       nh # nicer script for rebuilding
       nom # cool build tree visualizer
-      nix-direnv # for auto nix develop on cd (very nice)
+      devenv # for cool devenv stuff
+      direnv # nice helper thing for devenvs
       nix-tree # shows tree graph of nix flake
       nixfmt-rfc-style # nixos autoformatter
+      bubblewrap
 
       # Cli tools
       age # better encryption tool than gpg fight me
@@ -130,6 +132,9 @@ in
       phraze # cool wordlist generator
       pipes-rs # 2d little pipes thing
       pandoc # I guess doesnt need as many deps on nix
+
+      # Big cli tools
+      typst
 
     ]);
     polytope.mypackages.gui.base = (with pkgs; [
