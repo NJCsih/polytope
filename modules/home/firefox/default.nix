@@ -166,6 +166,7 @@ in
           search = {
             force = true;
             default = "Kagi";
+            #default = "Canine";
             privateDefault = "SearXNG";
             engines = {
               "Kagi" = {
@@ -173,6 +174,22 @@ in
                 urls = [
                   {
                     template = "https://kagi.com/search";
+                    params = [
+                      {
+                        name = "q";
+                        value = "{searchTerms}";
+                      }
+                    ];
+                  }
+                ];
+              };
+            };
+            engines = {
+              "Canine" = {
+                definedAliases = [ "@ca" ];
+                urls = [
+                  {
+                    template = "https://search.canine.tools";
                     params = [
                       {
                         name = "q";
