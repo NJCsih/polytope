@@ -138,6 +138,7 @@ in
   users.users.juliet = {
     isNormalUser = true;
     extraGroups = [
+      "dialout"
       "input" # for kanata
       "networkmanager"
       "seat"

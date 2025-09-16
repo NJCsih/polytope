@@ -146,6 +146,7 @@ in
       "uinput" # for kanata
       "networkmanager"
       "seat"
+      "dialout"
       "wireshark"
     ]; # What is seat for? Lemurs? Vbox?
     initialPassword = "password";
