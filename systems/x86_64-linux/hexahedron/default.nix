@@ -253,7 +253,7 @@ in
   # 2465, 2993 is for email
   # 4242 is for nebula
   networking.firewall.allowedTCPPorts = [ 56412 22000 2465 2993 ];
-  networking.firewall.allowedUDPPorts = [ 22000 ]; 
+  networking.firewall.allowedUDPPorts = [ 22000 ];
 
   # sops
 #   sops = {
@@ -317,13 +317,45 @@ in
     };
   };
 
-  specialisation.vpn.configuration = {
+  specialisation.vpn-soft.configuration = {
+    polytope.network.dnscrypt.enable = lib.mkOverride 50 false;
+    # polytope.network.netbird.enable = lib.mkOverride 50 false;
+    # services.netbird.enable = lib.mkOverride 50 false;
+    services.mullvad-vpn.enable = true;
+    services.mullvad-vpn.package = pkgs.mullvad-vpn;
+
+    # Firewall rule, so that netbird will be run through netbird and not die
+    networking.nftables.tables."mullvad-netbird" = lib.mkOverride 50 (let
+        excludedIps = "100.114.0.0/16";
+    in {
+      name = "mullvad-netbird";
+      enable = true;
+      family = "inet";
+      content = ''
+        chain outgoing {
+            type route hook output priority -100; policy accept;
+            ip daddr ${excludedIps} oifname "wt0" ct mark set 0x00000f41 meta mark set 0x6d6f6c65;
+        }
+        chain allow-incoming {
+            type filter hook input priority -100; policy accept;
+            iifname "wt0" ct mark set 0x00000f41 meta mark set 0x6d6f6c65;
+        }
+      '';
+    });
+
+    home-manager.users.juliet = {  # Some cursed shenangains to make a home manager scope,
+      programs.firefox.profiles.main.arkenfox."0700".enable = lib.mkOverride 150 false;
+      programs.firefox.profiles.main.arkenfox."0700"."0710"."network.trr.mode".enable = true; # Set this setting
+      programs.firefox.profiles.main.arkenfox."0700"."0710"."network.trr.mode".value = lib.mkOverride 150 0; # use default resolver
+    };
+  };
+
+  specialisation.vpn-hard.configuration = {
     polytope.network.dnscrypt.enable = lib.mkOverride 50 false;
     polytope.network.netbird.enable = lib.mkOverride 50 false;
     services.netbird.enable = lib.mkOverride 50 false;
     services.mullvad-vpn.enable = true;
     services.mullvad-vpn.package = pkgs.mullvad-vpn;
-    # Todo: write a nix crime to set the home manager option of what dns firefox uses
     home-manager.users.juliet = {  # Some cursed shenangains to make a home manager scope,
       programs.firefox.profiles.main.arkenfox."0700".enable = lib.mkOverride 150 false;
       programs.firefox.profiles.main.arkenfox."0700"."0710"."network.trr.mode".enable = true; # Set this setting
