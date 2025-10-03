@@ -31,8 +31,9 @@
     };
 
     lix-module = {
-      url = "https://git.lix.systems/lix-project/nixos-module/archive/2.93.0.tar.gz";
+      url = "https://git.lix.systems/lix-project/nixos-module/archive/main.tar.gz";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.lix.follows = "lix";
     };
 
     #---------------------------------------------------------------------------
@@ -116,6 +117,7 @@
 
       systems.modules.nixos = [
         inputs.nix-flatpak.nixosModules.nix-flatpak
+        inputs.lix-module.nixosModules.default
       ];
     };
 }
