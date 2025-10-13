@@ -145,3 +145,12 @@
   source: https://e621.net/posts/3242924
   tags:
     - extra-sfw # The other ones arent nsfw, but like, this one's extra chill?
+
+- src:
+    url: https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Eurorack_Synthesizer.jpg/2560px-Eurorack_Synthesizer.jpg
+    name: Eurorack-001.jpg
+    sha256: d7b25e999e27fda952fd483246ec97c782193c40bc8beaecf7b5e0b0b5274440
+  source: https://commons.wikimedia.org/wiki/File:Eurorack_Synthesizer.jpg
+  tags:
+    - Photo
+    - Synthesizer
