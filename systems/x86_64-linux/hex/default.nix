@@ -37,6 +37,8 @@ in
 
   # System Stuff ----------------------------------------------------------------------------------
 
+  networking.hostName = "hex"; # Define your hostname.
+
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -48,15 +50,7 @@ in
   # Zen is for desktop computing, so lower latency? I'm not gonna touch it
   boot.kernelPackages = pkgs.linuxPackages_zen;
 
-  #environment.sessionVariables = rec {
-  # fix for sway on this computer
-  #WLR_NO_HARDWARE_CURSORS = "1"; # Maybe I should try disabling it because it *slow*?
-  #};
-
-  # Enable CUPS to print documents.
-  # services.printing.enable = true;
-
-  # Enable networkmanager for internet
+  # Networking
   networking.networkmanager.enable = true; # Easiest to use and most distros use this by default.
   networking.nameservers = [
     "1.1.1.1"
@@ -65,13 +59,6 @@ in
 
   # Set your time zone.
   time.timeZone = "America/Denver";
-
-  # TODO: move this to modules/../nvim, but not sure why that doesnt work?
-  programs.neovim.enable = true;
-  programs.neovim.defaultEditor = true;
-
-  # Wallpapers TODO: Redo the whole wallpaper thing, they should probably be defined per-user
-  environment.pathsToLink = [ "/share/wallpapers" ];
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
@@ -98,12 +85,21 @@ in
     };
   };
 
-  # Flatpak for rdp
-  services.flatpak.enable = true;
+  # Set custom udev rules for qmk
+  # No udev rules for this host
+
+  # Medium system level Stuff ------------------------------------------------------------------------------------
+
+  programs.neovim.enable = true;
+  programs.neovim.defaultEditor = true;
+
+  # Wallpapers TODO: Redo the whole wallpaper thing, they should probably be defined per-user
+  environment.pathsToLink = [ "/share/wallpapers" ];
+
+  # udisk 2 nice for things, allows unprivileged users to mount
+  services.udisks2.enable = true;
 
   # User Stuff ------------------------------------------------------------------------------------
-
-  networking.hostName = "hex"; # Define your hostname.
 
   # Define my user
   users.users.xray = {
@@ -116,7 +112,7 @@ in
       "seat"
       "uinput" # for kanata
       "wireshark"
-    ]; # What is seat for? Lemurs? Vbox?
+    ];
     initialPassword = "password";
     shell = pkgs.nushell;
     openssh.authorizedKeys.keys = [
@@ -125,6 +121,11 @@ in
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMvH5PDc2pZkNK6hsQg81mICTspHIe2LrxJrxLHYmiQ8" # voxel
     ];
   };
+  environment.shells = [ pkgs.nushell ];
+
+  # Use gnome-keyring for secrets, keepass has been annoying, (It's like *finnneee* and kinda my fault)
+  programs.seahorse.enable = true;
+  services.gnome.gnome-keyring.enable = true;
 
   # Customization Stuff ----------------------------------------------------------------------------
 
@@ -152,14 +153,15 @@ in
       # Yes in gui.extra but I want it without that
       chromium
 
-      # For nicer sway nav
-      #polytope.kanata
     ])
     ++ [
       (inputs.nazarick.packages.x86_64-linux.system-wallpapers.override {
         wallpapers = ./wallpapers.yml;
       })
     ];
+
+  # Flatpak for rdp
+  services.flatpak.enable = true;
 
 # Enable the OpenSSH daemon.
   services.openssh = {
@@ -171,12 +173,17 @@ in
       AllowUsers = [ "xray" ];
       UseDns = true;
       X11Forwarding = false;
-      #PermitRootLogin = "no";
+      PermitRootLogin = "no";
     };
   };
   services.fail2ban.enable = true;
 
   programs.wireshark.enable = true; # set extra stuff for wireshark
+
+  # 37485 is for ssh
+  # 22000 is for syncthing
+  networking.firewall.allowedTCPPorts = [ 37485 22000 ];
+  networking.firewall.allowedUDPPorts = [ 22000 ];
 
   # enable xrdp stuff
   services.xrdp.enable = true; # remote desktop service
@@ -192,6 +199,7 @@ in
       export QT_QPA_PLATFORM=wayland
       export QT_QPA_PLATFORMTHEME=qt5ct
       export _JAVA_AWT_WM_NONREPARENTIMG=1
+      export QT_QPA_PLATFORM=xcb
     '';
   };
 
@@ -209,6 +217,12 @@ in
     };
   };
 
+  # use default dns
+  home-manager.users.juliet = {  # Some cursed shenangains to make a home manager scope,
+    programs.firefox.profiles.main.arkenfox."0700".enable = lib.mkOverride 150 false;
+    programs.firefox.profiles.main.arkenfox."0700"."0710"."network.trr.mode".enable = true; # Set this setting
+    programs.firefox.profiles.main.arkenfox."0700"."0710"."network.trr.mode".value = lib.mkOverride 150 0; # use default resolver
+  };
 
   system.stateVersion = "24.05"; # Don't touch
 }

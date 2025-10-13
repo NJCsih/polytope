@@ -42,7 +42,7 @@ in
 
   networking.hostName = "hexahedron"; # Define your hostname.
 
-  # Add TIP for laptop power
+  # Add TLP for laptop power
   services.power-profiles-daemon.enable = false;
   services.tlp = {
     enable = true;
@@ -71,18 +71,6 @@ in
 
   # Set your time zone.
   time.timeZone = "America/Denver";
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  # Select internationalisation properties.
-  # i18n.defaultLocale = "en_US.UTF-8";
-  # console = {
-  #   font = "Lat2-Terminus16";
-  #   keyMap = "us";
-  #   useXkbConfig = true; # use xkb.options in tty.
-  # };
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
@@ -120,6 +108,12 @@ in
 
   # Medium system level Stuff ------------------------------------------------------------------------------------
 
+  # console = {
+  #   font = "Lat2-Terminus16";
+  #   keyMap = "us";
+  #   useXkbConfig = true; # use xkb.options in tty.
+  # };
+
   programs.neovim.enable = true;
   programs.neovim.defaultEditor = true;
 
@@ -129,23 +123,19 @@ in
   # udisk 2 nice for things, allows unprivileged users to mount
   services.udisks2.enable = true;
 
-  # Enable sound.
+  # User Stuff ------------------------------------------------------------------------------------
 
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.libinput.enable = true;
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.juliet = {
     isNormalUser = true;
     extraGroups = [
+      "wheel"
       "dialout"
       "input" # for kanata
       "networkmanager"
       "seat"
       "uinput" # for kanata
-      "wheel"
       "wireshark"
-    ]; # What is seat for? Lemurs? Vbox?
+    ];
     initialPassword = "password";
     shell = pkgs.nushell;
     openssh.authorizedKeys.keys = [
@@ -185,9 +175,10 @@ in
 
       signal-desktop # yes it's a gross electron app
 
-      neomutt # tui email client
-
-      logisim-evolution # Circuit simulator
+      anki
+      logisim-evolution
+      rnote
+      quartus-prime-lite
 
       tor-browser
       mullvad-browser
@@ -202,11 +193,6 @@ in
       # Laptop stuff
       acpilight
       acpi
-
-      anki
-      rnote
-
-      quartus-prime-lite
 
       (proxmark3.override {
         withGui = false;
@@ -241,7 +227,7 @@ in
       AllowUsers = [ "juliet" ];
       UseDns = true;
       X11Forwarding = false;
-      #PermitRootLogin = "no";
+      PermitRootLogin = "no";
     };
   };
   services.fail2ban.enable = true;
@@ -251,19 +237,25 @@ in
   # 56412 is for ssh
   # 22000 is for syncthing
   # 2465, 2993 is for email
-  # 4242 is for nebula
   networking.firewall.allowedTCPPorts = [ 56412 22000 2465 2993 ];
   networking.firewall.allowedUDPPorts = [ 22000 ];
+  # testing for netbird/kdeconnect:
+  networking.firewall.allowedTCPPortRanges = [ { from = 1714; to = 1764; } ];
+  networking.firewall.allowedUDPPortRanges = [ { from = 1714; to = 1764; } ];
 
   # sops
-#   sops = {
-#     age.keyFile = "/var/lib/sops/sops.age.key";
-#     defaultSopsFile = ./secrets/secrets.yaml;
-#     defaultSopsFormat = "yaml";
-#   };
+  # sops = {
+  #   age.keyFile = "/var/lib/sops/sops.age.key";
+  #   defaultSopsFile = ./secrets/secrets.yaml;
+  #   defaultSopsFormat = "yaml";
+  # };
 
   # netbird
   services.netbird.enable = true;
+
+  # mullvad (false by default, enabled by specialisation)
+  services.mullvad-vpn.enable = false;
+  services.mullvad-vpn.package = pkgs.mullvad-vpn;
 
   programs.kdeconnect.enable = true;
   home-manager.users.juliet = {  # Some cursed shenangains to make a home manager scope,
@@ -274,15 +266,7 @@ in
     };
   };
 
-  # mullvad
-  #services.mullvad-vpn.enable = true;
-  #services.mullvad-vpn.package = pkgs.mullvad-vpn;
 
-  # testing for netbird/kdeconnect:
-  networking.firewall.allowedTCPPortRanges = [ { from = 1714; to = 1764; } ];
-  networking.firewall.allowedUDPPortRanges = [ { from = 1714; to = 1764; } ];
-
-  # Make steam work
   programs.steam = {
     enable = true;
     remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
@@ -301,7 +285,6 @@ in
       export QT_QPA_PLATFORM=xcb
     '';
   };
-
 
   # Set pam to not have swaylock lock me out
   security.pam.services.swaylock = { };
@@ -366,4 +349,3 @@ in
   system.stateVersion = "24.11"; # Did you read the comment?
 
 }
-
