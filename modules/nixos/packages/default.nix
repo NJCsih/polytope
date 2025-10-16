@@ -132,6 +132,7 @@ in
       phraze # cool wordlist generator
       pipes-rs # 2d little pipes thing
       pandoc # I guess doesnt need as many deps on nix
+      clock-rs
 
       # Big cli tools
       typst
