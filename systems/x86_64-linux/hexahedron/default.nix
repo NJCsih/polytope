@@ -254,8 +254,8 @@ in
   services.netbird.enable = true;
 
   # mullvad (false by default, enabled by specialisation)
-  services.mullvad-vpn.enable = false;
-  services.mullvad-vpn.package = pkgs.mullvad-vpn;
+  #services.mullvad-vpn.enable = false;
+  #services.mullvad-vpn.package = pkgs.mullvad-vpn;
 
   programs.kdeconnect.enable = true;
   home-manager.users.juliet = {  # Some cursed shenangains to make a home manager scope,
@@ -301,14 +301,14 @@ in
   };
 
   specialisation.vpn-soft.configuration = {
-    polytope.network.dnscrypt.enable = lib.mkOverride 50 false;
-    # polytope.network.netbird.enable = lib.mkOverride 50 false;
-    # services.netbird.enable = lib.mkOverride 50 false;
-    services.mullvad-vpn.enable = true;
-    services.mullvad-vpn.package = pkgs.mullvad-vpn;
+    polytope.network.dnscrypt.enable = lib.mkOverride 150 false;
+    # polytope.network.netbird.enable = lib.mkOverride 150 false;
+    # services.netbird.enable = lib.mkOverride 150 false;
+    services.mullvad-vpn.enable = lib.mkOverride 150 true;
+    services.mullvad-vpn.package = lib.mkOverride 150 pkgs.mullvad-vpn;
 
     # Firewall rule, so that netbird will be run through netbird and not die
-    networking.nftables.tables."mullvad-netbird" = lib.mkOverride 50 (let
+    networking.nftables.tables."mullvad-netbird" = lib.mkOverride 150 (let
         excludedIps = "100.114.0.0/16";
     in {
       name = "mullvad-netbird";
@@ -334,11 +334,11 @@ in
   };
 
   specialisation.vpn-hard.configuration = {
-    polytope.network.dnscrypt.enable = lib.mkOverride 50 false;
-    polytope.network.netbird.enable = lib.mkOverride 50 false;
-    services.netbird.enable = lib.mkOverride 50 false;
-    services.mullvad-vpn.enable = true;
-    services.mullvad-vpn.package = pkgs.mullvad-vpn;
+    polytope.network.dnscrypt.enable = lib.mkOverride 150 false;
+    polytope.network.netbird.enable = lib.mkOverride 150 false;
+    services.netbird.enable = lib.mkOverride 150 false;
+    services.mullvad-vpn.enable = lib.mkOverride 150 true;
+    services.mullvad-vpn.package = lib.mkOverride 150 pkgs.mullvad-vpn;
     home-manager.users.juliet = {  # Some cursed shenangains to make a home manager scope,
       programs.firefox.profiles.main.arkenfox."0700".enable = lib.mkOverride 150 false;
       programs.firefox.profiles.main.arkenfox."0700"."0710"."network.trr.mode".enable = true; # Set this setting
