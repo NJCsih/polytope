@@ -182,18 +182,19 @@ in
 
       # Extra apps
       blender # whole bunch of rendering/video/editing tools in a great foss app
+      font-manager # for viewing what fonts I have after the +2.5G dark sent me
       inkscape # foss vector editing tool
       kdePackages.dolphin # file viewer, as nice as it is with themeing, I just use yazi mostly
       kdePackages.gwenview # image viewer
       krita # drawing all, nice for pdf markup along with pdfarranger
       mpv # video player -- config should be via home manager
-      vlc # video player -- mpv scares me, a little, this one's simple
       obsidian # For notes, but I don't use it much
       prusa-slicer # 3d printer slicer, I never use this on these machines
       snes9x # snes emulator
       antimicrox # windows joy2key replacement for games/remaps of controllers
       stellarium # planet/night sky program
       virtualbox # virtual machines
+      vlc # video player -- mpv scares me, a little, this one's simple
 
       localsend
       libreoffice

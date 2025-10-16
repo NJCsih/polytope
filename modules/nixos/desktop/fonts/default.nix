@@ -19,12 +19,42 @@ in
       packages = with pkgs; [
         nerd-fonts.caskaydia-cove
         nerd-fonts.fantasque-sans-mono
+        nerd-fonts.cousine
+        nerd-fonts.comic-shanns-mono
         nerd-fonts.fira-code
+        nerd-fonts.go-mono
+        nerd-fonts.hack
+        nerd-fonts.jetbrains-mono
+        nerd-fonts.monaspace
+        nerd-fonts.monofur
+        nerd-fonts.noto
+        nerd-fonts.tinos
+        nerd-fonts.ubuntu-sans
         inter
         noto-fonts
-        noto-fonts-cjk-sans
         noto-fonts-emoji
+        noto-fonts-cjk-sans
+        noto-fonts-cjk-serif
         roboto
+        fraunces
+        material-symbols
+        recursive
+        vistafonts # Windows stuff
+        twitter-color-emoji
+        azeret-mono
+        overpass
+        victor-mono
+        paratype-pt-mono
+        paratype-pt-sans
+        paratype-pt-serif
+        monaspace
+        cascadia-code
+     
+        corefonts
+        vistafonts
+     
+        atkinson-hyperlegible
+        atkinson-monolegible
       ];
       fontconfig = {
         enable = true;
