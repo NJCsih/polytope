@@ -194,6 +194,10 @@ in
       acpilight
       acpi
 
+      # Games
+      dwarf-fortress
+      dwarf-fortress-packages.themes.meph
+
       (proxmark3.override {
         withGui = false;
         withPython = true;
