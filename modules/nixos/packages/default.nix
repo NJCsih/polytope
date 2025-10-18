@@ -165,6 +165,7 @@ in
       kanata-with-cmd # Keyboard remapping tool
       networkmanagerapplet # for configuring wifi
       mako # lightweight notification daemon
+      pkgs.pinentry-gnome3 # Better pinentry
       grim # screenshotting 1/2
       slurp # screenshotting 2/2
 

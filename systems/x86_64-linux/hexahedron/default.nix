@@ -201,6 +201,8 @@ in
       # horrible things
       wl-kbptr
 
+      nomachine-client
+
       (proxmark3.override {
         withGui = false;
         withPython = true;
