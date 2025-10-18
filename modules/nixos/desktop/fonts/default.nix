@@ -18,6 +18,7 @@ in
     fonts = {
       packages = with pkgs; [
         nerd-fonts.caskaydia-cove
+
         nerd-fonts.fantasque-sans-mono
         nerd-fonts.cousine
         nerd-fonts.comic-shanns-mono
@@ -32,14 +33,13 @@ in
         nerd-fonts.ubuntu-sans
         inter
         noto-fonts
-        noto-fonts-emoji
+        noto-fonts-color-emoji
         noto-fonts-cjk-sans
         noto-fonts-cjk-serif
         roboto
         fraunces
         material-symbols
         recursive
-        vistafonts # Windows stuff
         twitter-color-emoji
         azeret-mono
         overpass
@@ -49,10 +49,10 @@ in
         paratype-pt-serif
         monaspace
         cascadia-code
-     
+
         corefonts
-        vistafonts
-     
+        vista-fonts
+
         atkinson-hyperlegible
         atkinson-monolegible
       ];

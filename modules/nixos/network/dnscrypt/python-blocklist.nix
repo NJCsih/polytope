@@ -1,10 +1,10 @@
-{ stdenv, dnscrypt-proxy2, ... }:
+{ stdenv, dnscrypt-proxy, ... }:
 stdenv.mkDerivation {
   pname = "generate-domains-blocklist";
   version = "0059194a-patch";
 
   dontUnpack = true;
-  src = dnscrypt-proxy2.src;
+  src = dnscrypt-proxy.src;
 
   buildPhase = ''
     mkdir -p $out/

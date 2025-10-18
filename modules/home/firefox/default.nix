@@ -254,11 +254,11 @@ in
             "0700" = {
               enable = true;
               # NOTE: this is kind of sketch depending on what you're using it for
-              # I use dnscrypt-proxy2 and mainly worry about connected to websites
+              # I use dnscrypt-proxy and mainly worry about connected to websites
               # finding things
               "0702"."network.proxy.socks_remote_dns".value = false;
               "0710"."network.trr.mode".enable = true; # TRR only
-              # dnscrypt-proxy2
+              # dnscrypt-proxy
               "0712"."network.trr.uri" = {
                 enable = true;
                 value = "https://127.0.0.1:3000/dns-query";
@@ -392,7 +392,7 @@ in
           };
 
           settings = {
-            # dnscrypt-proxy2 baybee so encrypted client hello wworks
+            # dnscrypt-proxy baybee so encrypted client hello wworks
             "network.dns.echconfig.enabled" = true;
             "network.dns.use_https_rr_as_altsvc" = true;
 

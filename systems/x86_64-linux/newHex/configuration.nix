@@ -145,7 +145,7 @@ in
       tealdeer
       tomb
       gnupg # tomb dep
-      pinentry # tomb dep
+      pinentry-gnome3 # tomb dep
       wget
       wl-clipboard
 

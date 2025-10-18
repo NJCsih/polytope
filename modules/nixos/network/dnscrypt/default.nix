@@ -68,7 +68,7 @@ in
       (lib.polytope.writeScript pkgs "default-dns" (builtins.readFile ./default-dns.nu))
     ];
 
-    services.dnscrypt-proxy2 = {
+    services.dnscrypt-proxy = {
       enable = true;
       settings = {
         ipv4_servers = true;
@@ -111,7 +111,7 @@ in
     # freak out because it's using a dynamic user. Last thing we want
     # is for DNS to not work on the system. Setting ReadWritePaths gives
     # us full control, and allows us to persist it correctly.
-    systemd.services.dnscrypt-proxy2.serviceConfig = {
+    systemd.services.dnscrypt-proxy.serviceConfig = {
       StateDirectory = lib.mkForce "";
       ReadWritePaths = "/var/lib/dnscrypt-proxy";
     };

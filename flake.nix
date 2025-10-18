@@ -40,7 +40,7 @@
     # General inputs:
 
     nazarick = {
-      url = "github:DarkKronicle/nazarick";
+      url = "https://codeberg.org/DarkKronicle/nazarick/archive/trunk.tar.gz";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

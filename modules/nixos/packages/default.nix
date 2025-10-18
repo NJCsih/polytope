@@ -113,7 +113,7 @@ in
       # tomb:
       tomb # For on-disk luks
       gnupg # tomb dep
-      pinentry # tomb dep
+      pinentry-gnome3 # tomb dep
 
     ]);
     polytope.mypackages.extra = (with pkgs; [
@@ -190,7 +190,6 @@ in
       kdePackages.gwenview # image viewer
       krita # drawing all, nice for pdf markup along with pdfarranger
       mpv # video player -- config should be via home manager
-      obsidian # For notes, but I don't use it much
       prusa-slicer # 3d printer slicer, I never use this on these machines
       snes9x # snes emulator
       antimicrox # windows joy2key replacement for games/remaps of controllers
