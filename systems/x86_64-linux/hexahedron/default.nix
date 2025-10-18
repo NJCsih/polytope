@@ -198,6 +198,9 @@ in
       dwarf-fortress
       dwarf-fortress-packages.themes.meph
 
+      # horrible things
+      wl-kbptr
+
       (proxmark3.override {
         withGui = false;
         withPython = true;
