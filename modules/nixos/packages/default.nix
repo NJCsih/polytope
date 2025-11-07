@@ -108,6 +108,7 @@ in
       # Networking
       nebula # for direct connection of multiple devices behind nats
       networkmanager # for wifi connection
+      nftables
 
       # tomb:
       tomb # For on-disk luks
