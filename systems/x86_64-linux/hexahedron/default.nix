@@ -193,10 +193,13 @@ in
       # Laptop stuff
       acpilight
       acpi
+      fwupd
 
       # Games
-      dwarf-fortress
-      dwarf-fortress-packages.themes.meph
+      #dwarf-fortress-full
+      #dwarf-fortress-packages.themes.meph
+
+      nomachine-client
 
       # horrible things
       wl-kbptr
@@ -223,6 +226,7 @@ in
       update.auto.enable = true;
       packages = [
         "eu.betterbird.Betterbird"
+        "org.kicad.KiCad"
       ];
     };
 
