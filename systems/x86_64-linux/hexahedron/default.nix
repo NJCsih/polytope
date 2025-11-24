@@ -38,6 +38,9 @@ in
   # Enable sound.
   services.pulseaudio.enable = false;
 
+  # for bios updates
+  services.fwupd.enable = true;
+
   # System Stuff ----------------------------------------------------------------------------------
 
   networking.hostName = "hexahedron"; # Define your hostname.
