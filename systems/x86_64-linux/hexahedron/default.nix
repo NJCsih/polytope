@@ -128,6 +128,7 @@ in
 
   # User Stuff ------------------------------------------------------------------------------------
 
+   # make 'media' user which is in a group called media which has mpv and read permissions to /media
   users.users.juliet = {
     isNormalUser = true;
     extraGroups = [
@@ -138,6 +139,7 @@ in
       "seat"
       "uinput" # for kanata
       "wireshark"
+      "media" #for media dac permissions
     ];
     initialPassword = "password";
     shell = pkgs.nushell;
@@ -145,6 +147,20 @@ in
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO/Gg0Y2x4jG7H4P4X6szZG0KHWSaiq6WcQJDZVcVKFd juliet@tetrahedron"
     ];
   };
+#  users.groups.media = {};
+#  users.users.media = {
+#    isNormalUser = false;
+#    isSystemUser = true;
+#    group = "media";
+#    extraGroups = [
+#      #"seat" #what was this??
+#      "input" # for kanata
+#      "uinput" # for kanata
+#      #"media" #for media dac permissions
+#    ];
+#    initialPassword = "password";
+#    shell = pkgs.nushell;
+#  };
   environment.shells = [ pkgs.nushell ];
 
   # Virtualbox stuff
@@ -223,12 +239,10 @@ in
       })
     ];
 
-    # Flatpak for rdp and betterbird
     services.flatpak = {
       enable = true;
       update.auto.enable = true;
       packages = [
-        "eu.betterbird.Betterbird"
         "org.kicad.KiCad"
       ];
     };

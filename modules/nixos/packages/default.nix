@@ -134,6 +134,7 @@ in
       pipes-rs # 2d little pipes thing
       pandoc # I guess doesnt need as many deps on nix
       clock-rs
+      eza
 
       # Big cli tools
       typst
@@ -144,6 +145,7 @@ in
       # main apps
       chromium # preferred to brave, ff is via hm
       keepassxc # password database
+      gnujump # mission critical
 
       # Other apps
       gimp # the classic
@@ -191,6 +193,7 @@ in
       krita # drawing all, nice for pdf markup along with pdfarranger
       mpv # video player -- config should be via home manager
       prusa-slicer # 3d printer slicer, I never use this on these machines
+      thunderbird # email and calendar
       snes9x # snes emulator
       antimicrox # windows joy2key replacement for games/remaps of controllers
       stellarium # planet/night sky program

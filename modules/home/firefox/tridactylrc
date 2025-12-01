@@ -1,5 +1,5 @@
 " vim: filetype=vim
-
+"
 sanitize tridactyllocal tridactylsync
 
 set newtab about:blank
@@ -38,6 +38,7 @@ bind gl followpage next w
 
 autocmd DocStart mail.google.com mode ignore
 autocmd DocStart monkeytype.com mode ignore
+autocmd DocStart e621.net mode ignore
 
 
 set searchurls.k https://kagi.com/html/search?q=%s
